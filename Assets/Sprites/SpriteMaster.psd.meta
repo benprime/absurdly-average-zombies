@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a8181968d17222241a14900c2eb2e324
-timeCreated: 1431803205
+timeCreated: 1431839835
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: SpriteMaster_1
     21300004: SpriteMaster_2
     21300006: SpriteMaster_3
+    21300008: SpriteMaster_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -90,6 +91,16 @@ TextureImporter:
         y: 472
         width: 75
         height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteMaster_4
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 472
+        width: 87
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
