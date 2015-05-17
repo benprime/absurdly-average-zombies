@@ -6,6 +6,7 @@ public class Turret_Aim : MonoBehaviour {
 	public List<GameObject> zombiesInRange;
 	public Transform target;
 	public Turret_Fire shootBehavior;
+	public float RotationSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,7 @@ public class Turret_Aim : MonoBehaviour {
 		if(zombiesInRange.Count > 0) {
 			LookAtNearestEnemy();
 			while(shootBehavior.firedShots.Remove (null));
-			shootBehavior.Fire();
+			//shootBehavior.Fire();
 		}
 	}
 
@@ -34,6 +35,15 @@ public class Turret_Aim : MonoBehaviour {
 				distanceToNearest = tempDist;
 			}
 		}
-		transform.up = Vector3.Normalize (nearest.position - transform.position);
+
+		float step = RotationSpeed * Time.deltaTime;
+		Vector3 targetRotation = Vector3.Normalize (nearest.position - transform.position);
+		transform.up = Vector3.RotateTowards (transform.up, targetRotation, step, 0.0f);
+
+		if (transform.up == targetRotation) {
+			shootBehavior.Fire();
+		}
 	}
+
+
 }
