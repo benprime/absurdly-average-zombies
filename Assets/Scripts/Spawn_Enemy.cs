@@ -10,6 +10,7 @@ public class Spawn_Enemy : MonoBehaviour {
 	private float spawnDelay;
 	private float timer = 0;
 
+
 	// Use this for initialization
 	void Start () {
 		spawnDelay = Random.Range (spawnDelayMin, spawnDelayMax);
