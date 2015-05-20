@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 463838}
   - 212: {fileID: 21228314}
-  - 61: {fileID: 6116930}
   - 50: {fileID: 5063908}
   - 114: {fileID: 11412886}
+  - 58: {fileID: 5843372}
   m_Layer: 0
   m_Name: ZombiePathfinder
   m_TagString: enemy
@@ -46,8 +46,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6116930
-BoxCollider2D:
+--- !u!58 &5843372
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -58,7 +58,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: .680000007, y: .889999986}
+  m_Radius: .419999987
 --- !u!114 &11412886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6504ba7543aaf44393a50501b61b1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastNode: {fileID: 0}
-  nextNode: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: .5
+  enemyBase: {fileID: 0}
+  turnSpeed: 4
 --- !u!212 &21228314
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -95,9 +95,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -42017311
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: a8181968d17222241a14900c2eb2e324, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 580477012ad455045b1eb018bbf0c147, type: 3}
   m_Color: {r: .176038086, g: .544117689, b: .193807468, a: 1}
 --- !u!1001 &100100000
 Prefab:

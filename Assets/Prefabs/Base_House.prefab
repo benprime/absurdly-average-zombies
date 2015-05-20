@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21235374}
   m_Layer: 0
   m_Name: Base_House
-  m_TagString: Untagged
+  m_TagString: PlayerBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300008, guid: a8181968d17222241a14900c2eb2e324, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35605de21ff05bd4ab707a3830805ba9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

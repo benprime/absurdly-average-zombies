@@ -40,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1935391679
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 4252949985
+    locked: 0
+  - name: Player
+    uniqueID: 1042377535
+    locked: 0
+  - name: Foreground
+    uniqueID: 1922285011
     locked: 0
