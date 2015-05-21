@@ -23,13 +23,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 462868}
-  - 212: {fileID: 21293408}
   - 58: {fileID: 5807840}
   - 114: {fileID: 11444712}
   - 114: {fileID: 11404462}
   - 199: {fileID: 19990480}
   - 198: {fileID: 19806614}
   - 95: {fileID: 9525378}
+  - 212: {fileID: 21287692}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -127,7 +127,7 @@ Animator:
   m_GameObject: {fileID: 165540}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df449392fe37bb941bdf2325c3ccb868, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1266,7 +1266,7 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!212 &21293408
+--- !u!212 &21287692
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1288,7 +1288,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1042377535
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
