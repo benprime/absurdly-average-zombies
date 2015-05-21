@@ -87,6 +87,36 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29220721 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
+  m_PrefabInternal: {fileID: 1115553970}
+--- !u!212 &29220727
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 29220721}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &66049487
 Prefab:
   m_ObjectHideFlags: 0
@@ -133,7 +163,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &87977946
+--- !u!4 &87977946 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_PrefabInternal: {fileID: 1802204654}
@@ -191,11 +221,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
---- !u!4 &138771368
+--- !u!4 &138771368 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_PrefabInternal: {fileID: 1744023477}
---- !u!4 &193898641
+--- !u!4 &193898641 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_PrefabInternal: {fileID: 66049487}
@@ -412,11 +442,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18b6f3fe492c9004a82195979be22f03, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &497894742
+--- !u!4 &497894742 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_PrefabInternal: {fileID: 1002223758}
---- !u!4 &698748094
+--- !u!4 &698748094 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_PrefabInternal: {fileID: 1411054172}
@@ -546,7 +576,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9525378, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: df449392fe37bb941bdf2325c3ccb868, type: 2}
+    - target: {fileID: 21293408, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f04e9e15d6bacf419ea129f5bcc2bcc,
+        type: 3}
+    - target: {fileID: 9525378, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 21293408, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1253949878
@@ -834,7 +878,7 @@ Transform:
   - {fileID: 324740732}
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!4 &1665715449
+--- !u!4 &1665715449 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_PrefabInternal: {fileID: 212828284}
@@ -926,7 +970,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1903832846
+--- !u!4 &1903832846 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_PrefabInternal: {fileID: 1947570726}

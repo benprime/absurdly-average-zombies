@@ -11,10 +11,11 @@ public class Turret_Fire : MonoBehaviour {
 	private float shotTimer = 0;
 	private bool shotReady = true;
 	public Transform barrelTip;
+	Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		
+		this.animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +37,7 @@ public class Turret_Fire : MonoBehaviour {
 			//Instantiate(fireSmokePrefab, barrelTip.position, barrelTip.rotation);
 			GameObject clone = Instantiate(bulletPrefab, barrelTip.position, barrelTip.rotation) as GameObject;
 			firedShots.Add(clone);
+			animator.SetTrigger("Fire");
 			shotReady = false;
 		}
 	}
