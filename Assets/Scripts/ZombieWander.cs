@@ -2,22 +2,25 @@
 using System.Collections;
 
 public class ZombieWander : MonoBehaviour {
-	public Vector3 direction;
 	public float moveSpeed = 2f;
+	public float turnSpeed = 4f;
+
+	private Vector3 targetDirection;
+
 	// Use this for initialization
 	void Start () {
-		direction = new Vector3(Random.Range (.5f, 1f) * moveSpeed * Time.deltaTime, Random.Range (.5f, 1f) * moveSpeed * Time.deltaTime, 0);
+		Vector3 direction = new Vector3(Random.Range (-1f, 1f), Random.Range (-1f, 1f), 0);
+		transform.up = direction.normalized * 1;
+		targetDirection = transform.up;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(direction);
+		transform.position += transform.up*moveSpeed * Time.deltaTime;
+		transform.up = Vector3.RotateTowards (transform.up, targetDirection, turnSpeed * Time.deltaTime, 0);  //TODO: convert to Vector2
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		//transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-		transform.right = transform.right * -1;
-		transform.up = new Vector3 (Random.Range (-1.5f, 1.5f) * moveSpeed, Random.Range (-1.5f, 1.5f) * moveSpeed);
-		//direction = transform.right * -1;
+		targetDirection = transform.up * -1;
 	}
 }
