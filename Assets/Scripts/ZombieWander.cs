@@ -17,10 +17,13 @@ public class ZombieWander : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.position += transform.up*moveSpeed * Time.deltaTime;
-		transform.up = Vector3.RotateTowards (transform.up, targetDirection, turnSpeed * Time.deltaTime, 0);  //TODO: convert to Vector2
+		//transform.up = Vector3.RotateTowards (transform.up, targetDirection, turnSpeed * Time.deltaTime, 0);  //TODO: convert to Vector2
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		targetDirection = transform.up * -1;
+		targetDirection = -transform.forward;
+
+		float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	}
 }
