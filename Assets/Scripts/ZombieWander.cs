@@ -4,26 +4,44 @@ using System.Collections;
 public class ZombieWander : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float turnSpeed = 4f;
+	public float walkSwayModifier = 30;
 
-	private Vector3 targetDirection;
+	public Vector3 direction;
+
 
 	// Use this for initialization
 	void Start () {
-		Vector3 direction = new Vector3(Random.Range (-1f, 1f), Random.Range (-1f, 1f), 0);
-		transform.up = direction.normalized * 1;
-		targetDirection = transform.up;
+		// set travel direction
+		this.direction = new Vector3(Random.Range (-1f, 1f), Random.Range (-1f, 1f), 0);
+
+		// without this new zombies kind of just stand around
+		this.direction = this.direction.normalized * 1;
+
+		// set initial rotation of zombie
+		this.transform.up = this.direction;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += transform.up*moveSpeed * Time.deltaTime;
-		//transform.up = Vector3.RotateTowards (transform.up, targetDirection, turnSpeed * Time.deltaTime, 0);  //TODO: convert to Vector2
+
+		// reset the transform to the direction, so that when we apply the
+		// sway code, it doesn't become cumulative and do some wonky stuff.
+		// Probably not the best way to handle this, but it's simple for now.
+		// We can re-address this later.
+		this.transform.up = this.direction;
+
+		// update zombie position, moving the direction
+		this.transform.position += this.direction * this.moveSpeed * Time.deltaTime;
+
+		// z is -10 to 10 sway (in degrees)
+		float z = Mathf.PingPong(Time.time * this.walkSwayModifier, 20) - 10;
+
+		// apply the "sway" rotate
+		transform.Rotate (0.0f, 0.0f, z);
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		targetDirection = -transform.forward;
-
-		float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		// set to move opposite direction
+		this.direction = -this.direction;
 	}
 }
