@@ -7,6 +7,7 @@ public class Turret_Aim : MonoBehaviour {
 	public Transform target;
 	public Turret_Fire shootBehavior;
 	public float RotationSpeed;
+	public float shootWithinDegrees = 10f;
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +41,8 @@ public class Turret_Aim : MonoBehaviour {
 		Vector3 targetRotation = Vector3.Normalize (nearest.position - transform.position);
 		transform.up = Vector3.RotateTowards (transform.up, targetRotation, step, 0.0f);
 
-		if (transform.up == targetRotation) {
+		float angleDiff = Mathf.Abs (Vector3.Angle (transform.up, targetRotation));
+		if (angleDiff <= this.shootWithinDegrees) {
 			shootBehavior.Fire();
 		}
 	}

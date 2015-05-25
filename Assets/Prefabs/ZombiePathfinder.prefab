@@ -70,9 +70,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6504ba7543aaf44393a50501b61b1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: .5
-  enemyBase: {fileID: 0}
+  moveSpeed: .75
   turnSpeed: 4
+  walkSwayModifier: 30
+  direction: {x: 0, y: 0, z: 0}
+  enemyBase: {fileID: 0}
 --- !u!212 &21228314
 SpriteRenderer:
   m_ObjectHideFlags: 1

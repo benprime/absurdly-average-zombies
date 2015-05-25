@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11404746}
   - 58: {fileID: 5898434}
   m_Layer: 0
-  m_Name: ZombieWanderer
+  m_Name: Zombie
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,8 +70,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28634cdee0b531d4090f4ec557038f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
   moveSpeed: .75
+  turnSpeed: 4
+  walkSwayModifier: 30
+  direction: {x: 0, y: 0, z: 0}
 --- !u!212 &21228314
 SpriteRenderer:
   m_ObjectHideFlags: 1

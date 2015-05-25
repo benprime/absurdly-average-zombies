@@ -7,7 +7,7 @@ public class Turret_Fire : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public int maxShots = 5;
 	public List<GameObject> firedShots;
-	public float shotDelay = .5f;
+	public float shotDelay = .1f;
 	private float shotTimer = 0;
 	private bool shotReady = true;
 	public Transform barrelTip;

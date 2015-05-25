@@ -149,7 +149,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: c886269c3454be64192aacac0e9eb66d, type: 2}
   maxShots: 5
   firedShots: []
-  shotDelay: .5
+  shotDelay: .100000001
   barrelTip: {fileID: 471646}
 --- !u!114 &11444712
 MonoBehaviour:
@@ -166,6 +166,7 @@ MonoBehaviour:
   target: {fileID: 0}
   shootBehavior: {fileID: 0}
   RotationSpeed: 1
+  shootWithinDegrees: 10
 --- !u!114 &11453134
 MonoBehaviour:
   m_ObjectHideFlags: 1

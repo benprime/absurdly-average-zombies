@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZombieWander : MonoBehaviour {
+public class Zombie : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float turnSpeed = 4f;
 	public float walkSwayModifier = 30;
@@ -10,9 +10,10 @@ public class ZombieWander : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		// set travel direction
-		this.direction = new Vector3(Random.Range (-1f, 1f), Random.Range (-1f, 1f), 0);
+		//this.direction = new Vector3(Random.Range (-1f, 1f), Random.Range (-1f, 1f), 0);
+		this.direction = Vector3.down;
 
 		// without this new zombies kind of just stand around
 		this.direction = this.direction.normalized * 1;
@@ -22,7 +23,7 @@ public class ZombieWander : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 
 		// reset the transform to the direction, so that when we apply the
 		// sway code, it doesn't become cumulative and do some wonky stuff.
