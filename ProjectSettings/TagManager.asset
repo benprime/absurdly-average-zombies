@@ -15,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Terrain
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1922285011
+    locked: 0
+  - name: UI
+    uniqueID: 2898297403
     locked: 0
