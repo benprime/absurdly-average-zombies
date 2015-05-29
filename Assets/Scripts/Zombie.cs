@@ -4,10 +4,11 @@ using System.Collections;
 public class Zombie : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float turnSpeed = 4f;
-	public float walkSwayModifier = 30;
+	public float walkSwayModifier;
 	public float hitPoints = 10;
 
 	public Vector3 direction;
+	private int randSwayStart;
 
 	// Use this for initialization
 	protected virtual void Start () {
@@ -20,6 +21,11 @@ public class Zombie : MonoBehaviour {
 
 		// set initial rotation of zombie
 		this.transform.up = this.direction;
+
+		// randomize initial sway
+		// so zombies don't all sway at the same time
+		this.randSwayStart = Random.Range(0, 10) * 100;
+		this.walkSwayModifier = Random.Range (20, 35);
 	}
 	
 	// Update is called once per frame
@@ -35,7 +41,7 @@ public class Zombie : MonoBehaviour {
 		this.transform.position += this.direction * this.moveSpeed * Time.deltaTime;
 
 		// z is -10 to 10 sway (in degrees)
-		float z = Mathf.PingPong (Time.time * this.walkSwayModifier, 20) - 10;
+		float z = Mathf.PingPong (Time.time * this.walkSwayModifier + randSwayStart, 20) - 10;
 
 		// apply the "sway" rotate
 		transform.Rotate (0.0f, 0.0f, z);
