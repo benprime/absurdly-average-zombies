@@ -5,11 +5,17 @@ public class Object_Placement : MonoBehaviour {
 	public GameObject obj, placementIcon;
 	private GameObject square;
 	public Color openPlace, blockPlace;
+	public float snapSize = 1;
+
+	// there's some reason for this that has to do with computations
+	// TODO: lookup why this is better
+	float snapInverse;
+
 	//private Rect sqSize;
 
 	// Use this for initialization
 	void Start () {
-	
+		this.snapInverse = 1/snapSize;
 	}
 	
 	// Update is called once per frame
@@ -32,8 +38,13 @@ public class Object_Placement : MonoBehaviour {
 		else {
 			if(square) {
 				Vector3 currPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-				currPos.x = Mathf.Floor (currPos.x);// + (sqSize.width / 2));  //TODO: figure out sprite offset
-				currPos.y = Mathf.Floor (currPos.y);//+ (sqSize.height / 2));
+
+				currPos.x = Mathf.Round (currPos.x);// + (sqSize.width / 2));  //TODO: figure out sprite offset
+				currPos.y = Mathf.Round (currPos.y);//+ (sqSize.height / 2));
+
+				//currPos.x = Mathf.Round(currPos.x * snapInverse)/snapInverse;
+				//currPos.y = Mathf.Round(currPos.y * snapInverse)/snapInverse;   
+
 				currPos.z = 0;
 				square.transform.position = currPos;
 				if(square.GetComponent<BoxCollider2D>().IsTouchingLayers ()) {

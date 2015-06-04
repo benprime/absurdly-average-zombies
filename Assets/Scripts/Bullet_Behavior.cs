@@ -5,6 +5,7 @@ public class Bullet_Behavior : MonoBehaviour {
 	public float moveSpeed = 20f;
 	public Vector3 startPos;
 	public float range = 10f;
+	public float damage = 5f;
 
 	// Use this for initialization
 	void Awake () {
@@ -22,7 +23,8 @@ public class Bullet_Behavior : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 		if(other.tag == "enemy") {
-			Destroy (other.gameObject);
+			other.SendMessage("TakeDamage", this.damage);
+			//Destroy (other.gameObject);
 			Destroy (this.gameObject);
 		}
 	}

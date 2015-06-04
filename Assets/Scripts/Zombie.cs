@@ -1,17 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum ZombieState
+{
+	Normal,
+	Dead
+}
+
 public class Zombie : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float turnSpeed = 4f;
 	public float walkSwayModifier;
 	public float hitPoints = 10;
+	public ParticleSystem bloodParticleSystem;
+
+	public ZombieState zombieState;
 
 	public Vector3 direction;
 	private int randSwayStart;
 
 	// Use this for initialization
 	protected virtual void Start () {
+		this.zombieState = ZombieState.Normal;
 		// set travel direction
 		//this.direction = new Vector3(Random.Range (-1f, 1f), Random.Range (-1f, 1f), 0);
 		this.direction = Vector3.down;
@@ -31,6 +41,15 @@ public class Zombie : MonoBehaviour {
 	// Update is called once per frame
 	protected virtual void Update () {
 
+		if (this.zombieState == ZombieState.Dead) {
+			return;
+		}
+
+		if (this.hitPoints <= 0) {
+			this.Die();
+			return;
+		}
+
 		// reset the transform to the direction, so that when we apply the
 		// sway code, it doesn't become cumulative and do some wonky stuff.
 		// Probably not the best way to handle this, but it's simple for now.
@@ -45,6 +64,24 @@ public class Zombie : MonoBehaviour {
 
 		// apply the "sway" rotate
 		transform.Rotate (0.0f, 0.0f, z);
+	}
+
+	protected virtual void TakeDamage(int amount)
+	{
+		this.hitPoints -= amount;
+
+		ParticleSystem localBloodsObj = GameObject.Instantiate(this.bloodParticleSystem, this.transform.position, Quaternion.identity) as ParticleSystem;
+		localBloodsObj.Play();
+	}
+
+	protected virtual void Die()
+	{
+		this.zombieState = ZombieState.Dead;
+		CircleCollider2D c = GetComponent<CircleCollider2D> ();
+		c.enabled = false;
+
+		// TODO: set animation to death animation (via trigger)
+		Destroy (gameObject);
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {

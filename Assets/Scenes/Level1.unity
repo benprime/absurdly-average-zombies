@@ -327,9 +327,9 @@ MonoBehaviour:
     - name: 
       delay: 3
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 5
+      spawnCount: 10
       message: ZOMBIES!!!!
-      secondsBetweenSpawn: 1.5
+      secondsBetweenSpawn: .5
     - name: 
       delay: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
@@ -365,47 +365,53 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
---- !u!1 &475968110
-GameObject:
+  m_RootOrder: 4
+--- !u!1001 &454272583
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 475968112}
-  - 114: {fileID: 475968111}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &475968111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 475968110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f193c47cd32b94cb5e2db48779c880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
---- !u!4 &475968112
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 475968110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 496288, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496288, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496288, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496288, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496288, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496288, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496288, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 496288, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 111198, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fb9fc0e317db5614297e952a7d993b83, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &860214618
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,10 +453,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!4 &930081433 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 495576, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
-  m_PrefabInternal: {fileID: 1996705298}
 --- !u!1 &1352054400
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,13 +593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea0c2486590d0458d49363b901601a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PaintDecalPrefabs:
-  - {fileID: 930081433}
-  DecalsParent: {fileID: 0}
-  MinScale: .75
-  MaxScale: 3
-  SplashRange: 1.5
-  PoolSize: 300
 --- !u!4 &1955215961
 Transform:
   m_ObjectHideFlags: 0
@@ -609,7 +604,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1001 &1996705298
 Prefab:
   m_ObjectHideFlags: 0
@@ -647,7 +642,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495576, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11483494, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_Enabled
@@ -728,4 +723,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
