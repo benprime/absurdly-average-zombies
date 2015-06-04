@@ -12,6 +12,7 @@ public class WaveAction
 	public Transform prefab;
 	public int spawnCount;
 	public string message;
+	public float secondsBetweenSpawn;
 }
 
 [System.Serializable]
@@ -34,33 +35,34 @@ public class WaveGenerator : MonoBehaviour
 	IEnumerator SpawnLoop()
 	{
 		m_DelayFactor = 1.0f;
-		while(true)
+		foreach(Wave W in waves)
 		{
-			foreach(Wave W in waves)
+			m_CurrentWave = W;
+			foreach(WaveAction A in W.actions)
 			{
-				m_CurrentWave = W;
-				foreach(WaveAction A in W.actions)
+				if(A.delay > 0)
+					yield return new WaitForSeconds(A.delay * m_DelayFactor);
+
+				if (A.message != "")
 				{
-					if(A.delay > 0)
-						yield return new WaitForSeconds(A.delay * m_DelayFactor);
-					if (A.message != "")
+					// TODO: print ingame message
+				}
+				if (A.prefab != null && A.spawnCount > 0)
+				{
+					for(int i = 0; i < A.spawnCount; i++)
 					{
-						// TODO: print ingame message
-					}
-					if (A.prefab != null && A.spawnCount > 0)
-					{
-						for(int i = 0; i < A.spawnCount; i++)
-						{
-							Instantiate(A.prefab, this.transform.position, Quaternion.identity);
-						}
+						Instantiate(A.prefab, this.transform.position, Quaternion.identity);
+						yield return new WaitForSeconds(A.secondsBetweenSpawn);
 					}
 				}
-				yield return null;  // prevents crash if all delays are 0
 			}
-			m_DelayFactor *= difficultyFactor;
 			yield return null;  // prevents crash if all delays are 0
 		}
+		m_DelayFactor *= difficultyFactor;
+		yield return null;  // prevents crash if all delays are 0
 	}
+
+
 	void Start()
 	{
 		StartCoroutine(SpawnLoop());
