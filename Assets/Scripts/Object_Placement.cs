@@ -5,6 +5,7 @@ public class Object_Placement : MonoBehaviour {
 	public GameObject obj, placementIcon;
 	private GameObject square;
 	public Color openPlace, blockPlace;
+	private bool isPlaceable = true;
 	public float snapSize = 1;
 
 	// there's some reason for this that has to do with computations
@@ -21,9 +22,11 @@ public class Object_Placement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetMouseButtonUp (0)) {
-			Vector3 target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			target.z = 0;
-			Instantiate (obj, square.transform.position, Quaternion.identity);
+			if(isPlaceable) {
+				Vector3 target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+				target.z = 0;
+				Instantiate (obj, square.transform.position, Quaternion.identity);
+			}
 			Destroy (square);
 		}
 		else if(Input.GetMouseButtonDown (0)) {
@@ -31,7 +34,8 @@ public class Object_Placement : MonoBehaviour {
 				Vector3 temp = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 				temp.z = 0;
 				square = Instantiate (placementIcon, temp, Quaternion.identity) as GameObject;
-				square.GetComponent<SpriteRenderer>().color = openPlace;
+			//	square.GetComponent<SpriteRenderer>().color = openPlace;
+			//	isPlaceable = true;
 				//sqSize = square.GetComponent<SpriteRenderer>().sprite.rect;
 			}
 		}
@@ -49,9 +53,11 @@ public class Object_Placement : MonoBehaviour {
 				square.transform.position = currPos;
 				if(square.GetComponent<BoxCollider2D>().IsTouchingLayers ()) {
 					square.GetComponent<SpriteRenderer>().color = blockPlace;
+					isPlaceable = false;
 				}
 				else {
 					square.GetComponent<SpriteRenderer>().color = openPlace;
+					isPlaceable = true;
 				}
 			}
 		}

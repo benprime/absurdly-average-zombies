@@ -12,7 +12,7 @@ GameObject:
   - 50: {fileID: 5063908}
   - 114: {fileID: 11412886}
   - 58: {fileID: 5843372}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZombiePathfinder
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -73,6 +73,9 @@ MonoBehaviour:
   moveSpeed: .75
   turnSpeed: 4
   walkSwayModifier: 30
+  hitPoints: 10
+  bloodParticleSystem: {fileID: 0}
+  zombieState: 0
   direction: {x: 0, y: 0, z: 0}
   enemyBase: {fileID: 0}
 --- !u!212 &21228314
