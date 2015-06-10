@@ -31,6 +31,7 @@ GameObject:
   - 95: {fileID: 9525378}
   - 212: {fileID: 21287692}
   - 50: {fileID: 5083046}
+  - 114: {fileID: 11495202}
   m_Layer: 0
   m_Name: Turret 1
   m_TagString: Untagged
@@ -179,8 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiesInRange: []
-  target: {fileID: 0}
-  shootBehavior: {fileID: 0}
   RotationSpeed: 1
   shootWithinDegrees: 10
 --- !u!114 &11453134
@@ -194,6 +193,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f270dffad995bf47bb677d9b4c9c34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11495202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9352a091e4dd62a489de7f5d0cfacb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  costCurrency: 10
 --- !u!198 &19806614
 ParticleSystem:
   m_ObjectHideFlags: 1

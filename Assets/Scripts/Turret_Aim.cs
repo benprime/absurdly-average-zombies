@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class Turret_Aim : MonoBehaviour {
 	public List<GameObject> zombiesInRange;
-	public Transform target;
-	public Turret_Fire shootBehavior;
+	private Transform target;
+	private Turret_Fire shootBehavior;
 	public float RotationSpeed;
 	public float shootWithinDegrees = 10f;
 

@@ -12,15 +12,20 @@ public class Zombie : MonoBehaviour {
 	public float turnSpeed = 4f;
 	public float walkSwayModifier;
 	public float hitPoints = 10;
+	public int worthCurrency = 5;
 	public ParticleSystem bloodParticleSystem;
 
 	public ZombieState zombieState;
 
 	public Vector3 direction;
 	private int randSwayStart;
+	
+	private GameManager_Stats gm;
 
 	// Use this for initialization
 	protected virtual void Start () {
+		gm = FindObjectOfType<GameManager_Stats>();
+
 		this.zombieState = ZombieState.Normal;
 		// set travel direction
 		//this.direction = new Vector3(Random.Range (-1f, 1f), Random.Range (-1f, 1f), 0);
@@ -81,6 +86,7 @@ public class Zombie : MonoBehaviour {
 		c.enabled = false;
 
 		// TODO: set animation to death animation (via trigger)
+		gm.SendMessage ("PlayerCurrencyTransaction", worthCurrency);
 		Destroy (gameObject);
 	}
 
