@@ -1,0 +1,31 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class UI_WaveMessages : MonoBehaviour {	
+	//private GameManager_Stats gm;
+	public float messageTimer = 3f;
+	public float timer = 0f;
+
+	// Use this for initialization
+	void Start () {
+		//gm = FindObjectOfType<GameManager_Stats>();
+		gameObject.GetComponent<Text>().text = "";
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if(timer > 0) {
+			timer -= Time.deltaTime;
+			if(timer <= 0) gameObject.GetComponent<Text>().text = "";
+		}
+	}
+
+	
+	//FindObjectOfType<UI_WaveMessages>().SendMessage("SetUIWaveMessage", "wave compl333te");
+
+	public void SetUIWaveMessage(string mess) {
+		gameObject.GetComponent<Text>().text = mess;
+		timer = messageTimer;
+	}
+}
