@@ -21,8 +21,11 @@ public class UI_WaveMessages : MonoBehaviour {
 		}
 	}
 
-	
-	//FindObjectOfType<UI_WaveMessages>().SendMessage("SetUIWaveMessage", "wave compl333te");
+	// TODO: put in start() of wave generator
+	//UI_WaveMessages messageBoard = FindObjectOfType<UI_WaveMessages>();
+
+	// TODO: put wherever the message needs to be called
+	//messageBoard.SendMessage("SetUIWaveMessage", "wave compl333te");
 
 	public void SetUIWaveMessage(string mess) {
 		gameObject.GetComponent<Text>().text = mess;
