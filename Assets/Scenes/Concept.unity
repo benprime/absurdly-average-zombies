@@ -688,16 +688,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e823a0327adfc43847e9b31bea0319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyFactor: .899999976
   waves:
   - name: Zombies
     actions:
     - name: Zombies
-      delay: 5
+      delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 5
+      spawnCount: 10
       message: 
-      secondsBetweenSpawn: 0
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
+  - name: Zombies
+    actions:
+    - name: Zombies
+      delayBeforeWave: 10
+      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      spawnCount: 10
+      message: 
+      secondsBetweenSpawn: 1.25
 --- !u!4 &903054922
 Transform:
   m_ObjectHideFlags: 0
@@ -795,7 +866,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8267700, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8267700, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1242591709

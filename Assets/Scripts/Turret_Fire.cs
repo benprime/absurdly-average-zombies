@@ -39,8 +39,8 @@ public class Turret_Fire : MonoBehaviour {
 			firedShots.Add(clone);
 			animator.SetTrigger("Fire");
 
-			AudioSource a = GetComponent<AudioSource>();
-			a.Play ();
+			//AudioSource a = GetComponent<AudioSource>();
+			//a.PlayOneShot(a.clip);
 			shotReady = false;
 		}
 	}
