@@ -32,13 +32,15 @@ public class Turret_Fire : MonoBehaviour {
 	public void Fire() {
 		if(firedShots.Count < maxShots) {
 			if(!shotReady) return;
-			var smokeP = GetComponent<ParticleSystem>();
-			//smokeP.renderer.sortingLayerName = "Foreground";
+			ParticleSystem smokeP = GetComponent<ParticleSystem>();
 			smokeP.Emit(1);
 			//Instantiate(fireSmokePrefab, barrelTip.position, barrelTip.rotation);
 			GameObject clone = Instantiate(bulletPrefab, barrelTip.position, barrelTip.rotation) as GameObject;
 			firedShots.Add(clone);
 			animator.SetTrigger("Fire");
+
+			AudioSource a = GetComponent<AudioSource>();
+			a.Play ();
 			shotReady = false;
 		}
 	}

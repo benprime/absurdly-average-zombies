@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class WaveAction
 {
 	public string name;
-	public float delay;
+	public float delayBeforeWave;
 	public Transform prefab;
 	public int spawnCount;
 	public string message;
@@ -20,28 +20,28 @@ public class Wave
 {
 	public string name;
 	public List<WaveAction> actions;
+
+
+
 }
 
 
 
 public class WaveGenerator : MonoBehaviour
 {
-	public float difficultyFactor = 0.9f;
 	public List<Wave> waves;
 	private Wave m_CurrentWave;
 	public Wave CurrentWave { get {return m_CurrentWave;} }
-	private float m_DelayFactor = 1.0f;
-	
+
 	IEnumerator SpawnLoop()
 	{
-		m_DelayFactor = 1.0f;
 		foreach(Wave W in waves)
 		{
 			m_CurrentWave = W;
 			foreach(WaveAction A in W.actions)
 			{
-				if(A.delay > 0)
-					yield return new WaitForSeconds(A.delay * m_DelayFactor);
+				if(A.delayBeforeWave > 0)
+					yield return new WaitForSeconds(A.delayBeforeWave);
 
 				if (A.message != "")
 				{
@@ -54,11 +54,16 @@ public class WaveGenerator : MonoBehaviour
 						Instantiate(A.prefab, this.transform.position, Quaternion.identity);
 						yield return new WaitForSeconds(A.secondsBetweenSpawn);
 					}
+
+					// wave it not over until all zombies are dead
+					if(FindObjectsOfType<Zombie>().Length > 0)
+					{
+						yield return null;
+					}
 				}
 			}
 			yield return null;  // prevents crash if all delays are 0
 		}
-		m_DelayFactor *= difficultyFactor;
 		yield return null;  // prevents crash if all delays are 0
 	}
 
@@ -66,6 +71,10 @@ public class WaveGenerator : MonoBehaviour
 	void Start()
 	{
 		StartCoroutine(SpawnLoop());
+	}
+
+	void Update()
+	{
 	}
 	
 }
