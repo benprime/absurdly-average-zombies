@@ -245,6 +245,72 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2a85371361e23a4c973427349d22478, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &278702802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 278702805}
+  - 222: {fileID: 278702804}
+  - 114: {fileID: 278702803}
+  m_Layer: 5
+  m_Name: CountDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &278702803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278702802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .933823526, g: .789630175, b: .789630175, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: $COUNTDOWN
+--- !u!222 &278702804
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278702802}
+--- !u!224 &278702805
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278702802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1242591710}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 65}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1 &324740731
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5584fa571f98ddd41b0bcf28b5bc1e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_totalCurrency: 0
 --- !u!4 &497894742 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
@@ -641,9 +708,11 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 903054922}
-  - 114: {fileID: 903054921}
+  - 224: {fileID: 903054924}
   - 212: {fileID: 903054920}
+  - 222: {fileID: 903054923}
+  - 114: {fileID: 903054921}
+  - 114: {fileID: 903054922}
   m_Layer: 0
   m_Name: WaveGenerator
   m_TagString: Untagged
@@ -695,7 +764,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -703,7 +773,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -711,7 +782,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -719,7 +791,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -727,7 +800,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -735,7 +809,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -743,7 +818,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -751,7 +827,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -759,7 +836,8 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
   - name: Zombies
     actions:
@@ -767,20 +845,58 @@ MonoBehaviour:
       delayBeforeWave: 10
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
       spawnCount: 10
-      message: 
+      beforeMessage: Get Ready!
+      afterMessage: Wave Complete!
       secondsBetweenSpawn: 1.25
---- !u!4 &903054922
-Transform:
+--- !u!114 &903054922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903054919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &903054923
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903054919}
+--- !u!224 &903054924
+RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 903054919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00999999978, y: 4.23999977, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: .00999999046, y: 4.24000549}
+  m_SizeDelta: {x: .159999996, y: .159999996}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1001 &1002223758
 Prefab:
   m_ObjectHideFlags: 0
@@ -906,6 +1022,7 @@ RectTransform:
   - {fileID: 2128982331}
   - {fileID: 1709321171}
   - {fileID: 2029970282}
+  - {fileID: 278702805}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_AnchorMin: {x: 0, y: 0}

@@ -3,6 +3,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class WaveAction
@@ -11,7 +12,8 @@ public class WaveAction
 	public float delayBeforeWave;
 	public Transform prefab;
 	public int spawnCount;
-	public string message;
+	public string beforeMessage;
+	public string afterMessage;
 	public float secondsBetweenSpawn;
 }
 
@@ -20,9 +22,6 @@ public class Wave
 {
 	public string name;
 	public List<WaveAction> actions;
-
-
-
 }
 
 
@@ -40,13 +39,19 @@ public class WaveGenerator : MonoBehaviour
 			m_CurrentWave = W;
 			foreach(WaveAction A in W.actions)
 			{
-				if(A.delayBeforeWave > 0)
-					yield return new WaitForSeconds(A.delayBeforeWave);
-
-				if (A.message != "")
+				if (A.beforeMessage != "")
 				{
-					// TODO: print ingame message
+					UI_WaveMessages messageBoard = FindObjectOfType<UI_WaveMessages>();
+					messageBoard.SetUIWaveMessage(A.beforeMessage);
+					//messageBoard.SendMessage("SetUIWaveMessage", A.beforeMessage);
 				}
+
+				if(A.delayBeforeWave > 0)
+				{
+					StartCoroutine(DrawTimerNumber((int)A.delayBeforeWave));
+					yield return new WaitForSeconds(A.delayBeforeWave);
+				}
+
 				if (A.prefab != null && A.spawnCount > 0)
 				{
 					for(int i = 0; i < A.spawnCount; i++)
@@ -56,15 +61,31 @@ public class WaveGenerator : MonoBehaviour
 					}
 
 					// wave it not over until all zombies are dead
-					if(FindObjectsOfType<Zombie>().Length > 0)
+					while(FindObjectsOfType<Zombie>().Length > 0)
 					{
 						yield return null;
 					}
+
+					UI_WaveMessages messageBoard = FindObjectOfType<UI_WaveMessages>();
+					messageBoard.SendMessage("SetUIWaveMessage", A.afterMessage);
+
 				}
 			}
 			yield return null;  // prevents crash if all delays are 0
 		}
 		yield return null;  // prevents crash if all delays are 0
+	}
+
+	IEnumerator DrawTimerNumber(int max)
+	{
+		GameObject g = GameObject.Find ("CountDown");
+		Text t = g.GetComponent<Text>();
+		t.enabled = true;
+		for (int i = max - 1; i > -1; i--) {
+			t.text = i.ToString();
+			yield return new WaitForSeconds(1);
+		}
+		t.enabled = false;
 	}
 
 

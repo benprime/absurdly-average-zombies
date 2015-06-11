@@ -2,11 +2,14 @@
 using System.Collections;
 
 public class GameManager_Stats : MonoBehaviour {
-	private int player_totalCurrency = 0;
+	public int player_totalCurrency = 0;
+
+	void Awake() {
+		DontDestroyOnLoad (transform.gameObject);
+	}
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame

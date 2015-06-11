@@ -8,7 +8,7 @@ public class UI_WaveMessages : MonoBehaviour {
 	public float timer = 0f;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		//gm = FindObjectOfType<GameManager_Stats>();
 		gameObject.GetComponent<Text>().text = "";
 	}

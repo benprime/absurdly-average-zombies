@@ -73,7 +73,8 @@ MonoBehaviour:
   moveSpeed: .75
   turnSpeed: 4
   walkSwayModifier: 30
-  hitPoints: 100
+  hitPoints: 50
+  worthCurrency: 5
   bloodParticleSystem: {fileID: 19891776, guid: 4cd1545eea663104f8f76cb32e54769f,
     type: 2}
   zombieState: 0

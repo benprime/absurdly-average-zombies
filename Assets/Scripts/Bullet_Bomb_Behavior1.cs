@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet_Bomb_Behavior : MonoBehaviour {
+public class Bullet_Behavior : MonoBehaviour {
 	public float moveSpeed = 20f;
 	public Vector3 startPos;
 	public float range = 10f;
