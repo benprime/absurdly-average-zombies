@@ -22,9 +22,14 @@ public class Zombie : MonoBehaviour {
 	
 	private GameManager_Stats gm;
 
+	protected Path_Create path;
+	public int currentNodeIndex = 0;
+	public float targetCloseness = .5f;
+
 	// Use this for initialization
 	protected virtual void Start () {
 		gm = FindObjectOfType<GameManager_Stats>();
+		path = FindObjectOfType<Path_Create> ();
 
 		this.zombieState = ZombieState.Normal;
 		// set travel direction
@@ -59,14 +64,25 @@ public class Zombie : MonoBehaviour {
 		// sway code, it doesn't become cumulative and do some wonky stuff.
 		// Probably not the best way to handle this, but it's simple for now.
 		// We can re-address this later.
-		this.transform.up = this.direction;
+		//this.transform.up = this.direction;
 
 		// update zombie position, moving the direction
-		this.transform.position += this.direction * this.moveSpeed * Time.deltaTime;
+		//this.transform.position += this.direction * this.moveSpeed * Time.deltaTime;
 
+		//pathfinding code
+		GameObject currentNode = path.pathNodes[currentNodeIndex];
+		transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), currentNode.transform.position, moveSpeed * Time.deltaTime);
+		if(Vector2.Distance (transform.position, currentNode.transform.position) < targetCloseness) {
+			if(currentNodeIndex < path.pathNodes.Count - 1) currentNodeIndex++;
+		}
+
+		Sway ();
+	}
+
+	protected virtual void Sway() {
 		// z is -10 to 10 sway (in degrees)
 		float z = Mathf.PingPong (Time.time * this.walkSwayModifier + randSwayStart, 20) - 10;
-
+		
 		// apply the "sway" rotate
 		transform.Rotate (0.0f, 0.0f, z);
 	}
