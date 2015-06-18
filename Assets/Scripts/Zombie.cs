@@ -60,21 +60,24 @@ public class Zombie : MonoBehaviour {
 			return;
 		}
 
-		// reset the transform to the direction, so that when we apply the
-		// sway code, it doesn't become cumulative and do some wonky stuff.
-		// Probably not the best way to handle this, but it's simple for now.
-		// We can re-address this later.
-		//this.transform.up = this.direction;
 
 		// update zombie position, moving the direction
 		//this.transform.position += this.direction * this.moveSpeed * Time.deltaTime;
 
 		//pathfinding code
 		GameObject currentNode = path.pathNodes[currentNodeIndex];
-		transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), currentNode.transform.position, moveSpeed * Time.deltaTime);
-		if(Vector2.Distance (transform.position, currentNode.transform.position) < targetCloseness) {
+		Vector2 currentPosition = new Vector2 (transform.position.x, transform.position.y);
+		this.direction = currentNode.transform.position - transform.position;
+		transform.position = Vector2.MoveTowards(currentPosition, currentNode.transform.position, moveSpeed * Time.deltaTime);
+		if(Vector2.Distance (currentPosition, currentNode.transform.position) < targetCloseness) {
 			if(currentNodeIndex < path.pathNodes.Count - 1) currentNodeIndex++;
 		}
+
+		// reset the transform to the direction, so that when we apply the
+		// sway code, it doesn't become cumulative and do some wonky stuff.
+		// Probably not the best way to handle this, but it's simple for now.
+		// We can re-address this later.
+		this.transform.up = this.direction;
 
 		Sway ();
 	}
@@ -84,6 +87,7 @@ public class Zombie : MonoBehaviour {
 		float z = Mathf.PingPong (Time.time * this.walkSwayModifier + randSwayStart, 20) - 10;
 		
 		// apply the "sway" rotate
+		//transform.position.z = z;
 		transform.Rotate (0.0f, 0.0f, z);
 	}
 

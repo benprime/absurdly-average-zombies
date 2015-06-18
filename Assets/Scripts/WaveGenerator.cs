@@ -63,13 +63,13 @@ public class WaveGenerator : MonoBehaviour
 						Instantiate(A.prefab, this.transform.position, Quaternion.identity);
 						yield return new WaitForSeconds(A.secondsBetweenSpawn);
 					}
-
-					// wave it not over until all zombies are dead
-					while(FindObjectsOfType<Zombie>().Length > 0)
-					{
-						yield return null;
-					}
 				}
+			}
+
+			// wave it not over until all zombies are dead
+			while(FindObjectsOfType<Zombie>().Length > 0)
+			{
+				yield return null;
 			}
 
 			// If this is the last wave, then the "Level Complete" message will show
