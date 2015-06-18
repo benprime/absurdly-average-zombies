@@ -79,6 +79,8 @@ MonoBehaviour:
     type: 2}
   zombieState: 0
   direction: {x: 0, y: 0, z: 0}
+  currentNodeIndex: 0
+  targetCloseness: .5
   enemyBase: {fileID: 0}
 --- !u!212 &21228314
 SpriteRenderer:
