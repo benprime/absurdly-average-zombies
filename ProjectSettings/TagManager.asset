@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - PlayerBase
+  - Path
   layers:
   - Default
   - TransparentFX

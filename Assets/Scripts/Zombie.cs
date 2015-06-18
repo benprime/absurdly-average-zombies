@@ -71,6 +71,14 @@ public class Zombie : MonoBehaviour {
 		transform.Rotate (0.0f, 0.0f, z);
 	}
 
+	protected virtual void Sway() {
+		// z is -10 to 10 sway (in degrees)
+		float z = Mathf.PingPong (Time.time * this.walkSwayModifier + randSwayStart, 20) - 10;
+		
+		// apply the "sway" rotate
+		transform.Rotate (0.0f, 0.0f, z);
+	}
+
 	protected virtual void TakeDamage(int amount)
 	{
 		this.hitPoints -= amount;
