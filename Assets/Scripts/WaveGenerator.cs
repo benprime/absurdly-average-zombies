@@ -3,17 +3,15 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.UI;
 
 [System.Serializable]
 public class WaveAction
 {
 	public string name;
-	public float delayBeforeWave;
 	public Transform prefab;
 	public int spawnCount;
-	public string beforeMessage;
-	public string afterMessage;
 	public float secondsBetweenSpawn;
 }
 
@@ -22,6 +20,9 @@ public class Wave
 {
 	public string name;
 	public List<WaveAction> actions;
+	public float delayBeforeWave;
+	public string beforeMessage;
+	public string afterMessage;
 }
 
 
@@ -31,27 +32,30 @@ public class WaveGenerator : MonoBehaviour
 	public List<Wave> waves;
 	private Wave m_CurrentWave;
 	public Wave CurrentWave { get {return m_CurrentWave;} }
+	private UI_WaveMessages messageBoard;
+	private Text waveMessageText;
+	private Text countDownText;
 
 	IEnumerator SpawnLoop()
 	{
+		Wave lastWave = waves.Last ();
 		foreach(Wave W in waves)
 		{
 			m_CurrentWave = W;
+
+
+			if(W.delayBeforeWave > 0)
+			{
+				StartCoroutine(DrawBeforeText(W));
+				yield return new WaitForSeconds(W.delayBeforeWave);
+			}
+			else
+			{
+				this.countDownText.enabled = false;
+			}
+
 			foreach(WaveAction A in W.actions)
 			{
-				if (A.beforeMessage != "")
-				{
-					UI_WaveMessages messageBoard = FindObjectOfType<UI_WaveMessages>();
-					messageBoard.SetUIWaveMessage(A.beforeMessage);
-					//messageBoard.SendMessage("SetUIWaveMessage", A.beforeMessage);
-				}
-
-				if(A.delayBeforeWave > 0)
-				{
-					StartCoroutine(DrawTimerNumber((int)A.delayBeforeWave));
-					yield return new WaitForSeconds(A.delayBeforeWave);
-				}
-
 				if (A.prefab != null && A.spawnCount > 0)
 				{
 					for(int i = 0; i < A.spawnCount; i++)
@@ -65,32 +69,50 @@ public class WaveGenerator : MonoBehaviour
 					{
 						yield return null;
 					}
-
-					UI_WaveMessages messageBoard = FindObjectOfType<UI_WaveMessages>();
-					messageBoard.SendMessage("SetUIWaveMessage", A.afterMessage);
-
 				}
 			}
+
+			// If this is the last wave, then the "Level Complete" message will show
+			// so we don't want the wave complete message showing at the same time
+			if(lastWave != W)
+			{
+				this.waveMessageText.text = W.afterMessage;
+			}
+			// A wave has complete
 			yield return null;  // prevents crash if all delays are 0
 		}
+		// a level is completed
+		this.waveMessageText.enabled = true;
+		this.waveMessageText.text = "Level Complete";
+		yield return new WaitForSeconds(3);
+		Application.LoadLevel ("SelectLevel");
 		yield return null;  // prevents crash if all delays are 0
 	}
 
-	IEnumerator DrawTimerNumber(int max)
+	IEnumerator DrawBeforeText(Wave w)
 	{
-		GameObject g = GameObject.Find ("CountDown");
-		Text t = g.GetComponent<Text>();
-		t.enabled = true;
-		for (int i = max - 1; i > -1; i--) {
-			t.text = i.ToString();
+		int delay = (int)w.delayBeforeWave;
+		if (w.beforeMessage != "")
+		{
+			this.waveMessageText.enabled = true;
+			this.waveMessageText.text = w.beforeMessage;
+		}
+
+		this.countDownText.enabled = true;
+		for (int i = delay - 1; i > -1; i--) {
+			this.countDownText.text = i.ToString();
 			yield return new WaitForSeconds(1);
 		}
-		t.enabled = false;
+		this.countDownText.enabled = false;
+		this.waveMessageText.enabled = false;
 	}
 
 
 	void Start()
 	{
+		this.countDownText = GameObject.Find ("CountDown").GetComponent<Text>();
+		this.waveMessageText = GameObject.Find ("WaveMessageBox").GetComponent<Text>();
+
 		StartCoroutine(SpawnLoop());
 	}
 

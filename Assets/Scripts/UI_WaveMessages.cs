@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public class UI_WaveMessages : MonoBehaviour {	
 	//private GameManager_Stats gm;
-	public float messageTimer = 3f;
-	public float timer = 0f;
+	private float timer = 0f;
 
 	// Use this for initialization
 	void Awake () {
@@ -27,8 +26,8 @@ public class UI_WaveMessages : MonoBehaviour {
 	// TODO: put wherever the message needs to be called
 	//messageBoard.SendMessage("SetUIWaveMessage", "wave compl333te");
 
-	public void SetUIWaveMessage(string mess) {
+	public void SetUIWaveMessage(string mess, int timeout) {
 		gameObject.GetComponent<Text>().text = mess;
-		timer = messageTimer;
+		timer = timeout;
 	}
 }

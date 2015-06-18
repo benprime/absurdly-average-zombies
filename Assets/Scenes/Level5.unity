@@ -351,25 +351,12 @@ MonoBehaviour:
   - name: Zombies
     actions:
     - name: 
+      delayBeforeWave: 0
       prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 2
+      spawnCount: 10
+      beforeMessage: 
+      afterMessage: 
       secondsBetweenSpawn: .5
-    - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 2
-      secondsBetweenSpawn: .5
-    delayBeforeWave: 0
-    beforeMessage: 
-    afterMessage: 
-  - name: Zombies
-    actions:
-    - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 2
-      secondsBetweenSpawn: .5
-    delayBeforeWave: 0
-    beforeMessage: 
-    afterMessage: 
 --- !u!4 &421346782
 Transform:
   m_ObjectHideFlags: 0
