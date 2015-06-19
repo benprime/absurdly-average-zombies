@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 470158}
   - 212: {fileID: 21223208}
-  - 114: {fileID: 11448612}
   - 50: {fileID: 5032344}
   - 61: {fileID: 6106006}
   m_Layer: 0
@@ -534,22 +533,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathNodes: []
---- !u!114 &11448612
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148574}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 840641ed884706543a78cf74435a9810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapWidth: 10
-  mapHeight: 5
-  gridHoriz: 2
-  gridVert: 2
-  node: {fileID: 0}
 --- !u!135 &13503204
 SphereCollider:
   m_ObjectHideFlags: 1

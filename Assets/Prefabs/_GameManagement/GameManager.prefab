@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77346066df98844c92809644e6baa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastCompletedScene: 0
-  player_totalCurrency: 0
+  highestCompletedScene: 0
+  player_totalCurrency: 20
 --- !u!114 &11483940
 MonoBehaviour:
   m_ObjectHideFlags: 1
