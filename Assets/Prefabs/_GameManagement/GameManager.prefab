@@ -55,8 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   placementIcon: {fileID: 144776, guid: 2290feae3decd9942b9ff5cf35e8efc9, type: 2}
-  openPlace: {r: .0758621693, g: 1, b: 0, a: 0}
-  blockPlace: {r: 1, g: 0, b: 0, a: 0}
+  openPlace: {r: .0758621693, g: 1, b: 0, a: .494117647}
+  blockPlace: {r: 1, g: 0, b: 0, a: .494117647}
   snapSize: 1
 --- !u!1001 &100100000
 Prefab:
