@@ -85,6 +85,7 @@ public class WaveGenerator : MonoBehaviour
 		this.waveMessageText.enabled = true;
 		this.waveMessageText.text = "Level Complete";
 		yield return new WaitForSeconds(3);
+		GameManager.instance.HighestCompletedScene = Application.loadedLevel;
 		Application.LoadLevel ("SelectLevel");
 		yield return null;  // prevents crash if all delays are 0
 	}

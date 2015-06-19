@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Object_Placement : MonoBehaviour {
-	private GameManager_Stats gm;
 	public GameObject obj, placementIcon;
 	private GameObject square;
 	public Color openPlace, blockPlace;
@@ -11,15 +10,13 @@ public class Object_Placement : MonoBehaviour {
 
 	// there's some reason for this that has to do with computations
 	// TODO: lookup why this is better
-	float snapInverse;
+	//float snapInverse;
 
 	//private Rect sqSize;
 
 	// Use this for initialization
 	void Start () {
-		gm = FindObjectOfType<GameManager_Stats>();
-
-		this.snapInverse = 1/snapSize;
+		//this.snapInverse = 1/snapSize;
 	}
 	
 	// Update is called once per frame
@@ -27,13 +24,14 @@ public class Object_Placement : MonoBehaviour {
 		if(Input.GetMouseButtonUp (0)) {
 			if(isPlaceable) {
 				int cost = obj.GetComponent<Turret_Stats>().costCurrency;
-				if(gm.GetPlayerTotalCurrency() >= cost) {
+				if(GameManager.instance.GetPlayerTotalCurrency() >= cost) {
 					Vector3 target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 					target.z = 0;
-					gm.SendMessage ("PlayerCurrencyTransaction", -cost);
+					GameManager.instance.SendMessage ("PlayerCurrencyTransaction", -cost);
 					Instantiate (obj, square.transform.position, Quaternion.identity);
 				}
 			}
+			Debug.Log ("Destroying square");
 			Destroy (square);
 		}
 		else if(Input.GetMouseButtonDown (0)) {

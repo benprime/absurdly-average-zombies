@@ -1,53 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &126896
+--- !u!1 &131218
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 469258}
-  - 114: {fileID: 11463774}
-  - 114: {fileID: 11483940}
+  - 4: {fileID: 412852}
+  - 114: {fileID: 11431266}
+  - 114: {fileID: 11403342}
   m_Layer: 5
-  m_Name: GameManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &469258
+--- !u!4 &412852
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126896}
+  m_GameObject: {fileID: 131218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.82000017, y: 4.01999998, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11463774
+--- !u!114 &11403342
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126896}
+  m_GameObject: {fileID: 131218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d77346066df98844c92809644e6baa1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5584fa571f98ddd41b0bcf28b5bc1e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastCompletedScene: 0
   player_totalCurrency: 0
---- !u!114 &11483940
+  lastCompletedScene: 0
+--- !u!114 &11431266
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126896}
+  m_GameObject: {fileID: 131218}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4f193c47cd32b94cb5e2db48779c880, type: 3}
@@ -55,8 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   placementIcon: {fileID: 144776, guid: 2290feae3decd9942b9ff5cf35e8efc9, type: 2}
-  openPlace: {r: .0758621693, g: 1, b: 0, a: 0}
-  blockPlace: {r: 1, g: 0, b: 0, a: 0}
+  openPlace: {r: .117241383, g: 1, b: 0, a: .494117647}
+  blockPlace: {r: 1, g: 0, b: 0, a: .494117647}
   snapSize: 1
 --- !u!1001 &100100000
 Prefab:
@@ -67,5 +67,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 126896}
+  m_RootGameObject: {fileID: 131218}
   m_IsPrefabParent: 1

@@ -20,7 +20,7 @@ public class Zombie : MonoBehaviour {
 	public Vector3 direction;
 	private int randSwayStart;
 	
-	private GameManager_Stats gm;
+	private GameManager gm;
 
 	protected Path_Create path;
 	public int currentNodeIndex = 0;
@@ -28,7 +28,7 @@ public class Zombie : MonoBehaviour {
 
 	// Use this for initialization
 	protected virtual void Start () {
-		gm = FindObjectOfType<GameManager_Stats>();
+		gm = FindObjectOfType<GameManager>();
 		path = FindObjectOfType<Path_Create> ();
 
 		this.zombieState = ZombieState.Normal;
