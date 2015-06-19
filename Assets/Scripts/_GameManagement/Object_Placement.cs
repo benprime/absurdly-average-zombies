@@ -27,11 +27,11 @@ public class Object_Placement : MonoBehaviour {
 				if(GameManager.instance.GetPlayerTotalCurrency() >= cost) {
 					Vector3 target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 					target.z = 0;
-					GameManager.instance.SendMessage ("PlayerCurrencyTransaction", -cost);
+					GameManager.instance.PlayerCurrencyTransaction(-cost);
 					Instantiate (obj, square.transform.position, Quaternion.identity);
 				}
 			}
-			Debug.Log ("Destroying square");
+			//Debug.Log ("Destroying square");
 			Destroy (square);
 		}
 		else if(Input.GetMouseButtonDown (0)) {

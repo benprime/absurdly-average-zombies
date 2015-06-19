@@ -34,7 +34,7 @@ GameObject:
   - 114: {fileID: 11495202}
   m_Layer: 0
   m_Name: Turret 1
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,6 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   costCurrency: 10
+  maxHitPoints: 50
+  currentHitPoints: 50
 --- !u!198 &19806614
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -11,8 +11,9 @@ public class Zombie : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float turnSpeed = 4f;
 	public float walkSwayModifier;
-	public float hitPoints = 10;
+	public float hitPoints = 10f;
 	public int worthCurrency = 5;
+	public float attackDamage = 5f;
 	public ParticleSystem bloodParticleSystem;
 
 	public ZombieState zombieState;
@@ -110,8 +111,10 @@ public class Zombie : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	void OnCollisionEnter2D(Collision2D other) {
-		// set to move opposite direction
-		this.direction = -this.direction;
+	void OnCollisionStay2D(Collision2D other) {
+		//damage the buildings/turrets in path
+		if(other.transform.tag == "Turret" || other.transform.tag == "PlayerBase") {
+			other.gameObject.SendMessage ("TakeDamage", attackDamage * Time.deltaTime);
+		}
 	}
 }

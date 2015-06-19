@@ -7,6 +7,7 @@ TagManager:
   - enemy
   - PlayerBase
   - Path
+  - Turret
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - Terrain
   - Ignore Collision
-  - Targetable
+  - Enemy_Targetable
   - 
   - 
   - 

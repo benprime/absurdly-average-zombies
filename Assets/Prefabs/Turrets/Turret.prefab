@@ -35,7 +35,7 @@ GameObject:
   - 82: {fileID: 8267700}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e5f7acd9b695b164ca37019478895b66, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: c886269c3454be64192aacac0e9eb66d, type: 2}
   maxShots: 5
   firedShots: []
-  shotDelay: .25
+  shotDelay: 1
   barrelTip: {fileID: 471646}
 --- !u!114 &11444712
 MonoBehaviour:
@@ -275,6 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   costCurrency: 5
+  maxHitPoints: 50
+  currentHitPoints: 50
 --- !u!198 &19806614
 ParticleSystem:
   m_ObjectHideFlags: 1
