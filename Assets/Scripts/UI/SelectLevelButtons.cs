@@ -8,18 +8,14 @@ public class SelectLevelButtons : MonoBehaviour {
 	// little bit hacky, but it'll work for now
 	int firstLevelIndex = 2;
 
-	public void LoadLevel(string levelName)
-	{
-		Application.LoadLevel (levelName);
-	}
-	
+
 	// Use this for initialization
 	void Start () {
 		// level 1 is index 2
-		Button[] buttons = FindObjectsOfType<Button> ();
+		//Button[] buttons = FindObjectsOfType<Button> ();
 		
 		// still more hackery
-		for (int i = 2; i < Application.levelCount; i++) {
+		for (int i = this.firstLevelIndex; i < Application.levelCount; i++) {
 			string levelName = "Level" + (i - 1);
 			string buttonName = levelName + "Button";
 

@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour {
 
 	public int player_totalCurrency = 0;
 
+	// true if a level that require all "normal" game level code
+	public bool menu;
+
 
 	//Awake is always called before any Start functions
 	void Awake()

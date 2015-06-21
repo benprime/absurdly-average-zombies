@@ -126,7 +126,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 197662908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d8349f6fa03014a86a34fdd15741b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 58d30dc4304c3294c9bfa95cb8ff6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &197662910
@@ -692,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 126896, guid: e9a4dbec7d239d1468aaf66d9cff2472, type: 2}
+  menu: 1
 --- !u!1001 &1315230649
 Prefab:
   m_ObjectHideFlags: 0
