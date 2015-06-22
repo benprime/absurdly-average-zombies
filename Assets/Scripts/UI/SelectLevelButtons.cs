@@ -36,8 +36,6 @@ public class SelectLevelButtons : MonoBehaviour {
 			}
 		}
 		*/
-		
-		Debug.Log ("Enabling buttons!");
 	}
 	
 	// Update is called once per frame

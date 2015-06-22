@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+
 
 [Serializable]
 public class LevelProgressData {
@@ -16,7 +18,7 @@ public class LevelProgressData {
 // Not sure where we should put classes like this
 public class ProgressManager {
 	
-	private string saveFile = "SaveData.bin";
+	private string saveFile;
 
 	public List<LevelProgressData> LevelProgress {
 		get;
@@ -25,6 +27,8 @@ public class ProgressManager {
 
 	public ProgressManager()
 	{
+		this.saveFile = Path.Combine(Application.persistentDataPath, "SaveData.bin");
+
 		this.LevelProgress = new List<LevelProgressData> ();
 		this.LevelProgress.Add(new LevelProgressData() { LevelName = "Level1", Locked = false, Completed = false });
 		this.LevelProgress.Add(new LevelProgressData() { LevelName = "Level2", Locked = true, Completed = false });
@@ -41,7 +45,6 @@ public class ProgressManager {
 		if (lpd == null) {
 			throw new Exception("The level name \"" + levelName + "\" was not found in the LevelProgress list.");
 		}
-		Debug.Log (levelName + ": " + lpd.Locked.ToString());
 		return lpd.Locked;
 		//return this.LevelProgress.First (x => x.LevelName == levelName).Locked;
 	}
@@ -59,8 +62,7 @@ public class ProgressManager {
 
 	public void SaveData()
 	{
-		//serialize
-		using (Stream stream = File.Open(saveFile, FileMode.Create))
+		using (Stream stream = File.Open(this.saveFile, FileMode.Create))
 		{
 			var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 			
@@ -73,20 +75,12 @@ public class ProgressManager {
 		try
 		{
 			//deserialize
-			using (Stream stream = File.Open(saveFile, FileMode.Open))
+			using (Stream stream = File.Open(this.saveFile, FileMode.Open))
 			{
 				var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 				
 				this.LevelProgress = (List<LevelProgressData>)bformatter.Deserialize(stream);
 			}
-
-			/*
-			using(var reader = new BinaryReader(File.OpenRead("FileName")))
-			{
-				this.HighestCompletedScene = reader.ReadInt32();
-				reader.Close();
-			}
-			*/
 		}
 		catch
 		{
