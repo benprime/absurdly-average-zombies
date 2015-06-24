@@ -18,4 +18,11 @@ public class UI_TurretSideBar : MonoBehaviour {
 	public void SelectObjectToPlace(GameObject choice) {
 		gm.GetComponent<Object_Placement>().obj = choice;
 	}
+
+	private bool sb_isOpen = false;
+	public void ToggleSideBar(){
+		if(!sb_isOpen) transform.Translate(-2, 0, 0); //TODO: 126 pixels or whatever size of sidebar is
+		else transform.Translate(2, 0, 0);
+		sb_isOpen = !sb_isOpen;
+	}
 }
