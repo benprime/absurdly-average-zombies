@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class Object_Placement : MonoBehaviour {
 	public GameObject obj, placementIcon;
@@ -27,35 +28,32 @@ public class Object_Placement : MonoBehaviour {
 		if (!GameManager.instance.menu) {
 
 			if (Input.GetMouseButtonUp (0)) {
-				if (isPlaceable) {
-					int cost = obj.GetComponent<Turret_Stats> ().costCurrency;
-					if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
-						Vector3 target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-						target.z = 0;
-						GameManager.instance.PlayerCurrencyTransaction (-cost);
-						Instantiate (obj, square.transform.position, Quaternion.identity);
+				if(!EventSystem.current.IsPointerOverGameObject()){ //do not place object when mouse is over button
+					if (isPlaceable) {
+						int cost = obj.GetComponent<Turret_Stats> ().costCurrency;
+						if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
+							Vector3 target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+							target.z = 0;
+							GameManager.instance.PlayerCurrencyTransaction (-cost);
+							Instantiate (obj, square.transform.position, Quaternion.identity);
+						}
 					}
 				}
-				//Debug.Log ("Destroying square");
 				Destroy (square);
 			} else if (Input.GetMouseButtonDown (0)) {
-				if (!square) {
-					Vector3 temp = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-					temp.z = 0;
-					square = Instantiate (placementIcon, temp, Quaternion.identity) as GameObject;
-					//	square.GetComponent<SpriteRenderer>().color = openPlace;
-					//	isPlaceable = true;
-					//sqSize = square.GetComponent<SpriteRenderer>().sprite.rect;
+				if(!EventSystem.current.IsPointerOverGameObject()){ //do not begin placing object when mouse is over a button
+					if (!square) {
+						Vector3 temp = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+						temp.z = 0;
+						square = Instantiate (placementIcon, temp, Quaternion.identity) as GameObject;
+					}
 				}
 			} else {
 				if (square) {
 					Vector3 currPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 
-					currPos.x = Mathf.Round (currPos.x);// + (sqSize.width / 2));  //TODO: figure out sprite offset
-					currPos.y = Mathf.Round (currPos.y);//+ (sqSize.height / 2));
-
-					//currPos.x = Mathf.Round(currPos.x * snapInverse)/snapInverse;
-					//currPos.y = Mathf.Round(currPos.y * snapInverse)/snapInverse;   
+					currPos.x = Mathf.Round (currPos.x);
+					currPos.y = Mathf.Round (currPos.y);  
 
 					currPos.z = 0;
 					square.transform.position = currPos;
@@ -69,9 +67,5 @@ public class Object_Placement : MonoBehaviour {
 				}
 			}
 		}
-	}
-
-	public void SelectTurretType(GameObject turret) {
-		obj = turret;
 	}
 }
