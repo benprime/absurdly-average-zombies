@@ -25,4 +25,17 @@ public class UI_TurretSideBar : MonoBehaviour {
 		else transform.Translate(2, 0, 0);
 		sb_isOpen = !sb_isOpen;
 	}
+
+	public void OpenOptionsMenu() {
+		//Bring up options
+	}
+
+	public void ReturnToMenuScreen() {
+		Application.LoadLevel ("MainMenu");
+	}
+
+	public void ExitGame() {
+		Application.Quit ();
+	}
+
 }
