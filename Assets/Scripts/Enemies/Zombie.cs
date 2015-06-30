@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public enum ZombieState
 {
@@ -10,7 +11,8 @@ public enum ZombieState
 public class Zombie : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float turnSpeed = 4f;
-	public float walkSwayModifier;
+	public float walkSwayModifier = 20;
+	public float maxHitPoints = 10f;
 	public float hitPoints = 10f;
 	public int worthCurrency = 5;
 	public float attackDamage = 5f;
@@ -47,6 +49,8 @@ public class Zombie : MonoBehaviour {
 		// so zombies don't all sway at the same time
 		this.randSwayStart = Random.Range(0, 10) * 100;
 		this.walkSwayModifier = Random.Range (20, 35);
+
+		hitPoints = maxHitPoints;
 	}
 	
 	// Update is called once per frame
@@ -95,6 +99,17 @@ public class Zombie : MonoBehaviour {
 	protected virtual void TakeDamage(int amount)
 	{
 		this.hitPoints -= amount;
+
+		UI_FloatingHealthBar hb = GetComponent<UI_FloatingHealthBar>();
+		hb.healthBar.rectTransform.localScale = new Vector3(hitPoints / maxHitPoints, 1, 1); //TODO: Make healthbar scale from left pivot point
+
+		if(hitPoints <= 0) Destroy (hb.gameObject);
+		else if(hitPoints <= maxHitPoints / 3) {
+			hb.healthBar.color = Color.red;
+		}
+		else if(hitPoints <= 2 * (maxHitPoints / 3)) {
+			hb.healthBar.color = Color.yellow;
+		}
 
 		ParticleSystem localBloodsObj = GameObject.Instantiate(this.bloodParticleSystem, this.transform.position, Quaternion.identity) as ParticleSystem;
 		localBloodsObj.Play();

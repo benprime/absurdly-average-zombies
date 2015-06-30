@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5063908}
   - 114: {fileID: 11404746}
   - 58: {fileID: 5898434}
+  - 114: {fileID: 11440822}
   m_Layer: 10
   m_Name: Zombie
   m_TagString: enemy
@@ -33,6 +34,7 @@ Transform:
   m_RootOrder: 0
 --- !u!50 &5063908
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -41,11 +43,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &5898434
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -73,14 +75,30 @@ MonoBehaviour:
   moveSpeed: .75
   turnSpeed: 4
   walkSwayModifier: 30
+  maxHitPoints: 50
   hitPoints: 50
   worthCurrency: 5
+  attackDamage: 5
   bloodParticleSystem: {fileID: 19891776, guid: 4cd1545eea663104f8f76cb32e54769f,
     type: 2}
   zombieState: 0
   direction: {x: 0, y: 0, z: 0}
   currentNodeIndex: 0
   targetCloseness: .5
+--- !u!114 &11440822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78eadfd44cb81bd4d96ea9838bde2eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 11425372, guid: 6afe7065acce6fc4b98a7256e1c14872, type: 2}
+  barOffset: .5
+  healthBar: {fileID: 0}
 --- !u!212 &21228314
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -113,7 +131,16 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: healthBarPrefab
+      value: 
+      objectReference: {fileID: 11425372, guid: 6afe7065acce6fc4b98a7256e1c14872,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: maxHitPoints
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105854}

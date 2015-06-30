@@ -141,24 +141,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!1 &150994599 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
-  m_PrefabInternal: {fileID: 2101424453}
---- !u!114 &150994600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 150994599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78eadfd44cb81bd4d96ea9838bde2eb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarPrefab: {fileID: 11425372, guid: 6afe7065acce6fc4b98a7256e1c14872, type: 2}
-  barOffset: 10
-  uiCanvas: {fileID: 1710758872}
 --- !u!20 &334206736 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2093628, guid: 7f1b08accf6bc41439547acea2eedce9,
@@ -545,11 +527,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1710758872 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22431398, guid: 3125502c6147f1541b37280c7cfcd6f4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1525595943}
 --- !u!1 &2082707148
 GameObject:
   m_ObjectHideFlags: 0
