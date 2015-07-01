@@ -30,11 +30,10 @@ GameObject:
   - 198: {fileID: 19806614}
   - 95: {fileID: 9525378}
   - 212: {fileID: 21287692}
-  - 50: {fileID: 5031242}
-  - 114: {fileID: 11475668}
-  - 82: {fileID: 8267700}
+  - 50: {fileID: 5083046}
+  - 114: {fileID: 11495202}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: TurretRocketLauncher
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,21 +94,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 462868}
   m_RootOrder: 1
---- !u!50 &5031242
+--- !u!50 &5083046
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165540}
-  m_Mass: 10000
+  m_Mass: 100000
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &5803962
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -136,75 +136,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .550000012
---- !u!82 &8267700
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165540}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e5f7acd9b695b164ca37019478895b66, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!95 &9525378
 Animator:
   serializedVersion: 3
@@ -233,10 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cd0f3a7d118cd47bedb57afacd157e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 105598, guid: c886269c3454be64192aacac0e9eb66d, type: 2}
+  bulletPrefab: {fileID: 105598, guid: c8f00cfda3225db4e83b552c1bcd006a, type: 2}
   maxShots: 5
   firedShots: []
-  shotDelay: 1
+  shotDelay: .100000001
   barrelTip: {fileID: 471646}
 --- !u!114 &11444712
 MonoBehaviour:
@@ -263,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f270dffad995bf47bb677d9b4c9c34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11475668
+--- !u!114 &11495202
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -274,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9352a091e4dd62a489de7f5d0cfacb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costCurrency: 5
+  costCurrency: 10
   maxHitPoints: 50
   currentHitPoints: 50
 --- !u!198 &19806614
@@ -1391,14 +1322,18 @@ SpriteRenderer:
   m_SortingLayerID: 1042377535
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: .255172253, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 105598, guid: c8f00cfda3225db4e83b552c1bcd006a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165540}

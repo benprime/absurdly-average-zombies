@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11482422}
   - 96: {fileID: 9659126}
   m_Layer: 0
-  m_Name: Rocket
+  m_Name: ProjectileRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,13 +97,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 105598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e41bee1fa898742a47d9ab15fb0fa7, type: 3}
+  m_Script: {fileID: 11500000, guid: b93e328d40a1ca4408266cc41812f13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
   startPos: {x: 0, y: 0, z: 0}
   range: 10
   damage: 5
+  bombBlast: {fileID: 116350, guid: 9d7b54534733e6a45a482857d270393f, type: 2}
 --- !u!212 &21215096
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -136,7 +137,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: bombBlast
+      value: 
+      objectReference: {fileID: 116350, guid: 9d7b54534733e6a45a482857d270393f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105598}
