@@ -8,23 +8,22 @@ public class Bullet_Behavior : MonoBehaviour {
 	public float damage = 5f;
 
 	// Use this for initialization
-	void Awake () {
+	protected virtual void Awake () {
 		startPos = new Vector3();
 		startPos = transform.position;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 		transform.Translate (Vector2.up * moveSpeed * Time.deltaTime);
 		if(Vector3.Distance (transform.position, startPos) > range) {
 			Destroy (this.gameObject);
 		}
 	}
 
-	void OnTriggerEnter2D (Collider2D other) {
+	protected virtual void OnTriggerEnter2D (Collider2D other) {
 		if(other.tag == "enemy") {
 			other.SendMessage("TakeDamage", this.damage);
-			//Destroy (other.gameObject);
 			Destroy (this.gameObject);
 		}
 	}

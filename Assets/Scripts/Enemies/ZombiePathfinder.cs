@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class ZombiePathfinder : Zombie {
-	public GameObject enemyBase;
 
 	// Use this for initialization
 	protected override void Start ()

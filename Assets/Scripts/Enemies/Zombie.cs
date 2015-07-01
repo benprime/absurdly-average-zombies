@@ -55,6 +55,7 @@ public class Zombie : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
+		if(!gm) gm = FindObjectOfType<GameManager>();  //TODO: probably move this to appropriate Awake function or whatever
 
 		if (this.zombieState == ZombieState.Dead) {
 			return;
@@ -101,10 +102,10 @@ public class Zombie : MonoBehaviour {
 		this.hitPoints -= amount;
 
 		UI_FloatingHealthBar hb = GetComponent<UI_FloatingHealthBar>();
-		hb.healthBar.rectTransform.localScale = new Vector3(hitPoints / maxHitPoints, 1, 1); //TODO: Make healthbar scale from left pivot point
+		hb.healthBar.rectTransform.localScale = new Vector3(Mathf.Max (0, (hitPoints / maxHitPoints)), 1, 1); //TODO: Make healthbar scale from left pivot point
 
-		if(hitPoints <= 0) Destroy (hb.gameObject);
-		else if(hitPoints <= maxHitPoints / 3) {
+		if(hitPoints <= 0) Destroy (hb.healthBar.gameObject);
+		if(hitPoints <= maxHitPoints / 3) {
 			hb.healthBar.color = Color.red;
 		}
 		else if(hitPoints <= 2 * (maxHitPoints / 3)) {

@@ -167,7 +167,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: c8f00cfda3225db4e83b552c1bcd006a, type: 2}
   maxShots: 5
   firedShots: []
-  shotDelay: .100000001
+  shotDelay: 2
   barrelTip: {fileID: 471646}
 --- !u!114 &11444712
 MonoBehaviour:
@@ -1334,6 +1334,10 @@ Prefab:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 105598, guid: c8f00cfda3225db4e83b552c1bcd006a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: shotDelay
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165540}

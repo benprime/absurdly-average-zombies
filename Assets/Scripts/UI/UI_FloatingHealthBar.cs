@@ -19,6 +19,8 @@ public class UI_FloatingHealthBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		healthBar.rectTransform.position = new Vector3(transform.position.x, transform.position.y + barOffset, transform.position.z);
+		if(healthBar) {
+			healthBar.rectTransform.position = new Vector3(transform.position.x, transform.position.y + barOffset, transform.position.z);
+		}
 	}
 }
