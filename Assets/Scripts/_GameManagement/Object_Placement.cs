@@ -6,7 +6,7 @@ public class Object_Placement : MonoBehaviour {
 	public GameObject obj, placementIcon;
 	private GameObject square;
 	public Color openPlace, blockPlace;
-	private bool isPlaceable = true;
+	private bool isPlaceable = false;
 	public float snapSize = 1;
 
 	// there's some reason for this that has to do with computations
@@ -52,17 +52,28 @@ public class Object_Placement : MonoBehaviour {
 				if (square) {
 					Vector3 currPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 
-					currPos.x = Mathf.Round (currPos.x);
-					currPos.y = Mathf.Round (currPos.y);  
+					//lock mouse cursor to grid cordinates
+					//currPos.x = Mathf.Round (currPos.x);
+					//currPos.y = Mathf.Round (currPos.y);
 
 					currPos.z = 0;
 					square.transform.position = currPos;
-					if (square.GetComponent<BoxCollider2D> ().IsTouchingLayers ()) {
+					if (!square.GetComponent<BoxCollider2D> ().IsTouchingLayers (LayerMask.GetMask("BuildZone"))) {
 						square.GetComponent<SpriteRenderer> ().color = blockPlace;
 						isPlaceable = false;
 					} else {
 						square.GetComponent<SpriteRenderer> ().color = openPlace;
-						isPlaceable = true;
+						isPlaceable = true;  
+
+						//WIP lock mouse cursor to build zone - probably getting scrapped
+						//RaycastHit hitInfo = new RaycastHit();
+						//bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), 100, LayerMask.GetMask("Enemy_Targetable"));
+						//if (hit) 
+						//{
+						//	Debug.Log("Hit " + hitInfo.transform.gameObject.name);
+						//} else {
+						//	Debug.Log("No hit");
+						//}
 					}
 				}
 			}
