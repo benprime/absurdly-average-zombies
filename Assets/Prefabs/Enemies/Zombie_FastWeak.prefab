@@ -14,7 +14,7 @@ GameObject:
   - 58: {fileID: 5843372}
   - 114: {fileID: 11472086}
   m_Layer: 10
-  m_Name: ZombiePathfinder
+  m_Name: Zombie_FastWeak
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,11 +69,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 105854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6504ba7543aaf44393a50501b61b1d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 28634cdee0b531d4090f4ec557038f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: .75
-  turnSpeed: 4
+  moveSpeed: 1.5
+  turnSpeed: 8
   walkSwayModifier: 30
   maxHitPoints: 10
   hitPoints: 10
@@ -85,7 +85,6 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   currentNodeIndex: 0
   targetCloseness: .5
-  enemyBase: {fileID: 0}
 --- !u!114 &11472086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +131,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: moveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: turnSpeed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105854}
