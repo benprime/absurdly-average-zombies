@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 469258}
   - 114: {fileID: 11463774}
   - 114: {fileID: 11483940}
+  - 114: {fileID: 11452974}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -29,6 +30,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11452974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabcdf7422ab11640b568c684160b31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11463774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,15 +52,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77346066df98844c92809644e6baa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highestCompletedScene: 0
   player_totalCurrency: 20
+  selectedObjToBuild: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
+  menu: 0
 --- !u!114 &11483940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126896}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4f193c47cd32b94cb5e2db48779c880, type: 3}
   m_Name: 
@@ -64,7 +77,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: selectedObjToBuild
+      value: 
+      objectReference: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
+    - target: {fileID: 0}
+      propertyPath: player_totalCurrency
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 126896}

@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 432166}
   - 212: {fileID: 21207616}
   - 61: {fileID: 6145428}
-  - 50: {fileID: 5034518}
   m_Layer: 11
   m_Name: BuildZone
   m_TagString: Untagged
@@ -30,22 +29,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5034518
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120708}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &6145428
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -84,7 +67,7 @@ SpriteRenderer:
   m_SortingLayerID: 1935391679
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 3c3f5ee1e7347724d84ecddb4cd1e0bc, type: 3}
-  m_Color: {r: .311967522, g: .220588207, b: 1, a: .490196079}
+  m_Color: {r: .311967492, g: .220588207, b: 1, a: .490196079}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -99,6 +82,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.r
+      value: .311967492
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

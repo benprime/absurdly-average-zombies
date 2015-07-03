@@ -16,7 +16,7 @@ public class UI_TurretSideBar : MonoBehaviour {
 	}
 	
 	public void SelectObjectToPlace(GameObject choice) {
-		gm.GetComponent<Object_Placement>().obj = choice;
+		gm.selectedObjToBuild = choice;
 	}
 
 	private bool sb_isOpen = false;
