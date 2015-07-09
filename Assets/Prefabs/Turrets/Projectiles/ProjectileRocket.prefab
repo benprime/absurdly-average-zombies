@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93e328d40a1ca4408266cc41812f13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 5
   startPos: {x: 0, y: 0, z: 0}
   range: 10
   damage: 5
@@ -111,7 +111,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105598}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1042377535
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fea932c9e867d7546a029b5b01c797d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33fc520209ec2a6448fe99eb38bc6170, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -142,6 +142,19 @@ Prefab:
       propertyPath: bombBlast
       value: 
       objectReference: {fileID: 116350, guid: 9d7b54534733e6a45a482857d270393f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33fc520209ec2a6448fe99eb38bc6170,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105598}
