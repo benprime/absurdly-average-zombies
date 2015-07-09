@@ -26,13 +26,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.9000001, y: -.619999886, z: 0}
+  m_LocalPosition: {x: 6.03000021, y: -.449999988, z: 0}
   m_LocalScale: {x: 2.5, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5023698
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -41,11 +42,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &6111450
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -72,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 100
   currentHitPoints: 100
+  destroyMessage: {fileID: 109074, guid: 596e37ee304a4d746a398aff1cb325de, type: 2}
 --- !u!212 &21235212
 SpriteRenderer:
   m_ObjectHideFlags: 1
