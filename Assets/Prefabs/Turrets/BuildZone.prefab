@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 432166}
   - 212: {fileID: 21207616}
   - 61: {fileID: 6145428}
+  - 114: {fileID: 11489690}
   m_Layer: 11
   m_Name: BuildZone
   m_TagString: Untagged
@@ -42,6 +43,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .639999986, y: .639999986}
+--- !u!114 &11489690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6374ccbbde0848a43805cbd377192358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  weaponRadial: {fileID: 155478, guid: 4fe6f0d247de1984ba83452a39b91b0c, type: 2}
 --- !u!212 &21207616
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,6 +105,10 @@ Prefab:
       propertyPath: m_Color.r
       value: .311967492
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weaponRadial
+      value: 
+      objectReference: {fileID: 155478, guid: 4fe6f0d247de1984ba83452a39b91b0c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120708}
