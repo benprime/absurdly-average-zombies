@@ -68,7 +68,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: .5
   m_StartWidth: .0500000007
   m_EndWidth: .0199999996
   m_Colors:
@@ -154,6 +154,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4245a3d2455d627429055307e93a9255, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Time
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

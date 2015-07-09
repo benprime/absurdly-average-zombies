@@ -27,7 +27,7 @@ public class InteractWithBuildZone : MonoBehaviour {
 					if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
 						GameManager.instance.PlayerCurrencyTransaction (-cost);
 						Instantiate (objToPlace, hitZone.transform.position, Quaternion.identity);
-						Destroy (hitZone);
+						//Destroy (hitZone);
 					}
 				}				
 			}
