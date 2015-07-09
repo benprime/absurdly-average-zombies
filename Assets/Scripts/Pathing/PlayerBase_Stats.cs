@@ -23,8 +23,18 @@ public class PlayerBase_Stats : MonoBehaviour {
 	
 	void TakeDamage(float damage) {
 		currentHitPoints -= damage;
-		if(currentHitPoints < (maxHitPoints / 3)) {
-			gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+		//if(currentHitPoints < (maxHitPoints / 3)) {
+		//	gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+		//}
+		UI_FloatingHealthBar hb = GetComponent<UI_FloatingHealthBar>();
+		hb.healthBar.rectTransform.localScale = new Vector3(Mathf.Max (0, (currentHitPoints / maxHitPoints)), 1, 1); //TODO: Make healthbar scale from left pivot point
+		
+		if(currentHitPoints <= 0) Destroy (hb.healthBar.gameObject);
+		if(currentHitPoints <= maxHitPoints / 3) {
+			hb.healthBar.color = Color.red;
+		}
+		else if(currentHitPoints <= 2 * (maxHitPoints / 3)) {
+			hb.healthBar.color = Color.yellow;
 		}
 	}
 }

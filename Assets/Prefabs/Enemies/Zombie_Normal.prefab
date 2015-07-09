@@ -78,7 +78,7 @@ MonoBehaviour:
   maxHitPoints: 50
   hitPoints: 50
   worthCurrency: 5
-  attackDamage: 5
+  attackDamage: 10
   bloodParticleSystem: {fileID: 19891776, guid: 4cd1545eea663104f8f76cb32e54769f,
     type: 2}
   zombieState: 0
@@ -146,6 +146,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: b01ad8a4060200d499df5acb4d63a885,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: attackDamage
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105854}
