@@ -35,7 +35,7 @@ public class Turret_Fire : MonoBehaviour {
 			ParticleSystem smokeP = GetComponent<ParticleSystem>();
 			smokeP.Emit(1);
 			//Instantiate(fireSmokePrefab, barrelTip.position, barrelTip.rotation);
-			GameObject clone = Instantiate(bulletPrefab, barrelTip.position, barrelTip.rotation) as GameObject;
+			GameObject clone = Instantiate(bulletPrefab, barrelTip.transform.position, gameObject.transform.rotation) as GameObject;
 			firedShots.Add(clone);
 			animator.SetTrigger("Fire");
 

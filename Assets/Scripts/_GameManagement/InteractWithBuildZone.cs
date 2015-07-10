@@ -26,7 +26,16 @@ public class InteractWithBuildZone : MonoBehaviour {
 			}
 			if (Input.GetMouseButtonUp (0)) {
 				if(!EventSystem.current.IsPointerOverGameObject()){ //do not place object when mouse is over button
-					hitZone.GetComponent<BuildZone>().PopRadialMenu (hitZone.transform.position);
+
+                    hitZone.GetComponent<BuildZone>().PopRadialMenu (hitZone.transform.position);
+
+					//GameObject objToPlace = GameManager.instance.selectedObjToBuild;
+					//int cost = objToPlace.GetComponent<Turret_Stats> ().costCurrency;
+					//if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
+					//	GameManager.instance.PlayerCurrencyTransaction (-cost);
+					//	Instantiate (objToPlace, hitZone.transform.position, Quaternion.identity);
+					//	//Destroy (hitZone);
+					//}
 				}				
 			}
 		}

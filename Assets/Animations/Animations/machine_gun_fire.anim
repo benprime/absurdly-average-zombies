@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TurretIdle
+  m_Name: machine_gun_fire
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,12 +18,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: d83777eaf1689824c9f5f277732fdfab, type: 3}
+      value: {fileID: 21300000, guid: 940571c3b440b754ea18f2241e38e109, type: 3}
+    - time: .0833333358
+      value: {fileID: 21300000, guid: 2d0e224099dbc83469f660ee5f27cafa, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -37,11 +39,12 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d83777eaf1689824c9f5f277732fdfab, type: 3}
+    - {fileID: 21300000, guid: 940571c3b440b754ea18f2241e38e109, type: 3}
+    - {fileID: 21300000, guid: 2d0e224099dbc83469f660ee5f27cafa, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .0166666675
+    m_StopTime: .166666672
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
