@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class UI_WeaponRadial : MonoBehaviour {
+	public BuildZone connectedZone;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,7 @@ public class UI_WeaponRadial : MonoBehaviour {
 		if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
 			GameManager.instance.PlayerCurrencyTransaction (-cost);
 			Instantiate (obj, transform.position, Quaternion.identity);
+			if(connectedZone) connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;
 			Destroy (gameObject);
 		}
 	}

@@ -6,6 +6,8 @@ public class BuildZone : MonoBehaviour {
 	public enum ZONE_STATE {EMPTY, BUILT_ON, DESTROYED};
 	public ZONE_STATE currentState = ZONE_STATE.EMPTY;
 	public GameObject weaponRadial;
+	private GameObject currentHub;
+	public bool menuOpen = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,12 +19,21 @@ public class BuildZone : MonoBehaviour {
 	
 	}
 
-	public void PopRadialMenu() {
-		if(currentState == ZONE_STATE.EMPTY) {
-			Transform uiCanvas = FindObjectOfType<Canvas>().transform;
-			GameObject hub = Instantiate(weaponRadial, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity) as GameObject;
-			hub.transform.SetParent(uiCanvas, false);
-			currentState = ZONE_STATE.BUILT_ON;
+	public void PopRadialMenu(Vector3 location) {
+		if(!currentHub) {
+			if(currentState == ZONE_STATE.EMPTY) {
+				Transform uiCanvas = FindObjectOfType<Canvas>().transform;
+				currentHub = Instantiate(weaponRadial, transform.position, Quaternion.identity) as GameObject;
+				currentHub.transform.SetParent(uiCanvas, false);
+				currentHub.transform.position = location;
+				currentHub.GetComponent<UI_WeaponRadial>().connectedZone = this;
+				menuOpen = true;
+			}
 		}
+	}
+		
+	public void CloseOut() {
+		if(currentHub) Destroy (currentHub);
+		menuOpen = false;
 	}
 }

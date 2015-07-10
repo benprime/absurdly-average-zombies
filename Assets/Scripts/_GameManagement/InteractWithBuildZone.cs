@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InteractWithBuildZone : MonoBehaviour {
 
+	private GameObject lastHit = null;
 
 	// Use this for initialization
 	void Start () {
@@ -20,15 +21,21 @@ public class InteractWithBuildZone : MonoBehaviour {
 
 			if(Input.GetMouseButtonDown (0)) {
 				//hitSprite.color = Color.green;  //TODO: make flag in BuildZone class that sets color when mouse is over it
+				if(lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
+				lastHit = hitZone;
 			}
 			if (Input.GetMouseButtonUp (0)) {
 				if(!EventSystem.current.IsPointerOverGameObject()){ //do not place object when mouse is over button
-					hitZone.GetComponent<BuildZone>().PopRadialMenu ();
+					hitZone.GetComponent<BuildZone>().PopRadialMenu (hitZone.transform.position);
 				}				
 			}
 		}
 		else { //mouse is not over a BuildZone
-
+			if(Input.GetMouseButtonDown (0)) {
+				if(!EventSystem.current.IsPointerOverGameObject()){
+					if(lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
+				}
+			}
 		}
 
 	}
