@@ -144,7 +144,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!1 &142420386 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 147722, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
