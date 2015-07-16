@@ -5,6 +5,7 @@ public class PlayerBase_Stats : MonoBehaviour {
 	public float maxHitPoints = 100f;
 	public float currentHitPoints = 100f;
 	public GameObject destroyMessage;
+	public Sprite noDamage, thirdDamage, twoThirdDamage, destroyed;
 
 	// Use this for initialization
 	void Start () {
@@ -12,13 +13,8 @@ public class PlayerBase_Stats : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {		
-		if (currentHitPoints <= 0) {
-			GameObject clone = Instantiate(destroyMessage) as GameObject;
-			Transform uiCanvas = FindObjectOfType<Canvas>().transform;
-			clone.transform.SetParent (uiCanvas, false);
-			Destroy(gameObject);
-		}
+	void Update () {
+
 	}
 	
 	void TakeDamage(float damage) {
@@ -27,14 +23,23 @@ public class PlayerBase_Stats : MonoBehaviour {
 		//	gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 		//}
 		UI_FloatingHealthBar hb = GetComponent<UI_FloatingHealthBar>();
-		hb.healthBar.rectTransform.localScale = new Vector3(Mathf.Max (0, (currentHitPoints / maxHitPoints)), 1, 1); //TODO: Make healthbar scale from left pivot point
+		if(hb.healthBar) hb.healthBar.rectTransform.localScale = new Vector3(Mathf.Max (0, (currentHitPoints / maxHitPoints)), 1, 1); //TODO: Make healthbar scale from left pivot point
 		
-		if(currentHitPoints <= 0) Destroy (hb.healthBar.gameObject);
+		if(currentHitPoints <= 0) {
+			GameObject clone = Instantiate(destroyMessage) as GameObject;
+			Transform uiCanvas = FindObjectOfType<Canvas>().transform;
+			clone.transform.SetParent (uiCanvas, false);
+			Destroy (hb.healthBar.gameObject);
+			gameObject.GetComponent<SpriteRenderer>().sprite = destroyed;
+			Destroy (gameObject);  //TODO:  Make the destroyed house stay on ground for game over (possibly use instantiate to leave a plain sprite there)
+		}
 		if(currentHitPoints <= maxHitPoints / 3) {
 			hb.healthBar.color = Color.red;
+			gameObject.GetComponent<SpriteRenderer>().sprite = twoThirdDamage;
 		}
 		else if(currentHitPoints <= 2 * (maxHitPoints / 3)) {
 			hb.healthBar.color = Color.yellow;
+			gameObject.GetComponent<SpriteRenderer>().sprite = thirdDamage;
 		}
 	}
 }
