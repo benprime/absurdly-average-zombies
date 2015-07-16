@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5023698}
   - 61: {fileID: 6111450}
   - 114: {fileID: 11402504}
+  - 114: {fileID: 11454784}
   m_Layer: 0
   m_Name: Base_House
   m_TagString: PlayerBase
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 147722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.03000021, y: -.449999988, z: 0}
-  m_LocalScale: {x: 2.5, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,9 +58,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -.0900000036}
   serializedVersion: 2
-  m_Size: {x: .529999971, y: .519999981}
+  m_Size: {x: .920000017, y: .769999981}
 --- !u!114 &11402504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,6 +75,20 @@ MonoBehaviour:
   maxHitPoints: 100
   currentHitPoints: 100
   destroyMessage: {fileID: 109074, guid: 596e37ee304a4d746a398aff1cb325de, type: 2}
+--- !u!114 &11454784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78eadfd44cb81bd4d96ea9838bde2eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 11425372, guid: 6afe7065acce6fc4b98a7256e1c14872, type: 2}
+  barOffset: .5
+  healthBar: {fileID: 0}
 --- !u!212 &21235212
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -98,7 +113,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1042377535
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 35605de21ff05bd4ab707a3830805ba9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a6a7b698b3f63841b25142cbda27454, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
