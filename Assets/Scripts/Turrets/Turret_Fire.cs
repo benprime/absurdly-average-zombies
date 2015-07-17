@@ -32,8 +32,8 @@ public class Turret_Fire : MonoBehaviour {
 	public void Fire() {
 		if(firedShots.Count < maxShots) {
 			if(!shotReady) return;
-			ParticleSystem smokeP = GetComponent<ParticleSystem>();
-			smokeP.Emit(1);
+			//ParticleSystem smokeP = Getomponent<ParticleSystem>();
+			//smokeP.Emit(1);
 			//Instantiate(fireSmokePrefab, barrelTip.position, barrelTip.rotation);
 			GameObject clone = Instantiate(bulletPrefab, barrelTip.transform.position, gameObject.transform.rotation) as GameObject;
 			firedShots.Add(clone);
