@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class InteractWithBuildZone : MonoBehaviour {
 
-	private GameObject lastHit = null;
+	private static GameObject lastHit = null;
 
 	// Use this for initialization
 	void Start () {
 
 	}
+
+	public void HideRadialMenu() {
+		if(lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
+	}
+	
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,11 +45,13 @@ public class InteractWithBuildZone : MonoBehaviour {
 			}
 		}
 		else { //mouse is not over a BuildZone
+			/*
 			if(Input.GetMouseButtonDown (0)) {
 				if(!EventSystem.current.IsPointerOverGameObject()){
 					if(lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
 				}
 			}
+			*/
 		}
 
 	}
