@@ -466,26 +466,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
-      propertyPath: destroyed
-      value: 
-      objectReference: {fileID: 21300000, guid: 2b1e941aaf9509f479151b4ea5980422,
-        type: 3}
-    - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
-      propertyPath: noDamage
-      value: 
-      objectReference: {fileID: 21300000, guid: be780b16f1928744094d0ee3b2b0877f,
-        type: 3}
-    - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
-      propertyPath: thirdDamage
-      value: 
-      objectReference: {fileID: 21300000, guid: 46f7129b35f34944791d357c40f6cd67,
-        type: 3}
-    - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
-      propertyPath: twoThirdDamage
-      value: 
-      objectReference: {fileID: 21300000, guid: 24ad4a4ec4555c545b76b2518bf49b95,
-        type: 3}
+    - target: {fileID: 11454784, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
+      propertyPath: barOffset
+      value: .850000024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
   m_IsPrefabParent: 0

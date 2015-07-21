@@ -75,6 +75,10 @@ MonoBehaviour:
   maxHitPoints: 100
   currentHitPoints: 100
   destroyMessage: {fileID: 109074, guid: 596e37ee304a4d746a398aff1cb325de, type: 2}
+  noDamage: {fileID: 21300000, guid: be780b16f1928744094d0ee3b2b0877f, type: 3}
+  thirdDamage: {fileID: 21300000, guid: 46f7129b35f34944791d357c40f6cd67, type: 3}
+  twoThirdDamage: {fileID: 21300000, guid: 24ad4a4ec4555c545b76b2518bf49b95, type: 3}
+  destroyed: {fileID: 21300000, guid: 2b1e941aaf9509f479151b4ea5980422, type: 3}
 --- !u!114 &11454784
 MonoBehaviour:
   m_ObjectHideFlags: 1
