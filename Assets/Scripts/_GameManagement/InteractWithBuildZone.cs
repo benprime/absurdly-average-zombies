@@ -19,18 +19,20 @@ public class InteractWithBuildZone : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		int pointerId = (Input.touchCount == 1) ? Input.GetTouch(0).fingerId : -1;  //Only accounts for single touches TODO: make it work nicely for accidental multi touches
+
 		RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, 20, LayerMask.GetMask("BuildZone"));
-		if(hitInfo) { //mouse is over a BuildZone
+		if(hitInfo && !EventSystem.current.IsPointerOverGameObject(pointerId)) { //mouse is over a BuildZone
 			GameObject hitZone = hitInfo.transform.gameObject;
 			SpriteRenderer hitSprite = hitZone.GetComponent<SpriteRenderer> ();
 
 			if(Input.GetMouseButtonDown (0)) {
 				//hitSprite.color = Color.green;  //TODO: make flag in BuildZone class that sets color when mouse is over it
-				if(lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
-				lastHit = hitZone;
 			}
 			if (Input.GetMouseButtonUp (0)) {
-				if(!EventSystem.current.IsPointerOverGameObject()){ //do not place object when mouse is over button
+				//if(!EventSystem.current.IsPointerOverGameObject(pointerId)){ //do not place object when mouse is over button
+				if(lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
+				lastHit = hitZone;
 
                     hitZone.GetComponent<BuildZone>().PopRadialMenu (hitZone.transform.position);
 
@@ -41,17 +43,15 @@ public class InteractWithBuildZone : MonoBehaviour {
 					//	Instantiate (objToPlace, hitZone.transform.position, Quaternion.identity);
 					//	//Destroy (hitZone);
 					//}
-				}				
+				//}				
 			}
 		}
-		else { //mouse is not over a BuildZone
-			/*
-			if(Input.GetMouseButtonDown (0)) {
-				if(!EventSystem.current.IsPointerOverGameObject()){
+		else { //mouse is not over a BuildZone			
+			if(!EventSystem.current.IsPointerOverGameObject(pointerId)){
+				if(Input.GetMouseButtonDown (0)) {
 					if(lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
 				}
 			}
-			*/
 		}
 
 	}
