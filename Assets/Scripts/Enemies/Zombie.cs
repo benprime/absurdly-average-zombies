@@ -10,6 +10,7 @@ public enum ZombieState
 
 public class Zombie : MonoBehaviour {
 	public float moveSpeed = 2f;
+	public float moveModifier = 1.0f;
 	public float turnSpeed = 4f;
 	public float walkSwayModifier = 20;
 	public float maxHitPoints = 10f;
@@ -74,7 +75,7 @@ public class Zombie : MonoBehaviour {
 		GameObject currentNode = path.pathNodes[currentNodeIndex];
 		Vector2 currentPosition = new Vector2 (transform.position.x, transform.position.y);
 		this.direction = currentNode.transform.position - transform.position;
-		transform.position = Vector2.MoveTowards(currentPosition, currentNode.transform.position, moveSpeed * Time.deltaTime);
+		transform.position = Vector2.MoveTowards(currentPosition, currentNode.transform.position, moveSpeed * Time.deltaTime * this.moveModifier);
 		if(Vector2.Distance (currentPosition, currentNode.transform.position) < targetCloseness) {
 			if(currentNodeIndex < path.pathNodes.Count - 1) currentNodeIndex++;
 		}
