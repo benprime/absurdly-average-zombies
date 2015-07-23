@@ -22,13 +22,14 @@ public class Object_Placement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		int pointerId = (Input.touchCount == 1) ? Input.GetTouch(0).fingerId : -1;  //Only accounts for single touches TODO: make it work nicely for accidental multi touches
 
 		// check if this is game level or a menu
 		// TODO: should this script be re-factored into the game manager?
 		if (!GameManager.instance.menu) {
 
 			if (Input.GetMouseButtonUp (0)) {
-				if(!EventSystem.current.IsPointerOverGameObject()){ //do not place object when mouse is over button
+				if(!EventSystem.current.IsPointerOverGameObject(pointerId)){ //do not place object when mouse is over button
 					if (isPlaceable) {
 						int cost = obj.GetComponent<Turret_Stats> ().costCurrency;
 						if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
@@ -41,7 +42,7 @@ public class Object_Placement : MonoBehaviour {
 				}
 				Destroy (square);
 			} else if (Input.GetMouseButtonDown (0)) {
-				if(!EventSystem.current.IsPointerOverGameObject()){ //do not begin placing object when mouse is over a button
+				if(!EventSystem.current.IsPointerOverGameObject(pointerId)){ //do not begin placing object when mouse is over a button
 					if (!square) {
 						Vector3 temp = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 						temp.z = 0;
