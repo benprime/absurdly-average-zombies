@@ -15,7 +15,7 @@ public class TarBlast : MonoBehaviour {
 	void Update () {
 	}
 
-	void onExplosionEnd()
+	void OnDestroy()
 	{
 		foreach (GameObject g in this.zombies) {
 			Zombie z = g.GetComponent<Zombie>();

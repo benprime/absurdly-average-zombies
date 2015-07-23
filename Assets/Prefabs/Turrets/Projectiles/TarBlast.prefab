@@ -12,6 +12,7 @@ GameObject:
   - 58: {fileID: 5812826}
   - 212: {fileID: 21232134}
   - 95: {fileID: 9583990}
+  - 114: {fileID: 11494896}
   m_Layer: 0
   m_Name: TarBlast
   m_TagString: Untagged
@@ -72,6 +73,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d859fb08d32ccc4681842edb917c804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11494896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934161cfa89e9f240bb5ed17764ec752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 3
 --- !u!212 &21232134
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -122,6 +135,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d941b74fbf67736459500b09be58d480, type: 2}
+    - target: {fileID: 0}
+      propertyPath: lifespan
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 116350}
