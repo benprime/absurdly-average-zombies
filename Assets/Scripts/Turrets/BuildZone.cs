@@ -5,8 +5,9 @@ using UnityEngine.UI;
 public class BuildZone : MonoBehaviour {
 	public enum ZONE_STATE {EMPTY, BUILT_ON, DESTROYED};
 	public ZONE_STATE currentState = ZONE_STATE.EMPTY;
-	public GameObject weaponRadial;
-	private GameObject currentHub;
+	public GameObject weaponRadial, upgradeRadial;
+	private GameObject currentHub = null;
+	public GameObject currentWeapon = null;
 	public bool menuOpen = false;
 
 	// Use this for initialization
@@ -27,6 +28,14 @@ public class BuildZone : MonoBehaviour {
 				currentHub.transform.SetParent(uiCanvas, false);
 				currentHub.transform.position = location;
 				currentHub.GetComponent<UI_WeaponRadial>().connectedZone = this;
+				menuOpen = true;
+			}
+			if(currentState == ZONE_STATE.BUILT_ON) {				
+				Transform uiCanvas = FindObjectOfType<Canvas>().transform;
+				currentHub = Instantiate(upgradeRadial, transform.position, Quaternion.identity) as GameObject;
+				currentHub.transform.SetParent(uiCanvas, false);
+				currentHub.transform.position = location;
+				currentHub.GetComponent<UI_UpgradeRadial>().connectedZone = this;
 				menuOpen = true;
 			}
 		}

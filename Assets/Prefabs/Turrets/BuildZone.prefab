@@ -56,6 +56,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   weaponRadial: {fileID: 155478, guid: 4fe6f0d247de1984ba83452a39b91b0c, type: 2}
+  upgradeRadial: {fileID: 155478, guid: 18319714429eb7b42bc9b39f68e9dfe4, type: 2}
+  currentWeapon: {fileID: 0}
+  menuOpen: 0
 --- !u!212 &21207616
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -126,6 +129,10 @@ Prefab:
       propertyPath: weaponRadial
       value: 
       objectReference: {fileID: 155478, guid: 4fe6f0d247de1984ba83452a39b91b0c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: upgradeRadial
+      value: 
+      objectReference: {fileID: 155478, guid: 18319714429eb7b42bc9b39f68e9dfe4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120708}
