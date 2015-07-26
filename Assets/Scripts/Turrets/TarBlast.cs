@@ -18,18 +18,25 @@ public class TarBlast : MonoBehaviour {
 	void OnDestroy()
 	{
 		foreach (GameObject g in this.zombies) {
-			Zombie z = g.GetComponent<Zombie>();
-			z.moveModifier = 1.0f;
+			// g will be null if the zombie has been destroyed
+			// before the tar field has been destroyed
+			if(g != null)
+			{
+				Zombie z = g.GetComponent<Zombie>();
+				z.moveModifier = 1.0f;
+			}
 		}
 		this.zombies.Clear ();
-		Destroy (this.gameObject);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.tag == "enemy") {
 			Zombie z = other.gameObject.GetComponent<Zombie>();
 			z.moveModifier = 0.5f;
-			this.zombies.Add(other.gameObject);
+			if(!this.zombies.Contains(other.gameObject))
+			{
+				this.zombies.Add(other.gameObject);
+			}
 		}
 	}
 
@@ -40,4 +47,19 @@ public class TarBlast : MonoBehaviour {
 			this.zombies.Remove(other.gameObject);
 		}
 	}
+
+	// This is required for situation where the zombies have exited one tar field
+	// and walked directly into another one that was created before they exited the first.
+	void OnTriggerStay2D(Collider2D other) {
+		if (other.tag == "enemy") {
+			Zombie z = other.gameObject.GetComponent<Zombie> ();
+			z.moveModifier = 0.5f;
+			if(!this.zombies.Contains(other.gameObject))
+			{
+				this.zombies.Add (other.gameObject);
+			}
+		}
+	}
+
+
 }
