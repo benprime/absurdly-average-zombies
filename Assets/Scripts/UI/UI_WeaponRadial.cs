@@ -26,8 +26,11 @@ public class UI_WeaponRadial : MonoBehaviour {
 		int cost = obj.GetComponent<Turret_Stats> ().costCurrency;
 		if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
 			GameManager.instance.PlayerCurrencyTransaction (-cost);
-			Instantiate (obj, transform.position, Quaternion.identity);
-			if(connectedZone) connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;
+			GameObject weap = Instantiate (obj, transform.position, Quaternion.identity) as GameObject;
+			if(connectedZone) {
+				connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;
+				connectedZone.currentWeapon = weap;
+			}
 			Destroy (gameObject);
 		}
 	}
