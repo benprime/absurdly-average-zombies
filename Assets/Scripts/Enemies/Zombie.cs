@@ -30,6 +30,8 @@ public class Zombie : MonoBehaviour {
 	public int currentNodeIndex = 0;
 	public float targetCloseness = .5f;
 
+	public GameObject popNums;
+
 	// Use this for initialization
 	protected virtual void Start () {
 		gm = FindObjectOfType<GameManager>();
@@ -106,11 +108,15 @@ public class Zombie : MonoBehaviour {
 		hb.healthBar.rectTransform.localScale = new Vector3(Mathf.Max (0, (hitPoints / maxHitPoints)), 1, 1); //TODO: Make healthbar scale from left pivot point
 
 		if(hitPoints <= 0) Destroy (hb.healthBar.gameObject);
-		if(hitPoints <= maxHitPoints / 3) {
-			hb.healthBar.color = Color.red;
-		}
-		else if(hitPoints <= 2 * (maxHitPoints / 3)) {
-			hb.healthBar.color = Color.yellow;
+		else {
+			this.GeneratePopUpNumber(amount.ToString (), Color.red, false);
+
+			if(hitPoints <= maxHitPoints / 3) {
+				hb.healthBar.color = Color.red;
+			}
+			else if(hitPoints <= 2 * (maxHitPoints / 3)) {
+				hb.healthBar.color = Color.yellow;
+			}
 		}
 
 		ParticleSystem localBloodsObj = GameObject.Instantiate(this.bloodParticleSystem, this.transform.position, Quaternion.identity) as ParticleSystem;
@@ -125,6 +131,7 @@ public class Zombie : MonoBehaviour {
 
 		// TODO: set animation to death animation (via trigger)
 		gm.SendMessage ("PlayerCurrencyTransaction", worthCurrency);
+		this.GeneratePopUpNumber("$" + worthCurrency, Color.yellow, true);
 		Destroy (gameObject);
 	}
 
@@ -133,5 +140,13 @@ public class Zombie : MonoBehaviour {
 		if(other.transform.tag == "Turret" || other.transform.tag == "PlayerBase") {
 			other.gameObject.SendMessage ("TakeDamage", attackDamage * Time.deltaTime);
 		}
+	}
+
+	private void GeneratePopUpNumber(string txt, Color txtCol, bool largeText) {		
+		GameObject pop = Instantiate (popNums) as GameObject;
+		pop.transform.position = transform.position;
+		pop.GetComponent<Text>().text = txt;
+		pop.GetComponent<Text>().color = txtCol;
+		if(largeText) pop.GetComponent<Text>().fontSize += 10;
 	}
 }

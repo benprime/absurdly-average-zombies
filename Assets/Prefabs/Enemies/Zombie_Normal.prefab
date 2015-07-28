@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  moveModifier: 1
   turnSpeed: 4
   walkSwayModifier: 30
   maxHitPoints: 50
@@ -84,7 +85,8 @@ MonoBehaviour:
   zombieState: 0
   direction: {x: 0, y: 0, z: 0}
   currentNodeIndex: 0
-  targetCloseness: .5
+  targetCloseness: .100000001
+  popNums: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
 --- !u!114 &11440822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +160,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetCloseness
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: popNums
+      value: 
+      objectReference: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105854}

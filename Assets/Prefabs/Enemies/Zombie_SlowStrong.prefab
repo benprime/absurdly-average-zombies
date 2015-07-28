@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: .75
+  moveModifier: 1
   turnSpeed: 2
   walkSwayModifier: 30
   maxHitPoints: 100
@@ -98,7 +99,8 @@ MonoBehaviour:
   zombieState: 0
   direction: {x: 0, y: 0, z: 0}
   currentNodeIndex: 0
-  targetCloseness: .5
+  targetCloseness: .100000001
+  popNums: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
 --- !u!212 &21296632
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -131,7 +133,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: targetCloseness
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: popNums
+      value: 
+      objectReference: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185498}
