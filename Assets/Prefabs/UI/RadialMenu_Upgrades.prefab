@@ -935,6 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedZone: {fileID: 0}
+  sellCostText: {fileID: 11463036}
 --- !u!114 &11481436
 MonoBehaviour:
   m_ObjectHideFlags: 1
