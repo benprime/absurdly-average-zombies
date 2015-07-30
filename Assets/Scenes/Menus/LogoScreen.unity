@@ -417,5 +417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevel: MainMenu
+  useInputToContinue: 0
   changesAutomatically: 1
   autoTime: 3

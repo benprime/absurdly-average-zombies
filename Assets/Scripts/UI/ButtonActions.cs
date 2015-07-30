@@ -8,6 +8,11 @@ public class ButtonActions : MonoBehaviour {
 		Application.LoadLevel (levelName);
 	}
 
+	public void ExitTitle() 
+	{
+		Application.Quit ();
+	}
+
 	// Use this for initialization
 	void Start () {
 	

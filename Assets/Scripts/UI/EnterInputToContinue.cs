@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnterInputToContinue : MonoBehaviour {
 	public string nextLevel = "SelectLevel";
+	public bool useInputToContinue = true;
 	public bool changesAutomatically = false;
 	public float autoTime = 5f;
 	private float timer = 0;
@@ -14,8 +15,7 @@ public class EnterInputToContinue : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (Input.touchCount);
-		if(Input.anyKey || (Input.touchCount > 0)) {
+		if(useInputToContinue && (Input.anyKey || (Input.touchCount > 0))) {
 			Application.LoadLevel (nextLevel);
 		}
 		if(changesAutomatically) {
