@@ -14,6 +14,7 @@ public class UI_FloatingHealthBar : MonoBehaviour {
 		healthBar = Instantiate(healthBarPrefab) as Image;
 		healthBar.transform.SetParent (uiCanvas, false);
 		healthBar.color = Color.green;
+		healthBar.transform.SetAsFirstSibling(); //makes sure the health bars render below all other canvas items
 		healthBar.rectTransform.position = new Vector3(transform.position.x, transform.position.y + barOffset, transform.position.z);
 	}
 	

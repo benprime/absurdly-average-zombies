@@ -29,7 +29,8 @@ public class InteractWithBuildZone : MonoBehaviour {
 			if(Input.GetMouseButtonDown (0)) {
 				//hitSprite.color = Color.green;  //TODO: make flag in BuildZone class that sets color when mouse is over it
 			}
-			if (Input.GetMouseButtonUp (0)) {
+			bool isSingleTouchEnding = (Input.touchCount == 1) ? (Input.GetTouch (0).phase == TouchPhase.Ended) : false; //check to see if there is touch input, and if so, if the touch just ended
+			if (Input.GetMouseButtonUp (0) || isSingleTouchEnding) {
 				//if(!EventSystem.current.IsPointerOverGameObject(pointerId)){ //
 				if(lastHit && lastHit != hitZone) lastHit.GetComponent<BuildZone>().CloseOut();
 				lastHit = hitZone;
