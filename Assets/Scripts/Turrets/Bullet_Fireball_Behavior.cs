@@ -28,6 +28,7 @@ public class Bullet_Fireball_Behavior : MonoBehaviour {
 	protected virtual void OnTriggerEnter2D (Collider2D other) {
 		if(other.tag == "enemy") {
 			other.SendMessage("TakeDamage", this.damage);
+			other.SendMessage("CatchFire");
 			Destroy (this.gameObject);
 		}
 	}

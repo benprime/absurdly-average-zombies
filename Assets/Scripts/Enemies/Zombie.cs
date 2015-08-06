@@ -17,7 +17,17 @@ public class Zombie : MonoBehaviour {
 	public float hitPoints = 10f;
 	public int worthCurrency = 5;
 	public float attackDamage = 5f;
+
+	private UI_FloatingHealthBar hb;
+
+	// These may get moved to a more appropriate location
+	public float flameDamageInterval = 1f;
+	public int fireDamage = 1;
+	private float nextFlameDamageTime = 0f;
+
 	public ParticleSystem bloodParticleSystem;
+
+	private bool onFire = false;
 
 	public ZombieState zombieState;
 
@@ -34,6 +44,7 @@ public class Zombie : MonoBehaviour {
 
 	// Use this for initialization
 	protected virtual void Start () {
+		this.hb = GetComponent<UI_FloatingHealthBar>();
 		gm = FindObjectOfType<GameManager>();
 		path = FindObjectOfType<Path_Create> ();
 
@@ -64,6 +75,12 @@ public class Zombie : MonoBehaviour {
 			return;
 		}
 
+		if (this.onFire) {
+			if (Time.time > nextFlameDamageTime) {
+				nextFlameDamageTime += this.flameDamageInterval;
+				this.TakeDamage(this.fireDamage);
+			}
+		}
 		if (this.hitPoints <= 0) {
 			this.Die();
 			return;
@@ -104,11 +121,12 @@ public class Zombie : MonoBehaviour {
 	{
 		this.hitPoints -= amount;
 
-		UI_FloatingHealthBar hb = GetComponent<UI_FloatingHealthBar>();
-		hb.healthBar.rectTransform.localScale = new Vector3(Mathf.Max (0, (hitPoints / maxHitPoints)), 1, 1); //TODO: Make healthbar scale from left pivot point
+		if (this.hb.healthBar.rectTransform) {
+			this.hb.healthBar.rectTransform.localScale = new Vector3 (Mathf.Max (0, (hitPoints / maxHitPoints)), 1, 1); //TODO: Make healthbar scale from left pivot point
+		}
 
-		if(hitPoints <= 0) Destroy (hb.healthBar.gameObject);
-		else {
+		//if(hitPoints <= 0) Destroy (hb.healthBar.gameObject);
+		//else {
 			this.GeneratePopUpNumber(amount.ToString (), Color.red, false);
 
 			if(hitPoints <= maxHitPoints / 3) {
@@ -117,7 +135,7 @@ public class Zombie : MonoBehaviour {
 			else if(hitPoints <= 2 * (maxHitPoints / 3)) {
 				hb.healthBar.color = Color.yellow;
 			}
-		}
+		//}
 
 		ParticleSystem localBloodsObj = GameObject.Instantiate(this.bloodParticleSystem, this.transform.position, Quaternion.identity) as ParticleSystem;
 		localBloodsObj.Play();
@@ -132,6 +150,9 @@ public class Zombie : MonoBehaviour {
 		// TODO: set animation to death animation (via trigger)
 		gm.SendMessage ("PlayerCurrencyTransaction", worthCurrency);
 		this.GeneratePopUpNumber("$" + worthCurrency, Color.yellow, true);
+
+		Destroy (this.hb.healthBar.gameObject);
+
 		Destroy (gameObject);
 	}
 
@@ -140,6 +161,12 @@ public class Zombie : MonoBehaviour {
 		if(other.transform.tag == "Turret" || other.transform.tag == "PlayerBase") {
 			other.gameObject.SendMessage ("TakeDamage", attackDamage * Time.deltaTime);
 		}
+	}
+
+	void CatchFire()
+	{
+		this.onFire = true;
+		this.nextFlameDamageTime = Time.time;
 	}
 
 	private void GeneratePopUpNumber(string txt, Color txtCol, bool largeText) {		
