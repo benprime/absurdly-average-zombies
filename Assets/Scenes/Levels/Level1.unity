@@ -101,7 +101,7 @@ GameObject:
   - 4: {fileID: 88057276}
   - 212: {fileID: 88057275}
   m_Layer: 8
-  m_Name: Level1
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
