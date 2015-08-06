@@ -167,6 +167,8 @@ public class Zombie : MonoBehaviour {
 	{
 		this.onFire = true;
 		this.nextFlameDamageTime = Time.time;
+		ParticleSystem ps = this.GetComponent<ParticleSystem> ();
+		ps.Play ();
 	}
 
 	private void GeneratePopUpNumber(string txt, Color txtCol, bool largeText) {		
