@@ -92,8 +92,8 @@ MonoBehaviour:
   moveModifier: 1
   turnSpeed: 2
   walkSwayModifier: 30
-  maxHitPoints: 100
-  hitPoints: 100
+  maxHitPoints: 125
+  hitPoints: 125
   worthCurrency: 10
   attackDamage: 20
   flameDamageInterval: 1
@@ -1235,6 +1235,18 @@ Prefab:
       propertyPath: popNums
       value: 
       objectReference: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
+    - target: {fileID: 0}
+      propertyPath: maxHitPoints
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: hitPoints
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fireDamage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185498}

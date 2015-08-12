@@ -208,13 +208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28634cdee0b531d4090f4ec557038f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
+  moveSpeed: 1.75
   moveModifier: 1
   turnSpeed: 8
   walkSwayModifier: 30
-  maxHitPoints: 10
-  hitPoints: 10
-  worthCurrency: 5
+  maxHitPoints: 20
+  hitPoints: 20
+  worthCurrency: 2
   attackDamage: 5
   flameDamageInterval: 1
   fireDamage: 1
@@ -1467,7 +1467,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: turnSpeed
@@ -1560,6 +1560,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: RotationBySpeedModule.curve.scalar
       value: .785398126
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: worthCurrency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxHitPoints
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: hitPoints
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

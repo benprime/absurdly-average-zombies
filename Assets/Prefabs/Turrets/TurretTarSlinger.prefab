@@ -63,7 +63,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.57408297, y: -.164727151, z: 0}
+  m_LocalPosition: {x: -3.22000003, y: -.180000007, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 471646}
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
 --- !u!58 &5807840
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -167,7 +167,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: 4b51e24f820a13545b53f27d4fc81fb8, type: 2}
   maxShots: 5
   firedShots: []
-  shotDelay: 2
+  shotDelay: 3
   barrelTip: {fileID: 471646}
 --- !u!114 &11444712
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiesInRange: []
-  RotationSpeed: 3
+  RotationSpeed: 1.5
   shootWithinDegrees: 10
 --- !u!114 &11453134
 MonoBehaviour:
@@ -1336,7 +1336,7 @@ Prefab:
       objectReference: {fileID: 105598, guid: 4b51e24f820a13545b53f27d4fc81fb8, type: 2}
     - target: {fileID: 0}
       propertyPath: shotDelay
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
@@ -1364,7 +1364,7 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 85a416ab97311584a84467121e0a0814, type: 2}
     - target: {fileID: 0}
       propertyPath: RotationSpeed
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

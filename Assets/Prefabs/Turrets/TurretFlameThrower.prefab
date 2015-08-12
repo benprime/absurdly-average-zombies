@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.31315684, y: -.122821808, z: 0}
+  m_LocalPosition: {x: -3.26695466, y: -.114543736, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 471646}
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: .899999976
 --- !u!58 &5807840
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -165,7 +165,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: 44f1e9d23989efc48b0f49085cc7f67b, type: 2}
   maxShots: 5
   firedShots: []
-  shotDelay: .0700000003
+  shotDelay: .100000001
   barrelTip: {fileID: 471646}
 --- !u!114 &11444712
 MonoBehaviour:
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiesInRange: []
-  RotationSpeed: 2.5
+  RotationSpeed: 2
   shootWithinDegrees: 10
 --- !u!114 &11453134
 MonoBehaviour:
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9352a091e4dd62a489de7f5d0cfacb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costCurrency: 5
+  costCurrency: 20
   maxHitPoints: 50
   currentHitPoints: 50
 --- !u!212 &21287692
@@ -241,7 +241,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: RotationSpeed
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
@@ -253,7 +253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: shotDelay
-      value: .0700000003
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: shootWithinDegrees
@@ -283,6 +283,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: costCurrency
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -419,7 +419,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: $10
+  m_Text: $30
 --- !u!114 &11405540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,7 +576,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: $5
+  m_Text: $20
 --- !u!114 &11430376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1526,7 +1526,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 814, y: .490709484}
+  m_AnchoredPosition: {x: -10.6050644, y: -.277097583}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22456660
