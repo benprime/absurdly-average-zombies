@@ -5,6 +5,8 @@ public class Turret_Stats : MonoBehaviour {
 	public int costCurrency = 10;
 	public float maxHitPoints = 50f;
 	public float currentHitPoints = 50f;
+	public int rangeLevel = 0, damageLevel = 0, speedLevel = 0;
+	public float rangeIncrease = .1f, damageIncrease = 1f, speedIncrease = .1f;
 
 	//TODO: move all turret stats from other scripts to this script
 
@@ -27,5 +29,10 @@ public class Turret_Stats : MonoBehaviour {
 		if(currentHitPoints < (maxHitPoints / 3)) {
 			gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 		}
+	}
+
+	void Upgrade() {
+		float temp = transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
+		transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = temp * (rangeLevel * (1 + rangeIncrease));
 	}
 }
