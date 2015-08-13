@@ -25,16 +25,41 @@ public class ProgressManager {
 		set;
 	}
 
+	void InitializeData ()
+	{
+		this.LevelProgress = new List<LevelProgressData> ();
+		this.LevelProgress.Add (new LevelProgressData () {
+			LevelName = "Level1",
+			Locked = false,
+			Completed = false
+		});
+		this.LevelProgress.Add (new LevelProgressData () {
+			LevelName = "Level2",
+			Locked = true,
+			Completed = false
+		});
+		this.LevelProgress.Add (new LevelProgressData () {
+			LevelName = "Level3",
+			Locked = true,
+			Completed = false
+		});
+		this.LevelProgress.Add (new LevelProgressData () {
+			LevelName = "Level4",
+			Locked = true,
+			Completed = false
+		});
+		this.LevelProgress.Add (new LevelProgressData () {
+			LevelName = "Level5",
+			Locked = true,
+			Completed = false
+		});
+	}
+
 	public ProgressManager()
 	{
 		this.saveFile = Path.Combine(Application.persistentDataPath, "SaveData.bin");
 
-		this.LevelProgress = new List<LevelProgressData> ();
-		this.LevelProgress.Add(new LevelProgressData() { LevelName = "Level1", Locked = false, Completed = false });
-		this.LevelProgress.Add(new LevelProgressData() { LevelName = "Level2", Locked = true, Completed = false });
-		this.LevelProgress.Add(new LevelProgressData() { LevelName = "Level3", Locked = true, Completed = false });
-		this.LevelProgress.Add(new LevelProgressData() { LevelName = "Level4", Locked = true, Completed = false });
-		this.LevelProgress.Add(new LevelProgressData() { LevelName = "Level5", Locked = true, Completed = false });
+		InitializeData ();
 
 		this.LoadData ();
 	}
@@ -89,5 +114,11 @@ public class ProgressManager {
 		}
 
 		
+	}
+
+	public void ClearData()
+	{
+		File.Delete(this.saveFile);
+		InitializeData();
 	}
 }

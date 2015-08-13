@@ -48,4 +48,35 @@ public class UI_UpgradeRadial : MonoBehaviour {
 			transform.FindChild("E").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.rangeLevel + 1));
 		}
 	}
+	
+	public void UpgradeDamage() {
+		if(connectedZone && currentWeaponStats.damageLevel <= maxUpgradeLevels) {
+			//charge player cost of upgrade
+			int cost = baseUpgradeCost * (currentWeaponStats.damageLevel + 1);  //upgrade cost = baseUpgradeCost * next upgrade level
+			if(GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+			GameManager.instance.PlayerCurrencyTransaction (-cost);
+			//upgrade weapon
+			currentWeaponStats.damageLevel++;
+			//float temp = currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
+			//currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = temp * (1 + (currentWeaponStats.rangeLevel * currentWeaponStats.rangeIncrease));
+			currentWeaponStats.costCurrency += cost;
+			transform.FindChild("N").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.damageLevel + 1));
+		}
+	}
+	
+	public void UpgradeSpeed() {
+		if(connectedZone && currentWeaponStats.speedLevel <= maxUpgradeLevels) {
+			//charge player cost of upgrade
+			int cost = baseUpgradeCost * (currentWeaponStats.speedLevel + 1);  //upgrade cost = baseUpgradeCost * next upgrade level
+			if(GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+			GameManager.instance.PlayerCurrencyTransaction (-cost);
+			//upgrade weapon
+			currentWeaponStats.speedLevel++;
+			//float tempSD = currentWeaponStats.transform.GetComponent<Turret_Fire>().shotDelay;
+			//float tempRS = currentWeaponStats.transform.GetComponent<Turret_Aim>().RotationSpeed;
+			//currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = temp * (1 + (currentWeaponStats.rangeLevel * currentWeaponStats.rangeIncrease));
+			currentWeaponStats.costCurrency += cost;
+			transform.FindChild("S").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.speedLevel + 1));
+		}
+	}
 }

@@ -30,9 +30,4 @@ public class Turret_Stats : MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 		}
 	}
-
-	void Upgrade() {
-		float temp = transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
-		transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = temp * (rangeLevel * (1 + rangeIncrease));
-	}
 }
