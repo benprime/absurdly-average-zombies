@@ -103,7 +103,6 @@ MonoBehaviour:
   moveSpeed: 5
   startPos: {x: 0, y: 0, z: 0}
   range: 10
-  damage: 5
   bombBlast: {fileID: 116350, guid: 9d7b54534733e6a45a482857d270393f, type: 2}
 --- !u!212 &21215096
 SpriteRenderer:
@@ -128,7 +127,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1042377535
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_Sprite: {fileID: 21300000, guid: 33fc520209ec2a6448fe99eb38bc6170, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
@@ -170,6 +169,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

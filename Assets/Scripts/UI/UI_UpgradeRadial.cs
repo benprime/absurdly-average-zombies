@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UI_UpgradeRadial : MonoBehaviour {
 	public BuildZone connectedZone;
-	private Turret_Stats currentWeaponStats;
+	private Turret currentWeaponStats;
 	public int baseUpgradeCost = 5;
 	public int maxUpgradeLevels = 3;
 
@@ -16,7 +16,7 @@ public class UI_UpgradeRadial : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(connectedZone) {
-			currentWeaponStats = connectedZone.currentWeapon.GetComponent<Turret_Stats> ();
+			currentWeaponStats = connectedZone.currentWeapon.GetComponent<Turret> ();
 
 			//much hackery going on here due to lack of sleep TODO: optimize!!!! (shouldn't be in the update loop)
 			Text sellCostText = transform.FindChild("W").GetComponentInChildren<Text>();

@@ -31,7 +31,7 @@ public class Object_Placement : MonoBehaviour {
 			if (Input.GetMouseButtonUp (0)) {
 				if(!EventSystem.current.IsPointerOverGameObject(pointerId)){ //do not place object when mouse is over button
 					if (isPlaceable) {
-						int cost = obj.GetComponent<Turret_Stats> ().costCurrency;
+						int cost = obj.GetComponent<Turret> ().costCurrency;
 						if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
 							Vector3 target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 							target.z = 0;

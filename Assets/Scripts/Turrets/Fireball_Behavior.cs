@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet_Fireball_Behavior : MonoBehaviour {
-	public float moveSpeed = 20f;
-	public Vector3 startPos;
-	public float range = 10f;
-	public float damage = 5f;
+public class Fireball_Behavior : Bullet_Behavior {
 
 	// Use this for initialization
-	protected virtual void Awake () {
+	protected override void Awake () {
+
 		startPos = new Vector3();
 		startPos = transform.position;
 
@@ -18,17 +15,22 @@ public class Bullet_Fireball_Behavior : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	protected virtual void Update () {
+	protected override void Update () {
 		transform.Translate (Vector2.up * moveSpeed * Time.deltaTime);
 		if(Vector3.Distance (transform.position, startPos) > range) {
 			Destroy (this.gameObject);
 		}
 	}
 
-	protected virtual void OnTriggerEnter2D (Collider2D other) {
+	protected override void OnTriggerEnter2D (Collider2D other) {
 		if(other.tag == "enemy") {
-			other.SendMessage("TakeDamage", this.damage);
-			other.SendMessage("CatchFire");
+			Zombie z = other.gameObject.GetComponent<Zombie>();
+
+			z.TakeDamage(this.damage);
+			z.CatchFire();
+
+			//other.SendMessage("TakeDamage", this.damage);
+			//other.SendMessage("CatchFire");
 			Destroy (this.gameObject);
 		}
 	}

@@ -24,8 +24,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 462868}
   - 58: {fileID: 5807840}
-  - 114: {fileID: 11444712}
-  - 114: {fileID: 11404462}
   - 95: {fileID: 9525378}
   - 212: {fileID: 21287692}
   - 50: {fileID: 5031242}
@@ -151,36 +149,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11404462
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32cd0f3a7d118cd47bedb57afacd157e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 105598, guid: 44f1e9d23989efc48b0f49085cc7f67b, type: 2}
-  maxShots: 5
-  firedShots: []
-  shotDelay: .100000001
-  barrelTip: {fileID: 471646}
---- !u!114 &11444712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4515061e0e79ed24d83c814c48bbc267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombiesInRange: []
-  RotationSpeed: 2
-  shootWithinDegrees: 10
 --- !u!114 &11453134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,12 +168,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 165540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9352a091e4dd62a489de7f5d0cfacb2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4515061e0e79ed24d83c814c48bbc267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombiesInRange: []
+  RotationSpeed: 1
+  shootWithinDegrees: 10
+  bulletPrefab: {fileID: 105598, guid: 44f1e9d23989efc48b0f49085cc7f67b, type: 2}
+  shotDelay: .100000001
+  barrelTip: {fileID: 471646}
   costCurrency: 20
   maxHitPoints: 50
   currentHitPoints: 50
+  rangeLevel: 0
+  damageLevel: 0
+  speedLevel: 0
+  rangeIncrease: .100000001
+  damageIncrease: 1
+  speedIncrease: .100000001
+  baseDamage: 1
+  damage: 0
 --- !u!212 &21287692
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -241,7 +223,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: RotationSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
@@ -287,6 +269,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: costCurrency
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rangeIncrease
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageIncrease
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speedIncrease
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 105598, guid: 44f1e9d23989efc48b0f49085cc7f67b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: barrelTip
+      value: 
+      objectReference: {fileID: 471646}
+    - target: {fileID: 0}
+      propertyPath: baseDamage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
