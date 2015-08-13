@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BombBlast : MonoBehaviour {
-	public float damage = 25f;
+	public int damage;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,9 @@ public class BombBlast : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.tag == "enemy") {
 			//Debug.Log ("DAMAGE!");
-			other.SendMessage ("TakeDamage", damage);
+			Zombie z = other.GetComponent<Zombie>();
+			z.TakeDamage(this.damage);
+			//other.SendMessage ("TakeDamage", damage);
 			//Destroy (this.gameObject); //TODO: possibly make blast expand over time
 		}
 	}

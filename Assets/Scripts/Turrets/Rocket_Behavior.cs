@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet_Bomb_Behavior : Bullet_Behavior {
+public class Rocket_Behavior : Bullet_Behavior {
 	public GameObject bombBlast;
 
 	// Use this for initialization

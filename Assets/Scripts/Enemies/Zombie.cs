@@ -117,7 +117,7 @@ public class Zombie : MonoBehaviour {
 		transform.Rotate (0.0f, 0.0f, z);
 	}
 
-	protected virtual void TakeDamage(int amount)
+	public virtual void TakeDamage(int amount)
 	{
 		this.hitPoints -= amount;
 
@@ -163,7 +163,7 @@ public class Zombie : MonoBehaviour {
 		}
 	}
 
-	void CatchFire()
+	public void CatchFire()
 	{
 		this.onFire = true;
 		this.nextFlameDamageTime = Time.time;
