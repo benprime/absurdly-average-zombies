@@ -22,6 +22,7 @@ public class Turret : MonoBehaviour {
 	public float currentHitPoints;
 	public int rangeLevel, damageLevel, speedLevel;
 	public float rangeIncrease, damageIncrease, speedIncrease;
+	public float pauseAfterFiring;
 	public int baseDamage;
 	[HideInInspector]
 	public int damage;
@@ -77,8 +78,17 @@ public class Turret : MonoBehaviour {
 	}
 
 	void LookAtNearestEnemy() {
+
+		// pause after firing (if set)
+		if (this.lastShotTime > 0 && Time.time < this.lastShotTime + this.pauseAfterFiring)
+			return;
+
+
+		// remove all the zombies that have died
 		while(zombiesInRange.Remove (null));
+
 		if(zombiesInRange.Count <= 0) return;
+
 		if(!target) target = zombiesInRange[0].transform;
 		Transform nearest = target;
 		float distanceToNearest = Vector3.Distance (nearest.position, this.transform.position);
