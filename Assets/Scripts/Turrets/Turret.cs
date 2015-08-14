@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour {
 	// aiming stuff
 	public List<GameObject> zombiesInRange;
 	private Transform target;
-	public float RotationSpeed;
+	public float rotationSpeed;
 	public float shootWithinDegrees = 10f;
 
 	// firing stuff
@@ -71,11 +71,6 @@ public class Turret : MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 		}
 	}
-	
-	void Upgrade() {
-		float temp = transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
-		transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = temp * (rangeLevel * (1 + rangeIncrease));
-	}
 
 	void LookAtNearestEnemy() {
 
@@ -100,7 +95,7 @@ public class Turret : MonoBehaviour {
 			}
 		}
 
-		float step = RotationSpeed * Time.deltaTime;
+		float step = rotationSpeed * Time.deltaTime;
 		Vector3 targetRotation = Vector3.Normalize (nearest.position - transform.position);
 		transform.up = Vector3.RotateTowards (transform.up, targetRotation, step, 0.0f);
 

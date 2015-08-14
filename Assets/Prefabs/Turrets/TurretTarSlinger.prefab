@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiesInRange: []
-  RotationSpeed: 1.5
+  rotationSpeed: .75
   shootWithinDegrees: 10
   bulletPrefab: {fileID: 105598, guid: 4b51e24f820a13545b53f27d4fc81fb8, type: 2}
   shotDelay: 3
@@ -1384,6 +1384,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: baseDamage
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rotationSpeed
+      value: .75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
