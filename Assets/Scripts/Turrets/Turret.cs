@@ -84,6 +84,8 @@ public class Turret : MonoBehaviour {
 	void LookAtNearestEnemy() {
 
 		// pause after firing (if set)
+		// This exists mostly to let the fire animations complete before the turret
+		// starts rotating again.  The catapult should be still while projectile leaves the bucket.
 		if (this.lastShotTime > 0 && Time.time < this.lastShotTime + this.pauseAfterFiring)
 			return;
 
@@ -91,7 +93,15 @@ public class Turret : MonoBehaviour {
 		while(zombiesInRange.Remove (null));
 
 		// if no zombies in detection zone, return
-		if(zombiesInRange.Count <= 0) return;
+		if (zombiesInRange.Count <= 0) {
+			return;
+		}
+
+		// This prevents a turret from getting "stuck" targetting a
+		// zombie that has left the detection area without dying.
+		if (target && !zombiesInRange.Contains (target.gameObject)) {
+			target = null;
+		}
 
 		// once we pick a target, we stick to it until it is dead or leaves the detection area
 		if (!target) {
