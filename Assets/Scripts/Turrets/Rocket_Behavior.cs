@@ -4,6 +4,9 @@ using System.Collections;
 public class Rocket_Behavior : Bullet_Behavior {
 	public GameObject bombBlast;
 
+	[HideInInspector]
+	public GameObject target;
+
 	// Use this for initialization
 	protected override void Awake () {
 		base.Awake();
@@ -11,6 +14,9 @@ public class Rocket_Behavior : Bullet_Behavior {
 	
 	// Update is called once per frame
 	protected override void Update () {
+		if (this.target) {
+			this.transform.up = target.transform.position - this.transform.position;
+		}
 		base.Update();
 	}
 

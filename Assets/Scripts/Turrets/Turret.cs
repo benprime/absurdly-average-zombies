@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Turret : MonoBehaviour {
 	// aiming stuff
@@ -54,6 +55,13 @@ public class Turret : MonoBehaviour {
 			// create projectile object
 			GameObject clone = Instantiate(bulletPrefab, barrelTip.transform.position, gameObject.transform.rotation) as GameObject;
 
+			// Hack! Make the rockets home in on targets.
+			Rocket_Behavior rb = clone.GetComponent<Rocket_Behavior>();
+			if(rb)
+			{
+				rb.target = this.target.gameObject;
+			}
+
 			// set the damage on the bullet
 			// TODO: perhaps set a reference to the turret instead of
 			// passing around the damage value.
@@ -79,32 +87,27 @@ public class Turret : MonoBehaviour {
 		if (this.lastShotTime > 0 && Time.time < this.lastShotTime + this.pauseAfterFiring)
 			return;
 
-
 		// remove all the zombies that have died
 		while(zombiesInRange.Remove (null));
 
+		// if no zombies in detection zone, return
 		if(zombiesInRange.Count <= 0) return;
 
-		if(!target) target = zombiesInRange[0].transform;
-		Transform nearest = target;
-		float distanceToNearest = Vector3.Distance (nearest.position, this.transform.position);
-		foreach (GameObject enemy in zombiesInRange) {
-			float tempDist = Vector3.Distance (enemy.transform.position, this.transform.position);
-			if(tempDist < distanceToNearest) {
-				nearest = enemy.transform;
-				distanceToNearest = tempDist;
-			}
+		// once we pick a target, we stick to it until it is dead or leaves the detection area
+		if (!target) {
+			// grab the closest zombie
+			target = zombiesInRange.OrderBy(x => Vector3.Distance(x.transform.position, this.transform.position)).First().transform;
 		}
 
+		// rotate toward the target
 		float step = rotationSpeed * Time.deltaTime;
-		Vector3 targetRotation = Vector3.Normalize (nearest.position - transform.position);
+		Vector3 targetRotation = Vector3.Normalize (target.position - transform.position);
 		transform.up = Vector3.RotateTowards (transform.up, targetRotation, step, 0.0f);
 
+		// if the target is within the "shootWithinDegrees" property, we fire
 		float angleDiff = Mathf.Abs (Vector3.Angle (transform.up, targetRotation));
 		if (angleDiff <= this.shootWithinDegrees) {
 			this.Fire();
 		}
 	}
-
-
 }
