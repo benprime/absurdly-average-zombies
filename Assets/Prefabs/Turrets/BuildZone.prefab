@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.58999991, y: 2.25, z: 0}
+  m_LocalPosition: {x: -10.6260166, y: .355351567, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,6 +59,7 @@ MonoBehaviour:
   upgradeRadial: {fileID: 155478, guid: 18319714429eb7b42bc9b39f68e9dfe4, type: 2}
   currentWeapon: {fileID: 0}
   menuOpen: 0
+  rankSprites: []
 --- !u!212 &21207616
 SpriteRenderer:
   m_ObjectHideFlags: 1

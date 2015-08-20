@@ -17,7 +17,7 @@ public class BuildZone : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
 	public void PopRadialMenu(Vector3 location) {
@@ -37,11 +37,13 @@ public class BuildZone : MonoBehaviour {
 				currentHub.transform.position = location;
 				currentHub.GetComponent<UI_UpgradeRadial>().connectedZone = this;
 				menuOpen = true;
+				currentWeapon.transform.FindChild ("DetectionZone").GetComponent<SpriteRenderer>().enabled = true;
 			}
 		}
 	}
 		
 	public void CloseOut() {
+		currentWeapon.transform.FindChild ("DetectionZone").GetComponent<SpriteRenderer>().enabled = false;
 		if(currentHub) Destroy (currentHub);
 		menuOpen = false;
 	}

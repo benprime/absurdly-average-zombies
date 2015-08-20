@@ -51,14 +51,17 @@ public class UI_UpgradeRadial : MonoBehaviour {
 
 	public void UpgradeRange() {
 		if(connectedZone && currentWeaponStats.rangeLevel < maxUpgradeLevels) {
-			if(baseRange < 0) baseRange = currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
+			if(baseRange == -1f) baseRange = currentWeaponStats.transform.FindChild ("DetectionZone").localScale.x;
+			//if(baseRange < 0) baseRange = currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
 			//charge player cost of upgrade
 			int cost = baseUpgradeCost * (currentWeaponStats.rangeLevel + 1);  //upgrade cost = baseUpgradeCost * next upgrade level
-			if(GameManager.instance.GetPlayerTotalCurrency() <= cost) return;
+			if(GameManager.instance.GetPlayerTotalCurrency() < cost) return;
 			GameManager.instance.PlayerCurrencyTransaction (-cost);
 			//upgrade weapon
 			currentWeaponStats.rangeLevel++;
-			currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = baseRange * (1 + ((currentWeaponStats.rangeLevel) * currentWeaponStats.rangeIncrease));
+			float increase = baseRange * (1 + ((currentWeaponStats.rangeLevel) * currentWeaponStats.rangeIncrease));
+			currentWeaponStats.transform.FindChild ("DetectionZone").localScale = new Vector3(increase, increase, 1f);
+			//currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = baseRange * (1 + ((currentWeaponStats.rangeLevel) * currentWeaponStats.rangeIncrease));
 			//increase weapon worth
 			currentWeaponStats.costCurrency += cost;
 			if(currentWeaponStats.rangeLevel == maxUpgradeLevels) {
@@ -76,7 +79,7 @@ public class UI_UpgradeRadial : MonoBehaviour {
 		if(connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels) {
 			//charge player cost of upgrade
 			int cost = baseUpgradeCost * (currentWeaponStats.damageLevel + 1);  //upgrade cost = baseUpgradeCost * next upgrade level
-			if(GameManager.instance.GetPlayerTotalCurrency() <= cost) return;
+			if(GameManager.instance.GetPlayerTotalCurrency() < cost) return;
 			GameManager.instance.PlayerCurrencyTransaction (-cost);
 			//upgrade weapon
 			currentWeaponStats.damageLevel++;
@@ -102,7 +105,7 @@ public class UI_UpgradeRadial : MonoBehaviour {
 			}
 			//charge player cost of upgrade
 			int cost = baseUpgradeCost * (currentWeaponStats.speedLevel + 1);  //upgrade cost = baseUpgradeCost * next upgrade level
-			if(GameManager.instance.GetPlayerTotalCurrency() <= cost) return;
+			if(GameManager.instance.GetPlayerTotalCurrency() < cost) return;
 			GameManager.instance.PlayerCurrencyTransaction (-cost);
 			//upgrade weapon
 			currentWeaponStats.speedLevel++;
