@@ -43,7 +43,7 @@ public class BuildZone : MonoBehaviour {
 	}
 		
 	public void CloseOut() {
-		currentWeapon.transform.FindChild ("DetectionZone").GetComponent<SpriteRenderer>().enabled = false;
+		if(currentWeapon) currentWeapon.transform.FindChild ("DetectionZone").GetComponent<SpriteRenderer>().enabled = false;
 		if(currentHub) Destroy (currentHub);
 		menuOpen = false;
 	}
