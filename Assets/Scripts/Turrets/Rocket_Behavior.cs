@@ -16,7 +16,7 @@ public class Rocket_Behavior : Bullet_Behavior {
 
 	protected override void OnTriggerEnter2D (Collider2D other) {
 		if(other.tag == "enemy") {
-			Instantiate(this.bombBlast, this.transform.position, Quaternion.identity);
+			Instantiate(this.bombBlast, other.transform.position, Quaternion.identity);
 			//other.SendMessage("TakeDamage", this.damage);
 			Destroy (this.gameObject);
 		}
