@@ -183,7 +183,7 @@ MonoBehaviour:
   rangeLevel: 0
   damageLevel: 0
   speedLevel: 0
-  rangeIncrease: .100000001
+  rangeIncrease: .125
   damageIncrease: 1
   speedIncrease: .100000001
   pauseAfterFiring: 0
@@ -273,7 +273,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: rangeIncrease
-      value: .100000001
+      value: .125
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damageIncrease

@@ -11,7 +11,7 @@ public class Turret : MonoBehaviour {
 
 	// firing stuff
 	public GameObject bulletPrefab;
-	public float shotDelay = .1f;
+	public float shotDelay;
 	public Transform barrelTip;
 	Animator animator;
 	private float lastShotTime;
@@ -24,6 +24,7 @@ public class Turret : MonoBehaviour {
 	public float rangeIncrease, damageIncrease, speedIncrease;
 	public float pauseAfterFiring;
 	public int baseDamage;
+
 	[HideInInspector]
 	public int damage;
 

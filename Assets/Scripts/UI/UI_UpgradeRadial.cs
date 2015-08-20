@@ -8,6 +8,7 @@ public class UI_UpgradeRadial : MonoBehaviour {
 	public int baseUpgradeCost = 5;
 	public int maxUpgradeLevels = 3;
 	public Sprite[] rankSprites;
+	private float baseRotSpd = -1f, baseShotDelay = -1f, baseRange = -1f;
 
 	// Use this for initialization
 	void Start () {
@@ -23,12 +24,18 @@ public class UI_UpgradeRadial : MonoBehaviour {
 			sellCostText.text = "$" +((currentWeaponStats.costCurrency) / 2);
 
 			//change upgrade image to show next available upgrade
-			transform.FindChild("N").GetComponentInChildren<Text>().text = "$" + ((currentWeaponStats.damageLevel + 1) * baseUpgradeCost);// + currentWeaponStats.baseCost;
-			transform.FindChild("E").GetComponentInChildren<Text>().text = "$" + ((currentWeaponStats.rangeLevel + 1) * baseUpgradeCost);
-			transform.FindChild("S").GetComponentInChildren<Text>().text = "$" + ((currentWeaponStats.speedLevel + 1) * baseUpgradeCost);
-			transform.FindChild("N").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.damageLevel];
-			transform.FindChild("E").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
-			transform.FindChild("S").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.speedLevel];
+			if(currentWeaponStats.damageLevel < maxUpgradeLevels) {
+				transform.FindChild("N").GetComponentInChildren<Text>().text = "$" + ((currentWeaponStats.damageLevel + 1) * baseUpgradeCost);// + currentWeaponStats.baseCost;
+				transform.FindChild("N").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.damageLevel];
+				}
+			if(currentWeaponStats.rangeLevel < maxUpgradeLevels) {
+				transform.FindChild("E").GetComponentInChildren<Text>().text = "$" + ((currentWeaponStats.rangeLevel + 1) * baseUpgradeCost);
+				transform.FindChild("E").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
+			}			
+			if(currentWeaponStats.speedLevel < maxUpgradeLevels) {
+				transform.FindChild("S").GetComponentInChildren<Text>().text = "$" + ((currentWeaponStats.speedLevel + 1) * baseUpgradeCost);
+				transform.FindChild("S").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.speedLevel];
+			}
 		}
 	}
 	
@@ -43,48 +50,74 @@ public class UI_UpgradeRadial : MonoBehaviour {
 	}
 
 	public void UpgradeRange() {
-		if(connectedZone && currentWeaponStats.rangeLevel < maxUpgradeLevels - 1) {
+		if(connectedZone && currentWeaponStats.rangeLevel < maxUpgradeLevels) {
+			if(baseRange < 0) baseRange = currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
 			//charge player cost of upgrade
 			int cost = baseUpgradeCost * (currentWeaponStats.rangeLevel + 1);  //upgrade cost = baseUpgradeCost * next upgrade level
-			if(GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+			if(GameManager.instance.GetPlayerTotalCurrency() <= cost) return;
 			GameManager.instance.PlayerCurrencyTransaction (-cost);
 			//upgrade weapon
 			currentWeaponStats.rangeLevel++;
-			float temp = currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
-			currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = temp * (1 + ((currentWeaponStats.rangeLevel + 1) * currentWeaponStats.rangeIncrease));
+			currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = baseRange * (1 + ((currentWeaponStats.rangeLevel) * currentWeaponStats.rangeIncrease));
+			//increase weapon worth
 			currentWeaponStats.costCurrency += cost;
-			transform.FindChild("E").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.rangeLevel + 1));
-			transform.FindChild("E").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
+			if(currentWeaponStats.rangeLevel == maxUpgradeLevels) {
+				transform.FindChild("E").GetComponentInChildren<Text>().text = "MAX";
+				transform.FindChild("E").GetComponentInChildren<Button>().interactable = false;
+			}
+			else {
+				transform.FindChild("E").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.rangeLevel + 1));
+				transform.FindChild("E").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
+			}
 		}
 	}
 	
 	public void UpgradeDamage() {
-		if(connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels - 1) {
+		if(connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels) {
 			//charge player cost of upgrade
 			int cost = baseUpgradeCost * (currentWeaponStats.damageLevel + 1);  //upgrade cost = baseUpgradeCost * next upgrade level
-			if(GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+			if(GameManager.instance.GetPlayerTotalCurrency() <= cost) return;
 			GameManager.instance.PlayerCurrencyTransaction (-cost);
 			//upgrade weapon
 			currentWeaponStats.damageLevel++;
-			currentWeaponStats.damage = currentWeaponStats.damage * (1 + (int)((currentWeaponStats.damageLevel + 1) * currentWeaponStats.damageIncrease));
+			currentWeaponStats.damage = currentWeaponStats.baseDamage * (1 + (int)((currentWeaponStats.damageLevel) * currentWeaponStats.damageIncrease));
+			//increase weapon worth
 			currentWeaponStats.costCurrency += cost;
-			transform.FindChild("N").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.damageLevel + 1));
-			transform.FindChild("N").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.damageLevel];
+			if(currentWeaponStats.damageLevel == maxUpgradeLevels) {
+				transform.FindChild("N").GetComponentInChildren<Text>().text = "MAX";
+				transform.FindChild("N").GetComponentInChildren<Button>().interactable = false;
+			}
+			else {
+				transform.FindChild("N").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.damageLevel + 1));
+				transform.FindChild("N").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.damageLevel];
+			}
 		}
 	}
 	
 	public void UpgradeSpeed() {
-		if(connectedZone && currentWeaponStats.speedLevel < maxUpgradeLevels - 1) {
+		if(connectedZone && currentWeaponStats.speedLevel < maxUpgradeLevels) {
+			if(baseRotSpd < 0 || baseShotDelay < 0) {
+				baseRotSpd = currentWeaponStats.rotationSpeed;
+				baseShotDelay = currentWeaponStats.shotDelay;
+			}
 			//charge player cost of upgrade
 			int cost = baseUpgradeCost * (currentWeaponStats.speedLevel + 1);  //upgrade cost = baseUpgradeCost * next upgrade level
-			if(GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+			if(GameManager.instance.GetPlayerTotalCurrency() <= cost) return;
 			GameManager.instance.PlayerCurrencyTransaction (-cost);
 			//upgrade weapon
 			currentWeaponStats.speedLevel++;
-			currentWeaponStats.rotationSpeed = currentWeaponStats.rotationSpeed * (1 + (int)((currentWeaponStats.speedLevel + 1) * currentWeaponStats.speedIncrease));
+			currentWeaponStats.rotationSpeed = baseRotSpd * (1 + ((currentWeaponStats.speedLevel) * currentWeaponStats.speedIncrease));
+			currentWeaponStats.shotDelay = baseShotDelay * (1 + ((currentWeaponStats.speedLevel) * -currentWeaponStats.speedIncrease));
+			//increase weapon worth
 			currentWeaponStats.costCurrency += cost;
-			transform.FindChild("S").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.speedLevel + 1));
-			transform.FindChild("S").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.speedLevel];
+			if(currentWeaponStats.speedLevel == maxUpgradeLevels) {
+				transform.FindChild("S").GetComponentInChildren<Text>().text = "MAX";
+				transform.FindChild("S").GetComponentInChildren<Button>().interactable = false;
+			}
+			else {
+				transform.FindChild("S").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost * (currentWeaponStats.speedLevel + 1));
+				transform.FindChild("S").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.speedLevel];
+			}
 		}
 	}
 }
