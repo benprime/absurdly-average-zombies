@@ -104,10 +104,19 @@ public class Turret : MonoBehaviour {
 		}
 
 		// once we pick a target, we stick to it until it is dead or leaves the detection area
-		if (!target) {
+		// except for the flamethrower, which tries to get all nearby units on fire
+		// TODO: Find a cleaner way to determine if this turret is a flamethrower
+		Fireball_Behavior fb = this.bulletPrefab.GetComponent<Fireball_Behavior> ();
+		if (fb) {
+			target = zombiesInRange.OrderBy(x => x.GetComponent<Zombie>().fireDamage).First().transform;
+		}
+		// everything else locks onto one guy and tries to kill him
+		else if (!target) {
 			// grab the closest zombie
 			target = zombiesInRange.OrderBy(x => Vector3.Distance(x.transform.position, this.transform.position)).First().transform;
 		}
+
+
 
 		// rotate toward the target
 		float step = rotationSpeed * Time.deltaTime;
