@@ -36,6 +36,7 @@ public class BuildZone : MonoBehaviour {
 				currentHub.transform.SetParent(uiCanvas, false);
 				currentHub.transform.position = location;
 				currentHub.GetComponent<UI_UpgradeRadial>().connectedZone = this;
+				currentHub.GetComponent<UI_UpgradeRadial>().InitRadial ();
 				menuOpen = true;
 				currentWeapon.transform.FindChild ("DetectionZone").GetComponent<SpriteRenderer>().enabled = true;
 			}

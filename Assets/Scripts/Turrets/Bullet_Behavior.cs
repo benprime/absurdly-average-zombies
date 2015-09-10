@@ -6,6 +6,7 @@ public class Bullet_Behavior : MonoBehaviour {
 	public Vector3 startPos;
 	public float range;
 
+
 	protected int damage;
 
 
