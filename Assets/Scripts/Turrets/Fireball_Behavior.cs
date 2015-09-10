@@ -26,7 +26,8 @@ public class Fireball_Behavior : Bullet_Behavior {
 		if(other.tag == "enemy") {
 			Zombie z = other.gameObject.GetComponent<Zombie>();
 
-			z.TakeDamage(this.damage);
+			// Fireballs now do no base damage... only damage over time
+			//z.TakeDamage(this.damage);
 			z.CatchFire();
 
 			//other.SendMessage("TakeDamage", this.damage);

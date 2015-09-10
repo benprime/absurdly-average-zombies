@@ -22,12 +22,12 @@ public class Zombie : MonoBehaviour {
 
 	// These may get moved to a more appropriate location
 	public float flameDamageInterval = 1f;
-	public int fireDamage = 1;
+	public int fireDamage = 0;
 	private float nextFlameDamageTime = 0f;
 
 	public ParticleSystem bloodParticleSystem;
 
-	private bool onFire = false;
+	public bool onFire = false;
 
 	public ZombieState zombieState;
 
@@ -79,6 +79,14 @@ public class Zombie : MonoBehaviour {
 			if (Time.time > nextFlameDamageTime) {
 				nextFlameDamageTime += this.flameDamageInterval;
 				this.TakeDamage(this.fireDamage);
+				this.fireDamage--;
+				if(this.fireDamage == 0)
+				{
+					ParticleSystem ps = this.GetComponent<ParticleSystem> ();
+					ps.Stop();
+
+					this.onFire = false;
+				}
 			}
 		}
 		if (this.hitPoints <= 0) {
@@ -165,8 +173,18 @@ public class Zombie : MonoBehaviour {
 
 	public void CatchFire()
 	{
+		// getting hit by another fireball will always reset the damage to 4
+		this.fireDamage = 4;
+
+		// we only reset the flame damage timer if we weren't
+		// already on fire.
+		if (!this.onFire) {
+			this.nextFlameDamageTime = Time.time;
+		}
+		
 		this.onFire = true;
-		this.nextFlameDamageTime = Time.time;
+
+		// start the flame particle effect
 		ParticleSystem ps = this.GetComponent<ParticleSystem> ();
 		ps.Play ();
 	}
