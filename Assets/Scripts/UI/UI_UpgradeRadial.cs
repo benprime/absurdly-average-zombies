@@ -12,6 +12,22 @@ public class UI_UpgradeRadial : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		//NEEDS WORK BAD!!!!!!!!!!!!!!!!!!!!
+
+
+		//float moveX = 0, moveY = 0;
+		//Vector3 posVS = Camera.main.WorldToScreenPoint (transform.position);
+		//float leftX =  posVS.x - 118;  //TODO: half of the radial menu size (probably not static...)
+		//float rightX =  posVS.x + 118;
+		//float bottomY =  posVS.y - 118;
+		//float topY =  posVS.y + 118;
+		//if(leftX < 0) moveX = 0 - leftX;
+		//else if(rightX > 1) moveX = 1 - rightX;
+		//if(bottomY < 0) moveY = 0 - bottomY;
+		//else if(topY > 1) moveY = 1 - topY;
+		//posVS = new Vector3(posVS.x + moveX, posVS.y + moveY, posVS.z);
+		//transform.position = Camera.main.ViewportToWorldPoint(posVS);
 	}
 	
 	// Update is called once per frame
