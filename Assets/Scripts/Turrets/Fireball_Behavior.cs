@@ -28,7 +28,7 @@ public class Fireball_Behavior : Bullet_Behavior {
 
 			// Fireballs now do no base damage... only damage over time
 			//z.TakeDamage(this.damage);
-			z.CatchFire();
+			z.CatchFire(this.damage);
 
 			//other.SendMessage("TakeDamage", this.damage);
 			//other.SendMessage("CatchFire");

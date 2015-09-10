@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77346066df98844c92809644e6baa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_totalCurrency: 20
+  player_totalCurrency: 222
   selectedObjToBuild: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   menu: 0
 --- !u!114 &11483940
@@ -88,7 +88,7 @@ Prefab:
       objectReference: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
     - target: {fileID: 0}
       propertyPath: player_totalCurrency
-      value: 20
+      value: 222
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

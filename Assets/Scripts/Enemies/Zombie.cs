@@ -189,6 +189,24 @@ public class Zombie : MonoBehaviour {
 		ps.Play ();
 	}
 
+	public void CatchFire(int dmg) {
+		
+		// getting hit by another fireball will always reset the damage to 4
+		this.fireDamage = dmg;
+		
+		// we only reset the flame damage timer if we weren't
+		// already on fire.
+		if (!this.onFire) {
+			this.nextFlameDamageTime = Time.time;
+		}
+		
+		this.onFire = true;
+		
+		// start the flame particle effect
+		ParticleSystem ps = this.GetComponent<ParticleSystem> ();
+		ps.Play ();
+	}
+
 	private void GeneratePopUpNumber(string txt, Color txtCol, bool largeText) {		
 		GameObject pop = Instantiate (popNums) as GameObject;
 		pop.transform.position = transform.position;
