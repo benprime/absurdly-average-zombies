@@ -191,7 +191,7 @@ public class Zombie : MonoBehaviour {
 
 	public void CatchFire(int dmg) {
 		
-		// getting hit by another fireball will always reset the damage to 4
+		// getting hit by another fireball will always reset the damage to the function parameter
 		this.fireDamage = dmg;
 		
 		// we only reset the flame damage timer if we weren't
