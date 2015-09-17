@@ -35,6 +35,7 @@ public class WaveGenerator : MonoBehaviour
 	private UI_WaveMessages messageBoard;
 	private Text waveMessageText;
 	private Text countDownText;
+    public int startingMoney;
 
 	IEnumerator SpawnLoop()
 	{
@@ -113,8 +114,9 @@ public class WaveGenerator : MonoBehaviour
 	{
 		this.countDownText = GameObject.Find ("CountDown").GetComponent<Text>();
 		this.waveMessageText = GameObject.Find ("WaveMessageBox").GetComponent<Text>();
+        GameManager.instance.player_totalCurrency = startingMoney;
 
-		StartCoroutine(SpawnLoop());
+        StartCoroutine(SpawnLoop());
 	}
 
 	void Update()

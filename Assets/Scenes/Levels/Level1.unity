@@ -317,6 +317,7 @@ MonoBehaviour:
     delayBeforeWave: 5
     beforeMessage: Get ready for final wave!
     afterMessage: Wave complete!
+  startingMoney: 20
 --- !u!4 &421346782
 Transform:
   m_ObjectHideFlags: 0
