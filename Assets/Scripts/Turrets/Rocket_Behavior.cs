@@ -23,8 +23,15 @@ public class Rocket_Behavior : Bullet_Behavior {
 	protected override void OnTriggerEnter2D (Collider2D other) {
 		if(other.tag == "enemy") {
 			GameObject blast = Instantiate(this.bombBlast, other.transform.position, Quaternion.identity) as GameObject;
-			blast.GetComponent<BombBlast>().damage = this.damage;
-			//other.SendMessage("TakeDamage", this.damage);
+
+            // this script is used for tarblasts also, which don't have damage... littl hacky, but whatevs
+            BombBlast bb = blast.GetComponent<BombBlast>();
+            if(bb)
+            {
+                bb.damage = this.damage;
+            }
+			
+            //other.SendMessage("TakeDamage", this.damage);
 			Destroy (this.gameObject);
 		}
 	}
