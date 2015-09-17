@@ -7,19 +7,19 @@ using System.Linq;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class WaveAction
+public class ZombieConfig
 {
-	public string name;
-	public Transform prefab;
-	public int spawnCount;
-	public float secondsBetweenSpawn;
+    public string name = "ZombieConfig";
+    public GameObject zombiePrefab;
+    public float secondsBetweenSpawn;
+    public int count;
 }
 
 [System.Serializable]
 public class Wave
 {
-	public string name;
-	public List<WaveAction> actions;
+	public string name = "Wave";
+	public List<ZombieConfig> zombies;
 	public float delayBeforeWave;
 	public string beforeMessage;
 	public string afterMessage;
@@ -54,14 +54,14 @@ public class WaveGenerator : MonoBehaviour
 				this.countDownText.enabled = false;
 			}
 
-			foreach(WaveAction A in W.actions)
+			foreach(ZombieConfig zc in W.zombies)
 			{
-				if (A.prefab != null && A.spawnCount > 0)
+				if (zc.zombiePrefab != null && zc.count > 0)
 				{
-					for(int i = 0; i < A.spawnCount; i++)
+					for(int i = 0; i < zc.count; i++)
 					{
-						Instantiate(A.prefab, this.transform.position, Quaternion.identity);
-						yield return new WaitForSeconds(A.secondsBetweenSpawn);
+						Instantiate(zc.zombiePrefab, this.transform.position, Quaternion.identity);
+						yield return new WaitForSeconds(zc.secondsBetweenSpawn);
 					}
 				}
 			}
