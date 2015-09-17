@@ -257,75 +257,87 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Zombies
-    actions:
+  - name: Wave
+    zombies:
     - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 5
+      zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
       secondsBetweenSpawn: 1
+      count: 4
+    - name: 
+      zombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
+      secondsBetweenSpawn: .699999988
+      count: 3
+    - name: 
+      zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      secondsBetweenSpawn: .899999976
+      count: 5
     delayBeforeWave: 5
     beforeMessage: Get Ready!
     afterMessage: All done!
-  - name: Zombies
-    actions:
+  - name: Wave
+    zombies:
     - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 4
-      secondsBetweenSpawn: 1
+      zombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
+      secondsBetweenSpawn: .699999988
+      count: 6
     - name: 
-      prefab: {fileID: 463838, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
-      spawnCount: 3
-      secondsBetweenSpawn: .5
+      zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      secondsBetweenSpawn: .899999976
+      count: 5
+    - name: 
+      zombiePrefab: {fileID: 185498, guid: 4eeafa065dcfb114189dd14a242e2bed, type: 2}
+      secondsBetweenSpawn: 1.29999995
+      count: 3
+    - name: 
+      zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      secondsBetweenSpawn: .899999976
+      count: 4
+    - name: 
+      zombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
+      secondsBetweenSpawn: .600000024
+      count: 6
     delayBeforeWave: 5
     beforeMessage: Get ready for wave 2!
     afterMessage: Wave complete!
-  - name: Zombies
-    actions:
+  - name: Wave
+    zombies:
     - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 4
-      secondsBetweenSpawn: 1
+      zombiePrefab: {fileID: 185498, guid: 4eeafa065dcfb114189dd14a242e2bed, type: 2}
+      secondsBetweenSpawn: 1.29999995
+      count: 6
     - name: 
-      prefab: {fileID: 491624, guid: 4eeafa065dcfb114189dd14a242e2bed, type: 2}
-      spawnCount: 2
-      secondsBetweenSpawn: 1.5
+      zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      secondsBetweenSpawn: .899999976
+      count: 6
     - name: 
-      prefab: {fileID: 463838, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
-      spawnCount: 2
-      secondsBetweenSpawn: .5
-    - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 2
-      secondsBetweenSpawn: 1
+      zombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
+      secondsBetweenSpawn: .600000024
+      count: 8
     delayBeforeWave: 5
     beforeMessage: Get ready for wave 3!
     afterMessage: Wave complete!
-  - name: Zombies
-    actions:
+  - name: Wave
+    zombies:
     - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 2
-      secondsBetweenSpawn: 1
+      zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      secondsBetweenSpawn: .800000012
+      count: 8
     - name: 
-      prefab: {fileID: 463838, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
-      spawnCount: 3
+      zombiePrefab: {fileID: 185498, guid: 4eeafa065dcfb114189dd14a242e2bed, type: 2}
+      secondsBetweenSpawn: 1.20000005
+      count: 8
+    - name: 
+      zombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
       secondsBetweenSpawn: .5
+      count: 6
     - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 3
-      secondsBetweenSpawn: 1
+      zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
+      secondsBetweenSpawn: .800000012
+      count: 8
     - name: 
-      prefab: {fileID: 491624, guid: 4eeafa065dcfb114189dd14a242e2bed, type: 2}
-      spawnCount: 3
-      secondsBetweenSpawn: 1.5
-    - name: 
-      prefab: {fileID: 463838, guid: b2a85371361e23a4c973427349d22478, type: 2}
-      spawnCount: 3
-      secondsBetweenSpawn: 1
-    - name: 
-      prefab: {fileID: 463838, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
-      spawnCount: 4
-      secondsBetweenSpawn: .5
+      zombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
+      secondsBetweenSpawn: .699999988
+      count: 5
     delayBeforeWave: 5
     beforeMessage: Get ready for final wave!
     afterMessage: Wave complete!
@@ -384,6 +396,14 @@ Prefab:
     - target: {fileID: 11454784, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: barOffset
       value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
+      propertyPath: maxHitPoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
+      propertyPath: currentHitPoints
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
