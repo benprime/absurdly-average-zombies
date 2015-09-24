@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11472086}
   - 198: {fileID: 19829588}
   - 199: {fileID: 19929134}
+  - 95: {fileID: 9548224}
   m_Layer: 10
   m_Name: Zombie_FastWeak
   m_TagString: enemy
@@ -31,7 +32,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 472654}
   - 212: {fileID: 21233186}
-  - 95: {fileID: 9553894}
   m_Layer: 0
   m_Name: zombieFastWeak_shoulders
   m_TagString: Untagged
@@ -41,7 +41,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &171770
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -57,7 +57,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &172866
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -73,7 +73,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &183592
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -94,11 +94,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183592}
   m_LocalRotation: {x: 0, y: 0, z: .180787086, w: -.983522296}
-  m_LocalPosition: {x: -.00200000009, y: .0340000018, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.00222206116, y: .0377777554, z: 0}
+  m_LocalScale: {x: 1.11111128, y: 1.11111116, z: 1}
   m_Children: []
-  m_Father: {fileID: 472654}
-  m_RootOrder: 0
+  m_Father: {fileID: 463838}
+  m_RootOrder: 1
 --- !u!4 &457996
 Transform:
   m_ObjectHideFlags: 1
@@ -106,11 +106,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .217999995, y: .0890000015, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .242222697, y: .0988888815, z: 0}
+  m_LocalScale: {x: 1.11111116, y: 1.11111116, z: 1}
   m_Children: []
-  m_Father: {fileID: 472654}
-  m_RootOrder: 2
+  m_Father: {fileID: 463838}
+  m_RootOrder: 3
 --- !u!4 &463838
 Transform:
   m_ObjectHideFlags: 1
@@ -118,10 +118,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.78999996, y: -.952213526, z: 0}
+  m_LocalPosition: {x: -12.0651178, y: -1.03293228, z: 0}
   m_LocalScale: {x: .899999976, y: .899999976, z: 1}
   m_Children:
   - {fileID: 472654}
+  - {fileID: 441370}
+  - {fileID: 496534}
+  - {fileID: 457996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &472654
@@ -133,10 +136,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.11111116, y: 1.11111116, z: 1}
-  m_Children:
-  - {fileID: 441370}
-  - {fileID: 496534}
-  - {fileID: 457996}
+  m_Children: []
   m_Father: {fileID: 463838}
   m_RootOrder: 0
 --- !u!4 &496534
@@ -146,11 +146,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171770}
   m_LocalRotation: {x: 0, y: 0, z: .00313362759, w: -.999995112}
-  m_LocalPosition: {x: -.228609771, y: .0579999983, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.254011154, y: .0644444153, z: 0}
+  m_LocalScale: {x: 1.11111116, y: 1.11111104, z: 1}
   m_Children: []
-  m_Father: {fileID: 472654}
-  m_RootOrder: 1
+  m_Father: {fileID: 463838}
+  m_RootOrder: 2
 --- !u!50 &5063908
 Rigidbody2D:
   serializedVersion: 2
@@ -180,13 +180,13 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .419999987
---- !u!95 &9553894
+--- !u!95 &9548224
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132842}
+  m_GameObject: {fileID: 105854}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 57f6121ba4c45e247bbcb002bf98ae03, type: 2}
@@ -220,6 +220,7 @@ MonoBehaviour:
   fireDamage: 1
   bloodParticleSystem: {fileID: 19891776, guid: 4cd1545eea663104f8f76cb32e54769f,
     type: 2}
+  onFire: 0
   zombieState: 0
   direction: {x: 0, y: 0, z: 0}
   currentNodeIndex: 0
