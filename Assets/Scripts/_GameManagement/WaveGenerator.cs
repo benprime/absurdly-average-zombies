@@ -7,19 +7,10 @@ using System.Linq;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class ZombieConfig
-{
-    public string name = "ZombieConfig";
-    public GameObject zombiePrefab;
-    public float secondsBetweenSpawn;
-    public int count;
-}
-
-[System.Serializable]
 public class Wave
 {
+    [HideInInspector]
 	public string name = "Wave";
-	public List<ZombieConfig> zombies;
 	public float delayBeforeWave;
 	public string beforeMessage;
 	public string afterMessage;
@@ -29,48 +20,44 @@ public class Wave
 
 public class WaveGenerator : MonoBehaviour
 {
-	public List<Wave> waves;
+    public int startingMoney;
+    public List<Wave> waves;
 	private Wave m_CurrentWave;
 	public Wave CurrentWave { get {return m_CurrentWave;} }
 	private UI_WaveMessages messageBoard;
 	private Text waveMessageText;
 	private Text countDownText;
-    public int startingMoney;
+    private int currentWaveIndex = 0;
 
-	IEnumerator SpawnLoop()
+    IEnumerator SpawnLoop()
 	{
 		Wave lastWave = waves.Last ();
 		foreach(Wave W in waves)
 		{
 			m_CurrentWave = W;
 
-
+            //Display countdown to wave start
 			if(W.delayBeforeWave > 0)
 			{
 				StartCoroutine(DrawBeforeText(W));
 				yield return new WaitForSeconds(W.delayBeforeWave);
 			}
-			else
-			{
-				this.countDownText.enabled = false;
-			}
+            this.countDownText.enabled = false;
 
-			foreach(ZombieConfig zc in W.zombies)
-			{
-				if (zc.zombiePrefab != null && zc.count > 0)
-				{
-					for(int i = 0; i < zc.count; i++)
-					{
-						Instantiate(zc.zombiePrefab, this.transform.position, Quaternion.identity);
-						yield return new WaitForSeconds(zc.secondsBetweenSpawn);
-					}
-				}
-			}
+            //Spawners start
+            ZombieSpawner[] spawns = FindObjectsOfType<ZombieSpawner>();
+            foreach(ZombieSpawner zs in spawns)
+            {
+                zs.BeginSpawnWave(currentWaveIndex);
+            }
 
-			// wave it not over until all zombies are dead
-			while(FindObjectsOfType<Zombie>().Length > 0)
+            //allow 1 second for spawners to start
+            yield return new WaitForSeconds(1);
+
+            // wave is not over until all zombies are dead
+            while (FindObjectsOfType<Zombie>().Length > 0)
 			{
-				yield return null;
+                yield return null;
 			}
 
 			// If this is the last wave, then the "Level Complete" message will show
@@ -79,15 +66,17 @@ public class WaveGenerator : MonoBehaviour
 			{
 				this.waveMessageText.text = W.afterMessage;
 			}
-			// A wave has complete
-			yield return null;  // prevents crash if all delays are 0
+
+            // A wave has complete
+            currentWaveIndex++;
+            yield return null;  // prevents crash if all delays are 0
 		}
-		// a level is completed
-		this.waveMessageText.enabled = true;
-		this.waveMessageText.text = "Level Complete";
-		GameManager.instance.progressManager.CompleteLevel (Application.loadedLevelName);
-		yield return new WaitForSeconds(3);
-		Application.LoadLevel ("SelectLevel");
+        // a level is completed
+        this.waveMessageText.enabled = true;
+        this.waveMessageText.text = "Level Complete";
+        GameManager.instance.progressManager.CompleteLevel(Application.loadedLevelName);
+        yield return new WaitForSeconds(3);
+        Application.LoadLevel("SelectLevel");
 		yield return null;  // prevents crash if all delays are 0
 	}
 
@@ -112,10 +101,11 @@ public class WaveGenerator : MonoBehaviour
 
 	void Start()
 	{
-		this.countDownText = GameObject.Find ("CountDown").GetComponent<Text>();
-		this.waveMessageText = GameObject.Find ("WaveMessageBox").GetComponent<Text>();
+        this.countDownText = GameObject.Find("CountDown").GetComponent<Text>();
+        this.waveMessageText = GameObject.Find("WaveMessageBox").GetComponent<Text>();
         GameManager.instance.player_totalCurrency = startingMoney;
 
+        currentWaveIndex = 0;
         StartCoroutine(SpawnLoop());
 	}
 
