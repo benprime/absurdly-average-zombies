@@ -10,10 +10,10 @@ using UnityEngine.UI;
 public class Wave
 {
     [HideInInspector]
-	public string name = "Wave";
-	public float delayBeforeWave;
-	public string beforeMessage;
-	public string afterMessage;
+    public string name = "Wave";
+    public float delayBeforeWave;
+    public string beforeMessageHeader;
+    public string beforeMessage;
 }
 
 
@@ -22,31 +22,51 @@ public class WaveGenerator : MonoBehaviour
 {
     public int startingMoney;
     public List<Wave> waves;
-	private Wave m_CurrentWave;
-	public Wave CurrentWave { get {return m_CurrentWave;} }
-	private UI_WaveMessages messageBoard;
-	private Text waveMessageText;
-	private Text countDownText;
+    private Wave m_CurrentWave;
+    public Wave CurrentWave { get { return m_CurrentWave; } }
+    //private UI_WaveMessages messageBoard;
+    private Text waveHeaderText;
+    private Text waveMessageText;
+    private Text countDownText;
+    private GameObject MessagePopup;
     private int currentWaveIndex = 0;
 
+    void ShowMessage(string headerText, string messageText)
+    {
+        this.MessagePopup.SetActive(true);
+
+        this.waveHeaderText.text = headerText;
+        this.waveMessageText.text = messageText;
+    }
+
     IEnumerator SpawnLoop()
-	{
-		Wave lastWave = waves.Last ();
-		foreach(Wave W in waves)
-		{
-			m_CurrentWave = W;
+    {
+        foreach (Wave W in waves)
+        {
+            m_CurrentWave = W;
+
+            if (!string.IsNullOrEmpty(W.beforeMessage))
+            {
+                this.ShowMessage(W.beforeMessageHeader, W.beforeMessage);
+            }
+
+            // do nothing while the popup message is up
+            while(this.MessagePopup.activeSelf)
+            {
+                yield return null;
+            }
 
             //Display countdown to wave start
-			if(W.delayBeforeWave > 0)
-			{
-				StartCoroutine(DrawBeforeText(W));
-				yield return new WaitForSeconds(W.delayBeforeWave);
-			}
+            if (W.delayBeforeWave > 0)
+            {
+                StartCoroutine(DrawBeforeText(W));
+                yield return new WaitForSeconds(W.delayBeforeWave);
+            }
             this.countDownText.enabled = false;
 
             //Spawners start
             ZombieSpawner[] spawns = FindObjectsOfType<ZombieSpawner>();
-            foreach(ZombieSpawner zs in spawns)
+            foreach (ZombieSpawner zs in spawns)
             {
                 zs.BeginSpawnWave(currentWaveIndex);
             }
@@ -56,61 +76,61 @@ public class WaveGenerator : MonoBehaviour
 
             // wave is not over until all zombies are dead
             while (FindObjectsOfType<Zombie>().Length > 0)
-			{
+            {
                 yield return null;
-			}
-
-			// If this is the last wave, then the "Level Complete" message will show
-			// so we don't want the wave complete message showing at the same time
-			if(lastWave != W)
-			{
-				this.waveMessageText.text = W.afterMessage;
-			}
+            }
 
             // A wave has complete
             currentWaveIndex++;
             yield return null;  // prevents crash if all delays are 0
-		}
+        }
+
         // a level is completed
-        this.waveMessageText.enabled = true;
-        this.waveMessageText.text = "Level Complete";
+        this.ShowMessage("Congratulations!", "Level Complete!");
+
+        // do nothing while the popup message is up
+        while (this.MessagePopup.activeSelf)
+        {
+            yield return null;
+        }
+
         GameManager.instance.progressManager.CompleteLevel(Application.loadedLevelName);
-        yield return new WaitForSeconds(3);
+
         Application.LoadLevel("SelectLevel");
-		yield return null;  // prevents crash if all delays are 0
-	}
+        yield return null;  // prevents crash if all delays are 0
+    }
 
-	IEnumerator DrawBeforeText(Wave w)
-	{
-		int delay = (int)w.delayBeforeWave;
-		if (w.beforeMessage != "")
-		{
-			this.waveMessageText.enabled = true;
-			this.waveMessageText.text = w.beforeMessage;
-		}
+    IEnumerator DrawBeforeText(Wave w)
+    {
+        int delay = (int)w.delayBeforeWave;
 
-		this.countDownText.enabled = true;
-		for (int i = delay - 1; i > -1; i--) {
-			this.countDownText.text = i.ToString();
-			yield return new WaitForSeconds(1);
-		}
-		this.countDownText.enabled = false;
-		this.waveMessageText.enabled = false;
-	}
+        this.countDownText.enabled = true;
+        for (int i = delay - 1; i > -1; i--)
+        {
+            this.countDownText.text = i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        this.countDownText.enabled = false;
+    }
 
-
-	void Start()
-	{
+    void Start()
+    {
+        // get references to everything up front
         this.countDownText = GameObject.Find("CountDown").GetComponent<Text>();
-        this.waveMessageText = GameObject.Find("WaveMessageBox").GetComponent<Text>();
+
+        this.MessagePopup = GameObject.Find("MessagePopup");
+
+        this.waveHeaderText = this.MessagePopup.transform.FindChild("HeaderPanel").transform.FindChild("HeaderText").GetComponent<Text>();
+        this.waveMessageText = this.MessagePopup.transform.FindChild("BodyPanel").transform.FindChild("MessageText").GetComponent<Text>();
+
         GameManager.instance.player_totalCurrency = startingMoney;
 
         currentWaveIndex = 0;
         StartCoroutine(SpawnLoop());
-	}
+    }
 
-	void Update()
-	{
-	}
-	
+    void Update()
+    {
+    }
+
 }
