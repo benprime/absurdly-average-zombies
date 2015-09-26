@@ -47,6 +47,7 @@ public class WaveGenerator : MonoBehaviour
 
             if (!string.IsNullOrEmpty(W.beforeMessage))
             {
+                Screen.sleepTimeout = SleepTimeout.SystemSetting;
                 this.ShowMessage(W.beforeMessageHeader, W.beforeMessage);
             }
 
@@ -56,6 +57,7 @@ public class WaveGenerator : MonoBehaviour
                 yield return null;
             }
 
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
             //Display countdown to wave start
             if (W.delayBeforeWave > 0)
             {
@@ -95,7 +97,7 @@ public class WaveGenerator : MonoBehaviour
         }
 
         GameManager.instance.progressManager.CompleteLevel(Application.loadedLevelName);
-
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
         Application.LoadLevel("SelectLevel");
         yield return null;  // prevents crash if all delays are 0
     }

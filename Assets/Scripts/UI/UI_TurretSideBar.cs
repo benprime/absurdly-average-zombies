@@ -31,11 +31,13 @@ public class UI_TurretSideBar : MonoBehaviour {
 	}
 
 	public void ReturnToMenuScreen() {
-		Application.LoadLevel ("MainMenu");
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
+        Application.LoadLevel ("MainMenu");
 	}
 
 	public void ExitGame() {
-		Application.Quit ();
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
+        Application.Quit ();
 	}
 
 }

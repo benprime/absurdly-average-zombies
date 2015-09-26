@@ -15,7 +15,8 @@ public class GameOver : MonoBehaviour {
 	void Update () {
 		timer += Time.deltaTime;
 		if(timer >= waitTime) {
-			Application.LoadLevel (levelToLoad);
+            Screen.sleepTimeout = SleepTimeout.SystemSetting;
+            Application.LoadLevel (levelToLoad);
 		}
 	}
 }
