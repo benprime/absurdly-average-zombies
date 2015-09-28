@@ -664,6 +664,10 @@ Prefab:
       propertyPath: barOffset
       value: .850000024
       objectReference: {fileID: 0}
+    - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
+      propertyPath: gameOverPopup
+      value: 
+      objectReference: {fileID: 102520, guid: 17c5df15bb6d51249b3c31fa6937765a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
   m_IsPrefabParent: 0
@@ -1051,6 +1055,14 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 334206736}
+    - target: {fileID: 160610, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Name
+      value: PopupMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 160610, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
   m_IsPrefabParent: 0

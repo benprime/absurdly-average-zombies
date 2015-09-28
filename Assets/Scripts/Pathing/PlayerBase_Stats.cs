@@ -5,7 +5,7 @@ public class PlayerBase_Stats : MonoBehaviour
 {
     public float maxHitPoints = 100f;
     public float currentHitPoints = 100f;
-    public GameObject destroyMessage;
+    public GameObject gameOverPopup;
     public Sprite noDamage, thirdDamage, twoThirdDamage, destroyed;
 
     // Use this for initialization
@@ -31,9 +31,9 @@ public class PlayerBase_Stats : MonoBehaviour
 
         if (currentHitPoints <= 0)
         {
-            GameObject clone = Instantiate(destroyMessage) as GameObject;
-            Transform uiCanvas = FindObjectOfType<Canvas>().transform;
-            clone.transform.SetParent(uiCanvas, false);
+            GameObject clone = Instantiate(gameOverPopup) as GameObject;
+            //Transform uiCanvas = FindObjectOfType<Canvas>().transform;
+            //clone.transform.SetParent(uiCanvas, false);
             Destroy(hb.healthBar.gameObject);
             gameObject.GetComponent<SpriteRenderer>().sprite = destroyed;
             Destroy(gameObject);  //TODO:  Make the destroyed house stay on ground for game over (possibly use instantiate to leave a plain sprite there)

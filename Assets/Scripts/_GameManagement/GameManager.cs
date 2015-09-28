@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     public ProgressManager progressManager;
 
-
     public int player_totalCurrency = 0;
     public GameObject selectedObjToBuild;
 

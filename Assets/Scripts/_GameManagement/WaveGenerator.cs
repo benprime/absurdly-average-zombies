@@ -28,12 +28,12 @@ public class WaveGenerator : MonoBehaviour
     private Text waveHeaderText;
     private Text waveMessageText;
     private Text countDownText;
-    private GameObject MessagePopup;
+    private GameObject PopupMessage;
     private int currentWaveIndex = 0;
 
     void ShowMessage(string headerText, string messageText)
     {
-        this.MessagePopup.SetActive(true);
+        this.PopupMessage.SetActive(true);
 
         this.waveHeaderText.text = headerText;
         this.waveMessageText.text = messageText;
@@ -52,7 +52,7 @@ public class WaveGenerator : MonoBehaviour
             }
 
             // do nothing while the popup message is up
-            while (this.MessagePopup.activeSelf)
+            while (this.PopupMessage.activeSelf)
             {
                 yield return null;
             }
@@ -91,7 +91,7 @@ public class WaveGenerator : MonoBehaviour
         this.ShowMessage("Congratulations!", "Level Complete!");
 
         // do nothing while the popup message is up
-        while (this.MessagePopup.activeSelf)
+        while (this.PopupMessage.activeSelf)
         {
             yield return null;
         }
@@ -120,10 +120,10 @@ public class WaveGenerator : MonoBehaviour
         // get references to everything up front
         this.countDownText = GameObject.Find("CountDown").GetComponent<Text>();
 
-        this.MessagePopup = GameObject.Find("MessagePopup");
+        this.PopupMessage = GameObject.Find("PopupMessage");
 
-        this.waveHeaderText = this.MessagePopup.transform.FindChild("HeaderPanel").transform.FindChild("HeaderText").GetComponent<Text>();
-        this.waveMessageText = this.MessagePopup.transform.FindChild("BodyPanel").transform.FindChild("MessageText").GetComponent<Text>();
+        this.waveHeaderText = this.PopupMessage.transform.FindChild("HeaderPanel").transform.FindChild("HeaderText").GetComponent<Text>();
+        this.waveMessageText = this.PopupMessage.transform.FindChild("BodyPanel").transform.FindChild("MessageText").GetComponent<Text>();
 
         GameManager.instance.player_totalCurrency = startingMoney;
 

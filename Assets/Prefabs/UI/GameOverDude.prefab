@@ -8,8 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22490956}
-  - 222: {fileID: 22298230}
-  - 114: {fileID: 11405568}
   - 114: {fileID: 11481346}
   m_Layer: 5
   m_Name: GameOverDude
@@ -18,32 +16,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11405568
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .323529422, g: .00237889518, b: .00237889518, a: 1}
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 78
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: GAME OVER DUDE
 --- !u!114 &11481346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,14 +27,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c0bdc3c5f721846b2feb2369608e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 2
-  levelToLoad: MainMenu
---- !u!222 &22298230
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109074}
 --- !u!224 &22490956
 RectTransform:
   m_ObjectHideFlags: 1
