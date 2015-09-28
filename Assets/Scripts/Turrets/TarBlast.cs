@@ -9,7 +9,8 @@ public class TarBlast : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.zombies = new List<GameObject> ();
-	}
+        transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
+    }
 	
 	// Update is called once per frame
 	void Update () {
