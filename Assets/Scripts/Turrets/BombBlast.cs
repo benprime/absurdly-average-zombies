@@ -8,6 +8,7 @@ public class BombBlast : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
     }
 
     // Update is called once per frame
@@ -24,11 +25,8 @@ public class BombBlast : MonoBehaviour
     {
         if (other.tag == "enemy")
         {
-            //Debug.Log ("DAMAGE!");
             Zombie z = other.GetComponent<Zombie>();
             z.TakeDamage(this.damage);
-            //other.SendMessage ("TakeDamage", damage);
-            //Destroy (this.gameObject); //TODO: possibly make blast expand over time
         }
     }
 
