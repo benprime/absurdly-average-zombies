@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ClickToDestroy : MonoBehaviour {
+public class ClickToDestroy : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    // Use this for initialization
+    void Start()
+    {
 
-	void OnMouseUp() {
-		Destroy (gameObject);
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void OnMouseUp()
+    {
+        Destroy(gameObject);
+    }
 }

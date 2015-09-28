@@ -52,7 +52,7 @@ public class WaveGenerator : MonoBehaviour
             }
 
             // do nothing while the popup message is up
-            while(this.MessagePopup.activeSelf)
+            while (this.MessagePopup.activeSelf)
             {
                 yield return null;
             }

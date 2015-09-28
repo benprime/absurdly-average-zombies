@@ -1,43 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UI_TurretSideBar : MonoBehaviour {
-	
-	private GameManager gm;
+public class UI_TurretSideBar : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		gm = FindObjectOfType<GameManager>();	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
-	public void SelectObjectToPlace(GameObject choice) {
-		gm.selectedObjToBuild = choice;
-	}
+    private GameManager gm;
 
-	private bool sb_isOpen = false;
-	public void ToggleSideBar(){
-		if(!sb_isOpen) transform.Translate(-2, 0, 0); //TODO: 126 pixels or whatever size of sidebar is
-		else transform.Translate(2, 0, 0);
-		sb_isOpen = !sb_isOpen;
-	}
+    // Use this for initialization
+    void Start()
+    {
+        gm = FindObjectOfType<GameManager>();
+    }
 
-	public void OpenOptionsMenu() {
-		//Bring up options
-	}
+    // Update is called once per frame
+    void Update()
+    {
 
-	public void ReturnToMenuScreen() {
+    }
+
+    public void SelectObjectToPlace(GameObject choice)
+    {
+        gm.selectedObjToBuild = choice;
+    }
+
+    private bool sb_isOpen = false;
+    public void ToggleSideBar()
+    {
+        if (!sb_isOpen) transform.Translate(-2, 0, 0); //TODO: 126 pixels or whatever size of sidebar is
+        else transform.Translate(2, 0, 0);
+        sb_isOpen = !sb_isOpen;
+    }
+
+    public void OpenOptionsMenu()
+    {
+        //Bring up options
+    }
+
+    public void ReturnToMenuScreen()
+    {
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
-        Application.LoadLevel ("MainMenu");
-	}
+        Application.LoadLevel("MainMenu");
+    }
 
-	public void ExitGame() {
+    public void ExitGame()
+    {
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
-        Application.Quit ();
-	}
+        Application.Quit();
+    }
 
 }

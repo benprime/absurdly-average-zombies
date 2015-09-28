@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZombiePathfinder : Zombie {
+public class ZombiePathfinder : Zombie
+{
 
-	// Use this for initialization
-	protected override void Start ()
-	{
-		base.Start ();
-	}
-	
-	// Update is called once per frame
-	protected override void Update()
-	{
-		base.Update ();
-	}
+    // Use this for initialization
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    // Update is called once per frame
+    protected override void Update()
+    {
+        base.Update();
+    }
 
 }
