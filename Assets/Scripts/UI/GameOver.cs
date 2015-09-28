@@ -32,6 +32,6 @@ public class GameOver : MonoBehaviour
 
     public void BackToMenu()
     {
-        Application.LoadLevel("MainMenu");
+        Application.LoadLevel("SelectLevel");
     }
 }
