@@ -358,7 +358,7 @@ GameObject:
   - 222: {fileID: 22238714}
   - 114: {fileID: 11436348}
   m_Layer: 5
-  m_Name: MessagePopup
+  m_Name: PopupMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
