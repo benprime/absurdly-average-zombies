@@ -5,9 +5,9 @@ public class PopupMessageButton : MonoBehaviour
 {
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-
+        transform.SetAsLastSibling();
     }
 
     // Update is called once per frame
