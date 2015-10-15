@@ -37,8 +37,8 @@ public class Zombie : MonoBehaviour
 
     private GameManager gm;
 
-    protected Path_Create path;
-    public int currentNodeIndex = 0;
+    public ZombiePath path = null;
+    private int currentNodeIndex = 0;
     public float targetCloseness = .5f;
 
     public GameObject popNums;
@@ -48,7 +48,6 @@ public class Zombie : MonoBehaviour
     {
         this.hb = GetComponent<UI_FloatingHealthBar>();
         gm = FindObjectOfType<GameManager>();
-        path = FindObjectOfType<Path_Create>();
 
         this.zombieState = ZombieState.Normal;
         // set travel direction
@@ -106,20 +105,23 @@ public class Zombie : MonoBehaviour
         //this.transform.position += this.direction * this.moveSpeed * Time.deltaTime;
 
         //pathfinding code
-        GameObject currentNode = path.pathNodes[currentNodeIndex];
-        Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
-        this.direction = currentNode.transform.position - transform.position;
-        transform.position = Vector2.MoveTowards(currentPosition, currentNode.transform.position, moveSpeed * Time.deltaTime * this.moveModifier);
-        if (Vector2.Distance(currentPosition, currentNode.transform.position) < targetCloseness)
+        if (path.nodes.Count > 0)
         {
-            if (currentNodeIndex < path.pathNodes.Count - 1) currentNodeIndex++;
-        }
+            GameObject currentNode = path.nodes[currentNodeIndex];
+            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+            this.direction = currentNode.transform.position - transform.position;
+            transform.position = Vector2.MoveTowards(currentPosition, currentNode.transform.position, moveSpeed * Time.deltaTime * this.moveModifier);
+            if (Vector2.Distance(currentPosition, currentNode.transform.position) < targetCloseness)
+            {
+                if (currentNodeIndex < path.nodes.Count - 1) currentNodeIndex++;
+            }
 
-        // reset the transform to the direction, so that when we apply the
-        // sway code, it doesn't become cumulative and do some wonky stuff.
-        // Probably not the best way to handle this, but it's simple for now.
-        // We can re-address this later.
-        this.transform.up = this.direction;
+            // reset the transform to the direction, so that when we apply the
+            // sway code, it doesn't become cumulative and do some wonky stuff.
+            // Probably not the best way to handle this, but it's simple for now.
+            // We can re-address this later.
+            this.transform.up = this.direction;
+        }
 
         Sway();
     }

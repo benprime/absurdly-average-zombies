@@ -38,7 +38,8 @@ public class ZombieSpawner : MonoBehaviour
             {
                 for (int i = 0; i < zc.count; i++)
                 {
-                    Instantiate(zombiePrefab, this.transform.position, Quaternion.identity);
+                    GameObject z = Instantiate(zombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+                    z.GetComponent<Zombie>().path = GetComponentInParent<Path_Create>().path;
                     yield return new WaitForSeconds(zc.secondsBetweenSpawn);
                 }
             }

@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.03000021, y: -.449999988, z: 0}
+  m_LocalPosition: {x: 6.98000002, y: 1.26999998, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 100
   currentHitPoints: 100
-  destroyMessage: {fileID: 109074, guid: 596e37ee304a4d746a398aff1cb325de, type: 2}
+  gameOverPopup: {fileID: 102520, guid: 17c5df15bb6d51249b3c31fa6937765a, type: 2}
   noDamage: {fileID: 21300000, guid: be780b16f1928744094d0ee3b2b0877f, type: 3}
   thirdDamage: {fileID: 21300000, guid: 46f7129b35f34944791d357c40f6cd67, type: 3}
   twoThirdDamage: {fileID: 21300000, guid: 24ad4a4ec4555c545b76b2518bf49b95, type: 3}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 11425372, guid: 6afe7065acce6fc4b98a7256e1c14872, type: 2}
-  barOffset: .5
+  barOffset: .850000024
   healthBar: {fileID: 0}
 --- !u!212 &21235212
 SpriteRenderer:

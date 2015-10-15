@@ -56,6 +56,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 488236}
+  - 212: {fileID: 21299246}
+  - 114: {fileID: 11431936}
   m_Layer: 0
   m_Name: ZombieSpawnCenter
   m_TagString: Untagged
@@ -106,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.115379088, y: .29123798, z: 0}
+  m_LocalPosition: {x: -7.42000008, y: .119999997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 415674}
@@ -114,6 +116,19 @@ Transform:
   - {fileID: 432804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11431936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbd51e5aa35e744d8dc5904c843867d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path:
+    nodes: []
 --- !u!114 &11470946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,9 +147,17 @@ MonoBehaviour:
   - name: 
     zombies: []
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 4
+      count: 0
+    - secondsBetweenSpawn: 1.5
+      count: 2
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 4
+      count: 0
+    - secondsBetweenSpawn: 1.5
+      count: 3
 --- !u!114 &11474834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,11 +174,39 @@ MonoBehaviour:
   - name: 
     zombies: []
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 4
+      count: 0
+    - secondsBetweenSpawn: .699999988
+      count: 4
+    - secondsBetweenSpawn: 2
+      count: 0
+    - secondsBetweenSpawn: .699999988
+      count: 4
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 5
+      count: 0
+    - secondsBetweenSpawn: .699999988
+      count: 2
+    - secondsBetweenSpawn: 4
+      count: 0
+    - secondsBetweenSpawn: .699999988
+      count: 5
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 4
+      count: 0
+    - secondsBetweenSpawn: .600000024
+      count: 2
+    - secondsBetweenSpawn: 7
+      count: 0
+    - secondsBetweenSpawn: .699999988
+      count: 5
+    - secondsBetweenSpawn: 2
+      count: 0
+    - secondsBetweenSpawn: .600000024
+      count: 5
 --- !u!114 &11493158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,13 +221,63 @@ MonoBehaviour:
   zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
   waves:
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 1
+      count: 8
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 1
+      count: 4
+    - secondsBetweenSpawn: 2
+      count: 0
+    - secondsBetweenSpawn: 1
+      count: 4
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 1
+      count: 4
+    - secondsBetweenSpawn: 3
+      count: 0
+    - secondsBetweenSpawn: 1
+      count: 4
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 1
+      count: 4
+    - secondsBetweenSpawn: 4
+      count: 0
+    - secondsBetweenSpawn: 1
+      count: 4
+    - secondsBetweenSpawn: 2
+      count: 0
+    - secondsBetweenSpawn: 1
+      count: 5
+--- !u!212 &21299246
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197178}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -42017311
+  m_SortingOrder: 50
+  m_Sprite: {fileID: 21300000, guid: c399c4aae13a2f141b98dc34af263765, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -187,6 +288,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: waves.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: path.nodes.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: waves.Array.data[0].zombies.Array.size
