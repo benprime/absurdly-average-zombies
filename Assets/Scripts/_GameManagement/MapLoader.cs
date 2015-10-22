@@ -8,12 +8,13 @@ public class MapLoader : MonoBehaviour
 {
 
     public string mapFileName;
-    public Sprite[] tiles;
 
     const uint FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
     const uint FLIPPED_VERTICALLY_FLAG = 0x40000000;
     const uint FLIPPED_DIAGONALLY_FLAG = 0x20000000;
 
+    //private Rect[] srcRects;
+    public Sprite[] tiles;
 
     // Use this for initialization
     void Start()
@@ -23,7 +24,10 @@ public class MapLoader : MonoBehaviour
         gameObject.transform.position = (new Vector3(map.transform.localPosition.x, map.transform.localPosition.y, 0));
 
         // TODO: Maybe someday make this loader take other map formats into account.
-        // for now, we'll make some basic assumptions
+        // for now, we'll make some basic assumptions (single layer 2d orthogonal)
+
+        // Parse map file
+        // -----------------------------------------------------
         TextAsset ta = Resources.Load<TextAsset>(this.mapFileName);
         SimpleJSON.JSONNode rootNode = SimpleJSON.JSON.Parse(ta.text);
 
@@ -33,6 +37,37 @@ public class MapLoader : MonoBehaviour
         int heightInTiles = int.Parse(rootNode["height"]);
         int TileWidth = int.Parse(rootNode["tilewidth"]);
         int TileHeight = int.Parse(rootNode["tileheight"]);
+
+
+        // Load tilesets (assuming just one for now)
+        // -----------------------------------------------------
+        int tilesetTileCount = int.Parse(rootNode["tilesets"][0]["tilecount"]);
+        int tilesetTileWidth = int.Parse(rootNode["tilesets"][0]["tilewidth"]);
+        int tilesetTileHeight = int.Parse(rootNode["tilesets"][0]["tileheight"]);
+        int tilesetImageWidth = int.Parse(rootNode["tilesets"][0]["imagewidth"]);
+        int tilesetImageHeight = int.Parse(rootNode["tilesets"][0]["imageheight"]);
+
+        // get the number of rows/cols in the tileset
+        int colWidth = tilesetImageWidth / tilesetTileWidth;
+        int maxRow = (tilesetImageHeight / tilesetTileHeight) - 1;
+
+        string imageFilename = Path.GetFileNameWithoutExtension(rootNode["tilesets"][0]["image"]);
+        
+        Texture2D tileset = (Texture2D)Resources.Load(imageFilename);
+        //this.srcRects = new Rect[tilesetTileCount];
+        this.tiles = new Sprite[tilesetTileCount];
+
+        // create a sprite array on the fly
+        for (int i = 0; i < tilesetTileCount; i++)
+        {
+            int x = (i % colWidth) * tilesetTileWidth;
+            int y = (maxRow - (i / colWidth)) * tilesetTileHeight;
+
+            Rect srcRect = new Rect(x, y, tilesetTileWidth, tilesetTileHeight);
+            this.tiles[i] = Sprite.Create(tileset, srcRect, new Vector2(0.5f, 0.5f), TileWidth);
+
+        }
+
 
         // save tile size in unity units
         //Vector3 tileSize = Camera.main.ScreenToWorldPoint(new Vector3(TileWidth - 20, TileHeight - 20, 0f));
@@ -65,21 +100,22 @@ public class MapLoader : MonoBehaviour
                 // remove all the flags so we just get the normal gid back
                 ulong gid = raw_gid & ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG);
 
+                
 
                 // grab the prefab tile based on gid
-                GameObject tilePrefab = new GameObject();// tiles[gid - 1];
+                GameObject tile = new GameObject("Tile");// tiles[gid - 1];
                 //SpriteRenderer sr = tilePrefab.AddComponent<SpriteRenderer>();
                 //sr.sprite = tiles[gid - 1];
+                tile.transform.position = new Vector3(x - x_adjust, y - y_adjust);
+                //GameObject instance = Instantiate(tilePrefab, new Vector3(x - x_adjust, y - y_adjust), Quaternion.identity) as GameObject;
+                tile.layer = 8; // terrain layer
+                SpriteRenderer sr = tile.AddComponent<SpriteRenderer>();
+                sr.sortingLayerName = "Background";
+                sr.sprite = tiles[gid-1];
 
-                GameObject instance = Instantiate(tilePrefab, new Vector3(x - x_adjust, y - y_adjust), Quaternion.identity) as GameObject;
-                instance.layer = 8; // terrain layer
-                SpriteRenderer sr = instance.AddComponent<SpriteRenderer>();
-                sr.sprite = tiles[gid - 1];
-
-                Destroy(tilePrefab);
 
                 // handle the rotations and flipping
-                Vector3 scale = instance.transform.localScale;
+                Vector3 scale = tile.transform.localScale;
 
                 if (flip_vertical)
                 {
@@ -93,12 +129,12 @@ public class MapLoader : MonoBehaviour
 
                 if (flip_diagonal)
                 {
-                    instance.transform.Rotate(0, 0, 270);
+                    tile.transform.Rotate(0, 0, 270);
                     scale.x *= -1;
                 }
 
-                instance.transform.localScale = scale;
-                instance.transform.SetParent(map.transform);
+                tile.transform.localScale = scale;
+                tile.transform.SetParent(map.transform);
             }
         }
     }
