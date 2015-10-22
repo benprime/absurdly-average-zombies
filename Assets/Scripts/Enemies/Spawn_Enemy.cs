@@ -25,7 +25,8 @@ public class Spawn_Enemy : MonoBehaviour
         {
             if (spawnReady)
             {
-                Instantiate(prefab, this.transform.position, Quaternion.identity);
+                GameObject z = Instantiate(prefab, this.transform.position, Quaternion.identity) as GameObject;
+                z.GetComponent<Zombie>().path = GetComponent<Path_Create>().path;
                 spawnReady = false;
                 spawnDelay = Random.Range(spawnDelayMin, spawnDelayMax);
                 numSpawned++;

@@ -8,7 +8,7 @@ public class MapLoader : MonoBehaviour
 {
 
     public string mapFileName;
-    public GameObject[] tiles;
+    public Sprite[] tiles;
 
     const uint FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
     const uint FLIPPED_VERTICALLY_FLAG = 0x40000000;
@@ -20,7 +20,7 @@ public class MapLoader : MonoBehaviour
     {
         GameObject map = GameObject.Find("Map");
 
-        gameObject.transform.Translate(new Vector3(map.transform.localPosition.x, map.transform.localPosition.y, 0));
+        gameObject.transform.position = (new Vector3(map.transform.localPosition.x, map.transform.localPosition.y, 0));
 
         // TODO: Maybe someday make this loader take other map formats into account.
         // for now, we'll make some basic assumptions
@@ -67,7 +67,7 @@ public class MapLoader : MonoBehaviour
 
 
                 // grab the prefab tile based on gid
-                GameObject tilePrefab = tiles[gid - 1];
+                Sprite tilePrefab = tiles[gid - 1];
 
                 GameObject instance = Instantiate(tilePrefab, new Vector3(x - x_adjust, y - y_adjust), Quaternion.identity) as GameObject;
                 instance.layer = 8; // terrain layer
