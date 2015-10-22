@@ -67,10 +67,14 @@ public class MapLoader : MonoBehaviour
 
 
                 // grab the prefab tile based on gid
-                Sprite tilePrefab = tiles[gid - 1];
+                GameObject tilePrefab = new GameObject();// tiles[gid - 1];
+                //SpriteRenderer sr = tilePrefab.AddComponent<SpriteRenderer>();
+                //sr.sprite = tiles[gid - 1];
 
                 GameObject instance = Instantiate(tilePrefab, new Vector3(x - x_adjust, y - y_adjust), Quaternion.identity) as GameObject;
                 instance.layer = 8; // terrain layer
+                SpriteRenderer sr = instance.AddComponent<SpriteRenderer>();
+                sr.sprite = tiles[gid - 1];
 
                 // handle the rotations and flipping
                 Vector3 scale = instance.transform.localScale;

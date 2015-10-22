@@ -190,7 +190,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 88057274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
@@ -236,7 +236,6 @@ MonoBehaviour:
   mapFileName: Level0101
   tiles:
   - {fileID: 21300000, guid: 46fd4b0924bac7746ac8f187090056e8, type: 3}
-  - {fileID: 21300000, guid: 8c3ab424e6922e04db3cb2970dedd434, type: 3}
   - {fileID: 21300000, guid: 44f754b82c017c3438045486d1f64712, type: 3}
   - {fileID: 21300000, guid: 2379f783b727024458355d2ca4f84433, type: 3}
   - {fileID: 21300000, guid: 90e1bc3853de9c3429d24e99de828c3d, type: 3}
@@ -249,6 +248,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c772b8d7ac1871b49ad2e17ce8e5a4ce, type: 3}
   - {fileID: 21300000, guid: f615f69b7ff6ca84fad465bb7c80b963, type: 3}
   - {fileID: 21300000, guid: 079a5325ac14aff4eb615679e6667211, type: 3}
+  - {fileID: 21300000, guid: 8c3ab424e6922e04db3cb2970dedd434, type: 3}
 --- !u!1 &170011677 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 167918, guid: 7f430c9dc20a9ad4098ee5c494ca7453, type: 2}
