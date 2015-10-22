@@ -76,6 +76,8 @@ public class MapLoader : MonoBehaviour
                 SpriteRenderer sr = instance.AddComponent<SpriteRenderer>();
                 sr.sprite = tiles[gid - 1];
 
+                Destroy(tilePrefab);
+
                 // handle the rotations and flipping
                 Vector3 scale = instance.transform.localScale;
 
