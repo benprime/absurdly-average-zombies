@@ -8,6 +8,7 @@ public class MapLoader : MonoBehaviour
 {
 
     public string mapFileName;
+    public string tilesetFileName;
 
     const uint FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
     const uint FLIPPED_VERTICALLY_FLAG = 0x40000000;
@@ -54,7 +55,8 @@ public class MapLoader : MonoBehaviour
 
         string imageFilename = Path.GetFileNameWithoutExtension(rootNode["tilesets"][0]["image"]);
         
-        Texture2D tileset = (Texture2D)Resources.Load(imageFilename);
+        //Texture2D tileset = (Texture2D)Resources.Load(imageFilename);
+        Texture2D tileset = (Texture2D)Resources.Load(tilesetFileName);
         //this.srcRects = new Rect[tilesetTileCount];
         this.tiles = new Sprite[tilesetTileCount];
 
