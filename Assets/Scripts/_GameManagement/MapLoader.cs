@@ -14,6 +14,7 @@ public class MapLoader : MonoBehaviour
     const uint FLIPPED_DIAGONALLY_FLAG = 0x20000000;
 
     //private Rect[] srcRects;
+    [HideInInspector]
     public Sprite[] tiles;
 
     // Use this for initialization
