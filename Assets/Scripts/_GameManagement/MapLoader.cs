@@ -6,7 +6,6 @@ using System.Collections;
 
 public class MapLoader : MonoBehaviour
 {
-
     public string mapFileName;
     public string tilesetFileName;
 
@@ -14,13 +13,13 @@ public class MapLoader : MonoBehaviour
     const uint FLIPPED_VERTICALLY_FLAG = 0x40000000;
     const uint FLIPPED_DIAGONALLY_FLAG = 0x20000000;
 
-    //private Rect[] srcRects;
     [HideInInspector]
     public Sprite[] tiles;
 
     // Use this for initialization
     void Start()
     {
+
         GameObject map = GameObject.Find("Map");
 
         gameObject.transform.position = (new Vector3(map.transform.localPosition.x, map.transform.localPosition.y, 0));
@@ -55,9 +54,7 @@ public class MapLoader : MonoBehaviour
 
         string imageFilename = Path.GetFileNameWithoutExtension(rootNode["tilesets"][0]["image"]);
         
-        //Texture2D tileset = (Texture2D)Resources.Load(imageFilename);
         Texture2D tileset = (Texture2D)Resources.Load(tilesetFileName);
-        //this.srcRects = new Rect[tilesetTileCount];
         this.tiles = new Sprite[tilesetTileCount];
 
         // create a sprite array on the fly
@@ -70,10 +67,6 @@ public class MapLoader : MonoBehaviour
             this.tiles[i] = Sprite.Create(tileset, srcRect, new Vector2(0.5f, 0.5f), TileWidth);
 
         }
-
-
-        // save tile size in unity units
-        //Vector3 tileSize = Camera.main.ScreenToWorldPoint(new Vector3(TileWidth - 20, TileHeight - 20, 0f));
 
         int dataIndex = 0;
 
@@ -92,6 +85,7 @@ public class MapLoader : MonoBehaviour
                     Debug.Log("Missing tile data @ x: " + x.ToString() + ", y: " + y.ToString());
                     continue;
                 }
+
                 // get the gid that may contain bit shifts
                 uint raw_gid = uint.Parse(gid_string);
 
@@ -103,14 +97,10 @@ public class MapLoader : MonoBehaviour
                 // remove all the flags so we just get the normal gid back
                 ulong gid = raw_gid & ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG);
 
-                
-
                 // grab the prefab tile based on gid
                 GameObject tile = new GameObject("Tile");// tiles[gid - 1];
-                //SpriteRenderer sr = tilePrefab.AddComponent<SpriteRenderer>();
-                //sr.sprite = tiles[gid - 1];
+                tile.transform.SetParent(map.transform);
                 tile.transform.position = new Vector3(x - x_adjust, y - y_adjust);
-                //GameObject instance = Instantiate(tilePrefab, new Vector3(x - x_adjust, y - y_adjust), Quaternion.identity) as GameObject;
                 tile.layer = 8; // terrain layer
                 SpriteRenderer sr = tile.AddComponent<SpriteRenderer>();
                 sr.sortingLayerName = "Background";
@@ -132,12 +122,23 @@ public class MapLoader : MonoBehaviour
 
                 if (flip_diagonal)
                 {
-                    tile.transform.Rotate(0, 0, 270);
-                    scale.x *= -1;
+                    scale.y *= -1;
+
+                    // TODO: simplify this logic once it is properly understood... WTF anyway
+                    // if both x and y scales are -1 or both are 1, then the rotation must be -270 (or 90)
+                    if (scale.x == scale.y)
+                    {
+                        tile.transform.Rotate(0, 0, -270); // same as 90
+                    }
+                    else
+                    {
+                        // if one is -1 and the other is 1, we rotate 270... brain too tired to think of why the hell this is true
+                        // this was discovered by literally trying every combination of numers... I feel like I don't know math anymore.
+                        tile.transform.Rotate(0, 0, 270);
+                    }
                 }
 
                 tile.transform.localScale = scale;
-                tile.transform.SetParent(map.transform);
             }
         }
     }
