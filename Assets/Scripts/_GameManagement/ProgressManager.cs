@@ -61,6 +61,96 @@ public class ProgressManager
             Locked = true,
             Completed = false
         });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level6",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level7",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level8",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level9",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level10",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level11",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level12",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level13",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level14",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level15",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level16",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level17",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level18",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level19",
+            Locked = true,
+            Completed = false
+        });
+        this.LevelProgress.Add(new LevelProgressData()
+        {
+            LevelName = "Level20",
+            Locked = true,
+            Completed = false
+        });
     }
 
     public ProgressManager()
