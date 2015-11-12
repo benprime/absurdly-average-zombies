@@ -423,6 +423,8 @@ MonoBehaviour:
     delayBeforeWave: 5
     beforeMessageHeader: 
     beforeMessage: Get ready for final wave!
+  levelMusic: {fileID: 8300000, guid: af3c00751c844264488b39544f096446, type: 3}
+  menuMusic: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
 --- !u!4 &421346782
 Transform:
   m_ObjectHideFlags: 0

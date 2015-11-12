@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     // true if a level that require all "normal" game level code
     public bool menu;
+	public AudioClip menuMusic;
 
 
     //Awake is always called before any Start functions

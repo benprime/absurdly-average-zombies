@@ -30,6 +30,7 @@ public class WaveGenerator : MonoBehaviour
     private Text countDownText;
     private GameObject PopupMessage;
     private int currentWaveIndex = 0;
+	public AudioClip levelMusic;
 
     void ShowMessage(string headerText, string messageText)
     {
@@ -97,7 +98,9 @@ public class WaveGenerator : MonoBehaviour
         }
 
         GameManager.instance.progressManager.CompleteLevel(Application.loadedLevelName);
-        Screen.sleepTimeout = SleepTimeout.SystemSetting;
+		Screen.sleepTimeout = SleepTimeout.SystemSetting;
+		GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
+		GameManager.instance.GetComponent<AudioSource>().Play();
         Application.LoadLevel("SelectLevel");
         yield return null;  // prevents crash if all delays are 0
     }
@@ -126,6 +129,10 @@ public class WaveGenerator : MonoBehaviour
         this.waveMessageText = this.PopupMessage.transform.FindChild("BodyPanel").transform.FindChild("MessageText").GetComponent<Text>();
 
         GameManager.instance.player_totalCurrency = startingMoney;
+		if(levelMusic != null || GameManager.instance.GetComponent<AudioSource>().clip != levelMusic) {
+			GameManager.instance.GetComponent<AudioSource>().clip = levelMusic;
+			GameManager.instance.GetComponent<AudioSource>().Play();
+		}
 
         currentWaveIndex = 0;
         StartCoroutine(SpawnLoop());
