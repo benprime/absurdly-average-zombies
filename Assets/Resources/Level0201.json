@@ -26,7 +26,7 @@
          "imageheight":288,
          "imagewidth":480,
          "margin":0,
-         "name":"TileSet_Grass_Paved",
+         "name":"GrassSheet",
          "properties":
             {
 
@@ -35,8 +35,7 @@
          "tilecount":15,
          "tileheight":96,
          "tilewidth":96
-        }],
- "tilewidth":96,
+        }], "tilewidth":96,
  "version":1,
  "width":20
 }
