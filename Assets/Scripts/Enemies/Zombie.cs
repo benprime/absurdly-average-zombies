@@ -186,12 +186,10 @@ public class Zombie : MonoBehaviour
     void OnCollisionStay2D(Collision2D other)
     {
         //damage the buildings/turrets in path
-        /*
         if (other.transform.tag == "Turret" || other.transform.tag == "PlayerBase")
         {
             other.gameObject.SendMessage("TakeDamage", attackDamage * Time.deltaTime);
         }
-        */
     }
 
     public void CatchFire()
