@@ -26,7 +26,8 @@ public class Zombie : MonoBehaviour
     public int fireDamage = 0;
     private float nextFlameDamageTime = 0f;
 
-    public ParticleSystem bloodParticleSystem;
+    public ParticleSystem hitParticleSystem;
+    public ParticleSystem deathParticleSystem;
 
     public bool onFire = false;
 
@@ -147,7 +148,7 @@ public class Zombie : MonoBehaviour
 
         //if(hitPoints <= 0) Destroy (hb.healthBar.gameObject);
         //else {
-        this.GeneratePopUpNumber(amount.ToString(), Color.red, false);
+        //this.GeneratePopUpNumber(amount.ToString(), Color.red, false);
 
         if (hitPoints <= maxHitPoints / 3)
         {
@@ -159,8 +160,10 @@ public class Zombie : MonoBehaviour
         }
         //}
 
-        ParticleSystem localBloodsObj = GameObject.Instantiate(this.bloodParticleSystem, this.transform.position, Quaternion.identity) as ParticleSystem;
-        localBloodsObj.Play();
+        GameObject.Instantiate(this.hitParticleSystem, this.transform.position, Quaternion.identity);
+        //localBloodsObj.transform.rotation = rotation;
+        //localBloodsObj.transform.localRotation 
+        //localBloodsObj.Play();
     }
 
     protected virtual void Die()
@@ -176,34 +179,24 @@ public class Zombie : MonoBehaviour
         Destroy(this.hb.healthBar.gameObject);
 
         Destroy(gameObject);
+
+        GameObject.Instantiate(this.deathParticleSystem, this.transform.position, Quaternion.identity);
     }
 
     void OnCollisionStay2D(Collision2D other)
     {
         //damage the buildings/turrets in path
+        /*
         if (other.transform.tag == "Turret" || other.transform.tag == "PlayerBase")
         {
             other.gameObject.SendMessage("TakeDamage", attackDamage * Time.deltaTime);
         }
+        */
     }
 
     public void CatchFire()
     {
-        // getting hit by another fireball will always reset the damage to 4
-        this.fireDamage = 4;
-
-        // we only reset the flame damage timer if we weren't
-        // already on fire.
-        if (!this.onFire)
-        {
-            this.nextFlameDamageTime = Time.time;
-        }
-
-        this.onFire = true;
-
-        // start the flame particle effect
-        ParticleSystem ps = this.GetComponent<ParticleSystem>();
-        ps.Play();
+        this.CatchFire(4);
     }
 
     public void CatchFire(int dmg)

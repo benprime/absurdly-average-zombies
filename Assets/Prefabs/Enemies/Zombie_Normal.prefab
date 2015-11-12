@@ -218,12 +218,14 @@ MonoBehaviour:
   attackDamage: 10
   flameDamageInterval: 1
   fireDamage: 1
-  bloodParticleSystem: {fileID: 19891776, guid: 4cd1545eea663104f8f76cb32e54769f,
+  hitParticleSystem: {fileID: 19803696, guid: 91bd57fe145b9ba4888ac461fd0ab424, type: 2}
+  deathParticleSystem: {fileID: 19803696, guid: 7335aa53b7655694293879246340dbeb,
     type: 2}
   onFire: 0
   zombieState: 0
   direction: {x: 0, y: 0, z: 0}
-  currentNodeIndex: 0
+  path:
+    nodes: []
   targetCloseness: .100000001
   popNums: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
 --- !u!114 &11440822
@@ -1512,6 +1514,21 @@ Prefab:
       propertyPath: hitPoints
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bloodParticleSystem
+      value: 
+      objectReference: {fileID: 19803696, guid: 91bd57fe145b9ba4888ac461fd0ab424,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: deathParticleSystem
+      value: 
+      objectReference: {fileID: 19803696, guid: 7335aa53b7655694293879246340dbeb,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitParticleSystem
+      value: 
+      objectReference: {fileID: 19803696, guid: 91bd57fe145b9ba4888ac461fd0ab424,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105854}
