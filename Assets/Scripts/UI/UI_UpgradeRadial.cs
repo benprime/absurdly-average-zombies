@@ -10,7 +10,11 @@ public class UI_UpgradeRadial : MonoBehaviour
     public int maxUpgradeLevels = 3;
     public Sprite[] rankSprites;
     private float baseRotSpd = -1f, baseShotDelay = -1f, baseRange = -1f;
-
+	private float timer = 0f;
+	public float buttonHoldDelay = 1f;
+	private bool buttonHeld = false;
+	
+	public Color sellColor = Color.green;
     // Use this for initialization
     void Start()
     {
@@ -35,19 +39,34 @@ public class UI_UpgradeRadial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+		if (buttonHeld && ((Time.time - timer) < buttonHoldDelay)) {
+			Button b = transform.FindChild ("W").GetComponent<Button> ();
+			ColorBlock cb = b.colors;
+			sellColor.g = ((Time.time - timer)/buttonHoldDelay) * .5f;
+			cb.pressedColor = sellColor;
+			b.colors = cb;
+		}
     }
+
+	public void SellDelay()
+	{
+		timer = Time.time;
+		buttonHeld = true;
+	}
 
     public void SellWeapon()
     {
-        if (connectedZone)
-        {
-            int worth = (currentWeaponStats.costCurrency) / 2;  //sell for half of purchase cost
-            GameManager.instance.PlayerCurrencyTransaction(worth);
-            Destroy(connectedZone.currentWeapon);
-            connectedZone.currentState = BuildZone.ZONE_STATE.EMPTY;
-            Destroy(gameObject);
-        }
+		if ((Time.time - timer) >= buttonHoldDelay) {
+			if (connectedZone) {
+				int worth = (currentWeaponStats.costCurrency) / 2;  //sell for half of purchase cost
+				GameManager.instance.PlayerCurrencyTransaction (worth);
+				Destroy (connectedZone.currentWeapon);
+				connectedZone.currentState = BuildZone.ZONE_STATE.EMPTY;
+				Destroy (gameObject);
+			}
+		}
+		timer = 0;
+		buttonHeld = false;
     }
 
     public void UpgradeDamage()

@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 469258}
   - 114: {fileID: 11463774}
-  - 114: {fileID: 11483940}
   - 114: {fileID: 11452974}
   - 82: {fileID: 8203454}
   m_Layer: 5
@@ -42,7 +41,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .683000028
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -126,22 +125,7 @@ MonoBehaviour:
   player_totalCurrency: 222
   selectedObjToBuild: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   menu: 0
---- !u!114 &11483940
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126896}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f193c47cd32b94cb5e2db48779c880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
-  placementIcon: {fileID: 144776, guid: 2290feae3decd9942b9ff5cf35e8efc9, type: 2}
-  openPlace: {r: .0758621693, g: 1, b: 0, a: .494117647}
-  blockPlace: {r: 1, g: 0, b: 0, a: .494117647}
-  snapSize: 1
+  menuMusic: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -173,6 +157,14 @@ Prefab:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: .683000028
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: menuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 126896}
