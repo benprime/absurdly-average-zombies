@@ -71,8 +71,10 @@ public class MapLoader : MonoBehaviour
         int dataIndex = 0;
 
         Vector3 mapSize = GetComponent<Renderer>().bounds.size;
-        float y_adjust = mapSize.y / 2;
-        float x_adjust = mapSize.x / 2;
+        //float y_adjust = mapSize.y / 2;
+		//float x_adjust = mapSize.x / 2;
+		float y_adjust = (mapSize.y / 2) + .36f;
+		float x_adjust = (mapSize.x / 2) + .64f;
 
         // y = 0 has no data?
         for (int y = heightInTiles; y > 0; y--)

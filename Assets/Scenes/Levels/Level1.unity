@@ -424,7 +424,6 @@ MonoBehaviour:
     beforeMessageHeader: 
     beforeMessage: Get ready for final wave!
   levelMusic: {fileID: 8300000, guid: af3c00751c844264488b39544f096446, type: 3}
-  menuMusic: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
 --- !u!4 &421346782
 Transform:
   m_ObjectHideFlags: 0
@@ -929,11 +928,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 459200, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.159999996
+      value: -.360000014
       objectReference: {fileID: 0}
     - target: {fileID: 459200, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .280000001
+      value: .639999986
       objectReference: {fileID: 0}
     - target: {fileID: 459200, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_LocalPosition.z
@@ -958,6 +957,30 @@ Prefab:
     - target: {fileID: 459200, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1922285011
+      objectReference: {fileID: 0}
+    - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
+      propertyPath: m_Color.a
+      value: .291000009
+      objectReference: {fileID: 0}
+    - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
+      propertyPath: m_Color.r
+      value: .544117689
+      objectReference: {fileID: 0}
+    - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
+      propertyPath: m_Color.g
+      value: .568122923
+      objectReference: {fileID: 0}
+    - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
+      propertyPath: m_Color.b
+      value: .568122923
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
