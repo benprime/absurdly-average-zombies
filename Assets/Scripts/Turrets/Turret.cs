@@ -27,6 +27,8 @@ public class Turret : MonoBehaviour
     public float pauseAfterFiring;
     public int baseDamage;
 
+	public AudioClip[] shotSounds;
+
     [HideInInspector]
     public int damage;
 
@@ -35,6 +37,10 @@ public class Turret : MonoBehaviour
     {
         this.animator = GetComponent<Animator>();
         this.damage = this.baseDamage;
+
+		AudioSource aud = GetComponent<AudioSource>();
+		int randSound = Random.Range (0,shotSounds.Count());			
+		aud.clip = shotSounds[randSound];
     }
 
     // Update is called once per frame
@@ -77,6 +83,10 @@ public class Turret : MonoBehaviour
             animator.SetTrigger("Fire");
 
             this.lastShotTime = Time.time;
+
+			AudioSource aud = GetComponent<AudioSource>();
+			aud.Stop();
+			aud.Play();
         }
     }
 
