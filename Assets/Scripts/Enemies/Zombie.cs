@@ -208,13 +208,13 @@ public class Zombie : MonoBehaviour
         if (!this.onFire)
         {
             this.nextFlameDamageTime = Time.time;
+
+            // start the flame particle effect
+            ParticleSystem ps = this.GetComponent<ParticleSystem>();
+            ps.Play();
+
+            this.onFire = true;
         }
-
-        this.onFire = true;
-
-        // start the flame particle effect
-        ParticleSystem ps = this.GetComponent<ParticleSystem>();
-        ps.Play();
     }
 
     private void GeneratePopUpNumber(string txt, Color txtCol, bool largeText)
