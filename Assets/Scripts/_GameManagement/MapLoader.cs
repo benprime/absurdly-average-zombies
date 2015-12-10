@@ -21,6 +21,7 @@ public class MapLoader : MonoBehaviour
     {
 
 		GameObject map = GameObject.Find("Map");
+		GameObject mapTiles = new GameObject();
 
         gameObject.transform.position = (new Vector3(map.transform.localPosition.x, map.transform.localPosition.y, 0));
 
@@ -73,8 +74,8 @@ public class MapLoader : MonoBehaviour
         Vector3 mapSize = GetComponent<Renderer>().bounds.size;
         //float y_adjust = mapSize.y / 2;
 		//float x_adjust = mapSize.x / 2;
-		float y_adjust = (mapSize.y / 2) + .06f;
-		float x_adjust = (mapSize.x / 2) + .30f;
+		float y_adjust = (mapSize.y / 2) + map.transform.position.y;
+		float x_adjust = (mapSize.x / 2) + map.transform.position.x;
 
         // y = 0 has no data?
         for (int y = heightInTiles; y > 0; y--)
@@ -101,12 +102,12 @@ public class MapLoader : MonoBehaviour
 
                 // grab the prefab tile based on gid
                 GameObject tile = new GameObject("Tile");// tiles[gid - 1];
-                tile.transform.SetParent(map.transform);
+				tile.transform.SetParent(mapTiles.transform);
                 tile.transform.position = new Vector3(x - x_adjust, y - y_adjust);
                 tile.layer = 8; // terrain layer
                 SpriteRenderer sr = tile.AddComponent<SpriteRenderer>();
                 sr.sortingLayerName = "Background";
-                sr.sprite = tiles[gid-1];
+				sr.sprite = tiles[gid-1];
 
 
                 // handle the rotations and flipping
@@ -139,8 +140,14 @@ public class MapLoader : MonoBehaviour
                         tile.transform.Rotate(0, 0, 270);
                     }
 				}
+				tile.transform.localScale = scale;
             }
 		}
+		Vector3 offScale = new Vector3 (.95f, .95f, 1f);
+		mapTiles.transform.localScale = offScale;
+		mapTiles.transform.SetParent(map.transform);
+
+
 		Vector3 tempVec = map.transform.localScale;
 		tempVec.x *= .98f;
 		tempVec.y *= .98f;
