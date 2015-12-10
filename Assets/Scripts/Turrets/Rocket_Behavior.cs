@@ -30,14 +30,13 @@ public class Rocket_Behavior : Bullet_Behavior
         {
             GameObject blast = Instantiate(this.bombBlast, other.transform.position, Quaternion.identity) as GameObject;
 
-            // this script is used for tarblasts also, which don't have damage... littl hacky, but whatevs
+            // this script is used for tarblasts also, which don't have damage... little hacky, but whatevs
             BombBlast bb = blast.GetComponent<BombBlast>();
             if (bb)
             {
                 bb.damage = this.damage;
             }
 
-            //other.SendMessage("TakeDamage", this.damage);
             Destroy(this.gameObject);
         }
     }
