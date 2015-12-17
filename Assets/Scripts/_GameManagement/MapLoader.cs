@@ -72,8 +72,8 @@ public class MapLoader : MonoBehaviour
         Vector3 mapSize = GetComponent<Renderer>().bounds.size;
 
         // a little hacky, but lines up the maps with old method (to avoid having to update all the maps)
-        float y_adjust = (mapSize.y / 2) + .06f;
-        float x_adjust = (mapSize.x / 2) + .30f;
+        float y_adjust = (mapSize.y / 2) + .48f;// .28
+        float x_adjust = (mapSize.x / 2) + .06f;//-.16
 
         // y = 0 has no data?
         for (int y = heightInTiles; y > 0; y--)
@@ -141,7 +141,7 @@ public class MapLoader : MonoBehaviour
 				tile.transform.localScale = scale;
             }
 		}
-		Vector3 offScale = new Vector3 (.95f, .95f, 1f);
+		Vector3 offScale = new Vector3 (.96f, .96f, 1f);
 		mapTiles.transform.localScale = offScale;
 		mapTiles.transform.SetParent(map.transform);
 
