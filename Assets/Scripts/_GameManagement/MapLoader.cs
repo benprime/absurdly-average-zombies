@@ -23,8 +23,6 @@ public class MapLoader : MonoBehaviour
 		GameObject map = GameObject.Find("Map");
 		GameObject mapTiles = new GameObject();
 
-        gameObject.transform.position = (new Vector3(map.transform.localPosition.x, map.transform.localPosition.y, 0));
-
         // TODO: Maybe someday make this loader take other map formats into account.
         // for now, we'll make some basic assumptions (single layer 2d orthogonal)
 
@@ -72,10 +70,10 @@ public class MapLoader : MonoBehaviour
         int dataIndex = 0;
 
         Vector3 mapSize = GetComponent<Renderer>().bounds.size;
-        //float y_adjust = mapSize.y / 2;
-		//float x_adjust = mapSize.x / 2;
-		float y_adjust = (mapSize.y / 2) + map.transform.position.y;
-		float x_adjust = (mapSize.x / 2) + map.transform.position.x;
+
+        // a little hacky, but lines up the maps with old method (to avoid having to update all the maps)
+        float y_adjust = (mapSize.y / 2) + .06f;
+        float x_adjust = (mapSize.x / 2) + .30f;
 
         // y = 0 has no data?
         for (int y = heightInTiles; y > 0; y--)
@@ -148,10 +146,10 @@ public class MapLoader : MonoBehaviour
 		mapTiles.transform.SetParent(map.transform);
 
 
-		Vector3 tempVec = map.transform.localScale;
-		tempVec.x *= .98f;
-		tempVec.y *= .98f;
-		map.transform.localScale = tempVec;
+		//Vector3 tempVec = map.transform.localScale;
+		//tempVec.x *= .98f;
+		//tempVec.y *= .98f;
+		//map.transform.localScale = tempVec;
     }
 
     // Update is called once per frame
