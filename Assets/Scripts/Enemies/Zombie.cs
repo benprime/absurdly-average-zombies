@@ -8,8 +8,17 @@ public enum ZombieState
     Dead
 }
 
+public enum ZombieSize
+{
+	Small,
+	Medium,
+	Large,
+	Boss
+}
+
 public class Zombie : MonoBehaviour
 {
+	public ZombieSize zSize;
     public float moveSpeed = 2f;
     public float moveModifier = 1.0f;
     public float turnSpeed = 4f;
@@ -84,7 +93,7 @@ public class Zombie : MonoBehaviour
             if (Time.time > nextFlameDamageTime)
             {
                 nextFlameDamageTime += this.flameDamageInterval;
-                this.TakeDamage(this.fireDamage);
+                this.TakeDamage(this.fireDamage, DamageType.light);
                 this.fireDamage--;
                 if (this.fireDamage == 0)
                 {
@@ -137,9 +146,10 @@ public class Zombie : MonoBehaviour
         transform.Rotate(0.0f, 0.0f, z);
     }
 
-    public virtual void TakeDamage(int amount)
+	public enum DamageType {light, medium, heavy}
+	public virtual void TakeDamage(int amount, DamageType dmgType)
     {
-        this.hitPoints -= amount;
+		this.hitPoints -= amount * DamageTypeModifier(dmgType);
 
         if (this.hb.healthBar.rectTransform)
         {
@@ -225,4 +235,22 @@ public class Zombie : MonoBehaviour
         pop.GetComponent<Text>().color = txtCol;
         if (largeText) pop.GetComponent<Text>().fontSize += 10;
     }
+
+	private float DamageTypeModifier(DamageType dmgType) {
+		if (dmgType == DamageType.light) {
+			if (zSize == ZombieSize.Small)
+				return .5f;
+			else if (zSize == ZombieSize.Large)
+				return 1.5f;
+		} else if (dmgType == DamageType.medium) {
+			if (zSize == ZombieSize.Medium)
+				return 1.5f;
+		} else if (dmgType == DamageType.heavy) {
+			if (zSize == ZombieSize.Small)
+				return 1.5f;
+			else if (zSize == ZombieSize.Large)
+				return .5f;
+		}
+		return 1f;
+	}
 }

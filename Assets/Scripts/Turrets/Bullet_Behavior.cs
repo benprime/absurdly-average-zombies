@@ -41,7 +41,7 @@ public class Bullet_Behavior : MonoBehaviour
         if (other.tag == "enemy")
         {
             Zombie z = other.GetComponent<Zombie>();
-            z.TakeDamage(this.damage);
+            z.TakeDamage(this.damage, Zombie.DamageType.medium);
             //other.SendMessage("TakeDamage", this.damage);
             Destroy(this.gameObject);
         }

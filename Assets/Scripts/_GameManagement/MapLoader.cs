@@ -72,8 +72,8 @@ public class MapLoader : MonoBehaviour
         Vector3 mapSize = GetComponent<Renderer>().bounds.size;
 
         // a little hacky, but lines up the maps with old method (to avoid having to update all the maps)
-        float y_adjust = (mapSize.y / 2) + .48f;// .28
-        float x_adjust = (mapSize.x / 2) + .06f;//-.16
+        float y_adjust = (mapSize.y / 2) + .48f;// .28 -.03
+        float x_adjust = (mapSize.x / 2) + .06f;//-.16  .18
 
         // y = 0 has no data?
         for (int y = heightInTiles; y > 0; y--)
