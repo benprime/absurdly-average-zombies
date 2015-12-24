@@ -22,10 +22,14 @@ public class InteractWithBuildZone : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+	{
+		if(lastHit && lastHit.GetComponent<BuildZone>().menuOpen) return;  //temp fix for bug #1
+
+
         int pointerId = (Input.touchCount == 1) ? Input.GetTouch(0).fingerId : -1;  //Only accounts for single touches TODO: make it work nicely for accidental multi touches
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, 20, LayerMask.GetMask("BuildZone","UI"));
+		//RaycastHit2D buttonHitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, 20, LayerMask.GetMask("UI"));
+		RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, 20, LayerMask.GetMask("BuildZone"));
         if (hitInfo && !EventSystem.current.IsPointerOverGameObject(pointerId))
         { //mouse is over a BuildZone && do not place object when mouse is over button
             GameObject hitZone = hitInfo.transform.gameObject;
