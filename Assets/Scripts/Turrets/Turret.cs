@@ -135,8 +135,8 @@ public class Turret : MonoBehaviour
         // everything else locks onto one guy and tries to kill him
         else if (!target)
         {
-            // grab the closest zombie
-            target = zombiesInRange.OrderBy(x => Vector3.Distance(x.transform.position, this.transform.position)).First().transform;
+            // grab the lead zombie
+            target = zombiesInRange.OrderBy(x => x.GetComponent<Zombie>().spawnTime).First().transform;
         }
 
 
