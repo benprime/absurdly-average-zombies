@@ -35,9 +35,10 @@ public class UI_WeaponRadial : MonoBehaviour
             if (connectedZone)
             {
                 connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;
-                connectedZone.currentWeapon = weap;
-            }
-            Destroy(gameObject);
+				connectedZone.currentWeapon = weap;
+				connectedZone.CloseOut ();
+			}
+			else Destroy (gameObject);
         }
     }
 }

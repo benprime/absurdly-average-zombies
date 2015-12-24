@@ -62,19 +62,25 @@ public class UI_UpgradeRadial : MonoBehaviour
 				GameManager.instance.PlayerCurrencyTransaction (worth);
 				Destroy (connectedZone.currentWeapon);
 				connectedZone.currentState = BuildZone.ZONE_STATE.EMPTY;
-				Destroy (gameObject);
+				connectedZone.CloseOut ();
+				//Destroy (gameObject);
 			}
 		}
 		timer = 0;
 		buttonHeld = false;
     }
 
+	private int CalculateUpgradeCost(int upgradeLevel)
+	{
+		return baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (upgradeLevel + .25));
+	}
+
     public void UpgradeDamage()
     {
         if (connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels)
         {
             //charge player cost of upgrade
-			int cost = baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (currentWeaponStats.damageLevel + .25));
+			int cost = CalculateUpgradeCost(currentWeaponStats.damageLevel);
             if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
             GameManager.instance.PlayerCurrencyTransaction(-cost);
             //upgrade weapon
@@ -93,7 +99,7 @@ public class UI_UpgradeRadial : MonoBehaviour
             if (baseRange == -1f) baseRange = currentWeaponStats.transform.FindChild("DetectionZone").localScale.x;
             //if(baseRange < 0) baseRange = currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
             //charge player cost of upgrade
-			int cost = baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (currentWeaponStats.rangeLevel + .25));
+			int cost = CalculateUpgradeCost(currentWeaponStats.rangeLevel);
             if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
             GameManager.instance.PlayerCurrencyTransaction(-cost);
             //upgrade weapon
@@ -117,7 +123,7 @@ public class UI_UpgradeRadial : MonoBehaviour
                 baseShotDelay = currentWeaponStats.shotDelay;
             }
             //charge player cost of upgrade
-			int cost = baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (currentWeaponStats.speedLevel + .25));
+			int cost = CalculateUpgradeCost(currentWeaponStats.speedLevel);
             if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
             GameManager.instance.PlayerCurrencyTransaction(-cost);
             //upgrade weapon
@@ -162,7 +168,7 @@ public class UI_UpgradeRadial : MonoBehaviour
         }
         else
         {
-			transform.FindChild("N").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (currentWeaponStats.damageLevel + .25)));
+			transform.FindChild("N").GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.damageLevel);
             transform.FindChild("N").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.damageLevel];
         }
     }
@@ -177,7 +183,7 @@ public class UI_UpgradeRadial : MonoBehaviour
         }
         else
         {
-			transform.FindChild("E").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (currentWeaponStats.rangeLevel + .25)));
+			transform.FindChild("E").GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.rangeLevel);
             transform.FindChild("E").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
         }
     }
@@ -192,7 +198,7 @@ public class UI_UpgradeRadial : MonoBehaviour
         }
         else
         {
-			transform.FindChild("S").GetComponentInChildren<Text>().text = "$" + (baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (currentWeaponStats.speedLevel + .25)));
+			transform.FindChild("S").GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.speedLevel);
             transform.FindChild("S").GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.speedLevel];
         }
     }
