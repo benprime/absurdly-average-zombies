@@ -229,12 +229,12 @@ MonoBehaviour:
   moveModifier: 1
   turnSpeed: 2
   walkSwayModifier: 30
-  maxHitPoints: 125
-  hitPoints: 125
+  maxHitPoints: 150
+  hitPoints: 150
   worthCurrency: 10
   attackDamage: 20
   flameDamageInterval: 1
-  fireDamage: 1
+  fireDamage: 2
   hitParticleSystem: {fileID: 19803696, guid: 91bd57fe145b9ba4888ac461fd0ab424, type: 2}
   deathParticleSystem: {fileID: 19803696, guid: 7335aa53b7655694293879246340dbeb,
     type: 2}
@@ -1952,15 +1952,15 @@ Prefab:
       objectReference: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
     - target: {fileID: 0}
       propertyPath: maxHitPoints
-      value: 125
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: hitPoints
-      value: 125
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: fireDamage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bloodParticleSystem

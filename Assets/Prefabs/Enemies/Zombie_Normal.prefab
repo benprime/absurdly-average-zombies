@@ -215,8 +215,8 @@ MonoBehaviour:
   moveModifier: 1
   turnSpeed: 4
   walkSwayModifier: 30
-  maxHitPoints: 60
-  hitPoints: 60
+  maxHitPoints: 85
+  hitPoints: 85
   worthCurrency: 5
   attackDamage: 10
   flameDamageInterval: 1
@@ -1949,7 +1949,7 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: maxHitPoints
-      value: 60
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Sprite
@@ -1986,7 +1986,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: hitPoints
-      value: 60
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bloodParticleSystem
