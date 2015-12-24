@@ -28,6 +28,9 @@ public class Zombie : MonoBehaviour
     public int worthCurrency = 5;
     public float attackDamage = 5f;
 
+    [HideInInspector]
+    public float spawnTime;
+
     private UI_FloatingHealthBar hb;
 
     // These may get moved to a more appropriate location
@@ -52,6 +55,11 @@ public class Zombie : MonoBehaviour
     public float targetCloseness = .5f;
 
     public GameObject popNums;
+
+    void Awake()
+    {
+        this.spawnTime = Time.time;
+    }
 
     // Use this for initialization
     protected virtual void Start()
