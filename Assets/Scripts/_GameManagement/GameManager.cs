@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     // true if a level that require all "normal" game level code
     public bool menu;
+	public bool mute = false;
 	public AudioClip menuMusic;
 
 
@@ -59,6 +60,16 @@ public class GameManager : MonoBehaviour
         return player_totalCurrency;
     }
 
+	public void ToggleAudio()
+	{
+		mute = !mute;
+		GetComponent<AudioSource> ().enabled = mute;
+		Camera.main.gameObject.GetComponent<AudioListener> ().enabled = mute;
+	}
+
+	void OnLevelWasLoaded(int level) {
+		Camera.main.gameObject.GetComponent<AudioListener> ().enabled = mute;
+	}
 
 
 }

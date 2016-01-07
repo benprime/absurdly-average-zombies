@@ -55,7 +55,8 @@ public class UI_UpgradeRadial : MonoBehaviour
 	}
 
     public void SellWeapon()
-    {
+	{
+		Input.ResetInputAxes ();
 		if ((Time.time - timer) >= buttonHoldDelay) {
 			if (connectedZone) {
 				int worth = (currentWeaponStats.costCurrency) / 2;  //sell for half of purchase cost
@@ -76,7 +77,8 @@ public class UI_UpgradeRadial : MonoBehaviour
 	}
 
     public void UpgradeDamage()
-    {
+	{
+		Input.ResetInputAxes ();
         if (connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels)
         {
             //charge player cost of upgrade
@@ -93,7 +95,8 @@ public class UI_UpgradeRadial : MonoBehaviour
     }
 
     public void UpgradeRange()
-    {
+	{
+		Input.ResetInputAxes ();
         if (connectedZone && currentWeaponStats.rangeLevel < maxUpgradeLevels)
         {
             if (baseRange == -1f) baseRange = currentWeaponStats.transform.FindChild("DetectionZone").localScale.x;
@@ -114,7 +117,8 @@ public class UI_UpgradeRadial : MonoBehaviour
     }
 
     public void UpgradeSpeed()
-    {
+	{
+		Input.ResetInputAxes ();
         if (connectedZone && currentWeaponStats.speedLevel < maxUpgradeLevels)
         {
             if (baseRotSpd < 0 || baseShotDelay < 0)

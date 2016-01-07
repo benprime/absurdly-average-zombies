@@ -113,6 +113,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22418172}
   - 114: {fileID: 11466918}
+  - 114: {fileID: 11426352}
   m_Layer: 5
   m_Name: TurretSideBar
   m_TagString: Untagged
@@ -270,7 +271,7 @@ GameObject:
   - 114: {fileID: 11403376}
   - 114: {fileID: 11495894}
   m_Layer: 5
-  m_Name: Options
+  m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,6 +936,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11426352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d30dc4304c3294c9bfa95cb8ff6605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11430964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1412,7 +1424,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: Sound On/Off
 --- !u!114 &11461408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1802,8 +1814,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11466918}
-        m_MethodName: OpenOptionsMenu
+      - m_Target: {fileID: 11426352}
+        m_MethodName: ToggleAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

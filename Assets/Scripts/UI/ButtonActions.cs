@@ -12,7 +12,12 @@ public class ButtonActions : MonoBehaviour
     public void ExitTitle()
     {
         Application.Quit();
-    }
+	}
+
+	public void ToggleAudio()
+	{
+		GameManager.instance.ToggleAudio ();
+	}
 
     public void DeleteSaveFile()
     {

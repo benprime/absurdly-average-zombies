@@ -25,7 +25,8 @@ public class UI_WeaponRadial : MonoBehaviour
         //	GameManager.instance.PlayerCurrencyTransaction (-cost);
         //	Instantiate (objToPlace, transform.position, Quaternion.identity);
         //	//Destroy (hitZone);
-        //}
+		//}
+		Input.ResetInputAxes ();
 
         int cost = obj.GetComponent<Turret>().costCurrency;
         if (GameManager.instance.GetPlayerTotalCurrency() >= cost)

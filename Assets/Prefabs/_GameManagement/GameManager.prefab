@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.82000017, y: 4.01999998, z: 0}
+  m_LocalPosition: {x: 5.82, y: 4.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,7 +41,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .683000028
+  m_Volume: 0.172
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -70,6 +70,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -80,6 +81,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -90,6 +92,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -100,6 +103,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11452974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +129,7 @@ MonoBehaviour:
   player_totalCurrency: 222
   selectedObjToBuild: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   menu: 0
+  mute: 0
   menuMusic: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
 --- !u!1001 &100100000
 Prefab:
@@ -159,12 +164,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Volume
-      value: .683000028
+      value: 0.172
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: menuMusic
       value: 
       objectReference: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 126896}
