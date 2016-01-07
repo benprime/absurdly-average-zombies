@@ -391,6 +391,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 421346782}
   - 114: {fileID: 421346781}
+  - 82: {fileID: 421346780}
   m_Layer: 0
   m_Name: WaveGenerator
   m_TagString: Untagged
@@ -398,6 +399,80 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &421346780
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421346779}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b7bff11cab92b684a9bb5c9465537436, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.421
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &421346781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +503,15 @@ MonoBehaviour:
     beforeMessageHeader: 
     beforeMessage: Get ready for final wave!
   levelMusic: {fileID: 8300000, guid: af3c00751c844264488b39544f096446, type: 3}
+  zombieSounds:
+  - {fileID: 8300000, guid: b7bff11cab92b684a9bb5c9465537436, type: 3}
+  - {fileID: 8300000, guid: ab6e98c1d7d42b64abd3dddccc75cd50, type: 3}
+  - {fileID: 8300000, guid: e29d384f4ba3e5b44aa7d4e3796b349f, type: 3}
+  - {fileID: 8300000, guid: b3a7bf16296b4b2429d38f36f9dfb5a2, type: 3}
+  - {fileID: 8300000, guid: b64f05d1792ed3f4d9e19554196c2ceb, type: 3}
+  - {fileID: 8300000, guid: 8dc2d0afd0ac9a444b81057ddbb205f9, type: 3}
+  - {fileID: 8300000, guid: 69a78317de2496744a0ce86f6a61f44d, type: 3}
+  - {fileID: 8300000, guid: 57574b7f39f95534f9b2130318c8d830, type: 3}
 --- !u!4 &421346782
 Transform:
   m_ObjectHideFlags: 0
