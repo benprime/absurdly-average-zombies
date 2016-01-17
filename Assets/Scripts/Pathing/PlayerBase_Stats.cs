@@ -36,6 +36,7 @@ public class PlayerBase_Stats : MonoBehaviour
             //clone.transform.SetParent(uiCanvas, false);
             Destroy(hb.healthBar.gameObject);
             gameObject.GetComponent<SpriteRenderer>().sprite = destroyed;
+			Instantiate (destroyed, transform.position, transform.rotation);
             Destroy(gameObject);  //TODO:  Make the destroyed house stay on ground for game over (possibly use instantiate to leave a plain sprite there)
         }
         if (currentHitPoints <= maxHitPoints / 3)

@@ -15,6 +15,16 @@ public class GameOver : MonoBehaviour
         this.gameObject.transform.SetParent(canvas.gameObject.transform, false);
         this.gameObject.SetActive(true);
 
+
+
+		BuildZone[] allZones = FindObjectsOfType<BuildZone> ();
+		if (allZones.Length > 0) {
+			foreach (BuildZone zone in allZones) {
+				zone.CloseOut ();
+			}
+		}
+
+
         //this.popupMessageInstance = Instantiate(this.popupMessagePrefab);
         //this.popupMessageInstance.transform.SetParent(canvas.transform);
         Screen.sleepTimeout = SleepTimeout.SystemSetting;

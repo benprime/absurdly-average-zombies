@@ -35,11 +35,18 @@ public class WaveGenerator : MonoBehaviour
 	public AudioClip[] zombieSounds;
 
     void ShowMessage(string headerText, string messageText)
-    {
-        this.PopupMessage.SetActive(true);
+	{
+		this.PopupMessage.SetActive (true);
 
-        this.waveHeaderText.text = headerText;
-        this.waveMessageText.text = messageText;
+		this.waveHeaderText.text = headerText;
+		this.waveMessageText.text = messageText;
+
+		BuildZone[] allZones = FindObjectsOfType<BuildZone> ();
+		if (allZones.Length > 0) {
+			foreach (BuildZone zone in allZones) {
+				zone.CloseOut ();
+			}
+		}
     }
 
     IEnumerator SpawnLoop()
