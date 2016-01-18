@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: 6030a66d7629ab044876cb44a2cea9a4
+timeCreated: 1453157358
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: zombieBoss1_shoulders
+    21300002: zombieBoss1_leftArm
+    21300004: zombieBoss1_head
+    21300006: zombieBoss1_rightArm
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: zombieBoss1_shoulders
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 91
+        width: 112
+        height: 51
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.43015724}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+    - name: zombieBoss1_leftArm
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 5
+        width: 40
+        height: 82
+      alignment: 9
+      pivot: {x: 0.3904007, y: 0.807413}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.383972, y: 15.792137}
+        - {x: -9.616028, y: 15.792137}
+        - {x: -15.616028, y: 11.792137}
+        - {x: -15.616028, y: -27.207863}
+        - {x: -13.616028, y: -43.207863}
+        - {x: 1.3839722, y: -66.20786}
+        - {x: 22.383972, y: -66.20786}
+        - {x: 24.383972, y: -64.20786}
+        - {x: 24.383972, y: -27.207863}
+        - {x: 21.383972, y: -2.2078629}
+    - name: zombieBoss1_head
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 5
+        width: 53
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3017883}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 32.81595}
+        - {x: -26.5, y: 20.815948}
+        - {x: -26.5, y: -6.1840515}
+        - {x: -19.5, y: -14.1840515}
+        - {x: 16.5, y: -14.1840515}
+        - {x: 26.5, y: -11.1840515}
+        - {x: 26.5, y: 18.815948}
+        - {x: 20.5, y: 32.81595}
+    - name: zombieBoss1_rightArm
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 44
+        width: 24
+        height: 45
+      alignment: 9
+      pivot: {x: 0.70549935, y: 0.14684635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+        - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+        - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+        - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+      - - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+        - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+        - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+      - - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+        - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+      - - {x: 49.999992, y: 29.061981}
+        - {x: -52.000008, y: 29.061981}
+        - {x: -56.000008, y: 28.061981}
+        - {x: -56.000008, y: -21.938019}
+        - {x: 48.999992, y: -21.938019}
+        - {x: 55.999992, y: -13.938019}
+        - {x: 55.999992, y: 17.061981}
+        - {x: 52.999992, y: 26.061981}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

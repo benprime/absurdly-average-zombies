@@ -96,7 +96,6 @@ public class WaveGenerator : MonoBehaviour
 					aud.clip = zombieSounds [randSound];
 					aud.Stop ();
 					aud.Play ();
-					Debug.Log ("Brains");
 					timer = 0;
 					sounder = Random.Range (3f, 8f);
 				}

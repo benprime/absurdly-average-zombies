@@ -96,10 +96,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11431936, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
-      propertyPath: path.nodes.Array.size
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 488236, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7.21
@@ -163,6 +159,10 @@ Prefab:
     - target: {fileID: 197178, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: m_Name
       value: ZombieSpawnCenterA
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470946, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
+      propertyPath: waves.Array.data[0].zombies.Array.data[0].count
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}

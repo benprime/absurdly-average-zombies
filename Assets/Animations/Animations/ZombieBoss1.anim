@@ -1,0 +1,1174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ZombieBoss1
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0, y: 0, z: 10.6886}
+        inSlope: {x: 0, y: 0, z: 14.540933}
+        outSlope: {x: 0, y: 0, z: 14.540933}
+        tangentMode: 0
+      - time: 0.75
+        value: {x: 0, y: 0, z: 21.5943}
+        inSlope: {x: 0, y: 0, z: -97.80093}
+        outSlope: {x: 0, y: 0, z: -97.80093}
+        tangentMode: 0
+      - time: 1
+        value: {x: 0, y: 0, z: -30.941399}
+        inSlope: {x: 0, y: 0, z: -90.734146}
+        outSlope: {x: 0, y: 0, z: -90.734146}
+        tangentMode: 0
+      - time: 2
+        value: {x: 0, y: 0, z: -2.2668998}
+        inSlope: {x: 0, y: 0, z: 20.814999}
+        outSlope: {x: 0, y: 0, z: 20.814999}
+        tangentMode: 0
+      - time: 3
+        value: {x: 0, y: 0, z: 10.6886}
+        inSlope: {x: 0, y: 0, z: 12.9555}
+        outSlope: {x: 0, y: 0, z: 12.9555}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: zombieSlowStrong_shoulders
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0, y: 0, z: -7.2974997}
+        inSlope: {x: 0, y: 0, z: -2.8334668}
+        outSlope: {x: 0, y: 0, z: -2.8334668}
+        tangentMode: 0
+      - time: 0.75
+        value: {x: 0, y: 0, z: -9.4226}
+        inSlope: {x: 0, y: 0, z: -281.7531}
+        outSlope: {x: 0, y: 0, z: -281.7531}
+        tangentMode: 0
+      - time: 1
+        value: {x: 0, y: 0, z: -149.59079}
+        inSlope: {x: 0, y: 0, z: -250.84702}
+        outSlope: {x: 0, y: 0, z: -250.84702}
+        tangentMode: 0
+      - time: 2
+        value: {x: 0, y: 0, z: -90.6121}
+        inSlope: {x: 0, y: 0, z: 71.146645}
+        outSlope: {x: 0, y: 0, z: 71.146645}
+        tangentMode: 0
+      - time: 3
+        value: {x: 0, y: 0, z: -7.2974997}
+        inSlope: {x: 0, y: 0, z: 83.3146}
+        outSlope: {x: 0, y: 0, z: 83.3146}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: zombieSlowStrong_leftArm
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0, y: 0, z: 7.8051}
+        inSlope: {x: 0, y: 0, z: -17.317734}
+        outSlope: {x: 0, y: 0, z: -17.317734}
+        tangentMode: 0
+      - time: 0.75
+        value: {x: 0, y: 0, z: -5.1832}
+        inSlope: {x: 0, y: 0, z: -93.394066}
+        outSlope: {x: 0, y: 0, z: -93.394066}
+        tangentMode: 0
+      - time: 1
+        value: {x: 0, y: 0, z: -47.5508}
+        inSlope: {x: 0, y: 0, z: -72.863396}
+        outSlope: {x: 0, y: 0, z: -72.863396}
+        tangentMode: 0
+      - time: 2
+        value: {x: 0, y: 0, z: -23.8072}
+        inSlope: {x: 0, y: 0, z: 27.67795}
+        outSlope: {x: 0, y: 0, z: 27.67795}
+        tangentMode: 0
+      - time: 3
+        value: {x: 0, y: 0, z: 7.8051}
+        inSlope: {x: 0, y: 0, z: 31.612299}
+        outSlope: {x: 0, y: 0, z: 31.612299}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: zombieSlowStrong_rightArm
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0, y: 0, z: -0.3583}
+        inSlope: {x: 0, y: 0, z: -17.4152}
+        outSlope: {x: 0, y: 0, z: -17.4152}
+        tangentMode: 0
+      - time: 0.75
+        value: {x: 0, y: 0, z: -13.4197}
+        inSlope: {x: 0, y: 0, z: 20.272}
+        outSlope: {x: 0, y: 0, z: 20.272}
+        tangentMode: 0
+      - time: 1
+        value: {x: 0, y: 0, z: 1.0701}
+        inSlope: {x: 0, y: 0, z: 40.4757}
+        outSlope: {x: 0, y: 0, z: 40.4757}
+        tangentMode: 0
+      - time: 2
+        value: {x: 0, y: 0, z: 24.0623}
+        inSlope: {x: 0, y: 0, z: -0.7142}
+        outSlope: {x: 0, y: 0, z: -0.7142}
+        tangentMode: 0
+      - time: 3
+        value: {x: 0, y: 0, z: -0.3583}
+        inSlope: {x: 0, y: 0, z: -24.420599}
+        outSlope: {x: 0, y: 0, z: -24.420599}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: zombieSlowStrong_head
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: -0.399, y: -0.074, z: 0}
+        inSlope: {x: 0, y: -0.09866667, z: 0}
+        outSlope: {x: 0, y: -0.09866667, z: 0}
+        tangentMode: 0
+      - time: 0.75
+        value: {x: -0.399, y: -0.148, z: 0}
+        inSlope: {x: 0.04399997, y: 0.7046667, z: 0}
+        outSlope: {x: 0.04399997, y: 0.7046667, z: 0}
+        tangentMode: 0
+      - time: 1
+        value: {x: -0.377, y: 0.229, z: 0}
+        inSlope: {x: -0.013500035, y: 0.6365, z: 0}
+        outSlope: {x: -0.013500035, y: 0.6365, z: 0}
+        tangentMode: 0
+      - time: 2
+        value: {x: -0.492, y: -0.006, z: 0}
+        inSlope: {x: -0.0109999925, y: -0.1515, z: 0}
+        outSlope: {x: -0.0109999925, y: -0.1515, z: 0}
+        tangentMode: 0
+      - time: 3
+        value: {x: -0.399, y: -0.074, z: 0}
+        inSlope: {x: 0.093000025, y: -0.068, z: 0}
+        outSlope: {x: 0.093000025, y: -0.068, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: zombieSlowStrong_leftArm
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0.43, y: 0.2, z: 0}
+        inSlope: {x: 0.021333337, y: 0.051999986, z: 0}
+        outSlope: {x: 0.021333337, y: 0.051999986, z: 0}
+        tangentMode: 0
+      - time: 0.75
+        value: {x: 0.446, y: 0.239, z: 0}
+        inSlope: {x: 0.05466664, y: -0.702, z: 0}
+        outSlope: {x: 0.05466664, y: -0.702, z: 0}
+        tangentMode: 0
+      - time: 1
+        value: {x: 0.468, y: -0.125, z: 0}
+        inSlope: {x: 0.05949998, y: -0.6175, z: 0}
+        outSlope: {x: 0.05949998, y: -0.6175, z: 0}
+        tangentMode: 0
+      - time: 2
+        value: {x: 0.499, y: 0.096, z: 0}
+        inSlope: {x: -0.018999994, y: 0.1625, z: 0}
+        outSlope: {x: -0.018999994, y: 0.1625, z: 0}
+        tangentMode: 0
+      - time: 3
+        value: {x: 0.43, y: 0.2, z: 0}
+        inSlope: {x: -0.069000006, y: 0.104, z: 0}
+        outSlope: {x: -0.069000006, y: 0.104, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: zombieSlowStrong_rightArm
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: -0.031, y: 0.16, z: 0}
+        inSlope: {x: -0.057333335, y: -0.026666662, z: 0}
+        outSlope: {x: -0.057333335, y: -0.026666662, z: 0}
+        tangentMode: 0
+      - time: 0.75
+        value: {x: -0.074, y: 0.14, z: 0}
+        inSlope: {x: 0.3613333, y: -0.03133334, z: 0}
+        outSlope: {x: 0.3613333, y: -0.03133334, z: 0}
+        tangentMode: 0
+      - time: 1
+        value: {x: 0.121, y: 0.131, z: 0}
+        inSlope: {x: 0.339, y: -0.0070000067, z: 0}
+        outSlope: {x: 0.339, y: -0.0070000067, z: 0}
+        tangentMode: 0
+      - time: 2
+        value: {x: 0.019, y: 0.153, z: 0}
+        inSlope: {x: -0.076, y: 0.0145, z: 0}
+        outSlope: {x: -0.076, y: 0.0145, z: 0}
+        tangentMode: 0
+      - time: 3
+        value: {x: -0.031, y: 0.16, z: 0}
+        inSlope: {x: -0.049999997, y: 0.0069999993, z: 0}
+        outSlope: {x: -0.049999997, y: 0.0069999993, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: zombieSlowStrong_head
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - path: 2437950927
+      attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 102023403
+      attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 1877366007
+      attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 1760138208
+      attribute: 4
+      script: {fileID: 0}
+      classID: 4
+      customType: 14
+      isPPtrCurve: 0
+    - path: 2437950927
+      attribute: 4
+      script: {fileID: 0}
+      classID: 4
+      customType: 14
+      isPPtrCurve: 0
+    - path: 102023403
+      attribute: 4
+      script: {fileID: 0}
+      classID: 4
+      customType: 14
+      isPPtrCurve: 0
+    - path: 1877366007
+      attribute: 4
+      script: {fileID: 0}
+      classID: 4
+      customType: 14
+      isPPtrCurve: 0
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 3
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: zombieSlowStrong_shoulders
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: zombieSlowStrong_shoulders
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 10.6886
+        inSlope: 14.540933
+        outSlope: 14.540933
+        tangentMode: 10
+      - time: 0.75
+        value: 21.5943
+        inSlope: -97.80093
+        outSlope: -97.80093
+        tangentMode: 10
+      - time: 1
+        value: -30.941399
+        inSlope: -90.734146
+        outSlope: -90.734146
+        tangentMode: 10
+      - time: 2
+        value: -2.2668998
+        inSlope: 20.814999
+        outSlope: 20.814999
+        tangentMode: 10
+      - time: 3
+        value: 10.6886
+        inSlope: 12.9555
+        outSlope: 12.9555
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: zombieSlowStrong_shoulders
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.399
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: -0.399
+        inSlope: 0.04399997
+        outSlope: 0.04399997
+        tangentMode: 10
+      - time: 1
+        value: -0.377
+        inSlope: -0.013500035
+        outSlope: -0.013500035
+        tangentMode: 10
+      - time: 2
+        value: -0.492
+        inSlope: -0.0109999925
+        outSlope: -0.0109999925
+        tangentMode: 10
+      - time: 3
+        value: -0.399
+        inSlope: 0.093000025
+        outSlope: 0.093000025
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.074
+        inSlope: -0.09866667
+        outSlope: -0.09866667
+        tangentMode: 10
+      - time: 0.75
+        value: -0.148
+        inSlope: 0.7046667
+        outSlope: 0.7046667
+        tangentMode: 10
+      - time: 1
+        value: 0.229
+        inSlope: 0.6365
+        outSlope: 0.6365
+        tangentMode: 10
+      - time: 2
+        value: -0.006
+        inSlope: -0.1515
+        outSlope: -0.1515
+        tangentMode: 10
+      - time: 3
+        value: -0.074
+        inSlope: -0.068
+        outSlope: -0.068
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -7.2974997
+        inSlope: -2.8334668
+        outSlope: -2.8334668
+        tangentMode: 10
+      - time: 0.75
+        value: -9.4226
+        inSlope: -281.7531
+        outSlope: -281.7531
+        tangentMode: 10
+      - time: 1
+        value: -149.59079
+        inSlope: -250.84702
+        outSlope: -250.84702
+        tangentMode: 10
+      - time: 2
+        value: -90.6121
+        inSlope: 71.146645
+        outSlope: 71.146645
+        tangentMode: 10
+      - time: 3
+        value: -7.2974997
+        inSlope: 83.3146
+        outSlope: 83.3146
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 7.8051
+        inSlope: -17.317734
+        outSlope: -17.317734
+        tangentMode: 10
+      - time: 0.75
+        value: -5.1832
+        inSlope: -93.394066
+        outSlope: -93.394066
+        tangentMode: 10
+      - time: 1
+        value: -47.5508
+        inSlope: -72.863396
+        outSlope: -72.863396
+        tangentMode: 10
+      - time: 2
+        value: -23.8072
+        inSlope: 27.67795
+        outSlope: 27.67795
+        tangentMode: 10
+      - time: 3
+        value: 7.8051
+        inSlope: 31.612299
+        outSlope: 31.612299
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.43
+        inSlope: 0.021333337
+        outSlope: 0.021333337
+        tangentMode: 10
+      - time: 0.75
+        value: 0.446
+        inSlope: 0.05466664
+        outSlope: 0.05466664
+        tangentMode: 10
+      - time: 1
+        value: 0.468
+        inSlope: 0.05949998
+        outSlope: 0.05949998
+        tangentMode: 10
+      - time: 2
+        value: 0.499
+        inSlope: -0.018999994
+        outSlope: -0.018999994
+        tangentMode: 10
+      - time: 3
+        value: 0.43
+        inSlope: -0.069000006
+        outSlope: -0.069000006
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.2
+        inSlope: 0.051999986
+        outSlope: 0.051999986
+        tangentMode: 10
+      - time: 0.75
+        value: 0.239
+        inSlope: -0.702
+        outSlope: -0.702
+        tangentMode: 10
+      - time: 1
+        value: -0.125
+        inSlope: -0.6175
+        outSlope: -0.6175
+        tangentMode: 10
+      - time: 2
+        value: 0.096
+        inSlope: 0.1625
+        outSlope: 0.1625
+        tangentMode: 10
+      - time: 3
+        value: 0.2
+        inSlope: 0.104
+        outSlope: 0.104
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.031
+        inSlope: -0.057333335
+        outSlope: -0.057333335
+        tangentMode: 10
+      - time: 0.75
+        value: -0.074
+        inSlope: 0.3613333
+        outSlope: 0.3613333
+        tangentMode: 10
+      - time: 1
+        value: 0.121
+        inSlope: 0.339
+        outSlope: 0.339
+        tangentMode: 10
+      - time: 2
+        value: 0.019
+        inSlope: -0.076
+        outSlope: -0.076
+        tangentMode: 10
+      - time: 3
+        value: -0.031
+        inSlope: -0.049999997
+        outSlope: -0.049999997
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.16
+        inSlope: -0.026666662
+        outSlope: -0.026666662
+        tangentMode: 10
+      - time: 0.75
+        value: 0.14
+        inSlope: -0.03133334
+        outSlope: -0.03133334
+        tangentMode: 10
+      - time: 1
+        value: 0.131
+        inSlope: -0.0070000067
+        outSlope: -0.0070000067
+        tangentMode: 10
+      - time: 2
+        value: 0.153
+        inSlope: 0.0145
+        outSlope: 0.0145
+        tangentMode: 10
+      - time: 3
+        value: 0.16
+        inSlope: 0.0069999993
+        outSlope: 0.0069999993
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.3583
+        inSlope: -17.4152
+        outSlope: -17.4152
+        tangentMode: 10
+      - time: 0.75
+        value: -13.4197
+        inSlope: 20.272
+        outSlope: 20.272
+        tangentMode: 10
+      - time: 1
+        value: 1.0701
+        inSlope: 40.4757
+        outSlope: 40.4757
+        tangentMode: 10
+      - time: 2
+        value: 24.0623
+        inSlope: -0.7142
+        outSlope: -0.7142
+        tangentMode: 10
+      - time: 3
+        value: -0.3583
+        inSlope: -24.420599
+        outSlope: -24.420599
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  m_EulerEditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: zombieSlowStrong_leftArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: zombieSlowStrong_head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: zombieSlowStrong_rightArm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: zombieSlowStrong_shoulders
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: zombieSlowStrong_shoulders
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: zombieSlowStrong_shoulders
+    classID: 4
+    script: {fileID: 0}
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
+  m_Events: []
