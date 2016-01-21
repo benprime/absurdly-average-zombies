@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Linq;
 
@@ -17,7 +18,7 @@ public class SelectLevelButtons : MonoBehaviour
         //Button[] buttons = FindObjectsOfType<Button> ();
 
         // still more hackery
-        for (int i = this.firstLevelIndex; i < Application.levelCount; i++)
+        for (int i = this.firstLevelIndex; i < SceneManager.sceneCount; i++)
         {
             string levelName = "Level" + (i - 1);
             string buttonName = levelName + "Button";

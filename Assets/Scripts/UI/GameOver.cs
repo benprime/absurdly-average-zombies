@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Linq;
 
@@ -15,15 +16,12 @@ public class GameOver : MonoBehaviour
         this.gameObject.transform.SetParent(canvas.gameObject.transform, false);
         this.gameObject.SetActive(true);
 
-
-
 		BuildZone[] allZones = FindObjectsOfType<BuildZone> ();
 		if (allZones.Length > 0) {
 			foreach (BuildZone zone in allZones) {
 				zone.CloseOut ();
 			}
 		}
-
 
         //this.popupMessageInstance = Instantiate(this.popupMessagePrefab);
         //this.popupMessageInstance.transform.SetParent(canvas.transform);
@@ -37,11 +35,11 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        Application.LoadLevel(Application.loadedLevelName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void BackToMenu()
     {
-        Application.LoadLevel("SelectLevel");
+        SceneManager.LoadScene("SelectLevel");
     }
 }

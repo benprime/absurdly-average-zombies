@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class UI_TurretSideBar : MonoBehaviour
@@ -41,7 +42,7 @@ public class UI_TurretSideBar : MonoBehaviour
 		Screen.sleepTimeout = SleepTimeout.SystemSetting;
 			GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
 			GameManager.instance.GetComponent<AudioSource>().Play();
-        Application.LoadLevel("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ExitGame()

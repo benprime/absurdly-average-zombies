@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ButtonActions : MonoBehaviour
@@ -6,7 +7,7 @@ public class ButtonActions : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        Application.LoadLevel(levelName);
+        SceneManager.LoadScene(levelName);
     }
 
     public void ExitTitle()

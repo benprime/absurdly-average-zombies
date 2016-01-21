@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Wave
@@ -116,11 +117,11 @@ public class WaveGenerator : MonoBehaviour
             yield return null;
         }
 
-        GameManager.instance.progressManager.CompleteLevel(Application.loadedLevelName);
+        GameManager.instance.progressManager.CompleteLevel(SceneManager.GetActiveScene().name);
 		Screen.sleepTimeout = SleepTimeout.SystemSetting;
 		GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
 		GameManager.instance.GetComponent<AudioSource>().Play();
-        Application.LoadLevel("SelectLevel");
+        SceneManager.LoadScene("SelectLevel");
         yield return null;  // prevents crash if all delays are 0
     }
 

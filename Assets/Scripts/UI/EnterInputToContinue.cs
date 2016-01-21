@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class EnterInputToContinue : MonoBehaviour
@@ -20,14 +21,14 @@ public class EnterInputToContinue : MonoBehaviour
     {
         if (useInputToContinue && (Input.anyKey || (Input.touchCount > 0)))
         {
-            Application.LoadLevel(nextLevel);
+            SceneManager.LoadScene(nextLevel);
         }
         if (changesAutomatically)
         {
             timer += Time.deltaTime;
             if (timer >= autoTime)
             {
-                Application.LoadLevel(nextLevel);
+                SceneManager.LoadScene(nextLevel);
             }
         }
     }
