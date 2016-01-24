@@ -248,6 +248,7 @@ MonoBehaviour:
   shotDelay: 3
   barrelTip: {fileID: 471646}
   costCurrency: 10
+  baseCost: 10
   maxHitPoints: 50
   currentHitPoints: 50
   rangeLevel: 0
@@ -1966,6 +1967,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: baseCost
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -20,6 +20,7 @@ public class Turret : MonoBehaviour
 
     // turret stats
     public int costCurrency;
+	public int baseCost;
     public float maxHitPoints;
     public float currentHitPoints;
     public int rangeLevel, damageLevel, speedLevel;

@@ -6,7 +6,7 @@ public class UI_UpgradeRadial : MonoBehaviour
 {
     public BuildZone connectedZone;
     private Turret currentWeaponStats;
-    private int baseUpgradeCost = 5;
+	//private int baseUpgradeCost = 5;
     public int maxUpgradeLevels = 3;
     public Sprite[] rankSprites;
     private float baseRotSpd = -1f, baseShotDelay = -1f, baseRange = -1f;
@@ -18,7 +18,7 @@ public class UI_UpgradeRadial : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		baseUpgradeCost = currentWeaponStats.costCurrency;
+		//baseUpgradeCost = currentWeaponStats.costCurrency;
         //NEEDS WORK BAD!!!!!!!!!!!!!!!!!!!!
 
 
@@ -73,72 +73,95 @@ public class UI_UpgradeRadial : MonoBehaviour
 
 	private int CalculateUpgradeCost(int upgradeLevel)
 	{
-		return baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (upgradeLevel + .25));
+		//return baseUpgradeCost + (int)((currentWeaponStats.costCurrency * .5f) * (upgradeLevel + .25));
+		return currentWeaponStats.baseCost + (5 * (upgradeLevel + 1));
 	}
 
     public void UpgradeDamage()
 	{
-		Input.ResetInputAxes ();
-        if (connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels)
-        {
+		//Input.ResetInputAxes ();
+        //if (connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels)
+        //{
             //charge player cost of upgrade
-			int cost = CalculateUpgradeCost(currentWeaponStats.damageLevel);
-            if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
-            GameManager.instance.PlayerCurrencyTransaction(-cost);
+			//int cost = CalculateUpgradeCost(currentWeaponStats.damageLevel);
+            //if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+            //GameManager.instance.PlayerCurrencyTransaction(-cost);
             //upgrade weapon
             currentWeaponStats.damageLevel++;
             currentWeaponStats.damage = (int)(currentWeaponStats.baseDamage * (1 + (currentWeaponStats.damageLevel * currentWeaponStats.damageIncrease)));
             //increase weapon worth
-            currentWeaponStats.costCurrency += cost;
-            UpdateAllButtons();
-        }
+            //currentWeaponStats.costCurrency += cost;
+            //UpdateAllButtons();
+        //}
     }
 
     public void UpgradeRange()
 	{
-		Input.ResetInputAxes ();
-        if (connectedZone && currentWeaponStats.rangeLevel < maxUpgradeLevels)
-        {
+		//Input.ResetInputAxes ();
+        //if (connectedZone && currentWeaponStats.rangeLevel < maxUpgradeLevels)
+        //{
             if (baseRange == -1f) baseRange = currentWeaponStats.transform.FindChild("DetectionZone").localScale.x;
             //if(baseRange < 0) baseRange = currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius;
             //charge player cost of upgrade
-			int cost = CalculateUpgradeCost(currentWeaponStats.rangeLevel);
-            if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
-            GameManager.instance.PlayerCurrencyTransaction(-cost);
+			//int cost = CalculateUpgradeCost(currentWeaponStats.rangeLevel);
+            //if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+            //GameManager.instance.PlayerCurrencyTransaction(-cost);
             //upgrade weapon
             currentWeaponStats.rangeLevel++;
             float increase = baseRange * (1 + ((currentWeaponStats.rangeLevel) * currentWeaponStats.rangeIncrease));
             currentWeaponStats.transform.FindChild("DetectionZone").localScale = new Vector3(increase, increase, 1f);
             //currentWeaponStats.transform.FindChild ("DetectionZone").GetComponent<CircleCollider2D>().radius = baseRange * (1 + ((currentWeaponStats.rangeLevel) * currentWeaponStats.rangeIncrease));
             //increase weapon worth
-            currentWeaponStats.costCurrency += cost;
-			UpdateAllButtons();
-        }
+            //currentWeaponStats.costCurrency += cost;
+			//UpdateAllButtons();
+        //}
     }
 
     public void UpgradeSpeed()
 	{
-		Input.ResetInputAxes ();
-        if (connectedZone && currentWeaponStats.speedLevel < maxUpgradeLevels)
-        {
+		//Input.ResetInputAxes ();
+        //if (connectedZone && currentWeaponStats.speedLevel < maxUpgradeLevels)
+        //{
             if (baseRotSpd < 0 || baseShotDelay < 0)
             {
                 baseRotSpd = currentWeaponStats.rotationSpeed;
                 baseShotDelay = currentWeaponStats.shotDelay;
             }
             //charge player cost of upgrade
-			int cost = CalculateUpgradeCost(currentWeaponStats.speedLevel);
-            if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
-            GameManager.instance.PlayerCurrencyTransaction(-cost);
+			//int cost = CalculateUpgradeCost(currentWeaponStats.speedLevel);
+            //if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+            //GameManager.instance.PlayerCurrencyTransaction(-cost);
+
             //upgrade weapon
             currentWeaponStats.speedLevel++;
             currentWeaponStats.rotationSpeed = baseRotSpd * (1 + ((currentWeaponStats.speedLevel) * currentWeaponStats.speedIncrease));
             currentWeaponStats.shotDelay = baseShotDelay * (1 + ((currentWeaponStats.speedLevel) * -currentWeaponStats.speedIncrease));
-            //increase weapon worth
-            currentWeaponStats.costCurrency += cost;
-			UpdateAllButtons();
-        }
+            
+			//increase weapon worth
+            //currentWeaponStats.costCurrency += cost;
+			//UpdateAllButtons();
+        //}
     }
+
+	public void UpgradeAll()
+	{
+		Input.ResetInputAxes ();
+		if (connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels)
+		{
+			//charge player cost of upgrade
+			int cost = CalculateUpgradeCost(currentWeaponStats.damageLevel);
+			if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
+			GameManager.instance.PlayerCurrencyTransaction(-cost);
+			//increase weapon worth
+			currentWeaponStats.costCurrency += cost;
+
+			UpgradeRange ();
+			UpgradeDamage ();
+			UpgradeSpeed ();
+
+			UpdateAllButtons ();
+		}
+	}
 
     public void InitRadial()
     {
