@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using UnityEngine.Advertisements;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     public bool menu;
 	public bool mute = false;
 	public AudioClip menuMusic;
+
+	public int previousLevel = 0;
 
 
     //Awake is always called before any Start functions
@@ -69,6 +72,17 @@ public class GameManager : MonoBehaviour
 
 	void OnLevelWasLoaded(int level) {
 		Camera.main.gameObject.GetComponent<AudioListener> ().enabled = mute;
+
+
+		if (previousLevel > 3) { //only display ad if player goes from the game back to menu or retries level
+			//Debug.Log ("ad check");
+			if (Advertisement.IsReady())
+			{
+				//Debug.Log ("ad display");
+				Advertisement.Show();
+			}
+		}
+		previousLevel = level;
 	}
 
 

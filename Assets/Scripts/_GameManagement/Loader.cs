@@ -17,5 +17,5 @@ public class Loader : MonoBehaviour
 
         // set whether the currently loaded level is game level or not
         GameManager.instance.menu = this.menu;
-    }
+	}
 }
