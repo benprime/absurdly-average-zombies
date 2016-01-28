@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
 
 	public int previousLevel = 0;
 
-
     //Awake is always called before any Start functions
     void Awake()
     {
