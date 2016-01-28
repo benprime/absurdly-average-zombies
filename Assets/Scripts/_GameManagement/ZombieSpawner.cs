@@ -26,6 +26,7 @@ public class SpawnWave
 public class ZombieSpawner : MonoBehaviour
 {
     public GameObject zombiePrefab;
+	public ZombieSize spawnType;
     public List<SpawnWave> waves;
     private SpawnWave m_CurrentWave;
     public SpawnWave CurrentWave { get { return m_CurrentWave; } }
@@ -38,8 +39,7 @@ public class ZombieSpawner : MonoBehaviour
             {
                 for (int i = 0; i < zc.count; i++)
                 {
-                    GameObject z = Instantiate(zombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
-                    z.GetComponent<Zombie>().path = GetComponentInParent<Path_Create>().path;
+					SpawnZombie ();
                     yield return new WaitForSeconds(zc.secondsBetweenSpawn);
                 }
             }
@@ -51,6 +51,12 @@ public class ZombieSpawner : MonoBehaviour
             yield return null;  // prevents crash if all delays are 0
         }
     }
+
+	public void SpawnZombie()
+	{
+		GameObject z = Instantiate(zombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+		z.GetComponent<Zombie>().path = this.GetComponentInParent<Path_Create>().path;
+	}
 
 
     public void BeginSpawnWave(int waveIndex)
