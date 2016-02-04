@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public enum ZombieState
 {
@@ -56,9 +57,14 @@ public class Zombie : MonoBehaviour
 
     public GameObject popNums;
 
+	private List<ZombieSpawner> spawners;
+	public int bossSpawnInterval = 2;
+	private float bossTimer = 0f;
+
     void Awake()
     {
-        this.spawnTime = Time.time;
+		this.spawnTime = Time.time;
+		spawners = new List<ZombieSpawner> ();
     }
 
     // Use this for initialization
@@ -83,7 +89,16 @@ public class Zombie : MonoBehaviour
         this.randSwayStart = Random.Range(0, 10) * 100;
         this.walkSwayModifier = Random.Range(20, 35);
 
-        hitPoints = maxHitPoints;
+		hitPoints = maxHitPoints;
+
+		if (zSize == ZombieSize.Boss) {
+			foreach (ZombieSpawner zs in FindObjectsOfType<ZombieSpawner> ()) {
+				if (zs.spawnType == ZombieSize.Small || zs.spawnType == ZombieSize.Medium) {
+					spawners.Add (zs);
+				}
+			}
+		}
+
     }
 
     // Update is called once per frame
@@ -112,11 +127,20 @@ public class Zombie : MonoBehaviour
                 }
             }
         }
+
         if (this.hitPoints <= 0)
         {
             this.Die();
             return;
         }
+
+		if (zSize == ZombieSize.Boss && spawners.Count > 0) {
+			if (bossTimer >= bossSpawnInterval) {
+				spawners [Random.Range (0, spawners.Count)].SpawnZombie ();
+				bossTimer = 0;
+			}
+			bossTimer += Time.deltaTime;
+		}
 
 
         // update zombie position, moving the direction
@@ -253,6 +277,8 @@ public class Zombie : MonoBehaviour
 		} else if (dmgType == DamageType.medium) {
 			if (zSize == ZombieSize.Medium)
 				return 1.5f;
+			else if (zSize == ZombieSize.Boss)
+				return .5f;
 		} else if (dmgType == DamageType.heavy) {
 			if (zSize == ZombieSize.Small)
 				return 1.5f;

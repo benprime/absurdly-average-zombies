@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.21, y: -0.21, z: 0}
+  m_LocalPosition: {x: -4.33, y: -4.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 415674}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 185498, guid: 4eeafa065dcfb114189dd14a242e2bed, type: 2}
+  spawnType: 2
   waves:
   - name: 
     zombies: []
@@ -191,9 +192,6 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
 --- !u!114 &11470946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,9 +204,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 185498, guid: 1968f3f4595e3f14c9278f6a526d134b, type: 2}
+  spawnType: 3
   waves:
   - name: 
-    zombies: []
+    zombies:
+    - secondsBetweenSpawn: 0
+      count: 1
   - name: 
     zombies: []
   - name: 
@@ -227,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
+  spawnType: 0
   waves:
   - name: 
     zombies: []
@@ -276,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
+  spawnType: 1
   waves:
   - name: 
     zombies:

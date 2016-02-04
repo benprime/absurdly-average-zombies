@@ -413,21 +413,13 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11431936, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
-      propertyPath: path.nodes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470946, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
-      propertyPath: waves.Array.data[0].zombies.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 488236, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.32999992
+      value: -4.33
       objectReference: {fileID: 0}
     - target: {fileID: 488236, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.21000004
+      value: -4.21
       objectReference: {fileID: 0}
     - target: {fileID: 488236, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -469,10 +461,6 @@ Prefab:
       propertyPath: path.nodes.Array.data[3]
       value: 
       objectReference: {fileID: 237054516}
-    - target: {fileID: 11470946, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
-      propertyPath: waves.Array.data[0].zombies.Array.data[0].count
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
   m_IsPrefabParent: 0
