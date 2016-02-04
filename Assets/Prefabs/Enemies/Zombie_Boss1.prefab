@@ -58,7 +58,7 @@ GameObject:
   - 4: {fileID: 491624}
   - 212: {fileID: 21296632}
   - 50: {fileID: 5094542}
-  - 114: {fileID: 11466764}
+  - 114: {fileID: 11492872}
   - 58: {fileID: 5852506}
   - 114: {fileID: 11409282}
   - 199: {fileID: 19988274}
@@ -213,7 +213,7 @@ MonoBehaviour:
   healthBarPrefab: {fileID: 11425372, guid: 6afe7065acce6fc4b98a7256e1c14872, type: 2}
   barOffset: 0.5
   healthBar: {fileID: 0}
---- !u!114 &11466764
+--- !u!114 &11492872
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -221,18 +221,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 185498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28634cdee0b531d4090f4ec557038f3e, type: 3}
+  m_Script: {fileID: 11500000, guid: c0c05701f0b24524db203930d4a9fd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zSize: 3
-  moveSpeed: 0.25
+  moveSpeed: 0.2
   moveModifier: 1
   turnSpeed: 4
   walkSwayModifier: 25
-  maxHitPoints: 300
-  hitPoints: 300
-  worthCurrency: 100
-  attackDamage: 35
+  maxHitPoints: 500
+  hitPoints: 500
+  worthCurrency: 50
+  attackDamage: 30
   spawnTime: 0
   flameDamageInterval: 1
   fireDamage: 2
@@ -246,6 +246,7 @@ MonoBehaviour:
     nodes: []
   targetCloseness: 0.1
   popNums: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
+  bossSpawnInterval: 2
 --- !u!198 &19893176
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1945,7 +1946,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: targetCloseness
-      value: .100000001
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: popNums
@@ -1953,11 +1954,11 @@ Prefab:
       objectReference: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
     - target: {fileID: 0}
       propertyPath: maxHitPoints
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: hitPoints
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: fireDamage
@@ -1989,7 +1990,7 @@ Prefab:
         type: 3}
     - target: {fileID: 0}
       propertyPath: moveSpeed
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: turnSpeed
@@ -2001,11 +2002,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: worthCurrency
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: attackDamage
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled

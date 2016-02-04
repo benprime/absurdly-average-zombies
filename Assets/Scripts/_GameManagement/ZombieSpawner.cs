@@ -9,8 +9,10 @@ using UnityEngine.UI;
 [System.Serializable]
 public class ZombieConfig
 {
-    public float secondsBetweenSpawn;
-    public int count;
+	public ZombieSize zombieType;
+	public int count;
+	public float secondsBetweenSpawn;
+	public float startDelay;
 }
 
 [System.Serializable]
@@ -25,37 +27,44 @@ public class SpawnWave
 
 public class ZombieSpawner : MonoBehaviour
 {
-    public GameObject zombiePrefab;
+	public GameObject smZombiePrefab, mdZombiePrefab, lgZombiePrefab, bsZombiePrefab;
 	public ZombieSize spawnType;
     public List<SpawnWave> waves;
     private SpawnWave m_CurrentWave;
     public SpawnWave CurrentWave { get { return m_CurrentWave; } }
 
+	IEnumerator SubSpawnLoop(ZombieConfig zc)
+	{
+		for (int i = 0; i < zc.count; i++)
+		{
+			SpawnZombie (zc.zombieType);
+			yield return new WaitForSeconds(zc.secondsBetweenSpawn);
+		}
+	}
+
     IEnumerator SpawnLoop()
     {
         foreach (ZombieConfig zc in m_CurrentWave.zombies)
-        {
-            if (zombiePrefab != null && zc.count > 0)
-            {
-                for (int i = 0; i < zc.count; i++)
-                {
-					SpawnZombie ();
-                    yield return new WaitForSeconds(zc.secondsBetweenSpawn);
-                }
-            }
-            else if (zc.count == 0) //a count of 0 results in a delay between spawn sets
-            {
-                yield return new WaitForSeconds(zc.secondsBetweenSpawn);
-            }
+		{
+			yield return new WaitForSeconds(zc.startDelay);
 
-            yield return null;  // prevents crash if all delays are 0
+            if (zc.count > 0)
+            {
+				StartCoroutine(SubSpawnLoop (zc));
+            }
         }
     }
 
-	public void SpawnZombie()
+	public void SpawnZombie(ZombieSize size)
 	{
-		GameObject z = Instantiate(zombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
-		z.GetComponent<Zombie>().path = this.GetComponentInParent<Path_Create>().path;
+		GameObject z = null;
+
+		if(size == ZombieSize.Small && smZombiePrefab) z = Instantiate(smZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+		if(size == ZombieSize.Medium && mdZombiePrefab) z = Instantiate(mdZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+		if(size == ZombieSize.Large && lgZombiePrefab) z = Instantiate(lgZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+		if(size == ZombieSize.Boss && bsZombiePrefab) z = Instantiate(bsZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+
+		if(z) z.GetComponent<Zombie>().path = this.GetComponentInParent<Path_Create>().path;
 	}
 
 

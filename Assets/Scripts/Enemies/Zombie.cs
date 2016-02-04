@@ -57,14 +57,9 @@ public class Zombie : MonoBehaviour
 
     public GameObject popNums;
 
-	private List<ZombieSpawner> spawners;
-	public int bossSpawnInterval = 2;
-	private float bossTimer = 0f;
-
     void Awake()
     {
 		this.spawnTime = Time.time;
-		spawners = new List<ZombieSpawner> ();
     }
 
     // Use this for initialization
@@ -90,14 +85,6 @@ public class Zombie : MonoBehaviour
         this.walkSwayModifier = Random.Range(20, 35);
 
 		hitPoints = maxHitPoints;
-
-		if (zSize == ZombieSize.Boss) {
-			foreach (ZombieSpawner zs in FindObjectsOfType<ZombieSpawner> ()) {
-				if (zs.spawnType == ZombieSize.Small || zs.spawnType == ZombieSize.Medium) {
-					spawners.Add (zs);
-				}
-			}
-		}
 
     }
 
@@ -133,14 +120,6 @@ public class Zombie : MonoBehaviour
             this.Die();
             return;
         }
-
-		if (zSize == ZombieSize.Boss && spawners.Count > 0) {
-			if (bossTimer >= bossSpawnInterval) {
-				spawners [Random.Range (0, spawners.Count)].SpawnZombie ();
-				bossTimer = 0;
-			}
-			bossTimer += Time.deltaTime;
-		}
 
 
         // update zombie position, moving the direction
