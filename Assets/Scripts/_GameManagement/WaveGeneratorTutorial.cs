@@ -4,12 +4,35 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class ButtonStates
+{
+    public bool N = true;
+    public bool S = true;
+    public bool E = true;
+    public bool W = true;
+}
+
+[System.Serializable]
+public class TutorialWave
+{
+    [HideInInspector]
+    public string name = "Wave";
+    public float delayBeforeWave;
+    public string beforeMessageHeader;
+    public int startingMoney;
+    [TextArea]
+    public string beforeMessage;
+    public ButtonStates weaponRadial;
+    public ButtonStates upgradeRadial;
+}
+
 public class WaveGeneratorTutorial : MonoBehaviour
 {
     public int startingMoney;
-    public List<Wave> waves;
-    private Wave m_CurrentWave;
-    public Wave CurrentWave { get { return m_CurrentWave; } }
+    public List<TutorialWave> waves;
+    private TutorialWave m_CurrentWave;
+    public TutorialWave CurrentWave { get { return m_CurrentWave; } }
     private Text waveHeaderText;
     private Text waveMessageText;
     private Image popupImage;
@@ -48,23 +71,21 @@ public class WaveGeneratorTutorial : MonoBehaviour
 
     IEnumerator SpawnLoop()
     {
-        foreach (Wave W in waves)
+        foreach (TutorialWave W in waves)
         {
             // update current wave
             m_CurrentWave = W;
 
-            this.ShowMessage("Welcome to Zombie Towers!", "This is the machine gun.  It is your most basic turret type.", this.spriteMachineGun);
+            this.ShowMessage(W.beforeMessageHeader, W.beforeMessage, this.spriteMachineGun);
 
-            UI_WeaponRadial.buttonDisabled["N"] = false; // machine gun
-            UI_WeaponRadial.buttonDisabled["S"] = true;
-            UI_WeaponRadial.buttonDisabled["E"] = true;
-            UI_WeaponRadial.buttonDisabled["W"] = true;
-            UI_UpgradeRadial.buttonDisabled["N"] = true;
-            UI_UpgradeRadial.buttonDisabled["S"] = true;
-            UI_UpgradeRadial.buttonDisabled["E"] = true;
-            UI_UpgradeRadial.buttonDisabled["W"] = true;
-
-        
+            UI_WeaponRadial.buttonDisabled["N"] = !W.weaponRadial.N;
+            UI_WeaponRadial.buttonDisabled["S"] = !W.weaponRadial.S;
+            UI_WeaponRadial.buttonDisabled["E"] = !W.weaponRadial.E;
+            UI_WeaponRadial.buttonDisabled["W"] = !W.weaponRadial.W;
+            UI_UpgradeRadial.buttonDisabled["N"] = !W.weaponRadial.N;
+            UI_UpgradeRadial.buttonDisabled["S"] = !W.weaponRadial.S;
+            UI_UpgradeRadial.buttonDisabled["E"] = !W.weaponRadial.E;
+            UI_UpgradeRadial.buttonDisabled["W"] = !W.weaponRadial.W;
 
             // do nothing while the popup message is up
             while (this.PopupMessage.activeSelf)
@@ -72,7 +93,6 @@ public class WaveGeneratorTutorial : MonoBehaviour
                 yield return null;
             }
 
-            
             //Display countdown to wave start
             if (W.delayBeforeWave > 0)
             {
@@ -113,9 +133,6 @@ public class WaveGeneratorTutorial : MonoBehaviour
             yield return null;  // prevents crash if all delays are 0
         }
 
-        // a level is completed
-        //this.ShowMessage("Congratulations!", "Level Complete!");
-
         // do nothing while the popup message is up
         while (this.PopupMessage.activeSelf)
         {
@@ -129,7 +146,7 @@ public class WaveGeneratorTutorial : MonoBehaviour
         yield return null;  // prevents crash if all delays are 0
     }
 
-    IEnumerator DrawBeforeText(Wave w)
+    IEnumerator DrawBeforeText(TutorialWave w)
     {
         int delay = (int)w.delayBeforeWave;
 
