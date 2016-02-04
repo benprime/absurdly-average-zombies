@@ -18,6 +18,8 @@ public class PopupMessageButton : MonoBehaviour
 
     public void ButtonClick()
     {
+        // whenever we dismiss a dialog, set the screen timeout to never turn off
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         this.gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

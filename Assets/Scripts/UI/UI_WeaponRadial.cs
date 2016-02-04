@@ -1,9 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class UI_WeaponRadial : MonoBehaviour
 {
     public BuildZone connectedZone;
+    public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>();
+    Dictionary<string, Transform> buttons = new Dictionary<string, Transform>();
+
+    void Awake()
+    {
+        this.buttons["N"] = transform.FindChild("N");
+        this.buttons["S"] = transform.FindChild("S");
+        this.buttons["E"] = transform.FindChild("E");
+        this.buttons["W"] = transform.FindChild("W");
+
+        this.buttons["N"].GetComponentInChildren<Button>().interactable = !buttonDisabled["N"];
+        this.buttons["S"].GetComponentInChildren<Button>().interactable = !buttonDisabled["S"];
+        this.buttons["E"].GetComponentInChildren<Button>().interactable = !buttonDisabled["E"];
+        this.buttons["W"].GetComponentInChildren<Button>().interactable = !buttonDisabled["W"];
+    }
 
     // Use this for initialization
     void Start()
@@ -19,14 +36,7 @@ public class UI_WeaponRadial : MonoBehaviour
 
     public void BuildSelectedObject(GameObject obj)
     {
-        //GameObject objToPlace = GameManager.instance.selectedObjToBuild;
-        //int cost = objToPlace.GetComponent<Turret_Stats> ().costCurrency;
-        //if (GameManager.instance.GetPlayerTotalCurrency () >= cost) {
-        //	GameManager.instance.PlayerCurrencyTransaction (-cost);
-        //	Instantiate (objToPlace, transform.position, Quaternion.identity);
-        //	//Destroy (hitZone);
-		//}
-		Input.ResetInputAxes ();
+        Input.ResetInputAxes();
 
         int cost = obj.GetComponent<Turret>().costCurrency;
         if (GameManager.instance.GetPlayerTotalCurrency() >= cost)

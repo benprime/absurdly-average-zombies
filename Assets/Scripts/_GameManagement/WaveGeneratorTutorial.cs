@@ -10,9 +10,9 @@ public class WaveGeneratorTutorial : MonoBehaviour
     public List<Wave> waves;
     private Wave m_CurrentWave;
     public Wave CurrentWave { get { return m_CurrentWave; } }
-    //private UI_WaveMessages messageBoard;
     private Text waveHeaderText;
     private Text waveMessageText;
+    private Image popupImage;
     private Text countDownText;
     private GameObject PopupMessage;
     private int currentWaveIndex = 0;
@@ -20,12 +20,21 @@ public class WaveGeneratorTutorial : MonoBehaviour
     float timer = 0f;
     public AudioClip[] zombieSounds;
 
-    void ShowMessage(string headerText, string messageText)
+    // images for popup window
+    public Sprite spriteMachineGun;
+
+    // TODO:
+    // 1. disable and enable menu items.
+    // 2. button glow
+
+    void ShowMessage(string headerText, string messageText, Sprite sprite)
     {
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
         this.PopupMessage.SetActive(true);
 
         this.waveHeaderText.text = headerText;
         this.waveMessageText.text = messageText;
+        this.popupImage.sprite = sprite;
 
         BuildZone[] allZones = FindObjectsOfType<BuildZone>();
         if (allZones.Length > 0)
@@ -41,13 +50,21 @@ public class WaveGeneratorTutorial : MonoBehaviour
     {
         foreach (Wave W in waves)
         {
+            // update current wave
             m_CurrentWave = W;
 
-            if (!string.IsNullOrEmpty(W.beforeMessage))
-            {
-                Screen.sleepTimeout = SleepTimeout.SystemSetting;
-                this.ShowMessage(W.beforeMessageHeader, W.beforeMessage);
-            }
+            this.ShowMessage("Welcome to Zombie Towers!", "This is the machine gun.  It is your most basic turret type.", this.spriteMachineGun);
+
+            UI_WeaponRadial.buttonDisabled["N"] = false; // machine gun
+            UI_WeaponRadial.buttonDisabled["S"] = true;
+            UI_WeaponRadial.buttonDisabled["E"] = true;
+            UI_WeaponRadial.buttonDisabled["W"] = true;
+            UI_UpgradeRadial.buttonDisabled["N"] = true;
+            UI_UpgradeRadial.buttonDisabled["S"] = true;
+            UI_UpgradeRadial.buttonDisabled["E"] = true;
+            UI_UpgradeRadial.buttonDisabled["W"] = true;
+
+        
 
             // do nothing while the popup message is up
             while (this.PopupMessage.activeSelf)
@@ -55,7 +72,7 @@ public class WaveGeneratorTutorial : MonoBehaviour
                 yield return null;
             }
 
-            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            
             //Display countdown to wave start
             if (W.delayBeforeWave > 0)
             {
@@ -97,7 +114,7 @@ public class WaveGeneratorTutorial : MonoBehaviour
         }
 
         // a level is completed
-        this.ShowMessage("Congratulations!", "Level Complete!");
+        //this.ShowMessage("Congratulations!", "Level Complete!");
 
         // do nothing while the popup message is up
         while (this.PopupMessage.activeSelf)
@@ -106,7 +123,6 @@ public class WaveGeneratorTutorial : MonoBehaviour
         }
 
         GameManager.instance.progressManager.CompleteLevel(SceneManager.GetActiveScene().name);
-        Screen.sleepTimeout = SleepTimeout.SystemSetting;
         GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
         GameManager.instance.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("SelectLevel");
@@ -131,10 +147,11 @@ public class WaveGeneratorTutorial : MonoBehaviour
         // get references to everything up front
         this.countDownText = GameObject.Find("CountDown").GetComponent<Text>();
 
-        this.PopupMessage = GameObject.Find("PopupMessage");
+        this.PopupMessage = GameObject.Find("PopupWithPicture");
 
         this.waveHeaderText = this.PopupMessage.transform.FindChild("HeaderPanel").transform.FindChild("HeaderText").GetComponent<Text>();
         this.waveMessageText = this.PopupMessage.transform.FindChild("BodyPanel").transform.FindChild("MessageText").GetComponent<Text>();
+        this.popupImage = this.PopupMessage.transform.FindChild("BodyPanel").transform.FindChild("Image").GetComponent<Image>();
 
         GameManager.instance.player_totalCurrency = startingMoney;
         if (levelMusic != null || GameManager.instance.GetComponent<AudioSource>().clip != levelMusic)

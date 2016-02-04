@@ -14,6 +14,7 @@ public class Wave
     public string name = "Wave";
     public float delayBeforeWave;
     public string beforeMessageHeader;
+    [TextArea]
     public string beforeMessage;
 }
 
