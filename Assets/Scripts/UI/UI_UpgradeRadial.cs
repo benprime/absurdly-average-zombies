@@ -16,8 +16,13 @@ public class UI_UpgradeRadial : MonoBehaviour
     private bool buttonHeld = false;
 
     // global override for enabling buttons (used by tutorial)
-    public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>();
-
+    public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>()
+    {
+        {"N", false },
+        {"S", false },
+        {"E", false },
+        {"W", false },
+    };
     Dictionary<string, Transform> buttons = new Dictionary<string, Transform>();
 
     public Color sellColor = Color.green;

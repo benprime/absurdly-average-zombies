@@ -6,7 +6,13 @@ using UnityEngine.UI;
 public class UI_WeaponRadial : MonoBehaviour
 {
     public BuildZone connectedZone;
-    public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>();
+    public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>()
+    {
+        {"N", false },
+        {"S", false },
+        {"E", false },
+        {"W", false },
+    };
     Dictionary<string, Transform> buttons = new Dictionary<string, Transform>();
 
     void Awake()
