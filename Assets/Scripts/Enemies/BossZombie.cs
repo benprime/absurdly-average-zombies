@@ -19,9 +19,7 @@ public class BossZombie : Zombie {
 	protected override void Start () {
 		base.Start ();
 		foreach (ZombieSpawner zs in FindObjectsOfType<ZombieSpawner> ()) {
-			if (zs.spawnType == ZombieSize.Small || zs.spawnType == ZombieSize.Medium) {
 				spawners.Add (zs);
-			}
 		}
 	}
 	
@@ -30,7 +28,17 @@ public class BossZombie : Zombie {
 		base.Update ();
 		if (spawners.Count > 0) {
 			if (bossTimer >= bossSpawnInterval) {
-				spawners [Random.Range (0, spawners.Count)].SpawnZombie (ZombieSize.Medium);
+				foreach (ZombieSpawner zx in spawners) {
+					float rando = Random.Range(0f, 1f);
+					if (rando < .6)
+						zx.SpawnZombie (ZombieSize.Medium);
+					else if (rando < .9)
+						zx.SpawnZombie (ZombieSize.Small);
+					else if (rando < .999)
+						zx.SpawnZombie (ZombieSize.Large);
+					else
+						zx.SpawnZombie (ZombieSize.Boss);
+				}
 				bossTimer = 0;
 			}
 			bossTimer += Time.deltaTime;

@@ -36,7 +36,7 @@ public class MapLoader : MonoBehaviour
         int widthInTiles = int.Parse(rootNode["width"]);
         int heightInTiles = int.Parse(rootNode["height"]);
         int TileWidth = int.Parse(rootNode["tilewidth"]);
-        int TileHeight = int.Parse(rootNode["tileheight"]);
+        //int TileHeight = int.Parse(rootNode["tileheight"]);
 
 
         // Load tilesets (assuming just one for now)
@@ -51,7 +51,7 @@ public class MapLoader : MonoBehaviour
         int colWidth = tilesetImageWidth / tilesetTileWidth;
         int maxRow = (tilesetImageHeight / tilesetTileHeight) - 1;
 
-        string imageFilename = Path.GetFileNameWithoutExtension(rootNode["tilesets"][0]["image"]);
+        //string imageFilename = Path.GetFileNameWithoutExtension(rootNode["tilesets"][0]["image"]);
         
         Texture2D tileset = (Texture2D)Resources.Load(tilesetFileName);
         this.tiles = new Sprite[tilesetTileCount];

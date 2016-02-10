@@ -31,7 +31,7 @@ public class PlayerBase_Stats : MonoBehaviour
 
         if (currentHitPoints <= 0)
         {
-            GameObject clone = Instantiate(gameOverPopup) as GameObject;
+            Instantiate(gameOverPopup);
             //Transform uiCanvas = FindObjectOfType<Canvas>().transform;
             //clone.transform.SetParent(uiCanvas, false);
             Destroy(hb.healthBar.gameObject);

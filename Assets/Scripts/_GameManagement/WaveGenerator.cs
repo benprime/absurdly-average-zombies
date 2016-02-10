@@ -35,6 +35,7 @@ public class WaveGenerator : MonoBehaviour
 	public AudioClip levelMusic;
 	float timer = 0f;
 	public AudioClip[] zombieSounds;
+	public bool isWaveActive = false;
 
     void ShowMessage(string headerText, string messageText)
 	{
@@ -79,17 +80,19 @@ public class WaveGenerator : MonoBehaviour
             this.countDownText.enabled = false;
 
             //Spawners start
+			isWaveActive = true;
             ZombieSpawner[] spawns = FindObjectsOfType<ZombieSpawner>();
             foreach (ZombieSpawner zs in spawns)
             {
-                zs.BeginSpawnWave(currentWaveIndex);
+				//possibly add a yield return here
+				StartCoroutine(zs.BeginSpawnWave(currentWaveIndex));
             }
 
             //allow 1 second for spawners to start
             yield return new WaitForSeconds(1);
 			float sounder = Random.Range (2f, 5f);
             // wave is not over until all zombies are dead
-            while (FindObjectsOfType<Zombie>().Length > 0)
+			while (isWaveActive || FindObjectsOfType<Zombie>().Length > 0)
 			{
 				timer += Time.deltaTime;
 				if (timer >= sounder) {

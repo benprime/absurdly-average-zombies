@@ -28,7 +28,6 @@ public class SpawnWave
 public class ZombieSpawner : MonoBehaviour
 {
 	public GameObject smZombiePrefab, mdZombiePrefab, lgZombiePrefab, bsZombiePrefab;
-	public ZombieSize spawnType;
     public List<SpawnWave> waves;
     private SpawnWave m_CurrentWave;
     public SpawnWave CurrentWave { get { return m_CurrentWave; } }
@@ -50,7 +49,10 @@ public class ZombieSpawner : MonoBehaviour
 
             if (zc.count > 0)
             {
-				StartCoroutine(SubSpawnLoop (zc));
+				if(zc == m_CurrentWave.zombies.Last()) 
+					yield return StartCoroutine(SubSpawnLoop (zc));
+				else 
+					StartCoroutine(SubSpawnLoop (zc));
             }
         }
     }
@@ -68,12 +70,13 @@ public class ZombieSpawner : MonoBehaviour
 	}
 
 
-    public void BeginSpawnWave(int waveIndex)
+	public IEnumerator BeginSpawnWave(int waveIndex)
     {
         if (waveIndex < waves.Count())
         {
             m_CurrentWave = waves[waveIndex];
-            StartCoroutine(SpawnLoop());
+			yield return StartCoroutine(SpawnLoop());
+			FindObjectOfType<WaveGenerator> ().isWaveActive = false;
         }
     }
 
