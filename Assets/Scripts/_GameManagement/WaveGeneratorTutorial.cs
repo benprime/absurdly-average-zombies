@@ -5,10 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class ButtonStates
+public class WeaponButtonStates
 {
     public bool N = true;
     public bool S = true;
+    public bool E = true;
+    public bool W = true;
+}
+
+[System.Serializable]
+public class UpgradeButtonStates
+{
     public bool E = true;
     public bool W = true;
 }
@@ -20,11 +27,15 @@ public class TutorialWave
     public string name = "Wave";
     public float delayBeforeWave;
     public string beforeMessageHeader;
-    public int startingMoney;
     [TextArea]
     public string beforeMessage;
-    public ButtonStates weaponRadial;
-    public ButtonStates upgradeRadial;
+    public Sprite messageImage;
+
+    // additional fields for tutorial waves
+    public int startingMoney;
+    public WeaponButtonStates weaponRadial;
+    public UpgradeButtonStates upgradeRadial;
+    public bool clearTurrets;
 }
 
 public class WaveGeneratorTutorial : MonoBehaviour
@@ -33,6 +44,7 @@ public class WaveGeneratorTutorial : MonoBehaviour
     public List<TutorialWave> waves;
     private TutorialWave m_CurrentWave;
     public TutorialWave CurrentWave { get { return m_CurrentWave; } }
+
     private Text waveHeaderText;
     private Text waveMessageText;
     private Image popupImage;
@@ -42,13 +54,7 @@ public class WaveGeneratorTutorial : MonoBehaviour
     public AudioClip levelMusic;
     float timer = 0f;
     public AudioClip[] zombieSounds;
-
-    // images for popup window
-    public Sprite spriteMachineGun;
-
-    // TODO:
-    // 1. disable and enable menu items.
-    // 2. button glow
+    public bool isWaveActive = false;
 
     void ShowMessage(string headerText, string messageText, Sprite sprite)
     {
@@ -76,16 +82,23 @@ public class WaveGeneratorTutorial : MonoBehaviour
             // update current wave
             m_CurrentWave = W;
 
-            this.ShowMessage(W.beforeMessageHeader, W.beforeMessage, this.spriteMachineGun);
+            this.ShowMessage(W.beforeMessageHeader, W.beforeMessage, W.messageImage);
 
             UI_WeaponRadial.buttonDisabled["N"] = !W.weaponRadial.N;
             UI_WeaponRadial.buttonDisabled["S"] = !W.weaponRadial.S;
             UI_WeaponRadial.buttonDisabled["E"] = !W.weaponRadial.E;
             UI_WeaponRadial.buttonDisabled["W"] = !W.weaponRadial.W;
-            UI_UpgradeRadial.buttonDisabled["N"] = !W.weaponRadial.N;
-            UI_UpgradeRadial.buttonDisabled["S"] = !W.weaponRadial.S;
-            UI_UpgradeRadial.buttonDisabled["E"] = !W.weaponRadial.E;
-            UI_UpgradeRadial.buttonDisabled["W"] = !W.weaponRadial.W;
+            UI_UpgradeRadial.buttonDisabled["E"] = !W.upgradeRadial.E;
+            UI_UpgradeRadial.buttonDisabled["W"] = !W.upgradeRadial.W;
+
+            if (W.clearTurrets)
+            {
+                BuildZone[] bzs = FindObjectsOfType<BuildZone>();
+                foreach (BuildZone bz in bzs)
+                {
+                    bz.Clear();
+                }
+            }
 
             // do nothing while the popup message is up
             while (this.PopupMessage.activeSelf)
@@ -102,17 +115,19 @@ public class WaveGeneratorTutorial : MonoBehaviour
             this.countDownText.enabled = false;
 
             //Spawners start
+            isWaveActive = true;
             ZombieSpawner[] spawns = FindObjectsOfType<ZombieSpawner>();
             foreach (ZombieSpawner zs in spawns)
             {
-                zs.BeginSpawnWave(currentWaveIndex);
+                //possibly add a yield return here
+                StartCoroutine(zs.BeginSpawnWave(currentWaveIndex));
             }
 
             //allow 1 second for spawners to start
             yield return new WaitForSeconds(1);
             float sounder = Random.Range(2f, 5f);
             // wave is not over until all zombies are dead
-            while (FindObjectsOfType<Zombie>().Length > 0)
+            while (isWaveActive || FindObjectsOfType<Zombie>().Length > 0)
             {
                 timer += Time.deltaTime;
                 if (timer >= sounder)
@@ -139,7 +154,7 @@ public class WaveGeneratorTutorial : MonoBehaviour
             yield return null;
         }
 
-        GameManager.instance.progressManager.CompleteLevel(SceneManager.GetActiveScene().name);
+        //GameManager.instance.progressManager.CompleteLevel(SceneManager.GetActiveScene().name);
         GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
         GameManager.instance.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("SelectLevel");

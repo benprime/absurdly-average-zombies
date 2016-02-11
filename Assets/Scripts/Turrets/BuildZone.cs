@@ -23,6 +23,12 @@ public class BuildZone : MonoBehaviour
 
     }
 
+    public void Clear()
+    {
+        Destroy(this.currentWeapon);
+        this.currentState = ZONE_STATE.EMPTY;
+    }
+
     public void PopRadialMenu(Vector3 location)
     {
         if (!currentHub)

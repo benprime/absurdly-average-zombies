@@ -18,8 +18,6 @@ public class UI_UpgradeRadial : MonoBehaviour
     // global override for enabling buttons (used by tutorial)
     public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>()
     {
-        {"N", false },
-        {"S", false },
         {"E", false },
         {"W", false },
     };
@@ -29,13 +27,9 @@ public class UI_UpgradeRadial : MonoBehaviour
 
     void Awake()
     {
-        this.buttons["N"] = transform.FindChild("N");
-        this.buttons["S"] = transform.FindChild("S");
         this.buttons["E"] = transform.FindChild("E");
         this.buttons["W"] = transform.FindChild("W");
 
-        this.buttons["N"].GetComponentInChildren<Button>().interactable = !buttonDisabled["N"];
-        this.buttons["S"].GetComponentInChildren<Button>().interactable = !buttonDisabled["S"];
         this.buttons["E"].GetComponentInChildren<Button>().interactable = !buttonDisabled["E"];
         this.buttons["W"].GetComponentInChildren<Button>().interactable = !buttonDisabled["W"];
     }
@@ -73,8 +67,7 @@ public class UI_UpgradeRadial : MonoBehaviour
             {
                 int worth = (currentWeaponStats.costCurrency) / 2;  //sell for half of purchase cost
                 GameManager.instance.PlayerCurrencyTransaction(worth);
-                Destroy(connectedZone.currentWeapon);
-                connectedZone.currentState = BuildZone.ZONE_STATE.EMPTY;
+                connectedZone.Clear();
                 connectedZone.CloseOut();
             }
         }
@@ -143,11 +136,7 @@ public class UI_UpgradeRadial : MonoBehaviour
 
             //much hackery going on here due to lack of sleep TODO: optimize!!!! (shouldn't be in the update loop)
             SetSellButton();
-
-            //change upgrade image to show next available upgrade
-            SetDamageButton();
-            SetRangeButton();
-            SetSpeedButton();
+            SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton();
         }
     }
 
@@ -155,77 +144,13 @@ public class UI_UpgradeRadial : MonoBehaviour
     {
         if (buttonDisabled["W"])
         {
-            this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
+            this.buttons["W"].GetComponentInChildren<Button>().interactable = false;
             return;
         }
 
-        Text sellCostText = this.buttons["E"].GetComponentInChildren<Text>();
+        Text sellCostText = this.buttons["W"].GetComponentInChildren<Text>();
         sellCostText.text = "$" + ((currentWeaponStats.costCurrency) / 2);
     }
-
-    void SetDamageButton()
-    {
-        if (buttonDisabled["N"])
-        {
-            this.buttons["N"].GetComponentInChildren<Button>().interactable = false;
-            return;
-        }
-
-        if (currentWeaponStats.damageLevel == maxUpgradeLevels)
-        {
-            this.buttons["N"].GetComponentInChildren<Text>().text = "MAX";
-            this.buttons["N"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.damageLevel - 1];
-            this.buttons["N"].GetComponentInChildren<Button>().interactable = false;
-        }
-        else
-        {
-            this.buttons["N"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.damageLevel);
-            this.buttons["N"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.damageLevel];
-        }
-
-    }
-
-    void SetRangeButton()
-    {
-        if (buttonDisabled["E"])
-        {
-            this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
-            return;
-        }
-
-        if (currentWeaponStats.rangeLevel == maxUpgradeLevels)
-        {
-            this.buttons["E"].GetComponentInChildren<Text>().text = "MAX";
-            this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel - 1];
-            this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
-        }
-        else
-        {
-            this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.rangeLevel);
-            this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
-        }
-    }
-
-    void SetSpeedButton()
-    {
-        if (buttonDisabled["S"])
-        {
-            this.buttons["S"].GetComponentInChildren<Button>().interactable = false;
-            return;
-        }
-
-        if (currentWeaponStats.speedLevel == maxUpgradeLevels)
-        {
-            this.buttons["S"].GetComponentInChildren<Text>().text = "MAX";
-            this.buttons["S"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.speedLevel - 1];
-            this.buttons["S"].GetComponentInChildren<Button>().interactable = false;
-        }
-        else
-        {
-            this.buttons["S"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.speedLevel);
-            this.buttons["S"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.speedLevel];
-        }
-	}
 
 	void SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton()
 	{
@@ -247,12 +172,4 @@ public class UI_UpgradeRadial : MonoBehaviour
 			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
 		}
 	}
-
-    void UpdateAllButtons()
-    {
-        SetRangeButton();
-        SetDamageButton();
-        SetSpeedButton();
-        SetSellButton();
-    }
 }
