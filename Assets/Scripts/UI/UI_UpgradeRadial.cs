@@ -131,7 +131,7 @@ public class UI_UpgradeRadial : MonoBehaviour
             UpgradeDamage();
             UpgradeSpeed();
 
-            UpdateAllButtons();
+			SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton();
         }
     }
 
@@ -225,7 +225,28 @@ public class UI_UpgradeRadial : MonoBehaviour
             this.buttons["S"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.speedLevel);
             this.buttons["S"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.speedLevel];
         }
-    }
+	}
+
+	void SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton()
+	{
+		if (buttonDisabled["E"])
+		{
+			this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
+			return;
+		}
+
+		if (currentWeaponStats.rangeLevel == maxUpgradeLevels)
+		{
+			this.buttons["E"].GetComponentInChildren<Text>().text = "MAX";
+			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel - 1];
+			this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
+		}
+		else
+		{
+			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.rangeLevel);
+			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
+		}
+	}
 
     void UpdateAllButtons()
     {
