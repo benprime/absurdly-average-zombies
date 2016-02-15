@@ -142,6 +142,20 @@ public class WaveGenerator : MonoBehaviour
         this.countDownText.enabled = false;
     }
 
+    void Awake()
+    {
+        // The normal wave generator (this class) doesn't currently
+        // disable any weapon/hud buttons.  We reset them all to enabled
+        // here.  If in the future, the normal non-tutorial game disables
+        // any buttons, this will have to be removed.
+        UI_UpgradeRadial.buttonDisabled["E"] = false;
+        UI_UpgradeRadial.buttonDisabled["W"] = false;
+        UI_WeaponRadial.buttonDisabled["E"] = false;
+        UI_WeaponRadial.buttonDisabled["W"] = false;
+        UI_WeaponRadial.buttonDisabled["N"] = false;
+        UI_WeaponRadial.buttonDisabled["S"] = false;
+    }
+
     void Start()
     {
         // get references to everything up front
