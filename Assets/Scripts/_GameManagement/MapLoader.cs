@@ -36,7 +36,7 @@ public class MapLoader : MonoBehaviour
         int widthInTiles = int.Parse(rootNode["width"]);
         int heightInTiles = int.Parse(rootNode["height"]);
         int TileWidth = int.Parse(rootNode["tilewidth"]);
-        //int TileHeight = int.Parse(rootNode["tileheight"]);
+        int TileHeight = int.Parse(rootNode["tileheight"]);
 
 
         // Load tilesets (assuming just one for now)
@@ -64,16 +64,22 @@ public class MapLoader : MonoBehaviour
 
             Rect srcRect = new Rect(x, y, tilesetTileWidth, tilesetTileHeight);
             this.tiles[i] = Sprite.Create(tileset, srcRect, new Vector2(0.5f, 0.5f), TileWidth);
-
         }
 
         int dataIndex = 0;
 
-        Vector3 mapSize = GetComponent<Renderer>().bounds.size;
+        //Vector3 mapSize = GetComponent<Renderer>().bounds.size;
 
         // a little hacky, but lines up the maps with old method (to avoid having to update all the maps)
-        float y_adjust = (mapSize.y / 2) + .48f;// .28 -.03
-        float x_adjust = (mapSize.x / 2) + .06f;//-.16  .18
+        //float y_adjust = (mapSize.y / 2);
+        //float x_adjust = (mapSize.x / 2);
+
+
+
+
+        Bounds mapBounds = GetComponent<Renderer>().bounds;
+        Vector3 left_top = (mapBounds.center - (mapBounds.extents / 2));
+        Vector3 stahp = (mapBounds.center + (mapBounds.extents / 2));
 
         // y = 0 has no data?
         for (int y = heightInTiles; y > 0; y--)
@@ -101,12 +107,15 @@ public class MapLoader : MonoBehaviour
                 // grab the prefab tile based on gid
                 GameObject tile = new GameObject("Tile");// tiles[gid - 1];
 				tile.transform.SetParent(mapTiles.transform);
-                tile.transform.position = new Vector3(x - x_adjust, y - y_adjust);
+
+                // WARNING: COULD BE A PROBLEM
+                tile.transform.position = new Vector3(x + 0.5f - (widthInTiles / 2), y - 0.5f - (heightInTiles / 2));
+
+
                 tile.layer = 8; // terrain layer
                 SpriteRenderer sr = tile.AddComponent<SpriteRenderer>();
                 sr.sortingLayerName = "Background";
 				sr.sprite = tiles[gid-1];
-
 
                 // handle the rotations and flipping
                 Vector3 scale = tile.transform.localScale;
