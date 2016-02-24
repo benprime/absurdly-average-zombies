@@ -424,8 +424,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1faf5e7d4f8edaa4fb9a93d1aec4940b, type: 3}
   - {fileID: 21300000, guid: 67754e5957f60e747aa2338f84902206, type: 3}
   - {fileID: 21300000, guid: 933cc288b2ee5ca4a8fbebe2cffb5007, type: 3}
-  buttonHoldDelay: 1
-  sellColor: {r: 0.378, g: 1, b: 0, a: 1}
+  sellConfirmSprite: {fileID: 21300000, guid: f0cd5dec02f11e047ab2cd1f8c8f9948, type: 3}
+  saleInitiated: 0
 --- !u!114 &11481436
 MonoBehaviour:
   m_ObjectHideFlags: 1

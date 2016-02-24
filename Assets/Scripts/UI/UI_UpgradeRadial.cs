@@ -11,9 +11,6 @@ public class UI_UpgradeRadial : MonoBehaviour
     public int maxUpgradeLevels = 3;
     public Sprite[] rankSprites;
     private float baseRotSpd = -1f, baseShotDelay = -1f, baseRange = -1f;
-    private float timer = 0f;
-    public float buttonHoldDelay = 1f;
-    private bool buttonHeld = false;
 
     // global override for enabling buttons (used by tutorial)
     public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>()
@@ -23,7 +20,9 @@ public class UI_UpgradeRadial : MonoBehaviour
     };
     Dictionary<string, Transform> buttons = new Dictionary<string, Transform>();
 
-    public Color sellColor = Color.green;
+
+	public Sprite sellConfirmSprite;
+	public bool saleInitiated = false;
 
     void Awake()
     {
@@ -42,37 +41,21 @@ public class UI_UpgradeRadial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (buttonHeld && ((Time.time - timer) < buttonHoldDelay))
-        {
-            Button b = transform.FindChild("W").GetComponent<Button>();
-            ColorBlock cb = b.colors;
-            sellColor.g = ((Time.time - timer) / buttonHoldDelay) * .5f;
-            cb.pressedColor = sellColor;
-            b.colors = cb;
-        }
-    }
-
-    public void SellDelay()
-    {
-        timer = Time.time;
-        buttonHeld = true;
     }
 
     public void SellWeapon()
     {
-        Input.ResetInputAxes();
-        if ((Time.time - timer) >= buttonHoldDelay)
-        {
-            if (connectedZone)
-            {
-                int worth = (currentWeaponStats.costCurrency) / 2;  //sell for half of purchase cost
-                GameManager.instance.PlayerCurrencyTransaction(worth);
-                connectedZone.Clear();
-                connectedZone.CloseOut();
-            }
-        }
-        timer = 0;
-        buttonHeld = false;
+		if (!saleInitiated) {
+			saleInitiated = true;
+			this.buttons ["W"].GetComponent<Image> ().sprite = sellConfirmSprite;
+		} else {
+			if (connectedZone) {
+				int worth = (currentWeaponStats.costCurrency) / 2;  //sell for half of purchase cost
+				GameManager.instance.PlayerCurrencyTransaction (worth);
+				connectedZone.Clear ();
+				connectedZone.CloseOut ();
+			}
+		}
     }
 
     private int CalculateUpgradeCost(int upgradeLevel)

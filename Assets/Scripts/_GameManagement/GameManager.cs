@@ -70,7 +70,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	void OnLevelWasLoaded(int level) {
-		Camera.main.gameObject.GetComponent<AudioListener> ().enabled = mute;
+		if(mute == false) Camera.main.gameObject.GetComponent<AudioListener> ().enabled = false;
+		else Camera.main.gameObject.GetComponent<AudioListener> ().enabled = true;
 
 
 		if (previousLevel > 3) { //only display ad if player goes from the game back to menu or retries level
