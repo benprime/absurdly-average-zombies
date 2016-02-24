@@ -36,7 +36,7 @@ public class MapLoader : MonoBehaviour
         int widthInTiles = int.Parse(rootNode["width"]);
         int heightInTiles = int.Parse(rootNode["height"]);
         int TileWidth = int.Parse(rootNode["tilewidth"]);
-        int TileHeight = int.Parse(rootNode["tileheight"]);
+        //int TileHeight = int.Parse(rootNode["tileheight"]);
 
 
         // Load tilesets (assuming just one for now)
@@ -51,8 +51,6 @@ public class MapLoader : MonoBehaviour
         int colWidth = tilesetImageWidth / tilesetTileWidth;
         int maxRow = (tilesetImageHeight / tilesetTileHeight) - 1;
 
-        //string imageFilename = Path.GetFileNameWithoutExtension(rootNode["tilesets"][0]["image"]);
-        
         Texture2D tileset = (Texture2D)Resources.Load(tilesetFileName);
         this.tiles = new Sprite[tilesetTileCount];
 
@@ -68,23 +66,9 @@ public class MapLoader : MonoBehaviour
 
         int dataIndex = 0;
 
-        //Vector3 mapSize = GetComponent<Renderer>().bounds.size;
-
-        // a little hacky, but lines up the maps with old method (to avoid having to update all the maps)
-        //float y_adjust = (mapSize.y / 2);
-        //float x_adjust = (mapSize.x / 2);
-
-
-
-
-        Bounds mapBounds = GetComponent<Renderer>().bounds;
-        Vector3 left_top = (mapBounds.center - (mapBounds.extents / 2));
-        Vector3 stahp = (mapBounds.center + (mapBounds.extents / 2));
-
-        // y = 0 has no data?
-        for (int y = heightInTiles; y > 0; y--)
+        for (float y = heightInTiles; y > 0; y--)
         {
-            for (int x = 0; x < widthInTiles; x++)
+            for (float x = 0; x < widthInTiles; x++)
             {
                 string gid_string = rootNode["layers"][0]["data"][dataIndex++];
                 if (string.IsNullOrEmpty(gid_string))
@@ -107,10 +91,7 @@ public class MapLoader : MonoBehaviour
                 // grab the prefab tile based on gid
                 GameObject tile = new GameObject("Tile");// tiles[gid - 1];
 				tile.transform.SetParent(mapTiles.transform);
-
-                // WARNING: COULD BE A PROBLEM
-                tile.transform.position = new Vector3(x + 0.5f - (widthInTiles / 2), y - 0.5f - (heightInTiles / 2));
-
+                tile.transform.position = new Vector3(x - (widthInTiles / 2.0f) + 0.5f, y - (heightInTiles / 2.0f) - 0.5f);
 
                 tile.layer = 8; // terrain layer
                 SpriteRenderer sr = tile.AddComponent<SpriteRenderer>();
@@ -150,15 +131,11 @@ public class MapLoader : MonoBehaviour
 				tile.transform.localScale = scale;
             }
 		}
+
+        // this is how we handle pixelPerUnit
 		Vector3 offScale = new Vector3 (.96f, .96f, 1f);
 		mapTiles.transform.localScale = offScale;
 		mapTiles.transform.SetParent(map.transform);
-
-
-		//Vector3 tempVec = map.transform.localScale;
-		//tempVec.x *= .98f;
-		//tempVec.y *= .98f;
-		//map.transform.localScale = tempVec;
     }
 
     // Update is called once per frame
