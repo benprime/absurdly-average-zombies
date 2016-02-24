@@ -22,6 +22,7 @@ public class MapLoader : MonoBehaviour
 
 		GameObject map = GameObject.Find("Map");
 		GameObject mapTiles = new GameObject();
+        mapTiles.transform.SetParent(map.transform);
 
         // TODO: Maybe someday make this loader take other map formats into account.
         // for now, we'll make some basic assumptions (single layer 2d orthogonal)
@@ -91,7 +92,7 @@ public class MapLoader : MonoBehaviour
                 // grab the prefab tile based on gid
                 GameObject tile = new GameObject("Tile");// tiles[gid - 1];
 				tile.transform.SetParent(mapTiles.transform);
-                tile.transform.position = new Vector3(x - (widthInTiles / 2.0f) + 0.5f, y - (heightInTiles / 2.0f) - 0.5f);
+                tile.transform.localPosition = new Vector3(x - (widthInTiles / 2.0f) + 0.5f, y - (heightInTiles / 2.0f) - 0.5f);
 
                 tile.layer = 8; // terrain layer
                 SpriteRenderer sr = tile.AddComponent<SpriteRenderer>();
@@ -135,7 +136,6 @@ public class MapLoader : MonoBehaviour
         // this is how we handle pixelPerUnit
 		Vector3 offScale = new Vector3 (.96f, .96f, 1f);
 		mapTiles.transform.localScale = offScale;
-		mapTiles.transform.SetParent(map.transform);
     }
 
     // Update is called once per frame
