@@ -29,6 +29,16 @@ public class Turret_ZombieDetect : MonoBehaviour
             parentInfo.zombiesInRange.Remove(thing.gameObject);
             //parentInfo.zombiesInRange.Add(thing.gameObject);
         }
+        else if (thing.tag == "Projectile")
+        {
+            // project tile has left the range of the turret so explode/remove object
+            Bullet_Behavior bb = thing.gameObject.GetComponent<Bullet_Behavior>();
+            Turret t = this.gameObject.transform.parent.gameObject.GetComponent<Turret>();
+            if (bb.turret == t)
+            {
+                bb.Explode(null);
+            }
+        }
     }
 
 }

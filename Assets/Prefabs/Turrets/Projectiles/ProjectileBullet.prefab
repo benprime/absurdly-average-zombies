@@ -11,9 +11,9 @@ GameObject:
   - 61: {fileID: 6128868}
   - 114: {fileID: 11482422}
   - 96: {fileID: 9659126}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ProjectileBullet
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   moveSpeed: 20
   startPos: {x: 0, y: 0, z: 0}
   range: 10
+  turret: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

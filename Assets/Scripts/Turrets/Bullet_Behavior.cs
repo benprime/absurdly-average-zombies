@@ -10,6 +10,8 @@ public class Bullet_Behavior : MonoBehaviour
 
     protected int damage;
 
+    [HideInInspector]
+    public Turret turret;
 
 
     // Use this for initialization
@@ -45,6 +47,11 @@ public class Bullet_Behavior : MonoBehaviour
             //other.SendMessage("TakeDamage", this.damage);
             Destroy(this.gameObject);
         }
+    }
+
+    public virtual void Explode(Collider2D other)
+    {
+        Destroy(this.gameObject);
     }
 
 }
