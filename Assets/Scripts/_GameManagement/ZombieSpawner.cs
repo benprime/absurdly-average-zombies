@@ -76,7 +76,18 @@ public class ZombieSpawner : MonoBehaviour
         {
             m_CurrentWave = waves[waveIndex];
 			yield return StartCoroutine(SpawnLoop());
-			FindObjectOfType<WaveGenerator> ().isWaveActive = false;
+
+            // Little hacky, but it'll do for now
+            WaveGenerator w = FindObjectOfType<WaveGenerator>();
+            if (w != null)
+            {
+                w.isWaveActive = false;
+            }
+            else
+            {
+                WaveGeneratorTutorial t = FindObjectOfType<WaveGeneratorTutorial>();
+                t.isWaveActive = false;
+            }
         }
     }
 
