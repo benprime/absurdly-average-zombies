@@ -79,6 +79,7 @@ public class Turret : MonoBehaviour
             // TODO: perhaps set a reference to the turret instead of
             // passing around the damage value.
             Bullet_Behavior b = clone.GetComponent<Bullet_Behavior>();
+            b.turret = this;
             b.SetDamage(this.damage);
 
             animator.SetTrigger("Fire");

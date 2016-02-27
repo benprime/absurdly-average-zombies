@@ -8,6 +8,7 @@ TagManager:
   - PlayerBase
   - Path
   - Turret
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Ignore Collision
   - Enemy_Targetable
   - BuildZone
-  - 
+  - Projectiles
   - 
   - 
   - 

@@ -11,9 +11,9 @@ GameObject:
   - 212: {fileID: 21215096}
   - 61: {fileID: 6128868}
   - 114: {fileID: 11482422}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ProjectileTar
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
   moveSpeed: 5
   startPos: {x: 0, y: 0, z: 0}
   range: 10
+  turret: {fileID: 0}
   bombBlast: {fileID: 116350, guid: 1eea47704ffa06241ade3cf051168a39, type: 2}
   target: {fileID: 0}
 --- !u!212 &21215096
