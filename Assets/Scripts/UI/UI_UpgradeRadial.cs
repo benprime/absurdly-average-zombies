@@ -6,7 +6,8 @@ using System.Linq;
 
 public class UI_UpgradeRadial : MonoBehaviour
 {
-    public BuildZone connectedZone;
+	public BuildZone connectedZone;
+	private SpriteRenderer currentWeaponUpgradeSprite;
     private Turret currentWeaponStats;
     public int maxUpgradeLevels = 3;
     public Sprite[] rankSprites;
@@ -115,6 +116,7 @@ public class UI_UpgradeRadial : MonoBehaviour
     {
         if (connectedZone)
         {
+			currentWeaponUpgradeSprite = connectedZone.currentWeapon.transform.FindChild("Stars").GetComponent<SpriteRenderer>();
             currentWeaponStats = connectedZone.currentWeapon.GetComponent<Turret>();
 
             //much hackery going on here due to lack of sleep TODO: optimize!!!! (shouldn't be in the update loop)
@@ -147,12 +149,14 @@ public class UI_UpgradeRadial : MonoBehaviour
 		{
 			this.buttons["E"].GetComponentInChildren<Text>().text = "MAX";
 			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel - 1];
+			currentWeaponUpgradeSprite.sprite = rankSprites [currentWeaponStats.rangeLevel - 1];
 			this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
 		}
 		else
 		{
 			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.rangeLevel);
 			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
+			currentWeaponUpgradeSprite.sprite = rankSprites[currentWeaponStats.rangeLevel-1];
 		}
 	}
 }
