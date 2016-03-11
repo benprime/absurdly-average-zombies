@@ -98,7 +98,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11431936, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: path.nodes.Array.size
@@ -805,11 +805,7 @@ MonoBehaviour:
   - name: Wave
     delayBeforeWave: 5
     beforeMessageHeader: 
-    beforeMessage: Get ready for wave 3!
-  - name: Wave
-    delayBeforeWave: 5
-    beforeMessageHeader: 
-    beforeMessage: Get ready for final wave!
+    beforeMessage: Get ready for the final wave!
   levelMusic: {fileID: 8300000, guid: af3c00751c844264488b39544f096446, type: 3}
   zombieSounds:
   - {fileID: 8300000, guid: b7bff11cab92b684a9bb5c9465537436, type: 3}
