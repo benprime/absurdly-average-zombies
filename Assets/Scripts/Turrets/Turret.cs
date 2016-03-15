@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+public enum TURRET_TYPE {MACHINE, TAR, FLAME, ROCKET};
+
 public class Turret : MonoBehaviour
 {
     // aiming stuff
@@ -17,8 +19,15 @@ public class Turret : MonoBehaviour
     public Transform barrelTip;
     Animator animator;
     private float lastShotTime;
+	private float heatupTimer = 0f;
+	private float cooldownTimer = 0f;
+	private bool cooling = false;
+	private bool firing = false;
+	public float firingTime = 2f;
+	public float coolingTime = 1f;
 
-    // turret stats
+	// turret stats
+	public TURRET_TYPE tType;
     public int costCurrency;
 	public int baseCost;
     public float maxHitPoints;
@@ -58,6 +67,27 @@ public class Turret : MonoBehaviour
             LookAtNearestEnemy();
 
         }
+		//machine gun cooldown
+		if (tType == TURRET_TYPE.MACHINE) 
+		{
+			if (firing)
+				heatupTimer += Time.deltaTime;
+			else 
+				if(heatupTimer > 0) heatupTimer -= Mathf.Max(0f, Time.deltaTime);
+
+			if (heatupTimer >= firingTime) {
+				cooling = true;
+				heatupTimer = 0f;
+			}
+
+			if (cooling)
+				cooldownTimer += Time.deltaTime;
+
+			if (cooldownTimer >= coolingTime) {
+				cooling = false;
+				cooldownTimer = 0f;
+			}
+		}
     }
 
     public void Fire()
@@ -128,9 +158,7 @@ public class Turret : MonoBehaviour
 
         // once we pick a target, we stick to it until it is dead or leaves the detection area
         // except for the flamethrower, which tries to get all nearby units on fire
-        // TODO: Find a cleaner way to determine if this turret is a flamethrower
-        Fireball_Behavior fb = this.bulletPrefab.GetComponent<Fireball_Behavior>();
-        if (fb)
+		if (tType == TURRET_TYPE.FLAME)
         {
             target = zombiesInRange.OrderBy(x => x.GetComponent<Zombie>().fireDamage).First().transform;
         }
@@ -150,9 +178,16 @@ public class Turret : MonoBehaviour
 
         // if the target is within the "shootWithinDegrees" property, we fire
         float angleDiff = Mathf.Abs(Vector3.Angle(transform.up, targetRotation));
-        if (angleDiff <= this.shootWithinDegrees)
-        {
-            this.Fire();
-        }
+		if (!cooling && angleDiff <= this.shootWithinDegrees) {
+			firing = true;
+			this.Fire ();
+		} else {
+			//reset heat up timer
+			if (firing) {
+				if (Time.time > this.lastShotTime + shotDelay) {
+					firing = false;
+				}
+			}
+		}
     }
 }

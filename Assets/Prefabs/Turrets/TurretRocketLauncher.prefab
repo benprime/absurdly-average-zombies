@@ -232,6 +232,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: c8f00cfda3225db4e83b552c1bcd006a, type: 2}
   shotDelay: 2
   barrelTip: {fileID: 471646}
+  firingTime: 0
+  coolingTime: 0
+  tType: 3
   costCurrency: 30
   baseCost: 30
   maxHitPoints: 50
