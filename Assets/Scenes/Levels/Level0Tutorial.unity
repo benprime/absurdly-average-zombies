@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1216cd25428649aaaa58737d1048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 6000
+  startingMoney: 30
   waves:
   - name: 
     delayBeforeWave: 0
@@ -779,48 +779,33 @@ MonoBehaviour:
     clearTurrets: 0
   - name: 
     delayBeforeWave: 0
-    beforeMessageHeader: Catapult Turret
-    beforeMessage: This is the Catapult.
-    messageImage: {fileID: 21300000, guid: b931d6ec80c7a0a4aa646645dc0d9894, type: 3}
+    beforeMessageHeader: Turret Upgrades
+    beforeMessage: Here they come!
+    messageImage: {fileID: 21300000, guid: 99fae8fc8bf74ef49974d6a8479951a0, type: 3}
     startingMoney: 0
     weaponRadial:
-      N: 1
-      S: 1
-      E: 1
-      W: 1
+      N: 0
+      S: 0
+      E: 0
+      W: 0
     upgradeRadial:
       E: 1
-      W: 1
-    clearTurrets: 1
-  - name: 
-    delayBeforeWave: 0
-    beforeMessageHeader: Flame Thrower
-    beforeMessage: This is the flame thrower.
-    messageImage: {fileID: 0}
-    startingMoney: 0
-    weaponRadial:
-      N: 1
-      S: 1
-      E: 1
-      W: 1
-    upgradeRadial:
-      E: 1
-      W: 1
+      W: 0
     clearTurrets: 0
   - name: 
     delayBeforeWave: 0
-    beforeMessageHeader: Rocket Launcher
-    beforeMessage: This is the Rocket Launcher
-    messageImage: {fileID: 0}
+    beforeMessageHeader: Turret Upgrades
+    beforeMessage: Oh noes!
+    messageImage: {fileID: 21300000, guid: 99fae8fc8bf74ef49974d6a8479951a0, type: 3}
     startingMoney: 0
     weaponRadial:
-      N: 1
-      S: 1
-      E: 1
-      W: 1
+      N: 0
+      S: 0
+      E: 0
+      W: 0
     upgradeRadial:
       E: 1
-      W: 1
+      W: 0
     clearTurrets: 0
   levelMusic: {fileID: 0}
   zombieSounds:
