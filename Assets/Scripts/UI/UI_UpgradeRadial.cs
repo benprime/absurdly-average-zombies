@@ -116,7 +116,7 @@ public class UI_UpgradeRadial : MonoBehaviour
     {
         if (connectedZone)
         {
-			currentWeaponUpgradeSprite = connectedZone.currentWeapon.transform.FindChild("Stars").GetComponent<SpriteRenderer>();
+			currentWeaponUpgradeSprite = connectedZone.transform.FindChild("Stars").GetComponent<SpriteRenderer>();
             currentWeaponStats = connectedZone.currentWeapon.GetComponent<Turret>();
 
             //much hackery going on here due to lack of sleep TODO: optimize!!!! (shouldn't be in the update loop)
@@ -156,7 +156,7 @@ public class UI_UpgradeRadial : MonoBehaviour
 		{
 			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.rangeLevel);
 			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
-			currentWeaponUpgradeSprite.sprite = rankSprites[currentWeaponStats.rangeLevel-1];
+			if(currentWeaponStats.rangeLevel > 0) currentWeaponUpgradeSprite.sprite = rankSprites[currentWeaponStats.rangeLevel - 1];
 		}
 	}
 }
