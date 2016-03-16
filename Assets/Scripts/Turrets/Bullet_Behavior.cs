@@ -8,7 +8,7 @@ public class Bullet_Behavior : MonoBehaviour
     public float range;
 
 
-    protected int damage;
+    protected float damage;
 
     [HideInInspector]
     public Turret turret;
@@ -23,7 +23,7 @@ public class Bullet_Behavior : MonoBehaviour
 
     // The bullet damage is set at the time of firing when this bullet is
     // instantiated.  This keeps the damage/upgrade data on the turret.
-    public void SetDamage(int damage)
+    public void SetDamage(float damage)
     {
         this.damage = damage;
     }

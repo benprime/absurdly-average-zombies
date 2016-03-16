@@ -8,10 +8,9 @@ public class UI_UpgradeRadial : MonoBehaviour
 {
 	public BuildZone connectedZone;
 	private SpriteRenderer currentWeaponUpgradeSprite;
-    private Turret currentWeaponStats;
+    private Turret turret;
     public int maxUpgradeLevels = 3;
     public Sprite[] rankSprites;
-    private float baseRotSpd = -1f, baseShotDelay = -1f, baseRange = -1f;
 
     // global override for enabling buttons (used by tutorial)
     public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>()
@@ -51,7 +50,7 @@ public class UI_UpgradeRadial : MonoBehaviour
 			this.buttons ["W"].GetComponent<Image> ().sprite = sellConfirmSprite;
 		} else {
 			if (connectedZone) {
-				int worth = (currentWeaponStats.costCurrency) / 2;  //sell for half of purchase cost
+				int worth = (turret.costCurrency) / 2;  //sell for half of purchase cost
 				GameManager.instance.PlayerCurrencyTransaction (worth);
 				connectedZone.Clear ();
 				connectedZone.CloseOut ();
@@ -61,54 +60,33 @@ public class UI_UpgradeRadial : MonoBehaviour
 
     private int CalculateUpgradeCost(int upgradeLevel)
     {
-        return currentWeaponStats.baseCost + (5 * (upgradeLevel + 1));
+        return turret.baseCost + (5 * (upgradeLevel + 1));
     }
 
-    public void UpgradeDamage()
-    {
-        currentWeaponStats.damageLevel++;
-        currentWeaponStats.damage = (int)(currentWeaponStats.baseDamage * (1 + (currentWeaponStats.damageLevel * currentWeaponStats.damageIncrease)));
-    }
-
-    public void UpgradeRange()
-    {
-        if (baseRange == -1f) baseRange = currentWeaponStats.transform.FindChild("DetectionZone").localScale.x;
-        currentWeaponStats.rangeLevel++;
-        float increase = baseRange * (1 + ((currentWeaponStats.rangeLevel) * currentWeaponStats.rangeIncrease));
-        currentWeaponStats.transform.FindChild("DetectionZone").localScale = new Vector3(increase, increase, 1f);
-    }
-
-    public void UpgradeSpeed()
-    {
-        if (baseRotSpd < 0 || baseShotDelay < 0)
-        {
-            baseRotSpd = currentWeaponStats.rotationSpeed;
-            baseShotDelay = currentWeaponStats.shotDelay;
-        }
-
-        //upgrade weapon
-        currentWeaponStats.speedLevel++;
-        currentWeaponStats.rotationSpeed = baseRotSpd * (1 + ((currentWeaponStats.speedLevel) * currentWeaponStats.speedIncrease));
-        currentWeaponStats.shotDelay = baseShotDelay * (1 + ((currentWeaponStats.speedLevel) * -currentWeaponStats.speedIncrease));
-    }
 
     public void UpgradeAll()
     {
         Input.ResetInputAxes();
-        if (connectedZone && currentWeaponStats.damageLevel < maxUpgradeLevels)
+
+        if (connectedZone)
         {
             //charge player cost of upgrade
-            int cost = CalculateUpgradeCost(currentWeaponStats.damageLevel);
+            int cost = CalculateUpgradeCost(turret.level);
             if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
             GameManager.instance.PlayerCurrencyTransaction(-cost);
             //increase weapon worth
-            currentWeaponStats.costCurrency += cost;
+            turret.costCurrency += cost;
 
-            UpgradeRange();
-            UpgradeDamage();
-            UpgradeSpeed();
+            // turret upgrades
+            turret.damage = TurretUpgradeInfo.GetData(this.turret, TurretField.Damage);
+            turret.damage = TurretUpgradeInfo.GetData(this.turret, TurretField.Damage);
+            float detectionZoneDiameter = TurretUpgradeInfo.GetData(this.turret, TurretField.Range);
+            // todo: this is probably wrong.  How do we just set the diameter so we can keep our upgrade info readable and simple?
+            turret.transform.FindChild("DetectionZone").localScale = new Vector3(detectionZoneDiameter, detectionZoneDiameter, 1f);
+            turret.rotationSpeed = TurretUpgradeInfo.GetData(this.turret, TurretField.RotationSpeed);
+            turret.shotDelay = TurretUpgradeInfo.GetData(this.turret, TurretField.ShotDelay);
 
-			SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton();
+            SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton();
         }
     }
 
@@ -117,7 +95,7 @@ public class UI_UpgradeRadial : MonoBehaviour
         if (connectedZone)
         {
 			currentWeaponUpgradeSprite = connectedZone.transform.FindChild("Stars").GetComponent<SpriteRenderer>();
-            currentWeaponStats = connectedZone.currentWeapon.GetComponent<Turret>();
+            turret = connectedZone.currentWeapon.GetComponent<Turret>();
 
             //much hackery going on here due to lack of sleep TODO: optimize!!!! (shouldn't be in the update loop)
             SetSellButton();
@@ -134,7 +112,7 @@ public class UI_UpgradeRadial : MonoBehaviour
         }
 
         Text sellCostText = this.buttons["W"].GetComponentInChildren<Text>();
-        sellCostText.text = "$" + ((currentWeaponStats.costCurrency) / 2);
+        sellCostText.text = "$" + ((turret.costCurrency) / 2);
     }
 
 	void SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton()
@@ -145,18 +123,21 @@ public class UI_UpgradeRadial : MonoBehaviour
 			return;
 		}
 
-		if (currentWeaponStats.rangeLevel == maxUpgradeLevels)
+		if (turret.level == maxUpgradeLevels)
 		{
 			this.buttons["E"].GetComponentInChildren<Text>().text = "MAX";
-			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel - 1];
-			currentWeaponUpgradeSprite.sprite = rankSprites [currentWeaponStats.rangeLevel - 1];
+			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.level - 1];
+			currentWeaponUpgradeSprite.sprite = rankSprites [turret.level - 1];
 			this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
 		}
 		else
 		{
-			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(currentWeaponStats.rangeLevel);
-			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[currentWeaponStats.rangeLevel];
-			if(currentWeaponStats.rangeLevel > 0) currentWeaponUpgradeSprite.sprite = rankSprites[currentWeaponStats.rangeLevel - 1];
-		}
+			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(turret.level);
+			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.level];
+			if(turret.level > 0)
+            { 
+                currentWeaponUpgradeSprite.sprite = rankSprites[turret.level - 1];
+            }
+        }
 	}
 }

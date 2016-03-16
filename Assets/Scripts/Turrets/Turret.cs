@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
-public enum TURRET_TYPE {MACHINE, TAR, FLAME, ROCKET};
 
 public class Turret : MonoBehaviour
 {
@@ -27,30 +24,49 @@ public class Turret : MonoBehaviour
 	public float coolingTime = 1f;
 
 	// turret stats
-	public TURRET_TYPE tType;
     public int costCurrency;
 	public int baseCost;
     public float maxHitPoints;
     public float currentHitPoints;
-    public int rangeLevel, damageLevel, speedLevel;
-    public float rangeIncrease, damageIncrease, speedIncrease;
+    public int level = 1;
+    public TurretTypes type;
     public float pauseAfterFiring;
-    public int baseDamage;
 
-	public AudioClip[] shotSounds;
+    //public int rangeLevel, damageLevel, speedLevel;
+    //public float rangeIncrease, damageIncrease, speedIncrease;
+    //public int baseDamage;
+
+    public AudioClip[] shotSounds;
 
     [HideInInspector]
-    public int damage;
+    public float damage;
 
     // Use this for initialization
     void Start()
     {
         this.animator = GetComponent<Animator>();
-        this.damage = this.baseDamage;
+        //this.damage = this.baseDamage;
 
 		AudioSource aud = GetComponent<AudioSource>();
 		int randSound = Random.Range (0,shotSounds.Count());			
 		aud.clip = shotSounds[randSound];
+
+        // determine turret type from projectile
+        switch(bulletPrefab.name)
+        {
+            case "ProjectileRocket":
+                this.type = TurretTypes.RocketLauncher;
+                break;
+            case "ProjectileFireball":
+                this.type = TurretTypes.FlameThrower;
+                break;
+            case "ProjectileTar":
+                this.type = TurretTypes.TarSlinger;
+                break;
+            default:
+                this.type = TurretTypes.MachineGun;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -68,7 +84,7 @@ public class Turret : MonoBehaviour
 
         }
 		//machine gun cooldown
-		if (tType == TURRET_TYPE.MACHINE) 
+		if (this.type == TurretTypes.MachineGun) 
 		{
 			if (firing)
 				heatupTimer += Time.deltaTime;
@@ -158,7 +174,7 @@ public class Turret : MonoBehaviour
 
         // once we pick a target, we stick to it until it is dead or leaves the detection area
         // except for the flamethrower, which tries to get all nearby units on fire
-		if (tType == TURRET_TYPE.FLAME)
+		if (this.type == TurretTypes.FlameThrower)
         {
             target = zombiesInRange.OrderBy(x => x.GetComponent<Zombie>().fireDamage).First().transform;
         }
