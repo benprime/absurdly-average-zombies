@@ -71,13 +71,14 @@ public class UI_UpgradeRadial : MonoBehaviour
         if (connectedZone)
         {
             //charge player cost of upgrade
-            int cost = CalculateUpgradeCost(turret.level);
+            int cost = CalculateUpgradeCost(turret.Level);
             if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
             GameManager.instance.PlayerCurrencyTransaction(-cost);
             //increase weapon worth
             turret.costCurrency += cost;
 
             // turret upgrades
+            turret.Level += 1;
             turret.damage = TurretUpgradeInfo.GetData(this.turret, TurretField.Damage);
             turret.damage = TurretUpgradeInfo.GetData(this.turret, TurretField.Damage);
             float detectionZoneDiameter = TurretUpgradeInfo.GetData(this.turret, TurretField.Range);
@@ -123,20 +124,20 @@ public class UI_UpgradeRadial : MonoBehaviour
 			return;
 		}
 
-		if (turret.level == maxUpgradeLevels)
+		if (turret.Level == maxUpgradeLevels)
 		{
 			this.buttons["E"].GetComponentInChildren<Text>().text = "MAX";
-			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.level - 1];
-			currentWeaponUpgradeSprite.sprite = rankSprites [turret.level - 1];
+			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.Level - 1];
+			currentWeaponUpgradeSprite.sprite = rankSprites [turret.Level - 1];
 			this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
 		}
 		else
 		{
-			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(turret.level);
-			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.level];
-			if(turret.level > 0)
+			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(turret.Level);
+			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.Level];
+			if(turret.Level > 0)
             { 
-                currentWeaponUpgradeSprite.sprite = rankSprites[turret.level - 1];
+                currentWeaponUpgradeSprite.sprite = rankSprites[turret.Level - 1];
             }
         }
 	}

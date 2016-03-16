@@ -153,7 +153,7 @@ public static class TurretUpgradeInfo
     {
         var collection = from tli in TurretLevelData
                          where tli.type == turret.type
-                         where tli.level == turret.level
+                         where tli.level == turret.Level
                          where tli.field == field
                          select tli;
         TurretLevelInfo found = collection.First();

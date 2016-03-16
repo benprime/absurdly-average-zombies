@@ -4,6 +4,9 @@ using System.Linq;
 
 public class Turret : MonoBehaviour
 {
+    // global max level for all turrets
+    public static int MaxLevel = 3;
+
     // aiming stuff
     public List<GameObject> zombiesInRange;
     private Transform target;
@@ -28,13 +31,22 @@ public class Turret : MonoBehaviour
 	public int baseCost;
     public float maxHitPoints;
     public float currentHitPoints;
-    public int level = 1;
     public TurretTypes type;
     public float pauseAfterFiring;
 
-    //public int rangeLevel, damageLevel, speedLevel;
-    //public float rangeIncrease, damageIncrease, speedIncrease;
-    //public int baseDamage;
+    private int level = 1;
+
+    public int Level
+    {
+        set
+        {
+            this.level = Mathf.Clamp(value, 1, Turret.MaxLevel);
+        }
+        get
+        {
+            return this.level;
+        }
+    }
 
     public AudioClip[] shotSounds;
 
