@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zSize: 1
-  moveSpeed: 1
+  moveSpeed: 0.75
   moveModifier: 1
   turnSpeed: 4
   walkSwayModifier: 30
