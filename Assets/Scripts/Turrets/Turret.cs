@@ -53,6 +53,11 @@ public class Turret : MonoBehaviour
     [HideInInspector]
     public float damage;
 
+    void Awake()
+    {
+        this.ProcessValues();
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -118,6 +123,16 @@ public class Turret : MonoBehaviour
 		}
     }
 
+    public void ApplyTurretLevelData()
+    {
+        this.damage = TurretUpgradeInfo.GetData(this, TurretField.Damage);
+        float detectionZoneRadius = TurretUpgradeInfo.GetData(this, TurretField.RangeRadius);
+        gameObject.transform.FindChild("DetectionZone").localScale = new Vector3(detectionZoneRadius, detectionZoneRadius, 1);
+
+        this.rotationSpeed = TurretUpgradeInfo.GetData(this, TurretField.RotationSpeed);
+        this.shotDelay = TurretUpgradeInfo.GetData(this, TurretField.ShotDelay);
+    }
+
     public void Fire()
     {
 
@@ -161,7 +176,6 @@ public class Turret : MonoBehaviour
 
     void LookAtNearestEnemy()
     {
-
         // pause after firing (if set)
         // This exists mostly to let the fire animations complete before the turret
         // starts rotating again.  The catapult should be still while projectile leaves the bucket.

@@ -79,13 +79,7 @@ public class UI_UpgradeRadial : MonoBehaviour
 
             // turret upgrades
             turret.Level += 1;
-            turret.damage = TurretUpgradeInfo.GetData(this.turret, TurretField.Damage);
-            turret.damage = TurretUpgradeInfo.GetData(this.turret, TurretField.Damage);
-            float detectionZoneDiameter = TurretUpgradeInfo.GetData(this.turret, TurretField.Range);
-            // todo: this is probably wrong.  How do we just set the diameter so we can keep our upgrade info readable and simple?
-            turret.transform.FindChild("DetectionZone").localScale = new Vector3(detectionZoneDiameter, detectionZoneDiameter, 1f);
-            turret.rotationSpeed = TurretUpgradeInfo.GetData(this.turret, TurretField.RotationSpeed);
-            turret.shotDelay = TurretUpgradeInfo.GetData(this.turret, TurretField.ShotDelay);
+            turret.ProcessValues();
 
             SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton();
         }
