@@ -36,7 +36,7 @@ public class Zombie : MonoBehaviour
 
     // These may get moved to a more appropriate location
     public float flameDamageInterval = 1f;
-    public int fireDamage = 0;
+    public float fireDamage = 0;
     private float nextFlameDamageTime = 0f;
 
     public ParticleSystem hitParticleSystem;
@@ -158,7 +158,7 @@ public class Zombie : MonoBehaviour
     }
 
 	public enum DamageType {light, medium, heavy}
-	public virtual void TakeDamage(int amount, DamageType dmgType)
+	public virtual void TakeDamage(float amount, DamageType dmgType)
     {
 		this.hitPoints -= amount * DamageTypeModifier(dmgType);
 
@@ -218,7 +218,7 @@ public class Zombie : MonoBehaviour
         this.CatchFire(4);
     }
 
-    public void CatchFire(int dmg)
+    public void CatchFire(float dmg)
     {
 
         // getting hit by another fireball will always reset the damage to the function parameter

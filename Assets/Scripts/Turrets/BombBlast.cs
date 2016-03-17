@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BombBlast : MonoBehaviour
 {
-    public int damage;
+    public float damage;
 
     // Use this for initialization
     void Start()
