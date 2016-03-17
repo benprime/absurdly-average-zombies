@@ -79,7 +79,7 @@ public class UI_UpgradeRadial : MonoBehaviour
 
             // turret upgrades
             turret.Level += 1;
-            turret.ProcessValues();
+            turret.ApplyTurretLevelData();
 
             SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton();
         }

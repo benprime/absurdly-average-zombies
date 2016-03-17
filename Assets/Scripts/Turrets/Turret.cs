@@ -55,7 +55,7 @@ public class Turret : MonoBehaviour
 
     void Awake()
     {
-        this.ProcessValues();
+        this.ApplyTurretLevelData();
     }
 
     // Use this for initialization
