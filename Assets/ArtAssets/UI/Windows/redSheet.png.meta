@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ebb98ec3ffbcf9840945d2759887fff6
-timeCreated: 1458284206
+timeCreated: 1458794168
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -33,7 +33,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -52,10 +52,10 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -2
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -89,7 +89,8 @@ TextureImporter:
       outline:
       - - {x: -19, y: 18}
         - {x: -19, y: -18}
-        - {x: 19, y: -18}
+        - {x: 17, y: -18}
+        - {x: 19, y: -17}
         - {x: 19, y: 18}
     - name: red_boxCross.png
       rect:
@@ -104,7 +105,8 @@ TextureImporter:
       outline:
       - - {x: -19, y: 18}
         - {x: -19, y: -18}
-        - {x: 19, y: -18}
+        - {x: 17, y: -18}
+        - {x: 19, y: -17}
         - {x: 19, y: 18}
     - name: red_boxTick.png
       rect:
@@ -117,14 +119,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -14, y: 18}
-        - {x: -18, y: 17}
+      - - {x: -12, y: 18}
+        - {x: -18, y: 13}
         - {x: -18, y: -17}
-        - {x: -15, y: -18}
-        - {x: 17, y: -18}
-        - {x: 18, y: -17}
-        - {x: 18, y: 17}
-        - {x: 16, y: 18}
+        - {x: -13, y: -18}
+        - {x: 16, y: -18}
+        - {x: 18, y: -16}
+        - {x: 18, y: 13}
+        - {x: 17, y: 18}
     - name: red_button00.png
       rect:
         serializedVersion: 2
@@ -357,14 +359,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -14, y: 18}
-        - {x: -18, y: 17}
+      - - {x: -12, y: 18}
+        - {x: -18, y: 13}
         - {x: -18, y: -17}
-        - {x: -15, y: -18}
-        - {x: 17, y: -18}
-        - {x: 18, y: -17}
-        - {x: 18, y: 17}
-        - {x: 16, y: 18}
+        - {x: -13, y: -18}
+        - {x: 16, y: -18}
+        - {x: 18, y: -16}
+        - {x: 18, y: 13}
+        - {x: 17, y: 18}
     - name: red_cross.png
       rect:
         serializedVersion: 2
@@ -385,7 +387,7 @@ TextureImporter:
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 8, y: 8, z: 8, w: 8}
       outline:
       - - {x: -50, y: 50}
         - {x: -50, y: -50}
