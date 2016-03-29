@@ -23,10 +23,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 462868}
+  - 114: {fileID: 11475668}
   - 95: {fileID: 9525378}
   - 212: {fileID: 21287692}
   - 50: {fileID: 5031242}
-  - 114: {fileID: 11475668}
   - 82: {fileID: 8269320}
   m_Layer: 0
   m_Name: TurretFlameThrower
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 189822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.000000079473, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 462868}
   m_RootOrder: 1
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.5
 --- !u!82 &8269320
 AudioSource:
   m_ObjectHideFlags: 1
@@ -243,19 +243,12 @@ MonoBehaviour:
   barrelTip: {fileID: 471646}
   firingTime: 0
   coolingTime: 0
-  tType: 2
   costCurrency: 20
   baseCost: 20
   maxHitPoints: 50
   currentHitPoints: 50
-  rangeLevel: 0
-  damageLevel: 0
-  speedLevel: 0
-  rangeIncrease: 0.08
-  damageIncrease: 0.25
-  speedIncrease: 0.1
+  type: 2
   pauseAfterFiring: 0
-  baseDamage: 4
   shotSounds:
   - {fileID: 8300000, guid: e60b9a67e5187c948878712b9fcacb78, type: 3}
   damage: 0
@@ -285,7 +278,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1935391679
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: a2245c91ef7c5e04dae657eb3150ae73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02bfbde9609919c4c85daf3fd745025e, type: 3}
   m_Color: {r: 1, g: 0.18620686, b: 0, a: 0.309}
   m_FlipX: 0
   m_FlipY: 0
