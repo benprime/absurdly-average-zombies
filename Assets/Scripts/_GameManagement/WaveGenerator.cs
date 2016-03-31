@@ -160,11 +160,12 @@ public class WaveGenerator : MonoBehaviour
     {
         // get references to everything up front
         this.countDownText = GameObject.Find("CountDown").GetComponent<Text>();
-
         this.PopupMessage = GameObject.Find("PopupMessage");
 
-        this.waveHeaderText = this.PopupMessage.transform.FindChild("HeaderPanel").transform.FindChild("HeaderText").GetComponent<Text>();
-        this.waveMessageText = this.PopupMessage.transform.FindChild("BodyPanel").transform.FindChild("MessageText").GetComponent<Text>();
+        GameObject headerPanel = this.PopupMessage.transform.FindChild("HeaderPanel").gameObject;
+        GameObject bodyPanel = headerPanel.transform.FindChild("BodyPanel").gameObject;
+        this.waveHeaderText = bodyPanel.transform.FindChild("HeaderText").GetComponent<Text>();
+        this.waveMessageText = bodyPanel.transform.FindChild("MessageText").GetComponent<Text>();
 
         GameManager.instance.player_totalCurrency = startingMoney;
 		if(levelMusic != null || GameManager.instance.GetComponent<AudioSource>().clip != levelMusic) {
