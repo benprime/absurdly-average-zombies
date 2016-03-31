@@ -34,7 +34,7 @@ public class Turret : MonoBehaviour
     public TurretTypes type;
     public float pauseAfterFiring;
 
-    private int level = 1;
+    private int level = 0;
 
     public int Level
     {
