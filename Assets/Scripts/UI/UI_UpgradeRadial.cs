@@ -52,6 +52,7 @@ public class UI_UpgradeRadial : MonoBehaviour
 			if (connectedZone) {
 				int worth = (turret.costCurrency) / 2;  //sell for half of purchase cost
 				GameManager.instance.PlayerCurrencyTransaction (worth);
+				currentWeaponUpgradeSprite.sprite = null;
 				connectedZone.Clear ();
 				connectedZone.CloseOut ();
 			}
