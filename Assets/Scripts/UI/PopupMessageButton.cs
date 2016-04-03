@@ -16,26 +16,39 @@ public class PopupMessageButton : MonoBehaviour
     void Update()
     {
     }
-    
-    public void OnMouseDown()
+
+    /// <summary>
+    /// Used to make the text move up and down when the button is clicked.
+    /// </summary>
+    /// <param name="offset"></param>
+    private void SetTextOffset(int bottom, int top)
     {
         // little hacky way to make the text align with the "down" state when a user clicks a button
         Transform t = this.gameObject.transform.Find("Text");
         if (t != null)
         {
             RectTransform rectTransform = t.gameObject.GetComponent<RectTransform>();
-            rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, 5);
+            rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, bottom);
+            rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, top);
         }
+    }
+
+    /// <summary>
+    /// If the popup is shown multiple times, need to reset it to "up" state.
+    /// </summary>
+    void OnEnable()
+    {
+        this.SetTextOffset(5, 0);
+    }
+
+    public void OnMouseDown()
+    {
+        this.SetTextOffset(0, 0);
     }
 
     public void OnMouseUp()
     {
-        Transform t = this.gameObject.transform.Find("Text");
-        if (t != null)
-        {
-            RectTransform rectTransform = t.gameObject.GetComponent<RectTransform>();
-            rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, 8);
-        }
+        this.SetTextOffset(5, 0);
     }
 
     public void ButtonClick()
@@ -44,10 +57,6 @@ public class PopupMessageButton : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         this.gameObject.transform.parent.gameObject.SetActive(false);
 
-        Transform t = this.gameObject.transform.Find("Text");
-        if (t != null)
-        {
-            t.gameObject.GetComponent<RectTransform>().offsetMin = new Vector2(0, -8);
-        }
+        this.SetTextOffset(0, 0);
     }
 }
