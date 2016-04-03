@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+		
     }
 
     public void PlayerCurrencyTransaction(int amount)
@@ -65,12 +65,12 @@ public class GameManager : MonoBehaviour
 	public void ToggleAudio()
 	{
 		mute = !mute;
-		GetComponent<AudioSource> ().enabled = mute;
-		Camera.main.gameObject.GetComponent<AudioListener> ().enabled = mute;
+		GetComponent<AudioSource> ().enabled = !mute;
+		Camera.main.gameObject.GetComponent<AudioListener> ().enabled = !mute;
 	}
 
 	void OnLevelWasLoaded(int level) {
-		if(mute == false) Camera.main.gameObject.GetComponent<AudioListener> ().enabled = false;
+		if(mute) Camera.main.gameObject.GetComponent<AudioListener> ().enabled = false;
 		else Camera.main.gameObject.GetComponent<AudioListener> ().enabled = true;
 
 
