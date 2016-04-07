@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.98000002, y: 1.26999998, z: 0}
+  m_LocalPosition: {x: 7.07, y: 0.25, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,9 +39,10 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147722}
+  m_UseAutoMass: 0
   m_Mass: 10000
   m_LinearDrag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -55,12 +56,13 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147722}
   m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -.0900000036}
+  m_Offset: {x: 0, y: -0.09}
   serializedVersion: 2
-  m_Size: {x: .920000017, y: .769999981}
+  m_Size: {x: 0.92, y: 0.77}
 --- !u!114 &11402504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 100
   currentHitPoints: 100
-  gameOverPopup: {fileID: 102520, guid: 17c5df15bb6d51249b3c31fa6937765a, type: 2}
+  gameOverPopup: {fileID: 177496, guid: 40106c28674e3ce459a2f4e90a36c08f, type: 2}
   noDamage: {fileID: 21300000, guid: be780b16f1928744094d0ee3b2b0877f, type: 3}
   thirdDamage: {fileID: 21300000, guid: 46f7129b35f34944791d357c40f6cd67, type: 3}
   twoThirdDamage: {fileID: 21300000, guid: 24ad4a4ec4555c545b76b2518bf49b95, type: 3}
@@ -91,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 11425372, guid: 6afe7065acce6fc4b98a7256e1c14872, type: 2}
-  barOffset: .850000024
+  barOffset: 0.85
   healthBar: {fileID: 0}
 --- !u!212 &21235212
 SpriteRenderer:
@@ -111,14 +113,18 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1042377535
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8a6a7b698b3f63841b25142cbda27454, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

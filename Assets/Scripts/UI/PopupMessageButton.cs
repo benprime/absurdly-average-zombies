@@ -38,17 +38,17 @@ public class PopupMessageButton : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        this.SetTextOffset(5, 0);
+        this.SetTextOffset(3, 0);
     }
 
     public void OnMouseDown()
     {
-        this.SetTextOffset(0, 0);
+        this.SetTextOffset(-2, 0);
     }
 
     public void OnMouseUp()
     {
-        this.SetTextOffset(5, 0);
+        this.SetTextOffset(3, 0);
     }
 
     public void ButtonClick()
@@ -57,6 +57,6 @@ public class PopupMessageButton : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         this.gameObject.transform.parent.gameObject.SetActive(false);
 
-        this.SetTextOffset(0, 0);
+        this.SetTextOffset(-2, 0);
     }
 }
