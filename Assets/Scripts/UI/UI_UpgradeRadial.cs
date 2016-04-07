@@ -134,6 +134,7 @@ public class UI_UpgradeRadial : MonoBehaviour
             { 
                 currentWeaponUpgradeSprite.sprite = rankSprites[turret.Level - 1];
             }
-        }
+		}
+		SetSellButton ();
 	}
 }
