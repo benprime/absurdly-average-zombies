@@ -34,6 +34,9 @@ public class Turret : MonoBehaviour
     public TurretTypes type;
     public float pauseAfterFiring;
 
+    public GameObject ReloadOverlayPrefab;
+    private GameObject reloadOverlayInstance;
+
     private int level = 0;
 
     public int Level
@@ -110,13 +113,18 @@ public class Turret : MonoBehaviour
 
 			if (heatupTimer >= firingTime) {
 				cooling = true;
-				heatupTimer = 0f;
+
+                // todo: location passed in here doesn't seem to matter... but it works for now
+                reloadOverlayInstance = Instantiate(this.ReloadOverlayPrefab, transform.position, Quaternion.identity) as GameObject;
+                reloadOverlayInstance.GetComponent<RectTransform>().position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                heatupTimer = 0f;
 			}
 
 			if (cooling)
 				cooldownTimer += Time.deltaTime;
 
 			if (cooldownTimer >= coolingTime) {
+                Destroy(this.reloadOverlayInstance);
 				cooling = false;
 				cooldownTimer = 0f;
 			}

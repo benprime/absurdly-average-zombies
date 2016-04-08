@@ -240,6 +240,7 @@ MonoBehaviour:
   currentHitPoints: 50
   type: 1
   pauseAfterFiring: 0.5
+  ReloadOverlayPrefab: {fileID: 153328, guid: 6d3f6f5695e304245adaab67a94e3618, type: 2}
   shotSounds:
   - {fileID: 8300000, guid: e60b9a67e5187c948878712b9fcacb78, type: 3}
   damage: 0

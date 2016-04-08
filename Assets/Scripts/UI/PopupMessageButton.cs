@@ -4,8 +4,6 @@ using System.Collections;
 
 public class PopupMessageButton : MonoBehaviour
 {
-    Vector2 textPos;
-
     // Use this for initialization
     void Awake()
     {
