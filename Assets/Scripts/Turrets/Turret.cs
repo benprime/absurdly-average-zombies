@@ -19,14 +19,14 @@ public class Turret : MonoBehaviour
     public Transform barrelTip;
     Animator animator;
     private float lastShotTime;
-	private float heatupTimer = 0f;
-	private float cooldownTimer = 0f;
-	private bool cooling = false;
-	private bool firing = false;
 	public float firingTime = 2f;
-	public float coolingTime = 1f;
 
-	// turret stats
+    public int clipSize = 25;
+    private int clipAmmo; // current number of bullets in clip
+    private float reloadStartTime = 0f; // tracking value
+    public float reloadTime = 4f; // time it akes to reload
+
+    // turret stats
     public int costCurrency;
 	public int baseCost;
     public float maxHitPoints;
@@ -65,11 +65,11 @@ public class Turret : MonoBehaviour
     void Start()
     {
         this.animator = GetComponent<Animator>();
-        //this.damage = this.baseDamage;
 
 		AudioSource aud = GetComponent<AudioSource>();
 		int randSound = Random.Range (0,shotSounds.Count());			
 		aud.clip = shotSounds[randSound];
+        this.clipAmmo = this.clipSize;
 
         // determine turret type from projectile
         switch(bulletPrefab.name)
@@ -103,31 +103,17 @@ public class Turret : MonoBehaviour
             LookAtNearestEnemy();
 
         }
-		//machine gun cooldown
-		if (this.type == TurretTypes.MachineGun) 
+
+
+        //machine gun cooldown
+        if (this.type == TurretTypes.MachineGun) 
 		{
-			if (firing)
-				heatupTimer += Time.deltaTime;
-			else 
-				if(heatupTimer > 0) heatupTimer -= Mathf.Max(0f, Time.deltaTime);
-
-			if (heatupTimer >= firingTime) {
-				cooling = true;
-
-                // todo: location passed in here doesn't seem to matter... but it works for now
-                reloadOverlayInstance = Instantiate(this.ReloadOverlayPrefab, transform.position, Quaternion.identity) as GameObject;
-                reloadOverlayInstance.GetComponent<RectTransform>().position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                heatupTimer = 0f;
-			}
-
-			if (cooling)
-				cooldownTimer += Time.deltaTime;
-
-			if (cooldownTimer >= coolingTime) {
+            // check if reload is completed
+            if (this.clipAmmo == 0 && Time.time - this.reloadStartTime >= this.reloadTime)
+            {
+                this.clipAmmo = this.clipSize;
                 Destroy(this.reloadOverlayInstance);
-				cooling = false;
-				cooldownTimer = 0f;
-			}
+            }
 		}
     }
 
@@ -164,6 +150,16 @@ public class Turret : MonoBehaviour
             b.SetDamage(this.damage);
 
             animator.SetTrigger("Fire");
+            if (this.type == TurretTypes.MachineGun)
+            {
+                this.clipAmmo--;
+                if(clipAmmo <= 0)
+                {
+                    reloadOverlayInstance = Instantiate(this.ReloadOverlayPrefab) as GameObject;
+                    reloadOverlayInstance.GetComponent<RectTransform>().position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                    this.reloadStartTime = Time.time;
+                }
+            }
 
             this.lastShotTime = Time.time;
 
@@ -228,16 +224,8 @@ public class Turret : MonoBehaviour
 
         // if the target is within the "shootWithinDegrees" property, we fire
         float angleDiff = Mathf.Abs(Vector3.Angle(transform.up, targetRotation));
-		if (!cooling && angleDiff <= this.shootWithinDegrees) {
-			firing = true;
+		if (angleDiff <= this.shootWithinDegrees && clipAmmo > 0) {
 			this.Fire ();
-		} else {
-			//reset heat up timer
-			if (firing) {
-				if (Time.time > this.lastShotTime + shotDelay) {
-					firing = false;
-				}
-			}
 		}
     }
 }
