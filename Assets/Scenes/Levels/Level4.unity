@@ -714,6 +714,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f1b08accf6bc41439547acea2eedce9, type: 2}
   m_IsPrefabParent: 0
+--- !u!20 &1098420478 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2093628, guid: 7f1b08accf6bc41439547acea2eedce9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1098420477}
 --- !u!1 &1184720696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1109,18 @@ Prefab:
     - target: {fileID: 22431398, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22342040, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1098420478}
+    - target: {fileID: 11494210, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Text
+      value: Level Four
+      objectReference: {fileID: 0}
+    - target: {fileID: 11410340, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Text
+      value: Welcome to level four!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}

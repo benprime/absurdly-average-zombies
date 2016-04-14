@@ -1843,14 +1843,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 334206736}
-    - target: {fileID: 11403938, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403938, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
-      propertyPath: m_FontData.m_LineSpacing
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
   m_IsPrefabParent: 0
