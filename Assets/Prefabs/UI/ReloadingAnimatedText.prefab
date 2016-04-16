@@ -29,7 +29,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: RELOAD
   Timeout: 0
-  CharacterSpacing: 10
+  CharacterSpacing: 0.2
   AnimationMagnitude: 0.2
   TextPrefab: {fileID: 11430288, guid: d3c1c54885b25434dbd7d3e4d5569aac, type: 2}
   AnimationType: 0

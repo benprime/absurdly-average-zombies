@@ -19,7 +19,7 @@ public class PopupMessageButton : MonoBehaviour
     /// Used to make the text move up and down when the button is clicked.
     /// </summary>
     /// <param name="offset"></param>
-    private void SetTextOffset(int bottom, int top)
+    private void SetTextOffset(int top, int bottom)
     {
         // little hacky way to make the text align with the "down" state when a user clicks a button
         Transform t = this.gameObject.transform.Find("Text");
@@ -36,17 +36,17 @@ public class PopupMessageButton : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        this.SetTextOffset(3, 0);
+        this.SetTextOffset(-3, 0);
     }
 
     public void OnMouseDown()
     {
-        this.SetTextOffset(-2, 0);
+        this.SetTextOffset(-7, 0);
     }
 
     public void OnMouseUp()
     {
-        this.SetTextOffset(3, 0);
+        this.SetTextOffset(-3, 0);
     }
 
     public void ButtonClick()
@@ -55,6 +55,6 @@ public class PopupMessageButton : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         this.gameObject.transform.parent.gameObject.SetActive(false);
 
-        this.SetTextOffset(-2, 0);
+        this.SetTextOffset(-7, 0);
     }
 }

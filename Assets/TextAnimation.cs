@@ -17,26 +17,26 @@ public class TextAnimation : MonoBehaviour
     public AnimationType AnimationType;
 
     private List<Text> textElements = new List<UnityEngine.UI.Text>();
+    private List<float> startYPos = new List<float>();
 
     // Use this for initialization
     void Start()
     {
-
         this.transform.SetParent(Object.FindObjectOfType<Canvas>().transform);
+        this.transform.SetAsFirstSibling();
         this.transform.localScale = new Vector3(1, 1, 1);
         int i = 0;
+
+        // todo: do this right, hacked to center
+        float x_pos_base = this.transform.position.x - 0.7f;
         foreach (char c in this.Text)
         {
-            //Text t = Instantiate(TextPrefab, this.transform.position + new Vector3(i * this.CharacterSpacing, 0), Quaternion.identity) as Text;
-
             Text t = Instantiate(TextPrefab) as Text;
-            //t.transform.position = new Vector3(i * this.CharacterSpacing, 0);
-            //t.rectTransform.position = new Vector3(i * this.CharacterSpacing, 0);
             i++;
             t.transform.SetParent(this.transform);
-            //TODO: figure out length of string (and size of font) and center with a calculation
-            t.transform.localPosition = new Vector3(i * this.CharacterSpacing - 35, 0);
-            //t.transform.localPosition = Vector3.zero;
+            t.transform.localPosition = Vector3.zero;
+            t.rectTransform.position = new Vector3(x_pos_base + (i * this.CharacterSpacing), this.transform.position.y, 10);
+            this.startYPos.Add(this.transform.position.y);
             t.transform.localScale = new Vector3(1, 1, 1);
             t.text = c.ToString();
             this.textElements.Add(t);
@@ -46,8 +46,7 @@ public class TextAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int i = 0;
-        foreach (Text t in this.textElements)
+        for (int i = 0; i < this.textElements.Count; i++)
         {
             float adjustment = Mathf.PingPong(Time.time, 0.08f) - 0.04f;
 
@@ -55,9 +54,11 @@ public class TextAnimation : MonoBehaviour
             {
                 adjustment *= -1;
             }
-            i++;
 
-            t.rectTransform.position = new Vector3(t.rectTransform.position.x, adjustment + 1.2f);
+            this.textElements[i].rectTransform.position = new Vector3(
+                this.textElements[i].rectTransform.position.x,
+                this.startYPos[i]+adjustment
+            );
         }
     }
 }

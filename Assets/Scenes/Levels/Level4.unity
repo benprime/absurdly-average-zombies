@@ -1114,14 +1114,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1098420478}
-    - target: {fileID: 11494210, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
-      propertyPath: m_Text
-      value: Level Four
-      objectReference: {fileID: 0}
-    - target: {fileID: 11410340, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
-      propertyPath: m_Text
-      value: Welcome to level four!
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
   m_IsPrefabParent: 0
