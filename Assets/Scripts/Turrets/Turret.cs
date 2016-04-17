@@ -87,7 +87,11 @@ public class Turret : MonoBehaviour
                 this.type = TurretTypes.MachineGun;
                 break;
         }
-    }
+	}
+
+	void OnDestroy() {
+		if(reloadOverlayInstance) Destroy (reloadOverlayInstance);
+	}
 
     // Update is called once per frame
     void Update()
