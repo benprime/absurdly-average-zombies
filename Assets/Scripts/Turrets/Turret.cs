@@ -35,7 +35,9 @@ public class Turret : MonoBehaviour
     public float pauseAfterFiring;
 
     public GameObject ReloadOverlayPrefab;
-    private GameObject reloadOverlayInstance;
+
+    [HideInInspector]
+    public GameObject reloadOverlayInstance;
 
     private int level = 0;
 

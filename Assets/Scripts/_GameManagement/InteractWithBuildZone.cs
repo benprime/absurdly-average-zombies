@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class InteractWithBuildZone : MonoBehaviour
 {
@@ -37,19 +38,23 @@ public class InteractWithBuildZone : MonoBehaviour
         // mouse is over a BuildZone && do not place object when mouse is over button
         if (hitInfo && !isOverUIButton)
         {
-            GameObject hitZone = hitInfo.transform.gameObject;
-
-            if (Input.GetMouseButtonUp(0) || isSingleTouchEnding)
-            {
-                if (lastHit && lastHit != hitZone) lastHit.GetComponent<BuildZone>().CloseOut();
-                lastHit = hitZone;
-
-                hitZone.GetComponent<BuildZone>().PopRadialMenu(hitZone.transform.position);
-            }
+            HandleBuildZoneClick(hitInfo, isSingleTouchEnding);
         }
         else
         {
-            // mouse is not over a BuildZone			
+            if (hitInfo)
+            {
+                // if a turret is reloading, allow clicks to pass through reload animation
+                BuildZone bz = hitInfo.transform.gameObject.GetComponent<BuildZone>();
+                GameObject currentWeapon = bz ? bz.currentWeapon : null;
+                Turret t = currentWeapon ? currentWeapon.GetComponent<Turret>() : null;
+                if (isOverUIButton && t && t.reloadOverlayInstance)
+                {
+                    HandleBuildZoneClick(hitInfo, isSingleTouchEnding);
+                }
+            }
+            
+            // mouse is not over a BuildZone
             if (!isOverUIButton)
             {
                 if (Input.GetMouseButtonDown(0) || isSingleTouchEnding)
@@ -61,4 +66,16 @@ public class InteractWithBuildZone : MonoBehaviour
 
     }
 
+    private static void HandleBuildZoneClick(RaycastHit2D hitInfo, bool isSingleTouchEnding)
+    {
+        GameObject hitZone = hitInfo.transform.gameObject;
+
+        if (Input.GetMouseButtonUp(0) || isSingleTouchEnding)
+        {
+            if (lastHit && lastHit != hitZone) lastHit.GetComponent<BuildZone>().CloseOut();
+            lastHit = hitZone;
+
+            hitZone.GetComponent<BuildZone>().PopRadialMenu(hitZone.transform.position);
+        }
+    }
 }
