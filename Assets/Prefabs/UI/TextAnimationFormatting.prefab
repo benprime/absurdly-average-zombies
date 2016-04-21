@@ -10,9 +10,8 @@ GameObject:
   - 224: {fileID: 22476650}
   - 222: {fileID: 22291714}
   - 114: {fileID: 11430288}
-  - 114: {fileID: 11461728}
   - 114: {fileID: 11426156}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TextAnimationFormatting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,17 +65,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
---- !u!114 &11461728
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf94c2feb14fa904e8fd2e31260fc49b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &22291714
 CanvasRenderer:
   m_ObjectHideFlags: 1
