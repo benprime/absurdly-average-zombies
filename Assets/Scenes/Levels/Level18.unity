@@ -385,7 +385,7 @@ MonoBehaviour:
   waves:
   - name: Wave
     delayBeforeWave: 5
-    beforeMessageHeader: Welcome to Level 1!
+    beforeMessageHeader: Welcome to Level 18!
     beforeMessage: Get Ready!
   - name: Wave
     delayBeforeWave: 5
