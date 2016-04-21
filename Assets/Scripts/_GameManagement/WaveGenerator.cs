@@ -92,7 +92,7 @@ public class WaveGenerator : MonoBehaviour
             yield return new WaitForSeconds(1);
 			float sounder = Random.Range (2f, 5f);
             // wave is not over until all zombies are dead
-			while (isWaveActive || FindObjectsOfType<Zombie>().Length > 0)
+			while (isWaveActive /*|| FindObjectsOfType<Zombie>().Length > 0*/ || GameObject.FindGameObjectsWithTag("enemy").Length > 0)
 			{
 				timer += Time.deltaTime;
 				if (timer >= sounder) {
@@ -105,7 +105,9 @@ public class WaveGenerator : MonoBehaviour
 					sounder = Random.Range (3f, 8f);
 				}
                 yield return null;
-            }
+			}
+			//wait a second before next wave / end level
+			yield return new WaitForSeconds(1);
 
             // A wave has complete
             currentWaveIndex++;
