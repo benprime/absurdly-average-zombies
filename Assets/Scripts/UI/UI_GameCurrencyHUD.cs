@@ -13,6 +13,10 @@ public class UI_GameCurrencyHUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Text>().text = "$" + GameManager.instance.GetPlayerTotalCurrency();
+        var t = gameObject.GetComponent<Text>();
+        if (t)
+        {
+            t.text = "$" + GameManager.instance.GetPlayerTotalCurrency();
+        }
     }
 }
