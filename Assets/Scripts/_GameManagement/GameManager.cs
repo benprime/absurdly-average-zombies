@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using UnityEngine.Advertisements;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -55,6 +56,17 @@ public class GameManager : MonoBehaviour
     public void PlayerCurrencyTransaction(int amount)
     {
         player_totalCurrency += amount;
+
+		int currLevel = SceneManager.GetActiveScene().buildIndex;
+		//limit player money based on game levels
+		if (player_totalCurrency > 50 && currLevel <= 9 /*level 5*/)
+			player_totalCurrency = 50;
+		else if (player_totalCurrency > 50 && currLevel <= 14 /*level 10*/)
+			player_totalCurrency = 75;
+		else if (player_totalCurrency > 50 && currLevel <= 19 /*level 15*/)
+			player_totalCurrency = 100;
+		else if (player_totalCurrency > 125)
+			player_totalCurrency = 125;
     }
 
     public int GetPlayerTotalCurrency()
