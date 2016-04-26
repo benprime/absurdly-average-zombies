@@ -230,7 +230,7 @@ MonoBehaviour:
   walkSwayModifier: 30
   maxHitPoints: 150
   hitPoints: 150
-  worthCurrency: 10
+  worthCurrency: 8
   attackDamage: 20
   spawnTime: 0
   flameDamageInterval: 1

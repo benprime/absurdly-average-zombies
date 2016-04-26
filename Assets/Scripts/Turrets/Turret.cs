@@ -19,7 +19,6 @@ public class Turret : MonoBehaviour
     public Transform barrelTip;
     Animator animator;
     private float lastShotTime;
-	public float firingTime = 2f;
 
     public int clipSize = 25;
     private int clipAmmo; // current number of bullets in clip
@@ -128,7 +127,8 @@ public class Turret : MonoBehaviour
         this.damage = TurretUpgradeInfo.GetData(this, TurretField.Damage);
         float detectionZoneRadius = TurretUpgradeInfo.GetData(this, TurretField.RangeRadius);
         gameObject.transform.FindChild("DetectionZone").localScale = new Vector3(detectionZoneRadius, detectionZoneRadius, 1);
-
+		this.clipSize = (int) TurretUpgradeInfo.GetData (this, TurretField.ClipSize);
+		this.reloadTime = TurretUpgradeInfo.GetData (this, TurretField.ReloadTime);
         this.rotationSpeed = TurretUpgradeInfo.GetData(this, TurretField.RotationSpeed);
         this.shotDelay = TurretUpgradeInfo.GetData(this, TurretField.ShotDelay);
     }
