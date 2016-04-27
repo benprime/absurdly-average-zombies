@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.159999996, y: .280000001, z: 0}
+  m_LocalPosition: {x: -0.16, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,20 +43,20 @@ MonoBehaviour:
   mapFileName: Level0101
   tilesetFileName: TileSet_Grass_Paved
   tiles:
-  - {fileID: 21300000, guid: 46fd4b0924bac7746ac8f187090056e8, type: 3}
-  - {fileID: 21300000, guid: 44f754b82c017c3438045486d1f64712, type: 3}
-  - {fileID: 21300000, guid: 2379f783b727024458355d2ca4f84433, type: 3}
-  - {fileID: 21300000, guid: 90e1bc3853de9c3429d24e99de828c3d, type: 3}
-  - {fileID: 21300000, guid: e54e5b35648c14f4d8d259ca2c0a71af, type: 3}
-  - {fileID: 21300000, guid: 40dc7c8f525ed0448bc9ca1b32da02db, type: 3}
-  - {fileID: 21300000, guid: e82440bea2b250a4fb5d647b0de70d54, type: 3}
-  - {fileID: 21300000, guid: 9da9a7076d1a1554d8a5b3d89b3adc5a, type: 3}
-  - {fileID: 21300000, guid: 8b0908df91b63b642b0006bdac695c59, type: 3}
-  - {fileID: 21300000, guid: aa329c30d8ab2ad44a9cbe7dda5060cd, type: 3}
-  - {fileID: 21300000, guid: c772b8d7ac1871b49ad2e17ce8e5a4ce, type: 3}
-  - {fileID: 21300000, guid: f615f69b7ff6ca84fad465bb7c80b963, type: 3}
-  - {fileID: 21300000, guid: 079a5325ac14aff4eb615679e6667211, type: 3}
-  - {fileID: 21300000, guid: 8c3ab424e6922e04db3cb2970dedd434, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &21209908
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -75,14 +75,18 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1935391679
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fda52c3cf81f70042bfa008d9c48848d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

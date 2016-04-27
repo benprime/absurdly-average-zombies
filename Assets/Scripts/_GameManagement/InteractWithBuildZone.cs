@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEditor;
+//using UnityEditor;
 
 public class InteractWithBuildZone : MonoBehaviour
 {
