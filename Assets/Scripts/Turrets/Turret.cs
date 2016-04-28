@@ -20,10 +20,12 @@ public class Turret : MonoBehaviour
     Animator animator;
     private float lastShotTime;
 
-    private float cooldownStartTime = 0f; // tracking value
-    public float cooldownTime = 0.25f; // every quarter second take remove a heat unit
-    public int maxShotsBeforeCooldown = 25;
-    public int currentShots; // how many shots fired since last cooldown
+    // the rate at which to cool
+    public float cooldownIncrement = 0.50f; // the rate at which to remove heat due to inactivity
+    public float lastCoolDown = 0f;
+    public int cooldownIncrementUnits = 5; // amount of "shots worth of heat" to remove every increment
+    public int maxShotsBeforeCooldown = 20;
+    public int currentHeat; // the amount of "shots worth" of heat the turret currently has
 
     // turret stats
     public int costCurrency;
@@ -112,22 +114,22 @@ public class Turret : MonoBehaviour
         if (this.type == TurretTypes.MachineGun) 
 		{
             // cooldown due to inactivity
-            if(Time.time - this.lastShotTime >= this.cooldownTime && this.currentShots > 0)
+            if(Time.time - this.lastShotTime >= this.cooldownIncrement &&
+                Time.time - this.lastCoolDown >= this.cooldownIncrement && this.currentHeat > 0)
             {
-                this.currentShots = this.currentShots - 25;
+                this.currentHeat = this.currentHeat - this.cooldownIncrementUnits;
+                this.lastCoolDown = Time.time;
             }
 
             // go into cooldown
-            if(this.currentShots > this.maxShotsBeforeCooldown)
+            if(this.currentHeat > this.maxShotsBeforeCooldown && this.reloadOverlayInstance == null)
             {
                 reloadOverlayInstance = Instantiate(this.ReloadOverlayPrefab) as GameObject;
                 reloadOverlayInstance.GetComponent<RectTransform>().position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                this.cooldownStartTime = Time.time;
-                this.currentShots = 0;
             }
 
             // finish a cooldown
-            if(this.reloadOverlayInstance != null && Time.time - this.cooldownStartTime > this.cooldownTime)
+            if(this.reloadOverlayInstance != null && this.currentHeat <= 0)
             {
                 Destroy(this.reloadOverlayInstance);
             }
@@ -139,7 +141,6 @@ public class Turret : MonoBehaviour
         this.damage = TurretUpgradeInfo.GetData(this, TurretField.Damage);
         float detectionZoneRadius = TurretUpgradeInfo.GetData(this, TurretField.RangeRadius);
         gameObject.transform.FindChild("DetectionZone").localScale = new Vector3(detectionZoneRadius, detectionZoneRadius, 1);
-		this.cooldownTime = TurretUpgradeInfo.GetData (this, TurretField.ReloadTime);
         this.rotationSpeed = TurretUpgradeInfo.GetData(this, TurretField.RotationSpeed);
         this.shotDelay = TurretUpgradeInfo.GetData(this, TurretField.ShotDelay);
     }
@@ -169,7 +170,7 @@ public class Turret : MonoBehaviour
             animator.SetTrigger("Fire");
             if (this.type == TurretTypes.MachineGun)
             {
-                this.currentShots++;
+                this.currentHeat++;
             }
 
             this.lastShotTime = Time.time;
