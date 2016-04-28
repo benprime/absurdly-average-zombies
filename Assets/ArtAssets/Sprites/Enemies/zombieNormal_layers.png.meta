@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 23d4ba8f9248eeb41a17aed18288d497
-timeCreated: 1443067990
+timeCreated: 1461821879
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,10 @@ TextureImporter:
     21300002: zombieNormal_leftArm
     21300004: zombieNormal_rightArm
     21300006: zombieNormal_shoulders
+    21300008: zombieNormal_head
+    21300010: zombieNormal_leftArm
+    21300012: zombieNormal_rightArm
+    21300014: zombieNormal_shoulders
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -21,7 +25,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -46,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -58,42 +62,54 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5
-        y: 3
-        width: 44
-        height: 46
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        y: 2
+        width: 45
+        height: 48
+      alignment: 9
+      pivot: {x: 0.50368357, y: 0.36186647}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.66576, y: 30.63041}
+        - {x: -22.66576, y: 28.63041}
+        - {x: -22.66576, y: -12.369591}
+        - {x: -20.66576, y: -17.36959}
+        - {x: 22.33424, y: -17.36959}
+        - {x: 22.33424, y: 21.63041}
+        - {x: 15.33424, y: 30.63041}
     - name: zombieNormal_leftArm
       rect:
         serializedVersion: 2
-        x: 52
-        y: 29
-        width: 17
-        height: 34
+        x: 51
+        y: 28
+        width: 19
+        height: 35
       alignment: 9
-      pivot: {x: .508928418, y: .15625225}
+      pivot: {x: 0.5, y: 0.17321548}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: zombieNormal_rightArm
       rect:
         serializedVersion: 2
-        x: 83
-        y: 29
-        width: 16
-        height: 33
+        x: 82
+        y: 28
+        width: 18
+        height: 35
       alignment: 9
-      pivot: {x: .566405773, y: .16883342}
+      pivot: {x: 0.53683555, y: 0.15427148}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: zombieNormal_shoulders
       rect:
         serializedVersion: 2
-        x: 51
-        y: 2
+        x: 52
+        y: 1
         width: 59
         height: 26
       alignment: 9
-      pivot: {x: .500000119, y: .435783356}
+      pivot: {x: 0.5, y: 0.42987064}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

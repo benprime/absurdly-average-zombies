@@ -27,9 +27,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb792baccba6104cac9679c82c92223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: RELOAD
+  Text: OVERHEAT
   Timeout: 0
-  CharacterSpacing: 0.2
+  CharacterSpacing: 0.22
   AnimationMagnitude: 0.2
   TextPrefab: {fileID: 11430288, guid: d3c1c54885b25434dbd7d3e4d5569aac, type: 2}
   AnimationType: 0

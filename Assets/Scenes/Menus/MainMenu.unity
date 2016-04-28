@@ -1609,6 +1609,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 1935391679
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1690,6 +1691,10 @@ Prefab:
     - target: {fileID: 11401966, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401966, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
+      propertyPath: maxZombies
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 21281882, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
@@ -1821,6 +1826,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: -1396669893
   m_SortingOrder: 0
   m_TargetDisplay: 0

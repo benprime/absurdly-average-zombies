@@ -28,7 +28,7 @@ public class TextAnimation : MonoBehaviour
         int i = 0;
 
         // todo: do this right, hacked to center
-        float x_pos_base = this.transform.position.x - 0.7f;
+        float x_pos_base = this.transform.position.x - 1.0f;
         foreach (char c in this.Text)
         {
             Text t = Instantiate(TextPrefab) as Text;

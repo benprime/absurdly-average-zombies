@@ -33,7 +33,6 @@ public enum TurretField
     Damage,
     RotationSpeed,
     ShotDelay,
-    ClipSize,
 	ReloadTime
 }
 
@@ -56,11 +55,6 @@ public static class TurretUpgradeInfo
         new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 1, 0.07f),
 		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 2, 0.055f),
 		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 3, 0.04f),
-
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ClipSize, 0, 25),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ClipSize, 1, 30),
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ClipSize, 2, 35),
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ClipSize, 3, 40),
 
 		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ReloadTime, 0, 1.5f),
 		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ReloadTime, 1, 1.25f),
@@ -88,11 +82,6 @@ public static class TurretUpgradeInfo
 		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ShotDelay, 2, 2.5f),
 		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ShotDelay, 3, 2.1f),
 
-		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ClipSize, 0, 1),
-		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ClipSize, 1, 1),
-		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ClipSize, 2, 1),
-		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ClipSize, 3, 1),
-
 		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ReloadTime, 0, 0),
 		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ReloadTime, 1, 0),
 		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.ReloadTime, 2, 0),
@@ -119,11 +108,6 @@ public static class TurretUpgradeInfo
 		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ShotDelay, 2, 0.065f),
 		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ShotDelay, 3, 0.05f),
 
-		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ClipSize, 0, 1),
-		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ClipSize, 1, 1),
-		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ClipSize, 2, 1),
-		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ClipSize, 3, 1),
-
 		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ReloadTime, 0, 0),
 		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ReloadTime, 1, 0),
 		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.ReloadTime, 2, 0),
@@ -149,11 +133,6 @@ public static class TurretUpgradeInfo
         new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ShotDelay, 1, 3.5f),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ShotDelay, 2, 3.00f),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ShotDelay, 3, 2.80f),
-
-		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ClipSize, 0, 1),
-		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ClipSize, 1, 1),
-		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ClipSize, 2, 1),
-		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ClipSize, 3, 1),
 
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ReloadTime, 0, 0),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.ReloadTime, 1, 0),
