@@ -31,29 +31,27 @@ public class BuildZone : MonoBehaviour
 
     public void PopRadialMenu(Vector3 location)
     {
-        if (!currentHub)
+        if (currentHub != null)
+            return;
+
+        var uiCanvas = FindObjectOfType<Canvas>().transform;
+        if (currentState == ZONE_STATE.EMPTY)
         {
-            if (currentState == ZONE_STATE.EMPTY)
-            {
-                Transform uiCanvas = FindObjectOfType<Canvas>().transform;
-                currentHub = Instantiate(weaponRadial, transform.position, Quaternion.identity) as GameObject;
-                currentHub.transform.SetParent(uiCanvas, false);
-                currentHub.transform.position = location;
-                currentHub.GetComponent<UI_WeaponRadial>().connectedZone = this;
-                menuOpen = true;
-            }
-            if (currentState == ZONE_STATE.BUILT_ON)
-            {
-                Transform uiCanvas = FindObjectOfType<Canvas>().transform;
-                currentHub = Instantiate(upgradeRadial, transform.position, Quaternion.identity) as GameObject;
-                currentHub.transform.SetParent(uiCanvas, false);
-                currentHub.transform.position = location;
-                currentHub.GetComponent<UI_UpgradeRadial>().connectedZone = this;
-                currentHub.GetComponent<UI_UpgradeRadial>().InitRadial();
-                menuOpen = true;
-                currentWeapon.transform.FindChild("DetectionZone").GetComponent<SpriteRenderer>().enabled = true;
-            }
+            currentHub = Instantiate(weaponRadial, location, Quaternion.identity) as GameObject;
+            currentHub.GetComponent<UI_WeaponRadial>().connectedZone = this;
+            menuOpen = true;
         }
+
+        if (currentState == ZONE_STATE.BUILT_ON)
+        {
+            currentHub = Instantiate(upgradeRadial, transform.position, Quaternion.identity) as GameObject;
+            currentHub.GetComponent<UI_UpgradeRadial>().connectedZone = this;
+            currentHub.GetComponent<UI_UpgradeRadial>().InitRadial();
+            menuOpen = true;
+            currentWeapon.transform.FindChild("DetectionZone").GetComponent<SpriteRenderer>().enabled = true;
+        }
+        currentHub.transform.SetParent(uiCanvas, false);
+        currentHub.transform.position = ClampGameObjectInsideCamera(location, currentHub);
     }
 
     public void CloseOut()
@@ -61,5 +59,31 @@ public class BuildZone : MonoBehaviour
         if (currentWeapon) currentWeapon.transform.FindChild("DetectionZone").GetComponent<SpriteRenderer>().enabled = false;
         if (currentHub) Destroy(currentHub);
         menuOpen = false;
+    }
+
+    private Vector3 ClampGameObjectInsideCamera(Vector3 location, GameObject gameObject)
+    {
+        var bottomLeft = Camera.main.ScreenToWorldPoint(Vector3.zero);
+        var topRight = Camera.main.ScreenToWorldPoint(new Vector3(
+            Camera.main.pixelWidth, Camera.main.pixelHeight));
+
+        var cameraRect = new Rect(
+            bottomLeft.x,
+            bottomLeft.y,
+            topRight.x - bottomLeft.x,
+            topRight.y - bottomLeft.y);
+
+        var canvasSize = FindObjectOfType<Canvas>().transform.GetComponent<RectTransform>().rect.size;
+        var widthRatio = canvasSize.x / cameraRect.width;
+        var heightRatio = canvasSize.y / cameraRect.height;
+
+        var radialMenuSize = gameObject.GetComponent<RectTransform>().rect.size;
+        var halfSizeX = (radialMenuSize.x / widthRatio) / 2;
+        var halfSizeY = (radialMenuSize.y / heightRatio) / 2;
+
+        return new Vector3(
+            Mathf.Clamp(location.x, cameraRect.xMin + halfSizeX, cameraRect.xMax - halfSizeX),
+            Mathf.Clamp(location.y, cameraRect.yMin + halfSizeY, cameraRect.yMax - halfSizeY),
+            transform.position.z);
     }
 }

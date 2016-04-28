@@ -58,23 +58,23 @@ public class UI_WeaponRadial : MonoBehaviour
 
     public void BuildSelectedObject(GameObject obj)
     {
+        if (connectedZone == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Input.ResetInputAxes();
 
         int cost = obj.GetComponent<Turret>().costCurrency;
         if (GameManager.instance.GetPlayerTotalCurrency() >= cost)
         {
             GameManager.instance.PlayerCurrencyTransaction(-cost);
-            GameObject weap = Instantiate(obj, transform.position, Quaternion.identity) as GameObject;
-            if (connectedZone)
-            {
-                connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;
-                connectedZone.currentWeapon = weap;
-                connectedZone.CloseOut();
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            GameObject weap = Instantiate(obj, connectedZone.transform.position, Quaternion.identity) as GameObject;
+
+            connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;
+            connectedZone.currentWeapon = weap;
+            connectedZone.CloseOut();
         }
     }
 }
