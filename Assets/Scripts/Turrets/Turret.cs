@@ -20,10 +20,10 @@ public class Turret : MonoBehaviour
     Animator animator;
     private float lastShotTime;
 
-    public int clipSize = 25;
-    private int clipAmmo; // current number of bullets in clip
-    private float reloadStartTime = 0f; // tracking value
-    public float reloadTime = 4f; // time it akes to reload
+    private float cooldownStartTime = 0f; // tracking value
+    public float cooldownTime = 0.25f; // every quarter second take remove a heat unit
+    public int maxShotsBeforeCooldown = 25;
+    public int currentShots; // how many shots fired since last cooldown
 
     // turret stats
     public int costCurrency;
@@ -70,7 +70,6 @@ public class Turret : MonoBehaviour
 		AudioSource aud = GetComponent<AudioSource>();
 		int randSound = Random.Range (0,shotSounds.Count());			
 		aud.clip = shotSounds[randSound];
-        this.clipAmmo = this.clipSize;
 
         // determine turret type from projectile
         switch(bulletPrefab.name)
@@ -106,17 +105,30 @@ public class Turret : MonoBehaviour
         if (zombiesInRange.Count > 0)
         {
             LookAtNearestEnemy();
-
         }
 
 
         //machine gun cooldown
         if (this.type == TurretTypes.MachineGun) 
 		{
-            // check if reload is completed
-            if (this.clipAmmo == 0 && Time.time - this.reloadStartTime >= this.reloadTime)
+            // cooldown due to inactivity
+            if(Time.time - this.lastShotTime >= this.cooldownTime && this.currentShots > 0)
             {
-                this.clipAmmo = this.clipSize;
+                this.currentShots = this.currentShots - 25;
+            }
+
+            // go into cooldown
+            if(this.currentShots > this.maxShotsBeforeCooldown)
+            {
+                reloadOverlayInstance = Instantiate(this.ReloadOverlayPrefab) as GameObject;
+                reloadOverlayInstance.GetComponent<RectTransform>().position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                this.cooldownStartTime = Time.time;
+                this.currentShots = 0;
+            }
+
+            // finish a cooldown
+            if(this.reloadOverlayInstance != null && Time.time - this.cooldownStartTime > this.cooldownTime)
+            {
                 Destroy(this.reloadOverlayInstance);
             }
 		}
@@ -127,8 +139,7 @@ public class Turret : MonoBehaviour
         this.damage = TurretUpgradeInfo.GetData(this, TurretField.Damage);
         float detectionZoneRadius = TurretUpgradeInfo.GetData(this, TurretField.RangeRadius);
         gameObject.transform.FindChild("DetectionZone").localScale = new Vector3(detectionZoneRadius, detectionZoneRadius, 1);
-		this.clipSize = (int) TurretUpgradeInfo.GetData (this, TurretField.ClipSize);
-		this.reloadTime = TurretUpgradeInfo.GetData (this, TurretField.ReloadTime);
+		this.cooldownTime = TurretUpgradeInfo.GetData (this, TurretField.ReloadTime);
         this.rotationSpeed = TurretUpgradeInfo.GetData(this, TurretField.RotationSpeed);
         this.shotDelay = TurretUpgradeInfo.GetData(this, TurretField.ShotDelay);
     }
@@ -158,13 +169,7 @@ public class Turret : MonoBehaviour
             animator.SetTrigger("Fire");
             if (this.type == TurretTypes.MachineGun)
             {
-                this.clipAmmo--;
-                if(clipAmmo <= 0)
-                {
-                    reloadOverlayInstance = Instantiate(this.ReloadOverlayPrefab) as GameObject;
-                    reloadOverlayInstance.GetComponent<RectTransform>().position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                    this.reloadStartTime = Time.time;
-                }
+                this.currentShots++;
             }
 
             this.lastShotTime = Time.time;
@@ -230,7 +235,7 @@ public class Turret : MonoBehaviour
 
         // if the target is within the "shootWithinDegrees" property, we fire
         float angleDiff = Mathf.Abs(Vector3.Angle(transform.up, targetRotation));
-		if (angleDiff <= this.shootWithinDegrees && clipAmmo > 0) {
+		if (angleDiff <= this.shootWithinDegrees && this.reloadOverlayInstance == null) {
 			this.Fire ();
 		}
     }
