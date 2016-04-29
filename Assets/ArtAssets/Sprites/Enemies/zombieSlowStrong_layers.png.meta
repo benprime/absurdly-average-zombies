@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2d04f673ae0474e47a5767d6e3da6d9c
-timeCreated: 1443069892
+timeCreated: 1461895652
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,10 @@ TextureImporter:
     21300002: zombieSlowStrong_rightArm
     21300004: zombieSlowStrong_head
     21300006: zombieSlowStrong_shoulders
+    21300008: zombieSlowStrong_leftArm
+    21300010: zombieSlowStrong_rightArm
+    21300012: zombieSlowStrong_head
+    21300014: zombieSlowStrong_shoulders
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -21,7 +25,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -46,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -57,43 +61,62 @@ TextureImporter:
     - name: zombieSlowStrong_leftArm
       rect:
         serializedVersion: 2
-        x: 14
+        x: 21
         y: 49
-        width: 42
-        height: 21
+        width: 44
+        height: 22
       alignment: 9
-      pivot: {x: .128443763, y: .65092206}
+      pivot: {x: 0.13166843, y: 0.58814776}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: zombieSlowStrong_rightArm
       rect:
         serializedVersion: 2
-        x: 71
+        x: 70
         y: 48
-        width: 37
-        height: 21
+        width: 39
+        height: 22
       alignment: 9
-      pivot: {x: .876897633, y: .642298043}
+      pivot: {x: 0.86938107, y: 0.5818514}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: zombieSlowStrong_head
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 43
-        height: 46
+        x: 3
+        y: 1
+        width: 45
+        height: 48
       alignment: 9
-      pivot: {x: .496226966, y: .351646662}
+      pivot: {x: 0.5, y: 0.39033997}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: 29.263681}
+        - {x: -22.5, y: -15.736319}
+        - {x: -19.5, y: -18.736319}
+        - {x: 18.5, y: -18.736319}
+        - {x: 22.5, y: -17.736319}
+        - {x: 22.5, y: 28.263681}
+        - {x: 19.5, y: 29.263681}
     - name: zombieSlowStrong_shoulders
       rect:
         serializedVersion: 2
         x: 49
         y: 1
-        width: 72
+        width: 73
         height: 46
       alignment: 9
-      pivot: {x: .495388448, y: .398947626}
+      pivot: {x: 0.5, y: 0.43676358}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.5, y: 25.908875}
+        - {x: -36.5, y: 22.908875}
+        - {x: -36.5, y: -16.091125}
+        - {x: -35.5, y: -20.091125}
+        - {x: 36.5, y: -20.091125}
+        - {x: 36.5, y: 23.908875}
+        - {x: 29.5, y: 25.908875}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
