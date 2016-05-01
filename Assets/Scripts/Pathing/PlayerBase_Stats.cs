@@ -10,8 +10,8 @@ public class PlayerBase_Stats : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
-
+	{
+		gameObject.GetComponent<SpriteRenderer>().sprite = noDamage;
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class PlayerBase_Stats : MonoBehaviour
 
     void TakeDamage(float damage)
     {
-        currentHitPoints -= damage;
+		if(currentHitPoints > 0) currentHitPoints -= damage;
         //if(currentHitPoints < (maxHitPoints / 3)) {
         //	gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         //}

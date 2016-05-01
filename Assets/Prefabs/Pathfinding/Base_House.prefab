@@ -62,7 +62,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -0.09}
   serializedVersion: 2
-  m_Size: {x: 0.92, y: 0.77}
+  m_Size: {x: 2.05, y: 1.44}
 --- !u!114 &11402504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,10 +77,10 @@ MonoBehaviour:
   maxHitPoints: 100
   currentHitPoints: 100
   gameOverPopup: {fileID: 104862, guid: 50177dbcde81a3f4b8c16bc1aaed5995, type: 2}
-  noDamage: {fileID: 21300000, guid: be780b16f1928744094d0ee3b2b0877f, type: 3}
-  thirdDamage: {fileID: 21300000, guid: 46f7129b35f34944791d357c40f6cd67, type: 3}
-  twoThirdDamage: {fileID: 21300000, guid: 24ad4a4ec4555c545b76b2518bf49b95, type: 3}
-  destroyed: {fileID: 21300000, guid: 2b1e941aaf9509f479151b4ea5980422, type: 3}
+  noDamage: {fileID: 21300000, guid: 89aba5b42251c73429e2d09485d9e724, type: 3}
+  thirdDamage: {fileID: 21300000, guid: 0fb3509bb0d80154c9bc6eba24f0b88a, type: 3}
+  twoThirdDamage: {fileID: 0}
+  destroyed: {fileID: 0}
 --- !u!114 &11454784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 11425372, guid: 6afe7065acce6fc4b98a7256e1c14872, type: 2}
-  barOffset: 0.85
+  barOffset: 1.2
   healthBar: {fileID: 0}
 --- !u!212 &21235212
 SpriteRenderer:
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1042377535
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8a6a7b698b3f63841b25142cbda27454, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89aba5b42251c73429e2d09485d9e724, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

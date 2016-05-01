@@ -1696,6 +1696,14 @@ Prefab:
       propertyPath: maxZombies
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 11401966, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
+      propertyPath: spawnDelayMin
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401966, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
+      propertyPath: spawnDelayMax
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 21281882, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
