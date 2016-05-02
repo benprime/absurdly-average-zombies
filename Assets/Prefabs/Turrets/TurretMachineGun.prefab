@@ -232,8 +232,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: c886269c3454be64192aacac0e9eb66d, type: 2}
   shotDelay: 0.1
   barrelTip: {fileID: 450336}
-  clipSize: 25
-  reloadTime: 4
+  cooldownIncrement: 0.25
+  lastCoolDown: 0
+  cooldownIncrementUnits: 5
+  maxShotsBeforeCooldown: 20
+  currentHeat: 0
   costCurrency: 5
   baseCost: 5
   maxHitPoints: 50

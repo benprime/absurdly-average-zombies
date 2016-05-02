@@ -56,10 +56,10 @@ public static class TurretUpgradeInfo
 		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 2, 0.055f),
 		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 3, 0.04f),
 
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 0, 1.5f),
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 1, 1.25f),
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 2, 1.0f),
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 3, 0.8f),
+		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 0, 1.2f),
+		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 1, 1.1f),
+		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 2, 0.95f),
+		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 3, 0.75f),
 
         new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RangeRadius, 0, 3f),
         new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RangeRadius, 1, 3.3f),

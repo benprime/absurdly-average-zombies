@@ -21,7 +21,7 @@ public class Turret : MonoBehaviour
     private float lastShotTime;
 
     // the rate at which to cool
-    public float cooldownIncrement = 0.50f; // the rate at which to remove heat due to inactivity
+    public float cooldownIncrement = 0.25f; // the rate at which to remove heat due to inactivity
     public float lastCoolDown = 0f;
     public int cooldownIncrementUnits = 5; // amount of "shots worth of heat" to remove every increment
     public int maxShotsBeforeCooldown = 20;
