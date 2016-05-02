@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 147722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.19, y: 0.94, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,8 +79,8 @@ MonoBehaviour:
   gameOverPopup: {fileID: 104862, guid: 50177dbcde81a3f4b8c16bc1aaed5995, type: 2}
   noDamage: {fileID: 21300000, guid: 89aba5b42251c73429e2d09485d9e724, type: 3}
   thirdDamage: {fileID: 21300000, guid: 0fb3509bb0d80154c9bc6eba24f0b88a, type: 3}
-  twoThirdDamage: {fileID: 0}
-  destroyed: {fileID: 0}
+  twoThirdDamage: {fileID: 21300000, guid: 9e6cc0b625b621043ab6e0abe686680a, type: 3}
+  destroyed: {fileID: 21300000, guid: 599baee3dec176e48af607aef65948f4, type: 3}
 --- !u!114 &11454784
 MonoBehaviour:
   m_ObjectHideFlags: 1
