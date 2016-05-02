@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BossZombie : Zombie {
 
@@ -34,7 +35,7 @@ public class BossZombie : Zombie {
 						zx.SpawnZombie (ZombieSize.Medium);
 					else if (rando < .9)
 						zx.SpawnZombie (ZombieSize.Small);
-					else if (rando < .999)
+					else if (rando < .999 && SceneManager.GetActiveScene().buildIndex > 9 /*level 5*/) //no large zombies until after level 5
 						zx.SpawnZombie (ZombieSize.Large);
 					else
 						zx.SpawnZombie (ZombieSize.Boss);
