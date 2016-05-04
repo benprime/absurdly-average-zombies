@@ -286,6 +286,7 @@ GameObject:
   - 222: {fileID: 22240132}
   - 114: {fileID: 11442148}
   - 114: {fileID: 11436878}
+  - 114: {fileID: 11445614}
   m_Layer: 5
   m_Name: Money Amount
   m_TagString: Untagged
@@ -605,7 +606,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Welcome to level four!
+  m_Text: Welcome to level eleven!
 --- !u!114 &11412796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -871,7 +872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9647499, g: 0.97794116, b: 0.021572253, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -880,7 +881,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd285244f70204b4eaf31ab96f6bcde7, type: 3}
     m_FontSize: 40
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 300
@@ -902,6 +903,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365c1e05c598552459d83c4052a6e9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11445614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1.2, y: -1.2}
+  m_UseGraphicAlpha: 1
 --- !u!114 &11446246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1258,7 +1273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: Level Four
+  m_Text: Level Eleven
 --- !u!114 &11495894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1462,6 +1477,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: -1396669893
   m_SortingOrder: 0
   m_TargetDisplay: 0
