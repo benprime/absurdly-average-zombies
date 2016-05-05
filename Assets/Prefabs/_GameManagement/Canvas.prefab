@@ -148,6 +148,7 @@ GameObject:
   - 222: {fileID: 22211270}
   - 114: {fileID: 11461408}
   - 114: {fileID: 11417456}
+  - 114: {fileID: 11434544}
   m_Layer: 5
   m_Name: WaveMessageBox
   m_TagString: Untagged
@@ -358,6 +359,7 @@ GameObject:
   - 224: {fileID: 22402140}
   - 222: {fileID: 22290184}
   - 114: {fileID: 11446246}
+  - 114: {fileID: 11466478}
   m_Layer: 5
   m_Name: CountDown
   m_TagString: Untagged
@@ -606,7 +608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Welcome to level eleven!
+  m_Text: Welcome to level one!
 --- !u!114 &11412796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -747,6 +749,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11434544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1.2, y: -1.2}
+  m_UseGraphicAlpha: 1
 --- !u!114 &11436878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -939,7 +955,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd285244f70204b4eaf31ab96f6bcde7, type: 3}
     m_FontSize: 60
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 60
@@ -1117,7 +1133,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd285244f70204b4eaf31ab96f6bcde7, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 50
@@ -1128,6 +1144,20 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: $WAVE_MESSAGE
+--- !u!114 &11466478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1.2, y: -1.2}
+  m_UseGraphicAlpha: 1
 --- !u!114 &11466918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1273,7 +1303,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: Level Eleven
+  m_Text: Level One
 --- !u!114 &11495894
 MonoBehaviour:
   m_ObjectHideFlags: 1
