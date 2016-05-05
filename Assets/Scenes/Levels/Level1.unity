@@ -5364,6 +5364,34 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 334206736}
+    - target: {fileID: 11448456, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300100, guid: f08f227c2e14d7b4e97d39c8598dc151,
+        type: 3}
+    - target: {fileID: 11448456, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403376, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300100, guid: f08f227c2e14d7b4e97d39c8598dc151,
+        type: 3}
+    - target: {fileID: 11441846, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300100, guid: f08f227c2e14d7b4e97d39c8598dc151,
+        type: 3}
+    - target: {fileID: 11467276, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300100, guid: f08f227c2e14d7b4e97d39c8598dc151,
+        type: 3}
+    - target: {fileID: 11448190, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
+      propertyPath: m_Text
+      value: Main Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
   m_IsPrefabParent: 0
