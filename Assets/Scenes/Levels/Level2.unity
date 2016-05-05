@@ -2524,7 +2524,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438196, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
       propertyPath: waves.Array.data[3].name
@@ -2540,11 +2540,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
       propertyPath: waves.Array.data[2].beforeMessage
-      value: Get ready for the final wave!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
       propertyPath: waves.Array.data[0].beforeMessageHeader
       value: Welcome to Level 2!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
+      propertyPath: waves.Array.data[1].beforeMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
+      propertyPath: waves.Array.data[2].waveCountdownText
+      value: Final Wave
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}

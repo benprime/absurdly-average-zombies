@@ -954,8 +954,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd285244f70204b4eaf31ab96f6bcde7, type: 3}
-    m_FontSize: 60
-    m_FontStyle: 1
+    m_FontSize: 50
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 60
@@ -964,7 +964,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 0.6
   m_Text: $COUNTDOWN
 --- !u!114 &11448190
 MonoBehaviour:

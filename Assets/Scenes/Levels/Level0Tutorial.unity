@@ -798,6 +798,7 @@ GameObject:
   - 222: {fileID: 210040601}
   - 114: {fileID: 210040600}
   - 114: {fileID: 210040599}
+  - 114: {fileID: 210040602}
   m_Layer: 5
   m_Name: WaveMessageBox
   m_TagString: Untagged
@@ -876,6 +877,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 210040597}
+--- !u!114 &210040602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 210040597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1.2, y: -1.2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &212999877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1064,7 @@ GameObject:
   - 224: {fileID: 234391123}
   - 222: {fileID: 234391125}
   - 114: {fileID: 234391124}
+  - 114: {fileID: 234391126}
   m_Layer: 5
   m_Name: CountDown
   m_TagString: Untagged
@@ -1096,7 +1112,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd285244f70204b4eaf31ab96f6bcde7, type: 3}
-    m_FontSize: 60
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
@@ -1106,7 +1122,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 0.6
   m_Text: $COUNTDOWN
 --- !u!222 &234391125
 CanvasRenderer:
@@ -1115,6 +1131,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 234391122}
+--- !u!114 &234391126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 234391122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1.2, y: -1.2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &249026204
 GameObject:
   m_ObjectHideFlags: 0
