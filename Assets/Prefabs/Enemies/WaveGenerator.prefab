@@ -129,12 +129,7 @@ MonoBehaviour:
   - name: Wave
     delayBeforeWave: 5
     beforeMessageHeader: 
-    waveCountdownText: Wave 3
-    beforeMessage: 
-  - name: Wave
-    delayBeforeWave: 5
-    beforeMessageHeader: 
-    waveCountdownText: Wave 4
+    waveCountdownText: Final Wave
     beforeMessage: 
   levelMusic: {fileID: 8300000, guid: af3c00751c844264488b39544f096446, type: 3}
   zombieSounds:

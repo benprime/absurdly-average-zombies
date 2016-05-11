@@ -241,15 +241,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: 44f1e9d23989efc48b0f49085cc7f67b, type: 2}
   shotDelay: 0.1
   barrelTip: {fileID: 471646}
-  firingTime: 0
-  coolingTime: 0
-  costCurrency: 20
-  baseCost: 20
+  cooldownIncrement: 0.25
+  lastCoolDown: 0
+  cooldownIncrementUnits: 5
+  maxShotsBeforeCooldown: 20
+  currentHeat: 0
+  costCurrency: 7
+  baseCost: 7
   maxHitPoints: 50
   currentHitPoints: 50
   type: 2
   pauseAfterFiring: 0
   ReloadOverlayPrefab: {fileID: 153328, guid: 6d3f6f5695e304245adaab67a94e3618, type: 2}
+  reloadOverlayInstance: {fileID: 0}
   shotSounds:
   - {fileID: 8300000, guid: e60b9a67e5187c948878712b9fcacb78, type: 3}
   damage: 0

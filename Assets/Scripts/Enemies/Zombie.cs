@@ -105,7 +105,7 @@ public class Zombie : MonoBehaviour
                 nextFlameDamageTime += this.flameDamageInterval;
                 this.TakeDamage(this.fireDamage, DamageType.light);
                 this.fireDamage--;
-                if (this.fireDamage == 0)
+                if (this.fireDamage <= 0)
                 {
                     ParticleSystem ps = this.GetComponent<ParticleSystem>();
                     ps.Stop();
@@ -204,6 +204,10 @@ public class Zombie : MonoBehaviour
         GameObject.Instantiate(this.deathParticleSystem, this.transform.position, Quaternion.identity);
     }
 
+//	void OnDestroy() {
+//		if(this.zombieState != ZombieState.Dead && this.hb.healthBar.gameObject != null) Destroy(this.hb.healthBar.gameObject);
+//	}
+//
     void OnCollisionStay2D(Collision2D other)
     {
         //damage the buildings/turrets in path
