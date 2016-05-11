@@ -61,9 +61,9 @@ public class GameManager : MonoBehaviour
 		//limit player money based on game levels
 		if (player_totalCurrency > 50 && currLevel <= 9 /*level 5*/)
 			player_totalCurrency = 50;
-		else if (player_totalCurrency > 50 && currLevel <= 14 /*level 10*/)
+		else if (player_totalCurrency > 75 && currLevel <= 14 /*level 10*/)
 			player_totalCurrency = 75;
-		else if (player_totalCurrency > 50 && currLevel <= 19 /*level 15*/)
+		else if (player_totalCurrency > 100 && currLevel <= 19 /*level 15*/)
 			player_totalCurrency = 100;
 		else if (player_totalCurrency > 125)
 			player_totalCurrency = 125;
