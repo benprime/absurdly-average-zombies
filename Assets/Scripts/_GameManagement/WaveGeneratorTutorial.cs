@@ -40,7 +40,6 @@ public class TutorialWave
 
 public class WaveGeneratorTutorial : MonoBehaviour
 {
-    public int startingMoney;
     public List<TutorialWave> waves;
     private TutorialWave m_CurrentWave;
     public TutorialWave CurrentWave { get { return m_CurrentWave; } }
@@ -81,6 +80,8 @@ public class WaveGeneratorTutorial : MonoBehaviour
         {
             // update current wave
             m_CurrentWave = W;
+
+            GameManager.instance.player_totalCurrency = m_CurrentWave.startingMoney;
 
             this.ShowMessage(W.beforeMessageHeader, W.beforeMessage, W.messageImage);
 
@@ -187,7 +188,6 @@ public class WaveGeneratorTutorial : MonoBehaviour
         this.waveMessageText = bodyPanel.transform.FindChild("MessageText").GetComponent<Text>();
         this.popupImage = bodyPanel.transform.FindChild("Image").GetComponent<Image>();
 
-        GameManager.instance.player_totalCurrency = startingMoney;
         if (levelMusic != null || GameManager.instance.GetComponent<AudioSource>().clip != levelMusic)
         {
             GameManager.instance.GetComponent<AudioSource>().clip = levelMusic;

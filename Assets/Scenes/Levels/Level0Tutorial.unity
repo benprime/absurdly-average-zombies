@@ -415,7 +415,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[4].zombies.Array.data[0].count
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[4].zombies.Array.data[0].secondsBetweenSpawn
@@ -447,7 +447,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[1].zombies.Array.data[1].secondsBetweenSpawn
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[1].zombies.Array.data[2].count
@@ -499,7 +499,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[1].zombies.Array.data[0].count
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[2].zombies.Array.data[0].zombieType
@@ -507,7 +507,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[2].zombies.Array.data[0].count
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[3].zombies.Array.data[0].zombieType
@@ -515,7 +515,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[3].zombies.Array.data[0].count
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[4].zombies.Array.data[0].zombieType
@@ -528,6 +528,18 @@ Prefab:
     - target: {fileID: 11431936, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: path.nodes.Array.data[8]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
+      propertyPath: waves.Array.data[1].zombies.Array.data[1].zombieType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
+      propertyPath: waves.Array.data[1].zombies.Array.data[1].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
+      propertyPath: waves.Array.data[3].zombies.Array.data[0].secondsBetweenSpawn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
@@ -787,6 +799,52 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &206546398
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 859946896}
+    m_Modifications:
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 120708, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_Name
+      value: BuildZone 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &210040597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,6 +1112,10 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!4 &232413996 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+  m_PrefabInternal: {fileID: 206546398}
 --- !u!1 &234391122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,15 +1591,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1216cd25428649aaaa58737d1048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 30
   waves:
   - name: 
     delayBeforeWave: 0
     beforeMessageHeader: Welcome to Zombie Towers!
-    beforeMessage: This is the machine gun.  It is your most basic turret type.  Build
-      a machine gun on the turret base.
-    messageImage: {fileID: 21300000, guid: d83777eaf1689824c9f5f277732fdfab, type: 3}
-    startingMoney: 500
+    beforeMessage: Click turret bases to build turrets! Build your first machine gun.
+    messageImage: {fileID: 21300000, guid: 3fc5503555a04064e844f6cb27892ce0, type: 3}
+    startingMoney: 5
     weaponRadial:
       N: 1
       S: 0
@@ -1550,9 +1610,10 @@ MonoBehaviour:
   - name: 
     delayBeforeWave: 0
     beforeMessageHeader: Turret Upgrades
-    beforeMessage: Upgrade your machine gun!
-    messageImage: {fileID: 21300000, guid: 99fae8fc8bf74ef49974d6a8479951a0, type: 3}
-    startingMoney: 0
+    beforeMessage: After you have built a turret, clicking the turret will open the
+      upgrade menu.  Click the upgrade icon to upgrade your machine gun!
+    messageImage: {fileID: 21300000, guid: 82ca0e8f1a43ca04d8edd622ef37a9ff, type: 3}
+    startingMoney: 10
     weaponRadial:
       N: 0
       S: 0
@@ -1564,13 +1625,30 @@ MonoBehaviour:
     clearTurrets: 0
   - name: 
     delayBeforeWave: 0
-    beforeMessageHeader: Turret Upgrades
-    beforeMessage: Here they come!
-    messageImage: {fileID: 21300000, guid: 99fae8fc8bf74ef49974d6a8479951a0, type: 3}
-    startingMoney: 0
+    beforeMessageHeader: Catapult
+    beforeMessage: Catapults don't do any damage, but they slow the mobs.  Build a
+      catapult!
+    messageImage: {fileID: 21300000, guid: d5e2351e15f22664883828cdd6a1e5dc, type: 3}
+    startingMoney: 10
     weaponRadial:
       N: 0
       S: 0
+      E: 0
+      W: 1
+    upgradeRadial:
+      E: 1
+      W: 0
+    clearTurrets: 0
+  - name: 
+    delayBeforeWave: 0
+    beforeMessageHeader: Flame Thrower
+    beforeMessage: Flame throwers light zombies on fire, doing additional fire damage!
+      Build a flame thrower now!
+    messageImage: {fileID: 21300000, guid: 04dd94640eaf28745ae25600150f32cf, type: 3}
+    startingMoney: 10
+    weaponRadial:
+      N: 0
+      S: 1
       E: 0
       W: 0
     upgradeRadial:
@@ -1579,14 +1657,15 @@ MonoBehaviour:
     clearTurrets: 0
   - name: 
     delayBeforeWave: 0
-    beforeMessageHeader: Turret Upgrades
-    beforeMessage: Oh noes!
-    messageImage: {fileID: 21300000, guid: 99fae8fc8bf74ef49974d6a8479951a0, type: 3}
-    startingMoney: 0
+    beforeMessageHeader: Rocket Launcher
+    beforeMessage: Rockets explode damaging all nearby zombies. Build a rocket launcher
+      now!
+    messageImage: {fileID: 21300000, guid: 8109862b8b4b3ad4c945020d7be17665, type: 3}
+    startingMoney: 15
     weaponRadial:
       N: 0
       S: 0
-      E: 0
+      E: 1
       W: 0
     upgradeRadial:
       E: 1
@@ -1941,11 +2020,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.01
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1973,7 +2052,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 120708, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
       propertyPath: m_Name
-      value: BuildZone (2)
+      value: BuildZone 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
@@ -2817,11 +2896,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400580, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.07
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 400580, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: -1.52
       objectReference: {fileID: 0}
     - target: {fileID: 400580, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2854,7 +2933,7 @@ Prefab:
     - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: gameOverPopup
       value: 
-      objectReference: {fileID: 102520, guid: 17c5df15bb6d51249b3c31fa6937765a, type: 2}
+      objectReference: {fileID: 104862, guid: 50177dbcde81a3f4b8c16bc1aaed5995, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
   m_IsPrefabParent: 0
@@ -3357,6 +3436,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 177496, guid: 3f234ac31abf458429d7b4b5bc49007a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f234ac31abf458429d7b4b5bc49007a, type: 2}
   m_IsPrefabParent: 0
@@ -3365,6 +3448,52 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22403488, guid: 3f234ac31abf458429d7b4b5bc49007a,
     type: 2}
   m_PrefabInternal: {fileID: 756383342}
+--- !u!1001 &766823211
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 859946896}
+    m_Modifications:
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 120708, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+      propertyPath: m_Name
+      value: BuildZone 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &767693369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3888,6 +4017,8 @@ Transform:
   m_Children:
   - {fileID: 399842389}
   - {fileID: 1446540733}
+  - {fileID: 2007768891}
+  - {fileID: 232413996}
   m_Father: {fileID: 0}
   m_RootOrder: 9
 --- !u!1 &958925275
@@ -6596,11 +6727,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.79
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6628,7 +6759,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 120708, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
       propertyPath: m_Name
-      value: BuildZone (1)
+      value: BuildZone 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
@@ -6873,6 +7004,10 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!4 &2007768891 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 432166, guid: 9a882a187468aae4693aba1915de7d1e, type: 2}
+  m_PrefabInternal: {fileID: 766823211}
 --- !u!1 &2020593652
 GameObject:
   m_ObjectHideFlags: 0

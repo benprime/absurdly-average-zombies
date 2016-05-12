@@ -29,19 +29,19 @@ public class UI_WeaponRadial : MonoBehaviour
 		this.buttons["N"].GetComponentInChildren<Button>().interactable = !buttonDisabled["N"];
 
 		//Tar launcher is always accessible
-		this.buttons["W"].GetComponentInChildren<Button>().interactable = !buttonDisabled["S"];
+		this.buttons["W"].GetComponentInChildren<Button>().interactable = !buttonDisabled["W"];
 
 		//Flamethrower only accessible after level 5 of actual gameplay
 		if(currLevel >= 5 /*level 1*/ && currLevel <= 9 /*level 5*/) 
 			this.buttons["S"].GetComponentInChildren<Button>().interactable = false;
 		else 
-			this.buttons["S"].GetComponentInChildren<Button>().interactable = !buttonDisabled["E"];
+			this.buttons["S"].GetComponentInChildren<Button>().interactable = !buttonDisabled["S"];
 		
 		//Rocket launcher only accessible after level 10 of actual gameplay
 		if(currLevel >= 5 /*level 1*/ && currLevel <= 14 /*level 10*/)  
 			this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
 		else 
-			this.buttons["E"].GetComponentInChildren<Button>().interactable = !buttonDisabled["W"];
+			this.buttons["E"].GetComponentInChildren<Button>().interactable = !buttonDisabled["E"];
     }
 
     // Use this for initialization
