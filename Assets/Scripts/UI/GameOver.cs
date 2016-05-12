@@ -23,6 +23,9 @@ public class GameOver : MonoBehaviour
 			}
 		}
 
+		foreach(ZombieSpawner zs in FindObjectsOfType<ZombieSpawner>()) Destroy(zs.gameObject);
+		foreach(Zombie z in FindObjectsOfType<Zombie>()) Destroy(z.gameObject);
+
         //this.popupMessageInstance = Instantiate(this.popupMessagePrefab);
         //this.popupMessageInstance.transform.SetParent(canvas.transform);
         Screen.sleepTimeout = SleepTimeout.SystemSetting;

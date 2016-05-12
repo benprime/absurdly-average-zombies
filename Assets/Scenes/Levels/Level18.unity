@@ -386,18 +386,22 @@ MonoBehaviour:
   - name: Wave
     delayBeforeWave: 5
     beforeMessageHeader: Welcome to Level 18!
+    waveCountdownText: 
     beforeMessage: Get Ready!
   - name: Wave
     delayBeforeWave: 5
     beforeMessageHeader: 
+    waveCountdownText: 
     beforeMessage: Get ready for wave 2!
   - name: Wave
     delayBeforeWave: 5
     beforeMessageHeader: 
+    waveCountdownText: 
     beforeMessage: Get ready for wave 3!
   - name: Wave
     delayBeforeWave: 5
     beforeMessageHeader: 
+    waveCountdownText: 
     beforeMessage: Get ready for final wave!
   levelMusic: {fileID: 0}
   zombieSounds: []
@@ -460,7 +464,7 @@ Prefab:
     - target: {fileID: 11402504, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: gameOverPopup
       value: 
-      objectReference: {fileID: 102520, guid: 17c5df15bb6d51249b3c31fa6937765a, type: 2}
+      objectReference: {fileID: 104862, guid: 50177dbcde81a3f4b8c16bc1aaed5995, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
   m_IsPrefabParent: 0
@@ -1386,6 +1390,10 @@ Prefab:
     - target: {fileID: 11468564, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: tilesetFileName
       value: TileSet_Cement_Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}

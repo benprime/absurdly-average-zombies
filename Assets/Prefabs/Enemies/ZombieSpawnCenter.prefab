@@ -79,24 +79,6 @@ MonoBehaviour:
       count: 15
       secondsBetweenSpawn: 1
       startDelay: 18
-  - name: 
-    zombies:
-    - zombieType: 1
-      count: 15
-      secondsBetweenSpawn: 1
-      startDelay: 0
-    - zombieType: 0
-      count: 15
-      secondsBetweenSpawn: 1
-      startDelay: 10
-    - zombieType: 1
-      count: 15
-      secondsBetweenSpawn: 1
-      startDelay: 18
-    - zombieType: 0
-      count: 15
-      secondsBetweenSpawn: 1
-      startDelay: 28
 --- !u!114 &11431936
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -13,7 +13,8 @@ public class Wave
     [HideInInspector]
     public string name = "Wave";
     public float delayBeforeWave;
-    public string beforeMessageHeader;
+	public string beforeMessageHeader;
+	public string waveCountdownText;
     [TextArea]
     public string beforeMessage;
 }
@@ -138,7 +139,7 @@ public class WaveGenerator : MonoBehaviour
         this.countDownText.enabled = true;
         for (int i = delay - 1; i > -1; i--)
         {
-            this.countDownText.text = i.ToString();
+			this.countDownText.text = w.waveCountdownText + "\nIncoming\n" + i.ToString();
             yield return new WaitForSeconds(1);
         }
         this.countDownText.enabled = false;

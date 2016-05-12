@@ -424,7 +424,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
@@ -474,19 +474,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11454784, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: barOffset
-      value: .850000024
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 400580, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.74
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 400580, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.74
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 400580, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.87
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}

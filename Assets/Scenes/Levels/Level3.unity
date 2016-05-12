@@ -5098,7 +5098,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: af3c00751c844264488b39544f096446, type: 3}
     - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
       propertyPath: waves.Array.data[2].beforeMessage
-      value: Get ready for the final wave!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
       propertyPath: zombieSounds.Array.data[1]
@@ -5147,6 +5147,10 @@ Prefab:
     - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
       propertyPath: startingMoney
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
+      propertyPath: waves.Array.data[2].waveCountdownText
+      value: Final Wave
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
