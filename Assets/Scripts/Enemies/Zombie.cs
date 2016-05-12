@@ -121,30 +121,24 @@ public class Zombie : MonoBehaviour
             return;
         }
 
-
         // update zombie position, moving the direction
-        //this.transform.position += this.direction * this.moveSpeed * Time.deltaTime;
+        GameObject currentNode = path.nodes[currentNodeIndex];
+        Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+        direction = currentNode.transform.position - transform.position;
+        var newDir = Vector3.RotateTowards(transform.up, direction, turnSpeed * Time.deltaTime * moveModifier, 0.0f);
 
-        //pathfinding code
-        if (path.nodes.Count > 0)
-        {
-            GameObject currentNode = path.nodes[currentNodeIndex];
-            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
-            this.direction = currentNode.transform.position - transform.position;
-            transform.position = Vector2.MoveTowards(currentPosition, currentNode.transform.position, moveSpeed * Time.deltaTime * this.moveModifier);
-            if (Vector2.Distance(currentPosition, currentNode.transform.position) < targetCloseness)
-            {
-                if (currentNodeIndex < path.nodes.Count - 1) currentNodeIndex++;
-            }
+        if (transform.up == direction)
+            Sway();
+        else
+            transform.up = newDir;
 
-            // reset the transform to the direction, so that when we apply the
-            // sway code, it doesn't become cumulative and do some wonky stuff.
-            // Probably not the best way to handle this, but it's simple for now.
-            // We can re-address this later.
-            this.transform.up = this.direction;
-        }
+        if (path.nodes.Count <= 0)
+            return;
 
-        Sway();
+        transform.position = Vector2.MoveTowards(currentPosition, currentNode.transform.position, moveSpeed * Time.deltaTime * moveModifier);
+
+        if (Vector2.Distance(currentPosition, currentNode.transform.position) < targetCloseness && currentNodeIndex < path.nodes.Count - 1)
+            currentNodeIndex++;
     }
 
     protected virtual void Sway()
