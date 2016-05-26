@@ -93,7 +93,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 45325894}
-  - 114: {fileID: 45325893}
   - 114: {fileID: 45325895}
   m_Layer: 0
   m_Name: ButtonScripts
@@ -102,17 +101,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &45325893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 45325892}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d224adedd7a395349ad139c458b48434, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &45325894
 Transform:
   m_ObjectHideFlags: 0
@@ -361,11 +349,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 45325895}
-        m_MethodName: DeleteSaveFile
-        m_Mode: 1
+        m_MethodName: ShowCredits
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 167724, guid: 482a8c1fe57b6cb4483d3d35e5176824,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: MainMenu

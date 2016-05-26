@@ -20,9 +20,11 @@ public class ButtonActions : MonoBehaviour
 		GameManager.instance.ToggleAudio ();
 	}
 
-    public void DeleteSaveFile()
+	public void DeleteSaveFile(GameObject window)
     {
-        GameManager.instance.progressManager.ClearData();
+		GameManager.instance.progressManager.ClearData();
+		if (window) Destroy(window);
+		else Destroy(gameObject);
     }
 
     public void ShowCredits(GameObject creditReel)
