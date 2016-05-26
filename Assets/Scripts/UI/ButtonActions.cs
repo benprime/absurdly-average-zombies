@@ -20,19 +20,17 @@ public class ButtonActions : MonoBehaviour
         GameManager.instance.ToggleAudio();
         if(GameManager.instance.mute)
         {
-            text.text = "SOUND ON";
+            text.text = "SOUND: OFF";
         }
         else
         {
-            text.text = "SOUND OFF";
+            text.text = "SOUND: ON";
         }
     }
 
-	public void DeleteSaveFile(GameObject window)
+    public void DeleteSaveFile()
     {
-		GameManager.instance.progressManager.ClearData();
-		if (window) Destroy(window);
-		else Destroy(gameObject);
+        GameManager.instance.progressManager.ClearData();
     }
 
     public void ShowCredits(GameObject creditReel)
