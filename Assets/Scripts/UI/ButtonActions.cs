@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class ButtonActions : MonoBehaviour
 {
@@ -13,12 +13,20 @@ public class ButtonActions : MonoBehaviour
     public void ExitTitle()
     {
         Application.Quit();
-	}
+    }
 
-	public void ToggleAudio()
-	{
-		GameManager.instance.ToggleAudio ();
-	}
+    public void ToggleAudio(Text text)
+    {
+        GameManager.instance.ToggleAudio();
+        if(GameManager.instance.mute)
+        {
+            text.text = "SOUND ON";
+        }
+        else
+        {
+            text.text = "SOUND OFF";
+        }
+    }
 
     public void DeleteSaveFile()
     {
