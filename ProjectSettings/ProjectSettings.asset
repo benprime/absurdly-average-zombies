@@ -461,6 +461,6 @@ PlayerSettings:
   WebGL::template: APPLICATION:Default
   additionalIl2CppArgs::additionalIl2CppArgs: 
   cloudProjectId: 0e8de0ce-bdfa-4ae3-abba-f51a81c92df3
-  projectName: Zombie Towers (1)
+  projectName: Zombie Towers
   organizationId: nicholas-mack
   cloudEnabled: 0
