@@ -2554,6 +2554,10 @@ Prefab:
       propertyPath: waves.Array.data[2].waveCountdownText
       value: Final Wave
       objectReference: {fileID: 0}
+    - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 3789fa85ef5ca7f409a6d537aafd92ef, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
   m_IsPrefabParent: 0

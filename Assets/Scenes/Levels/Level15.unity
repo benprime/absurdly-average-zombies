@@ -1367,6 +1367,10 @@ Prefab:
       propertyPath: startingMoney
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a5aecbc02f7a96469d65efe018785ae, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
   m_IsPrefabParent: 0
@@ -1768,7 +1772,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400580, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11454784, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: barOffset
@@ -2941,7 +2945,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497932, guid: 7f1b08accf6bc41439547acea2eedce9, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2093628, guid: 7f1b08accf6bc41439547acea2eedce9, type: 2}
       propertyPath: orthographic size
@@ -3192,7 +3196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459200, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_Sprite
@@ -4387,7 +4391,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22431398, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 22431398, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
       propertyPath: m_AnchoredPosition.x
