@@ -1752,7 +1752,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11401966, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
       propertyPath: maxZombies
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 11401966, guid: b7ae9b7e180a45347971bf94c6432507, type: 2}
       propertyPath: spawnDelayMin
@@ -1815,11 +1815,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553861759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.75, y: 3.48, z: 0}
+  m_LocalPosition: {x: -10.51, y: 3.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
 --- !u!1 &1675362742
 GameObject:
   m_ObjectHideFlags: 0
