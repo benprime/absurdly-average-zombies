@@ -31,14 +31,17 @@ public class BossZombie : Zombie {
 			if (bossTimer >= bossSpawnInterval) {
 				foreach (ZombieSpawner zx in spawners) {
 					float rando = Random.Range(0f, 1f);
+					Debug.Log (rando);
 					if (rando < .6)
 						zx.SpawnZombie (ZombieSize.Medium);
 					else if (rando < .9)
 						zx.SpawnZombie (ZombieSize.Small);
-					else if (rando < .999 && SceneManager.GetActiveScene().buildIndex > 9 /*level 5*/) //no large zombies until after level 5
-						zx.SpawnZombie (ZombieSize.Large);
-					else
-						zx.SpawnZombie (ZombieSize.Boss);
+					else if (SceneManager.GetActiveScene ().buildIndex > 9 /*level 5*/) { //no large zombies until after level 5
+						if (rando < .999)
+							zx.SpawnZombie (ZombieSize.Large);
+						else
+							zx.SpawnZombie (ZombieSize.Boss);
+					}
 				}
 				bossTimer = 0;
 			}
