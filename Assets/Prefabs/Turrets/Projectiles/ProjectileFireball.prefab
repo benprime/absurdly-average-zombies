@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62905c1803df52d4b8e51c5cce56529c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 5
   startPos: {x: 0, y: 0, z: 0}
   range: 3
   turret: {fileID: 0}
