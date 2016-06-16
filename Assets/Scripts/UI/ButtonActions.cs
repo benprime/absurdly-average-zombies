@@ -28,9 +28,10 @@ public class ButtonActions : MonoBehaviour
         }
     }
 
-    public void DeleteSaveFile()
+	public void DeleteSaveFile(GameObject window)
     {
         GameManager.instance.progressManager.ClearData();
+		ClosePopUp (window);
     }
 
     public void ShowCredits(GameObject creditReel)
