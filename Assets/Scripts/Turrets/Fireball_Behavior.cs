@@ -22,7 +22,7 @@ public class Fireball_Behavior : Bullet_Behavior
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
         if (Vector3.Distance(transform.position, startPos) > range)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 1);
         }
     }
 
@@ -38,7 +38,7 @@ public class Fireball_Behavior : Bullet_Behavior
 
             //other.SendMessage("TakeDamage", this.damage);
             //other.SendMessage("CatchFire");
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.12f);
         }
     }
 

@@ -42,6 +42,12 @@ public class Zombie : MonoBehaviour
     public ParticleSystem hitParticleSystem;
     public ParticleSystem deathParticleSystem;
 
+    // fire particle systems
+    ParticleSystem psLarge;
+    ParticleSystem psSmallLeft;
+    ParticleSystem psSmallRight;
+
+
     public bool onFire = false;
 
     public ZombieState zombieState;
@@ -84,8 +90,12 @@ public class Zombie : MonoBehaviour
         this.randSwayStart = Random.Range(0, 10) * 100;
         this.walkSwayModifier = Random.Range(20, 35);
 
-		hitPoints = maxHitPoints;
+        // save reference to particle systems for later use
+        this.psLarge = this.transform.FindChild("ParticleSystemFireLarge").GetComponent<ParticleSystem>();
+        this.psSmallLeft = this.transform.FindChild("ParticleSystemFireSmallLeft").GetComponent<ParticleSystem>();
+        this.psSmallRight = this.transform.FindChild("ParticleSystemFireSmallRight").GetComponent<ParticleSystem>();
 
+        hitPoints = maxHitPoints;
     }
 
     // Update is called once per frame
@@ -107,8 +117,9 @@ public class Zombie : MonoBehaviour
                 this.fireDamage--;
                 if (this.fireDamage <= 0)
                 {
-                    ParticleSystem ps = this.GetComponent<ParticleSystem>();
-                    ps.Stop();
+                    psLarge.Stop();
+                    psSmallLeft.Stop();
+                    psSmallRight.Stop();
 
                     this.onFire = false;
                 }
@@ -229,8 +240,9 @@ public class Zombie : MonoBehaviour
             this.nextFlameDamageTime = Time.time;
 
             // start the flame particle effect
-            ParticleSystem ps = this.GetComponent<ParticleSystem>();
-            ps.Play();
+            psLarge.Play();
+            psSmallLeft.Play();
+            psSmallRight.Play();
 
             this.onFire = true;
         }
