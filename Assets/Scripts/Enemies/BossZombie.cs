@@ -31,7 +31,7 @@ public class BossZombie : Zombie {
 			if (bossTimer >= bossSpawnInterval) {
 				foreach (ZombieSpawner zx in spawners) {
 					float rando = Random.Range(0f, 1f);
-					Debug.Log (rando);
+					//Debug.Log (rando);
 					if (rando < .6)
 						zx.SpawnZombie (ZombieSize.Medium);
 					else if (rando < .9)
