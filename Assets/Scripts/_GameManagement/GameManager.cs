@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.IO;
 using UnityEngine.Advertisements;
@@ -77,13 +78,14 @@ public class GameManager : MonoBehaviour
 	public void ToggleAudio()
 	{
 		mute = !mute;
-		GetComponent<AudioSource> ().enabled = !mute;
-		Camera.main.gameObject.GetComponent<AudioListener> ().enabled = !mute;
+		//GetComponent<AudioSource> ().enabled = !mute;
+		//Camera.main.gameObject.GetComponent<AudioListener> ().enabled = !mute;
+		AudioListener.volume =  Convert.ToInt32(!mute);
 	}
 
 	void OnLevelWasLoaded(int level) {
-		Camera.main.gameObject.GetComponent<AudioListener> ().enabled = !mute;
-
+		//Camera.main.gameObject.GetComponent<AudioListener> ().enabled = !mute;
+		AudioListener.volume =  Convert.ToInt32(!mute);
 
 		if (previousLevel > 3) { //only display ad if player goes from the game back to menu or retries level
 			//Debug.Log ("ad check");
