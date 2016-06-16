@@ -114,10 +114,15 @@ public class Turret : MonoBehaviour
         if (this.type == TurretTypes.MachineGun) 
 		{
             // cooldown due to inactivity
-            if(Time.time - this.lastShotTime >= this.cooldownIncrement &&
+            if (Time.time - this.lastShotTime >= this.cooldownIncrement &&
                 Time.time - this.lastCoolDown >= this.cooldownIncrement && this.currentHeat > 0)
             {
-                this.currentHeat = this.currentHeat - this.cooldownIncrementUnits;
+                float lastMaxValue = Mathf.Max(this.lastCoolDown, this.lastShotTime);
+
+                // just in case there is lag, remove the appropriate number of coolDownIncrements
+                float elapsedTime = Time.time - lastMaxValue;
+                int howManyCooldownToRemove = (int)(elapsedTime / this.cooldownIncrement);
+                this.currentHeat = this.currentHeat - (this.cooldownIncrementUnits * howManyCooldownToRemove);
                 this.lastCoolDown = Time.time;
             }
 
