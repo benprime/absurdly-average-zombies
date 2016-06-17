@@ -199,7 +199,7 @@ public class Zombie : MonoBehaviour
         c.enabled = false;
 
         // TODO: set animation to death animation (via trigger)
-        gm.SendMessage("PlayerCurrencyTransaction", worthCurrency);
+        gm.PlayerCurrencyTransaction(worthCurrency);
         this.GeneratePopUpNumber("$" + worthCurrency, Color.yellow, true);
 
         Destroy(this.hb.healthBar.gameObject);
@@ -218,6 +218,7 @@ public class Zombie : MonoBehaviour
         //damage the buildings/turrets in path
         if (other.transform.tag == "Turret" || other.transform.tag == "PlayerBase")
         {
+            // todo: remove all "SendMessage" calls (they use reflection)
             other.gameObject.SendMessage("TakeDamage", attackDamage * Time.deltaTime);
         }
     }
