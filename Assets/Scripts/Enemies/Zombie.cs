@@ -32,20 +32,20 @@ public class Zombie : MonoBehaviour
     [HideInInspector]
     public float spawnTime;
 
-    private UI_FloatingHealthBar hb;
+	protected UI_FloatingHealthBar hb;
 
     // These may get moved to a more appropriate location
     public float flameDamageInterval = 1f;
     public float fireDamage = 0;
-    private float nextFlameDamageTime = 0f;
+	protected float nextFlameDamageTime = 0f;
 
     public ParticleSystem hitParticleSystem;
     public ParticleSystem deathParticleSystem;
 
     // fire particle systems
-    ParticleSystem psLarge;
-    ParticleSystem psSmallLeft;
-    ParticleSystem psSmallRight;
+    protected ParticleSystem psLarge;
+	protected ParticleSystem psSmallLeft;
+	protected ParticleSystem psSmallRight;
 
 
     public bool onFire = false;
@@ -53,12 +53,12 @@ public class Zombie : MonoBehaviour
     public ZombieState zombieState;
 
     public Vector3 direction;
-    private int randSwayStart;
+	protected int randSwayStart;
 
-    private GameManager gm;
+	protected GameManager gm;
 
     public ZombiePath path = null;
-    private int currentNodeIndex = 0;
+	protected int currentNodeIndex = 0;
     public float targetCloseness = .5f;
 
     public GameObject popNums;
@@ -152,7 +152,7 @@ public class Zombie : MonoBehaviour
             currentNodeIndex++;
     }
 
-    protected virtual void Sway()
+    protected void Sway()
     {
         // z is -10 to 10 sway (in degrees)
         float z = Mathf.PingPong(Time.time * this.walkSwayModifier + randSwayStart, 20) - 10;
@@ -163,7 +163,7 @@ public class Zombie : MonoBehaviour
     }
 
 	public enum DamageType {light, medium, heavy}
-	public virtual void TakeDamage(float amount, DamageType dmgType)
+	public void TakeDamage(float amount, DamageType dmgType)
     {
 		this.hitPoints -= amount * DamageTypeModifier(dmgType);
 
@@ -192,7 +192,7 @@ public class Zombie : MonoBehaviour
         //localBloodsObj.Play();
     }
 
-    protected virtual void Die()
+    protected void Die()
     {
         this.zombieState = ZombieState.Dead;
         CircleCollider2D c = GetComponent<CircleCollider2D>();
@@ -213,7 +213,7 @@ public class Zombie : MonoBehaviour
 //		if(this.zombieState != ZombieState.Dead && this.hb.healthBar.gameObject != null) Destroy(this.hb.healthBar.gameObject);
 //	}
 //
-    void OnCollisionStay2D(Collision2D other)
+	protected void OnCollisionStay2D(Collision2D other)
     {
         //damage the buildings/turrets in path
         if (other.transform.tag == "Turret" || other.transform.tag == "PlayerBase")
@@ -222,12 +222,12 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    public void CatchFire()
+	public void CatchFire()
     {
         this.CatchFire(4);
     }
 
-    public void CatchFire(float dmg)
+	public void CatchFire(float dmg)
     {
 
         // getting hit by another fireball will always reset the damage to the function parameter
@@ -248,7 +248,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private void GeneratePopUpNumber(string txt, Color txtCol, bool largeText)
+	protected void GeneratePopUpNumber(string txt, Color txtCol, bool largeText)
     {
         GameObject pop = Instantiate(popNums) as GameObject;
         pop.transform.position = transform.position;
@@ -257,7 +257,7 @@ public class Zombie : MonoBehaviour
         if (largeText) pop.GetComponent<Text>().fontSize += 10;
     }
 
-	private float DamageTypeModifier(DamageType dmgType) {
+	protected float DamageTypeModifier(DamageType dmgType) {
 		if (dmgType == DamageType.light) {
 			if (zSize == ZombieSize.Small)
 				return .5f;
