@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Spawn_Enemy : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class Spawn_Enemy : MonoBehaviour
     private int numSpawned = 0;
     private float spawnDelay;
     private float timer = 0;
-
 
     // Use this for initialization
     void Start()

@@ -1,8 +1,4 @@
-﻿using System.IO;
-using UnityEngine;
-using SimpleJson;
-using System.Collections;
-
+﻿using UnityEngine;
 
 public class MapLoader : MonoBehaviour
 {
@@ -94,13 +90,13 @@ public class MapLoader : MonoBehaviour
 
                 // grab the prefab tile based on gid
                 GameObject tile = new GameObject("Tile");// tiles[gid - 1];
-				tile.transform.SetParent(mapTiles.transform);
+                tile.transform.SetParent(mapTiles.transform);
                 tile.transform.localPosition = new Vector3(x - (widthInTiles / 2.0f) + 0.5f, y - (heightInTiles / 2.0f) - 0.5f);
 
                 tile.layer = 8; // terrain layer
                 SpriteRenderer sr = tile.AddComponent<SpriteRenderer>();
                 sr.sortingLayerName = "Background";
-				sr.sprite = tiles[gid-1];
+                sr.sprite = tiles[gid - 1];
 
                 // handle the rotations and flipping
                 Vector3 scale = tile.transform.localScale;
@@ -131,16 +127,16 @@ public class MapLoader : MonoBehaviour
                         // this was discovered by literally trying every combination of numers... I feel like I don't know math anymore.
                         tile.transform.Rotate(0, 0, 270);
                     }
-				}
-				tile.transform.localScale = scale;
+                }
+                tile.transform.localScale = scale;
             }
-		}
+        }
 
     }
 
     // Update is called once per frame
     void Update()
-	{
+    {
 
     }
 }

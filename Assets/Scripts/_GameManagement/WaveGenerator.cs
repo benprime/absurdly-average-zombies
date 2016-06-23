@@ -1,6 +1,4 @@
-﻿// C#
-// WaveGenerator.cs
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,15 +17,12 @@ public class Wave
     public string beforeMessage;
 }
 
-
-
 public class WaveGenerator : MonoBehaviour
 {
     public int startingMoney;
     public List<Wave> waves;
     private Wave m_CurrentWave;
     public Wave CurrentWave { get { return m_CurrentWave; } }
-    //private UI_WaveMessages messageBoard;
     private Text waveHeaderText;
     private Text waveMessageText;
     private Text countDownText;

@@ -22,7 +22,7 @@ public class Turret : MonoBehaviour
 
     // turret stats
     public int costCurrency;
-	public int baseCost;
+    public int baseCost;
     public float maxHitPoints;
     public float currentHitPoints;
     public TurretTypes type;
@@ -60,12 +60,12 @@ public class Turret : MonoBehaviour
     {
         this.animator = GetComponent<Animator>();
 
-		AudioSource aud = GetComponent<AudioSource>();
-		int randSound = Random.Range (0,shotSounds.Count());			
-		aud.clip = shotSounds[randSound];
+        AudioSource aud = GetComponent<AudioSource>();
+        int randSound = Random.Range(0, shotSounds.Count());
+        aud.clip = shotSounds[randSound];
 
         // determine turret type from projectile
-        switch(bulletPrefab.name)
+        switch (bulletPrefab.name)
         {
             case "ProjectileRocket":
                 this.type = TurretTypes.RocketLauncher;
@@ -80,11 +80,12 @@ public class Turret : MonoBehaviour
                 this.type = TurretTypes.MachineGun;
                 break;
         }
-	}
+    }
 
-	void OnDestroy() {
-		if(reloadOverlayInstance) Destroy (reloadOverlayInstance);
-	}
+    void OnDestroy()
+    {
+        if (reloadOverlayInstance) Destroy(reloadOverlayInstance);
+    }
 
     // Update is called once per frame
     void Update()
@@ -135,9 +136,9 @@ public class Turret : MonoBehaviour
             animator.SetTrigger("Fire");
             this.lastShotTime = Time.time;
 
-			AudioSource aud = GetComponent<AudioSource>();
-			aud.Stop();
-			aud.Play();
+            AudioSource aud = GetComponent<AudioSource>();
+            aud.Stop();
+            aud.Play();
         }
     }
 
@@ -176,7 +177,7 @@ public class Turret : MonoBehaviour
 
         // once we pick a target, we stick to it until it is dead or leaves the detection area
         // except for the flamethrower, which tries to get all nearby units on fire
-		if (this.type == TurretTypes.FlameThrower)
+        if (this.type == TurretTypes.FlameThrower)
         {
             target = zombiesInRange.OrderBy(x => x.GetComponent<Zombie>().fireDamage).First().transform;
         }
@@ -194,8 +195,9 @@ public class Turret : MonoBehaviour
 
         // if the target is within the "shootWithinDegrees" property, we fire
         float angleDiff = Mathf.Abs(Vector3.Angle(transform.up, targetRotation));
-		if (angleDiff <= this.shootWithinDegrees && this.reloadOverlayInstance == null) {
-			this.Fire ();
-		}
+        if (angleDiff <= this.shootWithinDegrees && this.reloadOverlayInstance == null)
+        {
+            this.Fire();
+        }
     }
 }

@@ -5,9 +5,7 @@ using System.Linq;
 
 public class GameOver : MonoBehaviour
 {
-    //public GameObject popupMessagePrefab;
     private Canvas canvas;
-    //private GameObject popupMessageInstance;
 
     // Use this for initialization
     void Start()
@@ -16,18 +14,18 @@ public class GameOver : MonoBehaviour
         this.gameObject.transform.SetParent(canvas.gameObject.transform, false);
         this.gameObject.SetActive(true);
 
-		BuildZone[] allZones = FindObjectsOfType<BuildZone> ();
-		if (allZones.Length > 0) {
-			foreach (BuildZone zone in allZones) {
-				zone.CloseOut ();
-			}
-		}
+        BuildZone[] allZones = FindObjectsOfType<BuildZone>();
+        if (allZones.Length > 0)
+        {
+            foreach (BuildZone zone in allZones)
+            {
+                zone.CloseOut();
+            }
+        }
 
-		foreach(ZombieSpawner zs in FindObjectsOfType<ZombieSpawner>()) Destroy(zs.gameObject);
-		foreach(Zombie z in FindObjectsOfType<Zombie>()) Destroy(z.gameObject);
+        foreach (ZombieSpawner zs in FindObjectsOfType<ZombieSpawner>()) Destroy(zs.gameObject);
+        foreach (Zombie z in FindObjectsOfType<Zombie>()) Destroy(z.gameObject);
 
-        //this.popupMessageInstance = Instantiate(this.popupMessagePrefab);
-        //this.popupMessageInstance.transform.SetParent(canvas.transform);
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
     }
 

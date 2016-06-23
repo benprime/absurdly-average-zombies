@@ -18,7 +18,6 @@ public class Turret_ZombieDetect : MonoBehaviour
         if (thing.tag == "enemy")
         {
             parentInfo.zombiesInRange.Add(thing.gameObject);
-            //parentInfo.zombiesInRange.Sort (   //TODO: implement later to save on distance checks
         }
     }
 
@@ -27,7 +26,6 @@ public class Turret_ZombieDetect : MonoBehaviour
         if (thing.tag == "enemy")
         {
             parentInfo.zombiesInRange.Remove(thing.gameObject);
-            //parentInfo.zombiesInRange.Add(thing.gameObject);
         }
         else if (thing.tag == "Projectile")
         {

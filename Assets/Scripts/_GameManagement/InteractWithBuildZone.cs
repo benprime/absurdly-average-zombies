@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-//using UnityEditor;
 
 public class InteractWithBuildZone : MonoBehaviour
 {
@@ -53,7 +50,7 @@ public class InteractWithBuildZone : MonoBehaviour
                     HandleBuildZoneClick(hitInfo, isSingleTouchEnding);
                 }
             }
-            
+
             // mouse is not over a BuildZone
             if (!isOverUIButton)
             {

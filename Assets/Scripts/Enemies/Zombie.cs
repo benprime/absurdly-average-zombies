@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public enum ZombieState
 {
@@ -11,15 +9,15 @@ public enum ZombieState
 
 public enum ZombieSize
 {
-	Small,
-	Medium,
-	Large,
-	Boss
+    Small,
+    Medium,
+    Large,
+    Boss
 }
 
 public class Zombie : MonoBehaviour
 {
-	public ZombieSize zSize;
+    public ZombieSize zSize;
     public float moveSpeed = 2f;
     public float moveModifier = 1.0f;
     public float turnSpeed = 4f;
@@ -32,20 +30,20 @@ public class Zombie : MonoBehaviour
     [HideInInspector]
     public float spawnTime;
 
-	protected UI_FloatingHealthBar hb;
+    protected UI_FloatingHealthBar hb;
 
     // These may get moved to a more appropriate location
     public float flameDamageInterval = 1f;
     public float fireDamage = 0;
-	protected float nextFlameDamageTime = 0f;
+    protected float nextFlameDamageTime = 0f;
 
     public ParticleSystem hitParticleSystem;
     public ParticleSystem deathParticleSystem;
 
     // fire particle systems
     protected ParticleSystem psLarge;
-	protected ParticleSystem psSmallLeft;
-	protected ParticleSystem psSmallRight;
+    protected ParticleSystem psSmallLeft;
+    protected ParticleSystem psSmallRight;
 
 
     public bool onFire = false;
@@ -53,17 +51,19 @@ public class Zombie : MonoBehaviour
     public ZombieState zombieState;
 
     public Vector3 direction;
-	protected int randSwayStart;
+    protected int randSwayStart;
+
+    protected GameManager gm;
 
     public ZombiePath path = null;
-	protected int currentNodeIndex = 0;
+    protected int currentNodeIndex = 0;
     public float targetCloseness = .5f;
 
     public GameObject popNums;
 
     void Awake()
     {
-		this.spawnTime = Time.time;
+        this.spawnTime = Time.time;
     }
 
     // Use this for initialization
@@ -157,10 +157,10 @@ public class Zombie : MonoBehaviour
         transform.Rotate(0.0f, 0.0f, z);
     }
 
-	public enum DamageType {light, medium, heavy}
-	public void TakeDamage(float amount, DamageType dmgType)
+    public enum DamageType { light, medium, heavy }
+    public void TakeDamage(float amount, DamageType dmgType)
     {
-		this.hitPoints -= amount * DamageTypeModifier(dmgType);
+        this.hitPoints -= amount * DamageTypeModifier(dmgType);
 
         if (this.hb.healthBar.rectTransform)
         {
@@ -204,11 +204,11 @@ public class Zombie : MonoBehaviour
         GameObject.Instantiate(this.deathParticleSystem, this.transform.position, Quaternion.identity);
     }
 
-//	void OnDestroy() {
-//		if(this.zombieState != ZombieState.Dead && this.hb.healthBar.gameObject != null) Destroy(this.hb.healthBar.gameObject);
-//	}
-//
-	protected void OnCollisionStay2D(Collision2D other)
+    //	void OnDestroy() {
+    //		if(this.zombieState != ZombieState.Dead && this.hb.healthBar.gameObject != null) Destroy(this.hb.healthBar.gameObject);
+    //	}
+    //
+    protected void OnCollisionStay2D(Collision2D other)
     {
         //damage the buildings/turrets in path
         if (other.transform.tag == "Turret" || other.transform.tag == "PlayerBase")
@@ -218,12 +218,12 @@ public class Zombie : MonoBehaviour
         }
     }
 
-	public void CatchFire()
+    public void CatchFire()
     {
         this.CatchFire(4);
     }
 
-	public void CatchFire(float dmg)
+    public void CatchFire(float dmg)
     {
 
         // getting hit by another fireball will always reset the damage to the function parameter
@@ -244,7 +244,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-	protected void GeneratePopUpNumber(string txt, Color txtCol, bool largeText)
+    protected void GeneratePopUpNumber(string txt, Color txtCol, bool largeText)
     {
         GameObject pop = Instantiate(popNums) as GameObject;
         pop.transform.position = transform.position;
@@ -253,23 +253,29 @@ public class Zombie : MonoBehaviour
         if (largeText) pop.GetComponent<Text>().fontSize += 10;
     }
 
-	protected float DamageTypeModifier(DamageType dmgType) {
-		if (dmgType == DamageType.light) {
-			if (zSize == ZombieSize.Small)
-				return .5f;
-			else if (zSize == ZombieSize.Large)
-				return 1.5f;
-		} else if (dmgType == DamageType.medium) {
-			if (zSize == ZombieSize.Medium)
-				return 1.5f;
-			else if (zSize == ZombieSize.Boss)
-				return .5f;
-		} else if (dmgType == DamageType.heavy) {
-			if (zSize == ZombieSize.Small)
-				return 1.5f;
-			else if (zSize == ZombieSize.Large)
-				return .5f;
-		}
-		return 1f;
-	}
+    protected float DamageTypeModifier(DamageType dmgType)
+    {
+        if (dmgType == DamageType.light)
+        {
+            if (zSize == ZombieSize.Small)
+                return .5f;
+            else if (zSize == ZombieSize.Large)
+                return 1.5f;
+        }
+        else if (dmgType == DamageType.medium)
+        {
+            if (zSize == ZombieSize.Medium)
+                return 1.5f;
+            else if (zSize == ZombieSize.Boss)
+                return .5f;
+        }
+        else if (dmgType == DamageType.heavy)
+        {
+            if (zSize == ZombieSize.Small)
+                return 1.5f;
+            else if (zSize == ZombieSize.Large)
+                return .5f;
+        }
+        return 1f;
+    }
 }
