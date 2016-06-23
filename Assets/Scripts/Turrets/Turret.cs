@@ -20,13 +20,6 @@ public class Turret : MonoBehaviour
     Animator animator;
     private float lastShotTime;
 
-    // the rate at which to cool
-    public float cooldownIncrement = 0.25f; // the rate at which to remove heat due to inactivity
-    public float lastCoolDown = 0f;
-    public int cooldownIncrementUnits = 5; // amount of "shots worth of heat" to remove every increment
-    public int maxShotsBeforeCooldown = 20;
-    public int currentHeat; // the amount of "shots worth" of heat the turret currently has
-
     // turret stats
     public int costCurrency;
 	public int baseCost;
@@ -34,8 +27,6 @@ public class Turret : MonoBehaviour
     public float currentHitPoints;
     public TurretTypes type;
     public float pauseAfterFiring;
-
-    public GameObject ReloadOverlayPrefab;
 
     [HideInInspector]
     public GameObject reloadOverlayInstance;
@@ -108,37 +99,6 @@ public class Turret : MonoBehaviour
         {
             LookAtNearestEnemy();
         }
-
-
-        //machine gun cooldown
-        if (this.type == TurretTypes.MachineGun) 
-		{
-            // cooldown due to inactivity
-            if (Time.time - this.lastShotTime >= this.cooldownIncrement &&
-                Time.time - this.lastCoolDown >= this.cooldownIncrement && this.currentHeat > 0)
-            {
-                float lastMaxValue = Mathf.Max(this.lastCoolDown, this.lastShotTime);
-
-                // just in case there is lag, remove the appropriate number of coolDownIncrements
-                float elapsedTime = Time.time - lastMaxValue;
-                int howManyCooldownToRemove = (int)(elapsedTime / this.cooldownIncrement);
-                this.currentHeat = this.currentHeat - (this.cooldownIncrementUnits * howManyCooldownToRemove);
-                this.lastCoolDown = Time.time;
-            }
-
-            // go into cooldown
-            if(this.currentHeat > this.maxShotsBeforeCooldown && this.reloadOverlayInstance == null)
-            {
-                reloadOverlayInstance = Instantiate(this.ReloadOverlayPrefab) as GameObject;
-                reloadOverlayInstance.GetComponent<RectTransform>().position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            }
-
-            // finish a cooldown
-            if(this.reloadOverlayInstance != null && this.currentHeat <= 0)
-            {
-                Destroy(this.reloadOverlayInstance);
-            }
-		}
     }
 
     public void ApplyTurretLevelData()
@@ -173,11 +133,6 @@ public class Turret : MonoBehaviour
             b.SetDamage(this.damage);
 
             animator.SetTrigger("Fire");
-            if (this.type == TurretTypes.MachineGun)
-            {
-                this.currentHeat++;
-            }
-
             this.lastShotTime = Time.time;
 
 			AudioSource aud = GetComponent<AudioSource>();
@@ -231,8 +186,6 @@ public class Turret : MonoBehaviour
             // grab the lead zombie
             target = zombiesInRange.OrderBy(x => x.GetComponent<Zombie>().spawnTime).First().transform;
         }
-
-
 
         // rotate toward the target
         float step = rotationSpeed * Time.deltaTime;
