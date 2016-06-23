@@ -55,8 +55,6 @@ public class Zombie : MonoBehaviour
     public Vector3 direction;
 	protected int randSwayStart;
 
-	protected GameManager gm;
-
     public ZombiePath path = null;
 	protected int currentNodeIndex = 0;
     public float targetCloseness = .5f;
@@ -72,7 +70,6 @@ public class Zombie : MonoBehaviour
     protected virtual void Start()
     {
         this.hb = GetComponent<UI_FloatingHealthBar>();
-        gm = FindObjectOfType<GameManager>();
 
         this.zombieState = ZombieState.Normal;
         // set travel direction
@@ -101,8 +98,6 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (!gm) gm = FindObjectOfType<GameManager>();  //TODO: probably move this to appropriate Awake function or whatever
-
         if (this.zombieState == ZombieState.Dead)
         {
             return;
@@ -199,7 +194,7 @@ public class Zombie : MonoBehaviour
         c.enabled = false;
 
         // TODO: set animation to death animation (via trigger)
-        gm.PlayerCurrencyTransaction(worthCurrency);
+		GameManager.instance.PlayerCurrencyTransaction (worthCurrency);
         this.GeneratePopUpNumber("$" + worthCurrency, Color.yellow, true);
 
         Destroy(this.hb.healthBar.gameObject);
