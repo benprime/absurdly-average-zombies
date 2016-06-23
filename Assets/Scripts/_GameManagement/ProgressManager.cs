@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
@@ -170,12 +168,10 @@ public class ProgressManager
             throw new Exception("The level name \"" + levelName + "\" was not found in the LevelProgress list.");
         }
         return lpd.Locked;
-        //return this.LevelProgress.First (x => x.LevelName == levelName).Locked;
     }
 
     public void CompleteLevel(string levelName)
     {
-        //TODO: used a linked list for levels instead?
         int index = this.LevelProgress.FindIndex(x => x.LevelName == levelName);
         this.LevelProgress[index].Completed = true;
         if (index + 1 <= this.LevelProgress.Count - 1)
@@ -190,7 +186,6 @@ public class ProgressManager
         using (Stream stream = File.Open(this.saveFile, FileMode.Create))
         {
             var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-
             bformatter.Serialize(stream, this.LevelProgress);
         }
     }
@@ -203,7 +198,6 @@ public class ProgressManager
             using (Stream stream = File.Open(this.saveFile, FileMode.Open))
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-
                 this.LevelProgress = (List<LevelProgressData>)bformatter.Deserialize(stream);
             }
         }
@@ -212,8 +206,6 @@ public class ProgressManager
             // if loading game data fails for any reason, just initialize it to blank
             Debug.Log("Loading save file failed, defaulting to intial state");
         }
-
-
     }
 
     public void ClearData()

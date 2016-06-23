@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Fireball_Behavior : Bullet_Behavior
 {
@@ -7,13 +6,11 @@ public class Fireball_Behavior : Bullet_Behavior
     // Use this for initialization
     protected override void Awake()
     {
-
         startPos = new Vector3();
         startPos = transform.position;
 
         float z = (Mathf.PingPong(Time.time * 100, 30) - 15);
         transform.Rotate(0.0f, 0.0f, z);
-        //transform.up += new Vector3 (0, 0, z);
     }
 
     // Update is called once per frame
@@ -33,11 +30,7 @@ public class Fireball_Behavior : Bullet_Behavior
             Zombie z = other.gameObject.GetComponent<Zombie>();
 
             // Fireballs now do no base damage... only damage over time
-            //z.TakeDamage(this.damage);
             z.CatchFire(this.damage);
-
-            //other.SendMessage("TakeDamage", this.damage);
-            //other.SendMessage("CatchFire");
             Destroy(this.gameObject, 0.12f);
         }
     }

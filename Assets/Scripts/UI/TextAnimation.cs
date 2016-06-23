@@ -57,7 +57,7 @@ public class TextAnimation : MonoBehaviour
 
             this.textElements[i].rectTransform.position = new Vector3(
                 this.textElements[i].rectTransform.position.x,
-                this.startYPos[i]+adjustment
+                this.startYPos[i] + adjustment
             );
         }
     }

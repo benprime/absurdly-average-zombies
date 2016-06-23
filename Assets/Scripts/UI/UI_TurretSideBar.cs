@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class UI_TurretSideBar : MonoBehaviour
 {
@@ -39,9 +38,9 @@ public class UI_TurretSideBar : MonoBehaviour
 
     public void ReturnToMenuScreen()
     {
-		Screen.sleepTimeout = SleepTimeout.SystemSetting;
-			GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
-			GameManager.instance.GetComponent<AudioSource>().Play();
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
+        GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
+        GameManager.instance.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("MainMenu");
     }
 

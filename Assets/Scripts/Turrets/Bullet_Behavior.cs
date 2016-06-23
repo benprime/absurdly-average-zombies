@@ -6,13 +6,10 @@ public class Bullet_Behavior : MonoBehaviour
     public float moveSpeed;
     public Vector3 startPos;
     public float range;
-
-
     protected float damage;
 
     [HideInInspector]
     public Turret turret;
-
 
     // Use this for initialization
     protected virtual void Awake()
@@ -44,7 +41,6 @@ public class Bullet_Behavior : MonoBehaviour
         {
             Zombie z = other.GetComponent<Zombie>();
             z.TakeDamage(this.damage, Zombie.DamageType.medium);
-            //other.SendMessage("TakeDamage", this.damage);
             Destroy(this.gameObject);
         }
     }

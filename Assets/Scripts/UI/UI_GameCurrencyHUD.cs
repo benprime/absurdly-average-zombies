@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class UI_GameCurrencyHUD : MonoBehaviour
 {
-
     // Use this for initialization
     void Start()
     {

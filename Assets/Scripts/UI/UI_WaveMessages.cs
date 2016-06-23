@@ -10,7 +10,6 @@ public class UI_WaveMessages : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        //gm = FindObjectOfType<GameManager_Stats>();
         gameObject.GetComponent<Text>().text = "";
     }
 
@@ -23,12 +22,6 @@ public class UI_WaveMessages : MonoBehaviour
             if (timer <= 0) gameObject.GetComponent<Text>().text = "";
         }
     }
-
-    // TODO: put in start() of wave generator
-    //UI_WaveMessages messageBoard = FindObjectOfType<UI_WaveMessages>();
-
-    // TODO: put wherever the message needs to be called
-    //messageBoard.SendMessage("SetUIWaveMessage", "wave compl333te");
 
     public void SetUIWaveMessage(string mess, int timeout)
     {
