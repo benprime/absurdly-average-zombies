@@ -32,6 +32,7 @@ public class WaveGenerator : MonoBehaviour
 	float timer = 0f;
 	public AudioClip[] zombieSounds;
 	public bool isWaveActive = false;
+    private PlayerBase_Stats playerBase;
 
     void ShowMessage(string headerText, string messageText)
 	{
@@ -112,6 +113,11 @@ public class WaveGenerator : MonoBehaviour
 
         // a level is completed
         this.ShowMessage("Congratulations!", "Level Complete!");
+        if (playerBase && playerBase.currentHitPoints == playerBase.maxHitPoints)
+        {
+            ShowMessage("Bonus!", "Your base didn't take any damage. Have five bucks!");
+            GameManager.instance.bonusAmount = 5;
+        }
 
         // do nothing while the popup message is up
         while (this.PopupMessage.activeSelf)
@@ -160,11 +166,17 @@ public class WaveGenerator : MonoBehaviour
         this.countDownText = GameObject.Find("CountDown").GetComponent<Text>();
         this.PopupMessage = GameObject.Find("PopupMessage");
 
+        this.playerBase = GameObject.Find("Base_House").GetComponent<PlayerBase_Stats>();
         GameObject headerPanel = this.PopupMessage.transform.FindChild("HeaderPanel").gameObject;
         GameObject bodyPanel = headerPanel.transform.FindChild("BodyPanel").gameObject;
         this.waveHeaderText = bodyPanel.transform.FindChild("HeaderText").GetComponent<Text>();
         this.waveMessageText = bodyPanel.transform.FindChild("MessageText").GetComponent<Text>();
 
+        if (GameManager.instance.bonusAmount != 0)
+        {
+            startingMoney += GameManager.instance.bonusAmount;
+            GameManager.instance.bonusAmount = 0;
+        }
         GameManager.instance.player_totalCurrency = startingMoney;
 		if(levelMusic != null || GameManager.instance.GetComponent<AudioSource>().clip != levelMusic) {
 			GameManager.instance.GetComponent<AudioSource>().clip = levelMusic;

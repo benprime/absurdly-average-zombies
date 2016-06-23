@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public AudioClip menuMusic;
 
     public int previousLevel = 0;
+    public int bonusAmount = 0;
 
     //Awake is always called before any Start functions
     void Awake()
