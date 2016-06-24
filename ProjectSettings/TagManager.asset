@@ -23,7 +23,7 @@ TagManager:
   - Enemy_Targetable
   - BuildZone
   - Projectiles
-  - 
+  - TurretDetector
   - 
   - 
   - 

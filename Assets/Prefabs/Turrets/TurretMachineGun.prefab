@@ -48,7 +48,7 @@ GameObject:
   - 58: {fileID: 5803962}
   - 114: {fileID: 11453134}
   - 212: {fileID: 21253780}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: DetectionZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,18 +232,12 @@ MonoBehaviour:
   bulletPrefab: {fileID: 105598, guid: c886269c3454be64192aacac0e9eb66d, type: 2}
   shotDelay: 0.1
   barrelTip: {fileID: 450336}
-  cooldownIncrement: 0.25
-  lastCoolDown: 0
-  cooldownIncrementUnits: 5
-  maxShotsBeforeCooldown: 20
-  currentHeat: 0
   costCurrency: 5
   baseCost: 5
   maxHitPoints: 50
   currentHitPoints: 50
   type: 0
   pauseAfterFiring: 0
-  ReloadOverlayPrefab: {fileID: 153328, guid: 6d3f6f5695e304245adaab67a94e3618, type: 2}
   reloadOverlayInstance: {fileID: 0}
   shotSounds:
   - {fileID: 8300000, guid: 1b11dbbee9350394893f46e2252c9fe1, type: 3}
