@@ -15,6 +15,7 @@ public class PickUp_Behavior : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		boxCol = GetComponent <BoxCollider2D> ();
+		transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
 
 		worthCurrency = Random.Range (minReward, maxReward);
 	}
