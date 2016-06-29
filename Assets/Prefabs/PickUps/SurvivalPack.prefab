@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.094856, y: -0.6877477, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,8 +58,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popNums: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
-  minReward: 5
-  maxReward: 10
+  minReward: 4
+  maxReward: 8
 --- !u!114 &11435148
 MonoBehaviour:
   m_ObjectHideFlags: 1

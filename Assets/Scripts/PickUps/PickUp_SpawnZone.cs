@@ -17,7 +17,7 @@ public class PickUp_SpawnZone : MonoBehaviour {
 		nextSpawn = Time.time + spawnRate;
 		wg = FindObjectOfType<WaveGenerator> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (wg.IsWaveInProgress()) {
