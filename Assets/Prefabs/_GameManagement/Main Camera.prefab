@@ -46,6 +46,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 14.4, y: 8.58983, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 497932}
   m_RootOrder: 0
@@ -58,6 +59,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.18, y: -0.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 480524}
   m_Father: {fileID: 0}
@@ -130,13 +132,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 158058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30976ee777ccd4941a771916a622a480, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a942f0ed201aa44283ab063cbda0321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpPrefab: {fileID: 458768, guid: c904b532c5a3cf14e8a7e6b5d4dd83a0, type: 2}
-  spawnRateMin: 2
-  spawnRateMax: 5
-  spawnRate: 2
+  spawnRateMin: 4
+  spawnRateMax: 9
 --- !u!114 &11412558
 MonoBehaviour:
   m_ObjectHideFlags: 1
