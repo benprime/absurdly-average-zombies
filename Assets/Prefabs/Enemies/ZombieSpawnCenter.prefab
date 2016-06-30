@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.21, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,6 +44,7 @@ MonoBehaviour:
   smZombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
   mdZombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
   lgZombiePrefab: {fileID: 185498, guid: 4eeafa065dcfb114189dd14a242e2bed, type: 2}
+  ppZombiePrefab: {fileID: 105854, guid: 341861d8fd03de249b809027100ca5dc, type: 2}
   bsZombiePrefab: {fileID: 185498, guid: 1968f3f4595e3f14c9278f6a526d134b, type: 2}
   waves:
   - name: 

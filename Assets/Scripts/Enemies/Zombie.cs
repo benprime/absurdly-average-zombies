@@ -12,6 +12,7 @@ public enum ZombieSize
     Small,
     Medium,
     Large,
+	Pop,
     Boss
 }
 
@@ -187,7 +188,7 @@ public class Zombie : MonoBehaviour
         //localBloodsObj.Play();
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
         this.zombieState = ZombieState.Dead;
         CircleCollider2D c = GetComponent<CircleCollider2D>();
@@ -278,4 +279,9 @@ public class Zombie : MonoBehaviour
         }
         return 1f;
     }
+
+	public void SetPath(ZombiePath path, int startNodeIndex) {
+		this.path = path;
+		this.currentNodeIndex = startNodeIndex;
+	}
 }

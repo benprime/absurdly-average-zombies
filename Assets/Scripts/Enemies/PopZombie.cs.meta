@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 5d71cb4846d72074d9dac5a311eb54cf
+timeCreated: 1467258636
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - hitParticleSystem: {fileID: 19803696, guid: 91bd57fe145b9ba4888ac461fd0ab424,
+      type: 2}
+  - deathParticleSystem: {fileID: 19803696, guid: 7335aa53b7655694293879246340dbeb,
+      type: 2}
+  - popNums: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
+  - smZombiePrefab: {fileID: 105854, guid: 95ca8fe17bd030440b37c7f288a99c5b, type: 2}
+  - mdZombiePrefab: {fileID: 105854, guid: b2a85371361e23a4c973427349d22478, type: 2}
+  - lgZombiePrefab: {fileID: 185498, guid: 4eeafa065dcfb114189dd14a242e2bed, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -25,7 +25,7 @@ public class SpawnWave
 
 public class ZombieSpawner : MonoBehaviour
 {
-    public GameObject smZombiePrefab, mdZombiePrefab, lgZombiePrefab, bsZombiePrefab;
+    public GameObject smZombiePrefab, mdZombiePrefab, lgZombiePrefab, ppZombiePrefab, bsZombiePrefab;
     public List<SpawnWave> waves;
     private SpawnWave m_CurrentWave;
     public SpawnWave CurrentWave { get { return m_CurrentWave; } }
@@ -60,9 +60,10 @@ public class ZombieSpawner : MonoBehaviour
         GameObject z = null;
 
         if (size == ZombieSize.Small && smZombiePrefab) z = Instantiate(smZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
-        if (size == ZombieSize.Medium && mdZombiePrefab) z = Instantiate(mdZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
-        if (size == ZombieSize.Large && lgZombiePrefab) z = Instantiate(lgZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
-        if (size == ZombieSize.Boss && bsZombiePrefab) z = Instantiate(bsZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+        else if (size == ZombieSize.Medium && mdZombiePrefab) z = Instantiate(mdZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+		else if (size == ZombieSize.Large && lgZombiePrefab) z = Instantiate(lgZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+		else if (size == ZombieSize.Pop && ppZombiePrefab) z = Instantiate(ppZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+		else if (size == ZombieSize.Boss && bsZombiePrefab) z = Instantiate(bsZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
 
         if (z) z.GetComponent<Zombie>().path = this.GetComponentInParent<Path_Create>().path;
     }
