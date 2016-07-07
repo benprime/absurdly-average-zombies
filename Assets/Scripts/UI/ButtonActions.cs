@@ -8,7 +8,10 @@ public class ButtonActions : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        LoadingPanel.SetActive(true);
+        if (LoadingPanel)
+        {
+            LoadingPanel.SetActive(true);
+        }
         SceneManager.LoadScene(levelName);
     }
 
