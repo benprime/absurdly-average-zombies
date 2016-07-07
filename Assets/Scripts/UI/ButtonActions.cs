@@ -4,9 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonActions : MonoBehaviour
 {
+    public GameObject LoadingPanel;
 
     public void LoadLevel(string levelName)
     {
+        LoadingPanel.SetActive(true);
         SceneManager.LoadScene(levelName);
     }
 
@@ -49,7 +51,6 @@ public class ButtonActions : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
