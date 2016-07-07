@@ -27,7 +27,6 @@ public class PopZombie : Zombie
 	{
 		if (numToPop < 0) {
 			numToPop = Random.Range (minToPop, maxToPop + 1);
-			GetComponent<SpriteRenderer> ().enabled = false;
 			StartCoroutine (PopZombies (numToPop));
 		}
 	}
