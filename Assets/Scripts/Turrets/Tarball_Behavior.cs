@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Rocket_Behavior : Bullet_Behavior
+public class Tarball_Behavior : Bullet_Behavior
 {
-    public GameObject bombBlast;
+    public GameObject tarBlast;
 
     [HideInInspector]
     public GameObject target;
@@ -35,13 +35,10 @@ public class Rocket_Behavior : Bullet_Behavior
     public override void Explode(Collider2D other)
     {
         Vector3 pos = other == null ? transform.position : other.transform.position;
-        GameObject blast = Instantiate(this.bombBlast, pos, Quaternion.identity) as GameObject;
-
-        BombBlast bb = blast.GetComponent<BombBlast>();
-        if (bb)
-        {
-            bb.damage = this.damage;
-        }
+        GameObject blast = Instantiate(this.tarBlast, pos, Quaternion.identity) as GameObject;
+		Vector3 newScale = new Vector3 (damage, damage, 1f);
+		//tar launcher 'damage' is actually tar splat size
+		blast.transform.localScale = newScale;
 
         Destroy(this.gameObject);
     }
