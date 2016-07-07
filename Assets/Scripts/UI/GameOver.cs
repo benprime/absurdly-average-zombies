@@ -41,6 +41,7 @@ public class GameOver : MonoBehaviour
 
     public void BackToMenu()
     {
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
         SceneManager.LoadScene("SelectLevel");
     }
 }
