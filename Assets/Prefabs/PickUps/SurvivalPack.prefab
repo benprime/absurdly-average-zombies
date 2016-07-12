@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popNums: {fileID: 123656, guid: b7bf2f777062e2f44afc03a2c817a3e0, type: 2}
   minReward: 3
-  maxReward: 7
+  maxReward: 5
 --- !u!114 &11435148
 MonoBehaviour:
   m_ObjectHideFlags: 1
