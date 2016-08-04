@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -21,15 +22,25 @@ public class UpgradeButtonStates
 }
 
 [System.Serializable]
+public class MessageData
+{
+    [HideInInspector]
+    public string name = "Message";
+
+    public string header;
+    [TextArea]
+    public string message;
+    public Sprite sprite;
+}
+
+[System.Serializable]
 public class TutorialWave
 {
     [HideInInspector]
     public string name = "Wave";
     public float delayBeforeWave;
-    public string beforeMessageHeader;
-    [TextArea]
-    public string beforeMessage;
-    public Sprite messageImage;
+
+    public MessageData[] Messages;
 
     // additional fields for tutorial waves
     public int startingMoney;
@@ -38,7 +49,7 @@ public class TutorialWave
     public bool clearTurrets;
 }
 
-public class WaveGeneratorTutorial : MonoBehaviour
+public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
 {
     public List<TutorialWave> waves;
     private TutorialWave m_CurrentWave;
@@ -55,14 +66,16 @@ public class WaveGeneratorTutorial : MonoBehaviour
     public AudioClip[] zombieSounds;
     public bool isWaveActive = false;
 
-    void ShowMessage(string headerText, string messageText, Sprite sprite)
+    public MessageData SuccessMessage;
+
+    void ShowMessage(MessageData messageData)
     {
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
         this.PopupMessage.SetActive(true);
 
-        this.waveHeaderText.text = headerText;
-        this.waveMessageText.text = messageText;
-        this.popupImage.sprite = sprite;
+        this.waveHeaderText.text = messageData.header;
+        this.waveMessageText.text = messageData.message;
+        this.popupImage.sprite = messageData.sprite;
 
         BuildZone[] allZones = FindObjectsOfType<BuildZone>();
         if (allZones.Length > 0)
@@ -83,7 +96,16 @@ public class WaveGeneratorTutorial : MonoBehaviour
 
             GameManager.instance.player_totalCurrency = m_CurrentWave.startingMoney;
 
-            this.ShowMessage(W.beforeMessageHeader, W.beforeMessage, W.messageImage);
+            foreach (MessageData messageData in W.Messages)
+            {
+                this.ShowMessage(messageData);
+                
+                // do nothing while the popup message is up
+                while (this.PopupMessage.activeSelf)
+                {
+                    yield return null;
+                }
+            }
 
             UI_WeaponRadial.buttonDisabled["N"] = !W.weaponRadial.N;
             UI_WeaponRadial.buttonDisabled["S"] = !W.weaponRadial.S;
@@ -149,11 +171,15 @@ public class WaveGeneratorTutorial : MonoBehaviour
             yield return null;  // prevents crash if all delays are 0
         }
 
+
+        ShowMessage(this.SuccessMessage);
         // do nothing while the popup message is up
         while (this.PopupMessage.activeSelf)
         {
             yield return null;
         }
+
+
 
         //GameManager.instance.progressManager.CompleteLevel(SceneManager.GetActiveScene().name);
         GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
@@ -200,6 +226,11 @@ public class WaveGeneratorTutorial : MonoBehaviour
 
     void Update()
     {
+    }
+
+    public bool IsWaveInProgress()
+    {
+        return (isWaveActive || GameObject.FindGameObjectsWithTag("enemy").Length > 0);
     }
 
 }
