@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.5, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,7 +58,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e8597f0fb461a5c46a8c6e6f3a85516a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.793
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -131,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d859fb08d32ccc4681842edb917c804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombies: []
 --- !u!114 &11494896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 3
+  timer: 0
 --- !u!212 &21232134
 SpriteRenderer:
   m_ObjectHideFlags: 1

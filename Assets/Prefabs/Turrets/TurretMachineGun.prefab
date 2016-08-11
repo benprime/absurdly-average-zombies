@@ -64,6 +64,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 462868}
   m_RootOrder: 0
@@ -76,6 +77,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.313976, y: -2.5085902, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 450336}
   - {fileID: 472504}
@@ -90,6 +92,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 462868}
   m_RootOrder: 1
@@ -135,7 +138,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e5f7acd9b695b164ca37019478895b66, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.422
+  m_Volume: 0.308
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -227,11 +230,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiesInRange: []
+  target: {fileID: 0}
   rotationSpeed: 2
   shootWithinDegrees: 5
   bulletPrefab: {fileID: 105598, guid: c886269c3454be64192aacac0e9eb66d, type: 2}
   shotDelay: 0.1
   barrelTip: {fileID: 450336}
+  animator: {fileID: 0}
+  lastShotTime: 0
   costCurrency: 5
   baseCost: 5
   maxHitPoints: 50
@@ -239,9 +245,9 @@ MonoBehaviour:
   type: 0
   pauseAfterFiring: 0
   reloadOverlayInstance: {fileID: 0}
+  level: 0
   shotSounds:
   - {fileID: 8300000, guid: 1b11dbbee9350394893f46e2252c9fe1, type: 3}
-  - {fileID: 8300000, guid: 7e2cbfae64f1ebc48b446d52e944c88a, type: 3}
   damage: 0
 --- !u!114 &11453134
 MonoBehaviour:
@@ -254,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f270dffad995bf47bb677d9b4c9c34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentInfo: {fileID: 0}
 --- !u!198 &19806614
 ParticleSystem:
   m_ObjectHideFlags: 1

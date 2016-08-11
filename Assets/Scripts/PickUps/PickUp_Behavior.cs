@@ -38,6 +38,10 @@ public class PickUp_Behavior : MonoBehaviour {
 	}
 
 	void CashAndBurn() {
+		AudioSource aud = GetComponent<AudioSource>();
+		aud.Stop();
+		aud.Play();
+
 		GameManager.instance.PlayerCurrencyTransaction (worthCurrency);
 		this.GeneratePopUpNumber("$" + worthCurrency, Color.yellow, true);
 		Destroy (gameObject);
