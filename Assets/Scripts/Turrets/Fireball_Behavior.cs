@@ -17,7 +17,7 @@ public class Fireball_Behavior : Bullet_Behavior
     protected override void Update()
     {
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, startPos) > range)
+        if (Vector3.Distance(transform.position, startPos) > turret.range)
         {
             Destroy(this.gameObject, 1);
         }

@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Random = UnityEngine.Random;
 
 public class Turret : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Turret : MonoBehaviour
     // aiming stuff
     public List<GameObject> zombiesInRange;
     private Transform target;
+    public float range;
     public float rotationSpeed;
     public float shootWithinDegrees = 10f;
 
@@ -105,8 +108,8 @@ public class Turret : MonoBehaviour
     public void ApplyTurretLevelData()
     {
         this.damage = TurretUpgradeInfo.GetData(this, TurretField.Damage);
-        float detectionZoneRadius = TurretUpgradeInfo.GetData(this, TurretField.RangeRadius);
-        gameObject.transform.FindChild("DetectionZone").localScale = new Vector3(detectionZoneRadius, detectionZoneRadius, 1);
+        this.range = TurretUpgradeInfo.GetData(this, TurretField.RangeRadius);
+        gameObject.transform.FindChild("DetectionZone").localScale = new Vector3(range, range, 1);
         this.rotationSpeed = TurretUpgradeInfo.GetData(this, TurretField.RotationSpeed);
         this.shotDelay = TurretUpgradeInfo.GetData(this, TurretField.ShotDelay);
     }

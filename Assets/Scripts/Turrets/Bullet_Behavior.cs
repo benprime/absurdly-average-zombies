@@ -5,7 +5,6 @@ public class Bullet_Behavior : MonoBehaviour
 {
     public float moveSpeed;
     public Vector3 startPos;
-    public float range;
     protected float damage;
 
     [HideInInspector]
@@ -29,9 +28,9 @@ public class Bullet_Behavior : MonoBehaviour
     protected virtual void Update()
     {
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, startPos) > range)
+        if (Vector3.Distance(transform.position, startPos) > turret.range)
         {
-            Destroy(this.gameObject);
+            this.Explode(null);
         }
     }
 
@@ -41,7 +40,7 @@ public class Bullet_Behavior : MonoBehaviour
         {
             Zombie z = other.GetComponent<Zombie>();
             z.TakeDamage(this.damage, Zombie.DamageType.medium);
-            Destroy(this.gameObject);
+            this.Explode(null);
         }
     }
 

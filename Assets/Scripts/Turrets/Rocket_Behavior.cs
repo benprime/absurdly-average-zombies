@@ -24,14 +24,6 @@ public class Rocket_Behavior : Bullet_Behavior
         base.Update();
     }
 
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "enemy")
-        {
-            this.Explode(other);
-        }
-    }
-
     public override void Explode(Collider2D other)
     {
         Vector3 pos = other == null ? transform.position : other.transform.position;

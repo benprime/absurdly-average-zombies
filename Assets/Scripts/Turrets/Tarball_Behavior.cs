@@ -8,12 +8,6 @@ public class Tarball_Behavior : Bullet_Behavior
     [HideInInspector]
     public GameObject target;
 
-    // Use this for initialization
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     // Update is called once per frame
     protected override void Update()
     {
@@ -21,15 +15,8 @@ public class Tarball_Behavior : Bullet_Behavior
         {
             this.transform.up = target.transform.position - this.transform.position;
         }
-        base.Update();
-    }
 
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "enemy")
-        {
-            this.Explode(other);
-        }
+        base.Update();
     }
 
     public override void Explode(Collider2D other)
