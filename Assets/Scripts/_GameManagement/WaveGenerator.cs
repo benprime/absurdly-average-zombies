@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +18,7 @@ public class Wave
     public string beforeMessage;
 }
 
-public class WaveGenerator : MonoBehaviour
+public class WaveGenerator : MonoBehaviour, IWaveGenerator
 {
     public int startingMoney;
     public List<Wave> waves;

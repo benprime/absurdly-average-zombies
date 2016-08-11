@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class PickUp_SpawnZone : MonoBehaviour {
 
@@ -9,13 +10,17 @@ public class PickUp_SpawnZone : MonoBehaviour {
 	private float spawnRate = 2f;
 	private float nextSpawn = 0f;
 
-	private WaveGenerator wg;
+	private IWaveGenerator wg;
 
 	// Use this for initialization
 	void Start () {
 		spawnRate = Random.Range (2.0f, 5.0f);
 		nextSpawn = Time.time + spawnRate;
 		wg = FindObjectOfType<WaveGenerator> ();
+	    if (wg == null)
+	    {
+	        wg = FindObjectOfType<WaveGeneratorTutorial>();
+	    }
 	}
 
 	// Update is called once per frame
