@@ -11,6 +11,7 @@ public class UI_UpgradeRadial : MonoBehaviour
     private Turret turret;
     public int maxUpgradeLevels = 3;
     public Sprite[] rankSprites;
+	public int upradeCostIncrement = 5;
 
     // global override for enabling buttons (used by tutorial)
     public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>()
@@ -61,7 +62,7 @@ public class UI_UpgradeRadial : MonoBehaviour
 
     private int CalculateUpgradeCost(int upgradeLevel)
     {
-        return turret.baseCost + (5 * (upgradeLevel + 1));
+        return turret.baseCost + (upradeCostIncrement * (upgradeLevel + 1));
     }
 
 
