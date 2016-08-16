@@ -42,20 +42,20 @@ public static class TurretUpgradeInfo
     {
         // Machine Gun
 		//Primary Trait
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Damage, 0, 1.0f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Damage, 1, 1.25f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Damage, 2, 1.6f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Damage, 3, 2.0f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Damage, 0, 0.7f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Damage, 1, 0.85f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Damage, 2, 1.15f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Damage, 3, 1.5f),
 		//Secondary Trait
         new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RotationSpeed, 0, 1.0f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RotationSpeed, 1, 1.05f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RotationSpeed, 2, 1.12f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RotationSpeed, 3, 1.20f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RotationSpeed, 1, 1.03f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RotationSpeed, 2, 1.09f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RotationSpeed, 3, 1.18f),
 		//Secondary Trait
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 0, 0.08f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 1, 0.075f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 2, 0.068f),
-        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 3, 0.06f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 0, 0.1f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 1, 0.095f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 2, 0.088f),
+        new TurretLevelInfo(TurretTypes.MachineGun, TurretField.ShotDelay, 3, 0.075f),
 
         new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 0, 1.2f),
         new TurretLevelInfo(TurretTypes.MachineGun, TurretField.CoolDown, 1, 1.2f),

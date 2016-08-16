@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpPrefab: {fileID: 458768, guid: c904b532c5a3cf14e8a7e6b5d4dd83a0, type: 2}
-  spawnRateMin: 4
+  spawnRateMin: 5
   spawnRateMax: 9
 --- !u!114 &11412558
 MonoBehaviour:
