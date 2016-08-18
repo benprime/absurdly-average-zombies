@@ -38,6 +38,8 @@ public class Zombie : MonoBehaviour
     public float flameDamageInterval = 1f;
     public float fireDamage = 0;
     protected float nextFlameDamageTime = 0f;
+	protected int fireTimer = 5;
+	public int fireDuration = 5;
 
     public ParticleSystem hitParticleSystem;
     public ParticleSystem deathParticleSystem;
@@ -117,8 +119,9 @@ public class Zombie : MonoBehaviour
             {
                 nextFlameDamageTime += this.flameDamageInterval;
                 this.TakeDamage(this.fireDamage, DamageType.light);
-                this.fireDamage--;
-                if (this.fireDamage <= 0)
+                //this.fireDamage--;
+				this.fireTimer--;
+				if (this.fireTimer <= 0)
                 {
                     psLarge.Stop();
                     psSmallLeft.Stop();
@@ -237,17 +240,18 @@ public class Zombie : MonoBehaviour
         this.CatchFire(4);
     }
 
-    public void CatchFire(float dmg)
-    {
+	public void CatchFire(float dmg)
+	{
+		// fire dps duration timer will be reset everytime zombie is hit by a fireball
+		this.fireTimer = fireDuration;
 
-        // getting hit by another fireball will always reset the damage to the function parameter
-        this.fireDamage = dmg;
+        // getting hit by another fireball will only reset damage if the fireball stats are higher than what is already on the zombie
+		if(dmg > this.fireDamage) this.fireDamage = dmg;
 
-        // we only reset the flame damage timer if we weren't
-        // already on fire.
+        // we only set fire to zombie if not already on fire
         if (!this.onFire)
         {
-            this.nextFlameDamageTime = Time.time;
+			this.nextFlameDamageTime = Time.time + this.flameDamageInterval;
 
             // start the flame particle effect
             psLarge.Play();

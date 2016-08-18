@@ -58,8 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   startPos: {x: 0, y: 0, z: 0}
-  range: 3
   turret: {fileID: 0}
+  impactDmgMod: 0.1
 --- !u!212 &21215096
 SpriteRenderer:
   m_ObjectHideFlags: 1

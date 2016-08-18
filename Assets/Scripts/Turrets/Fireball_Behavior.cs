@@ -2,6 +2,7 @@
 
 public class Fireball_Behavior : Bullet_Behavior
 {
+	public float impactDmgMod = 0.1f;
 
     // Use this for initialization
     protected override void Awake()
@@ -27,10 +28,13 @@ public class Fireball_Behavior : Bullet_Behavior
     {
         if (other.tag == "enemy")
         {
-            Zombie z = other.gameObject.GetComponent<Zombie>();
+			Zombie z = other.gameObject.GetComponent<Zombie>();
 
-            // Fireballs now do no base damage... only damage over time
-            z.CatchFire(this.damage);
+			//fireballs do impact damage at a fraction of their dps damage
+			z.TakeDamage(this.damage * this.impactDmgMod, Zombie.DamageType.light);
+
+            // Fireballs set zombies on fire
+			z.CatchFire(this.damage);
             Destroy(this.gameObject, 0.12f);
         }
     }
