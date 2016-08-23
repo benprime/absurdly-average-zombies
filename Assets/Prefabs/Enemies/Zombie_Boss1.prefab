@@ -147,7 +147,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
   m_LocalPosition: {x: 0.4, y: 0.17, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_Children: []
   m_Father: {fileID: 491624}
   m_RootOrder: 5
@@ -160,7 +160,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.08767296, w: 0.9961493}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.0595}
   m_Children: []
   m_Father: {fileID: 491624}
   m_RootOrder: 3
@@ -173,7 +173,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.10011971, w: 0.99497545}
   m_LocalPosition: {x: -0.399, y: -0.074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.4921}
   m_Children: []
   m_Father: {fileID: 491624}
   m_RootOrder: 1
@@ -186,7 +186,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.054210834, w: 0.99852955}
   m_LocalPosition: {x: 0.43, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.2151}
   m_Children: []
   m_Father: {fileID: 491624}
   m_RootOrder: 2
@@ -199,7 +199,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
   m_LocalPosition: {x: 0, y: 0.17, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_Children: []
   m_Father: {fileID: 491624}
   m_RootOrder: 6
@@ -212,7 +212,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
   m_LocalPosition: {x: -0.4, y: 0.17, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_Children: []
   m_Father: {fileID: 491624}
   m_RootOrder: 4
@@ -225,7 +225,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.008020076, w: 0.9999679}
   m_LocalPosition: {x: -0.031, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.91899997}
   m_Children: []
   m_Father: {fileID: 491624}
   m_RootOrder: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   spawnTime: 0
   flameDamageInterval: 1
   fireDamage: 2
+  fireDuration: 5
   hitParticleSystem: {fileID: 19803696, guid: 91bd57fe145b9ba4888ac461fd0ab424, type: 2}
   deathParticleSystem: {fileID: 19803696, guid: 7335aa53b7655694293879246340dbeb,
     type: 2}
@@ -6605,8 +6606,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 35
+  m_SortingLayerID: -42017311
+  m_SortingOrder: 44
   m_Sprite: {fileID: 21300000, guid: 6030a66d7629ab044876cb44a2cea9a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6635,8 +6636,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 36
+  m_SortingLayerID: -42017311
+  m_SortingOrder: 45
   m_Sprite: {fileID: 21300004, guid: 6030a66d7629ab044876cb44a2cea9a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6665,8 +6666,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 34
+  m_SortingLayerID: -42017311
+  m_SortingOrder: 43
   m_Sprite: {fileID: 21300006, guid: 6030a66d7629ab044876cb44a2cea9a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6695,8 +6696,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 34
+  m_SortingLayerID: -42017311
+  m_SortingOrder: 43
   m_Sprite: {fileID: 21300002, guid: 6030a66d7629ab044876cb44a2cea9a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
