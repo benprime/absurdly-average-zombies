@@ -11,6 +11,7 @@ public class PickUp_Behavior : MonoBehaviour {
 
 	public int minReward = 5, maxReward = 10;
 	private int worthCurrency = 5;
+    private SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
 	void Awake () {
@@ -18,23 +19,32 @@ public class PickUp_Behavior : MonoBehaviour {
 		transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
 
 		worthCurrency = Random.Range (minReward, maxReward);
+	    spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.touchCount == 1) {
-			Vector3 wtp = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
-			if (boxCol.OverlapPoint(wtp)) {
-				CashAndBurn ();
-			}
-		}
-		//for computer only
-		else if (Input.GetMouseButtonUp(0)) {
-			Vector3 wmp = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			if (boxCol.OverlapPoint(wmp)) {
-				CashAndBurn ();
-			}
-		}
+        // only check for pickup clicks if the pickup is visible
+	    if (spriteRenderer.enabled)
+	    {
+	        if (Input.touchCount == 1)
+	        {
+	            Vector3 wtp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+	            if (boxCol.OverlapPoint(wtp))
+	            {
+	                CashAndBurn();
+	            }
+	        }
+	        //for computer only
+	        else if (Input.GetMouseButtonUp(0))
+	        {
+	            Vector3 wmp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	            if (boxCol.OverlapPoint(wmp))
+	            {
+	                CashAndBurn();
+	            }
+	        }
+	    }
 	}
 
 	void CashAndBurn() {
