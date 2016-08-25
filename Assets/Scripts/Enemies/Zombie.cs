@@ -65,8 +65,6 @@ public class Zombie : MonoBehaviour
 
     public GameObject popNums;
 
-	public AudioClip[] deathSounds;
-
     void Awake()
     {
         this.spawnTime = Time.time;
@@ -99,10 +97,6 @@ public class Zombie : MonoBehaviour
         this.psSmallRight = this.transform.FindChild("ParticleSystemFireSmallRight").GetComponent<ParticleSystem>();
 
 		hitPoints = maxHitPoints;
-
-		AudioSource aud = GetComponent<AudioSource>();
-		int randSound = Random.Range(0, deathSounds.Count());
-		aud.clip = deathSounds[randSound];
     }
 
     // Update is called once per frame
@@ -200,12 +194,6 @@ public class Zombie : MonoBehaviour
 
     protected virtual void Die()
 	{
-		AudioSource aud = GetComponent<AudioSource>();
-		if (aud) {
-			aud.Stop ();
-			aud.Play ();
-		}
-
         this.zombieState = ZombieState.Dead;
         CircleCollider2D c = GetComponent<CircleCollider2D>();
         c.enabled = false;

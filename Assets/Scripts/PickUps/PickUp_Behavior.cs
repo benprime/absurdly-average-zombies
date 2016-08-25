@@ -44,7 +44,14 @@ public class PickUp_Behavior : MonoBehaviour {
 
 		GameManager.instance.PlayerCurrencyTransaction (worthCurrency);
 		this.GeneratePopUpNumber("$" + worthCurrency, Color.yellow, true);
-		Destroy (gameObject);
+
+	    SpriteRenderer renderer = this.gameObject.GetComponent<SpriteRenderer>();
+	    renderer.enabled = false;
+
+	    var script = this.gameObject.GetComponent<TimedDestruction>();
+	    script.enabled = false;
+
+		Destroy (gameObject, aud.clip.length);
 	}
 
 	protected void GeneratePopUpNumber(string txt, Color txtCol, bool largeText)
