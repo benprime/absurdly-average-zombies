@@ -7,6 +7,14 @@ public class PlayerBase_Stats : MonoBehaviour
     public GameObject gameOverPopup;
     public Sprite noDamage, thirdDamage, twoThirdDamage, destroyed;
     private bool dead = false;
+    public static PlayerBase_Stats Instance = null;
+
+    // guarantee no one can instantiate this
+    protected PlayerBase_Stats()
+    {
+        // hacky, but we're just trying to expose a public reference.
+        Instance = this;
+    }
 
     // Use this for initialization
     void Start()
@@ -20,7 +28,7 @@ public class PlayerBase_Stats : MonoBehaviour
 
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         UI_FloatingHealthBar hb = GetComponent<UI_FloatingHealthBar>();
 

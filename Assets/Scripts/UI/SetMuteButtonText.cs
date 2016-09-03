@@ -16,7 +16,7 @@ public class SetMuteButtonText : MonoBehaviour
         Text text = textObj != null ? textObj.GetComponent<Text>() : null;
         if (text != null)
         {
-            if (GameManager.instance.mute)
+            if (GameManager.Instance.mute)
             {
                 text.text = MutedText;
             }

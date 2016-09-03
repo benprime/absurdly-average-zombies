@@ -94,12 +94,12 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
             // update current wave
             m_CurrentWave = W;
 
-            GameManager.instance.player_totalCurrency = m_CurrentWave.startingMoney;
+            GameManager.Instance.player_totalCurrency = m_CurrentWave.startingMoney;
 
             foreach (MessageData messageData in W.Messages)
             {
                 this.ShowMessage(messageData);
-                
+
                 // do nothing while the popup message is up
                 while (this.PopupMessage.activeSelf)
                 {
@@ -171,19 +171,16 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
             yield return null;  // prevents crash if all delays are 0
         }
 
-
         ShowMessage(this.SuccessMessage);
+
         // do nothing while the popup message is up
         while (this.PopupMessage.activeSelf)
         {
             yield return null;
         }
 
-
-
-        //GameManager.instance.progressManager.CompleteLevel(SceneManager.GetActiveScene().name);
-        GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
-        GameManager.instance.GetComponent<AudioSource>().Play();
+        GameManager.Instance.GetComponent<AudioSource>().clip = GameManager.Instance.menuMusic;
+        GameManager.Instance.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("SelectLevel");
         yield return null;  // prevents crash if all delays are 0
     }
@@ -214,10 +211,10 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
         this.waveMessageText = bodyPanel.transform.FindChild("MessageText").GetComponent<Text>();
         this.popupImage = bodyPanel.transform.FindChild("Image").GetComponent<Image>();
 
-        if (levelMusic != null || GameManager.instance.GetComponent<AudioSource>().clip != levelMusic)
+        if (levelMusic != null || GameManager.Instance.GetComponent<AudioSource>().clip != levelMusic)
         {
-            GameManager.instance.GetComponent<AudioSource>().clip = levelMusic;
-            GameManager.instance.GetComponent<AudioSource>().Play();
+            GameManager.Instance.GetComponent<AudioSource>().clip = levelMusic;
+            GameManager.Instance.GetComponent<AudioSource>().Play();
         }
 
         currentWaveIndex = 0;

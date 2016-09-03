@@ -66,9 +66,9 @@ public class UI_WeaponRadial : MonoBehaviour
         Input.ResetInputAxes();
 
         int cost = obj.GetComponent<Turret>().costCurrency;
-        if (GameManager.instance.GetPlayerTotalCurrency() >= cost)
+        if (GameManager.Instance.GetPlayerTotalCurrency() >= cost)
         {
-            GameManager.instance.PlayerCurrencyTransaction(-cost);
+            GameManager.Instance.PlayerCurrencyTransaction(-cost);
             GameObject weap = Instantiate(obj, connectedZone.transform.position, Quaternion.identity) as GameObject;
 
             connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;

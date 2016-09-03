@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public static GameManager instance = null;
+    public static GameManager Instance = null;
 
     public ProgressManager progressManager;
 
@@ -25,15 +25,15 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         //Check if instance already exists
-        if (instance == null)
+        if (Instance == null)
         {
 
             //if not, set instance to this
-            instance = this;
+            Instance = this;
             this.progressManager = new ProgressManager();
         }
         //If instance already exists and it's not this:
-        else if (instance != this)
+        else if (Instance != this)
         {
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);

@@ -10,7 +10,7 @@ public class LockLevelButtons : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (GameManager.instance.progressManager.IsLevelLocked(goToLevelName))
+        if (GameManager.Instance.progressManager.IsLevelLocked(goToLevelName))
         {
             GetComponent<Button>().enabled = false;
             gameObject.GetComponentInChildren<Text>().enabled = false;

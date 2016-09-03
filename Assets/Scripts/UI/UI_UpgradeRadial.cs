@@ -6,12 +6,12 @@ using System.Linq;
 
 public class UI_UpgradeRadial : MonoBehaviour
 {
-	public BuildZone connectedZone;
-	private SpriteRenderer currentWeaponUpgradeSprite;
+    public BuildZone connectedZone;
+    private SpriteRenderer currentWeaponUpgradeSprite;
     private Turret turret;
     public int maxUpgradeLevels = 3;
     public Sprite[] rankSprites;
-	public int upradeCostIncrement = 5;
+    public int upradeCostIncrement = 5;
 
     // global override for enabling buttons (used by tutorial)
     public static Dictionary<string, bool> buttonDisabled = new Dictionary<string, bool>()
@@ -22,8 +22,8 @@ public class UI_UpgradeRadial : MonoBehaviour
     Dictionary<string, Transform> buttons = new Dictionary<string, Transform>();
 
 
-	public Sprite sellConfirmSprite;
-	public bool saleInitiated = false;
+    public Sprite sellConfirmSprite;
+    public bool saleInitiated = false;
 
     void Awake()
     {
@@ -46,18 +46,22 @@ public class UI_UpgradeRadial : MonoBehaviour
 
     public void SellWeapon()
     {
-		if (!saleInitiated) {
-			saleInitiated = true;
-			this.buttons ["W"].GetComponent<Image> ().sprite = sellConfirmSprite;
-		} else {
-			if (connectedZone) {
-				int worth = (turret.costCurrency) / 2;  //sell for half of purchase cost
-				GameManager.instance.PlayerCurrencyTransaction (worth);
-				currentWeaponUpgradeSprite.sprite = null;
-				connectedZone.Clear ();
-				connectedZone.CloseOut ();
-			}
-		}
+        if (!saleInitiated)
+        {
+            saleInitiated = true;
+            this.buttons["W"].GetComponent<Image>().sprite = sellConfirmSprite;
+        }
+        else
+        {
+            if (connectedZone)
+            {
+                int worth = (turret.costCurrency) / 2;  //sell for half of purchase cost
+                GameManager.Instance.PlayerCurrencyTransaction(worth);
+                currentWeaponUpgradeSprite.sprite = null;
+                connectedZone.Clear();
+                connectedZone.CloseOut();
+            }
+        }
     }
 
     private int CalculateUpgradeCost(int upgradeLevel)
@@ -74,8 +78,8 @@ public class UI_UpgradeRadial : MonoBehaviour
         {
             //charge player cost of upgrade
             int cost = CalculateUpgradeCost(turret.Level);
-            if (GameManager.instance.GetPlayerTotalCurrency() < cost) return;
-            GameManager.instance.PlayerCurrencyTransaction(-cost);
+            if (GameManager.Instance.GetPlayerTotalCurrency() < cost) return;
+            GameManager.Instance.PlayerCurrencyTransaction(-cost);
             //increase weapon worth
             turret.costCurrency += cost;
 
@@ -84,6 +88,7 @@ public class UI_UpgradeRadial : MonoBehaviour
             turret.ApplyTurretLevelData();
 
             SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton();
+            connectedZone.CloseOut();
         }
     }
 
@@ -91,7 +96,7 @@ public class UI_UpgradeRadial : MonoBehaviour
     {
         if (connectedZone)
         {
-			currentWeaponUpgradeSprite = connectedZone.transform.FindChild("Stars").GetComponent<SpriteRenderer>();
+            currentWeaponUpgradeSprite = connectedZone.transform.FindChild("Stars").GetComponent<SpriteRenderer>();
             turret = connectedZone.currentWeapon.GetComponent<Turret>();
 
             //much hackery going on here due to lack of sleep TODO: optimize!!!! (shouldn't be in the update loop)
@@ -112,30 +117,30 @@ public class UI_UpgradeRadial : MonoBehaviour
         sellCostText.text = "$" + ((turret.costCurrency) / 2);
     }
 
-	void SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton()
-	{
-		if (buttonDisabled["E"])
-		{
-			this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
-			return;
-		}
+    void SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton()
+    {
+        if (buttonDisabled["E"])
+        {
+            this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
+            return;
+        }
 
-		if (turret.Level == maxUpgradeLevels)
-		{
-			this.buttons["E"].GetComponentInChildren<Text>().text = "MAX";
-			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.Level - 1];
-			currentWeaponUpgradeSprite.sprite = rankSprites [turret.Level - 1];
-			this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
-		}
-		else
-		{
-			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(turret.Level);
-			this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.Level];
-			if(turret.Level > 0)
-            { 
+        if (turret.Level == maxUpgradeLevels)
+        {
+            this.buttons["E"].GetComponentInChildren<Text>().text = "MAX";
+            this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.Level - 1];
+            currentWeaponUpgradeSprite.sprite = rankSprites[turret.Level - 1];
+            this.buttons["E"].GetComponentInChildren<Button>().interactable = false;
+        }
+        else
+        {
+            this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(turret.Level);
+            this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.Level];
+            if (turret.Level > 0)
+            {
                 currentWeaponUpgradeSprite.sprite = rankSprites[turret.Level - 1];
             }
-		}
-		SetSellButton ();
-	}
+        }
+        SetSellButton();
+    }
 }
