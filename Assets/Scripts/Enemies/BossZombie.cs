@@ -10,6 +10,7 @@ public class BossZombie : Zombie
     private List<ZombieSpawner> spawners;
     public int bossSpawnInterval = 2;
     private float bossTimer = 0f;
+	private bool largeZombieAllowed = false;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class BossZombie : Zombie
         {
             spawners.Add(zs);
         }
+		largeZombieAllowed = SceneManager.GetActiveScene ().buildIndex > 9; /*level 5*/
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class BossZombie : Zombie
                         zx.SpawnZombie(ZombieSize.Medium);
                     else if (rando < .9)
                         zx.SpawnZombie(ZombieSize.Small);
-                    else if (SceneManager.GetActiveScene().buildIndex > 9 /*level 5*/)
+                    else if (largeZombieAllowed)
                     {
                         //no large zombies until after level 5
                         if (rando < .999)
