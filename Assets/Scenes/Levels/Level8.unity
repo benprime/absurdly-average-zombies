@@ -782,6 +782,21 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &242108832 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 172826, guid: 7f1b08accf6bc41439547acea2eedce9, type: 2}
+  m_PrefabInternal: {fileID: 1098420477}
+--- !u!114 &242108838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 242108832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918efdb81c2c5034b9c3878169327537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &258106028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1109,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400580, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11454784, guid: 9eb5f8fe1a32eac4e8cd43920f607dc2, type: 2}
       propertyPath: barOffset
@@ -2231,7 +2246,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459200, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 21209908, guid: 640e6c520687f644fbb3ed9a29667417, type: 2}
       propertyPath: m_Sprite
@@ -3712,14 +3727,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 334206736}
-    - target: {fileID: 11494210, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
-      propertyPath: m_Text
-      value: Level Eight
-      objectReference: {fileID: 0}
-    - target: {fileID: 11410340, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
-      propertyPath: m_Text
-      value: Welcome to level eight!
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3125502c6147f1541b37280c7cfcd6f4, type: 2}
   m_IsPrefabParent: 0

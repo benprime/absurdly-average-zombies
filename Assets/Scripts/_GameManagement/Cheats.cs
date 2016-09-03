@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Cheats : MonoBehaviour {
+public class Cheats : MonoBehaviour
+{
 
     public void UnlockAllLevels()
     {
-        foreach(LevelProgressData data in GameManager.instance.progressManager.LevelProgress)
+        foreach (LevelProgressData data in GameManager.Instance.progressManager.LevelProgress)
         {
             data.Locked = false;
         }
@@ -15,12 +16,14 @@ public class Cheats : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

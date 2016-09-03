@@ -39,8 +39,8 @@ public class UI_TurretSideBar : MonoBehaviour
     public void ReturnToMenuScreen()
     {
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
-        GameManager.instance.GetComponent<AudioSource>().clip = GameManager.instance.menuMusic;
-        GameManager.instance.GetComponent<AudioSource>().Play();
+        GameManager.Instance.GetComponent<AudioSource>().clip = GameManager.Instance.menuMusic;
+        GameManager.Instance.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("MainMenu");
     }
 

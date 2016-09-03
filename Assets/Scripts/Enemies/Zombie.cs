@@ -199,7 +199,7 @@ public class Zombie : MonoBehaviour
         CircleCollider2D c = GetComponent<CircleCollider2D>();
         c.enabled = false;
 
-        GameManager.instance.PlayerCurrencyTransaction(worthCurrency);
+        GameManager.Instance.PlayerCurrencyTransaction(worthCurrency);
         this.GeneratePopUpNumber("$" + worthCurrency, Color.yellow, true);
 
         Destroy(this.hb.healthBar.gameObject);
@@ -211,11 +211,11 @@ public class Zombie : MonoBehaviour
 
     protected void OnCollisionStay2D(Collision2D other)
     {
-        //damage the buildings/turrets in path
-        if (other.transform.tag == "Turret" || other.transform.tag == "PlayerBase")
+        // allow zombies to damage the player base
+        if (other.transform.tag == "PlayerBase")
         {
-            // todo: remove all "SendMessage" calls (they use reflection)
-            other.gameObject.SendMessage("TakeDamage", attackDamage * Time.deltaTime);
+            // todo: why are we multiplying it by deltaTime?
+            PlayerBase_Stats.Instance.TakeDamage(attackDamage * Time.deltaTime);
         }
     }
 

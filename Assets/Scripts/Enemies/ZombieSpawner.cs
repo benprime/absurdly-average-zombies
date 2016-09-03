@@ -61,9 +61,9 @@ public class ZombieSpawner : MonoBehaviour
 
         if (size == ZombieSize.Small && smZombiePrefab) z = Instantiate(smZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
         else if (size == ZombieSize.Medium && mdZombiePrefab) z = Instantiate(mdZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
-		else if (size == ZombieSize.Large && lgZombiePrefab) z = Instantiate(lgZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
-		else if (size == ZombieSize.Pop && ppZombiePrefab) z = Instantiate(ppZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
-		else if (size == ZombieSize.Boss && bsZombiePrefab) z = Instantiate(bsZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+        else if (size == ZombieSize.Large && lgZombiePrefab) z = Instantiate(lgZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+        else if (size == ZombieSize.Pop && ppZombiePrefab) z = Instantiate(ppZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
+        else if (size == ZombieSize.Boss && bsZombiePrefab) z = Instantiate(bsZombiePrefab, this.transform.position, Quaternion.identity) as GameObject;
 
         if (z) z.GetComponent<Zombie>().path = this.GetComponentInParent<Path_Create>().path;
     }
