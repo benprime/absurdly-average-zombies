@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.82, y: 4.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,12 +42,12 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7afbe9f47710e06499ad3a67c577c419, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.172
+  m_Volume: 0.475
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 36
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -132,6 +133,7 @@ MonoBehaviour:
   mute: 0
   menuMusic: {fileID: 8300000, guid: 7afbe9f47710e06499ad3a67c577c419, type: 3}
   previousLevel: 0
+  bonusAmount: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

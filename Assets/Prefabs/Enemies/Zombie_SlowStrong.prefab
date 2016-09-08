@@ -325,10 +325,9 @@ MonoBehaviour:
   moveSpeed: 0.5
   moveModifier: 1
   turnSpeed: 2
-  walkSwayModifier: 30
   maxHitPoints: 150
   hitPoints: 150
-  worthCurrency: 3
+  worthCurrency: 1
   attackDamage: 20
   spawnTime: 0
   flameDamageInterval: 1
@@ -339,7 +338,6 @@ MonoBehaviour:
     type: 2}
   onFire: 0
   zombieState: 0
-  direction: {x: 0, y: 0, z: 0}
   path:
     nodes: []
   targetCloseness: 0.1
