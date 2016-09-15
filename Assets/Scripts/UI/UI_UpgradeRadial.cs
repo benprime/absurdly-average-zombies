@@ -64,9 +64,9 @@ public class UI_UpgradeRadial : MonoBehaviour
         }
     }
 
-    private int CalculateUpgradeCost(int upgradeLevel)
+    private int CalculateUpgradeCost()
     {
-        return turret.baseCost + (upradeCostIncrement * (upgradeLevel + 1));
+		return (int)TurretUpgradeInfo.GetData(turret.type, TurretField.Cost, turret.Level + 1);
     }
 
 
@@ -77,7 +77,7 @@ public class UI_UpgradeRadial : MonoBehaviour
         if (connectedZone)
         {
             //charge player cost of upgrade
-            int cost = CalculateUpgradeCost(turret.Level);
+            int cost = CalculateUpgradeCost();
             if (GameManager.Instance.GetPlayerTotalCurrency() < cost) return;
             GameManager.Instance.PlayerCurrencyTransaction(-cost);
             //increase weapon worth
@@ -134,7 +134,7 @@ public class UI_UpgradeRadial : MonoBehaviour
         }
         else
         {
-            this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost(turret.Level);
+            this.buttons["E"].GetComponentInChildren<Text>().text = "$" + CalculateUpgradeCost();
             this.buttons["E"].GetComponentInChildren<SpriteRenderer>().sprite = rankSprites[turret.Level];
             if (turret.Level > 0)
             {

@@ -4899,11 +4899,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[0].zombies.Array.data[1].secondsBetweenSpawn
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[0].zombies.Array.data[1].startDelay
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[1].zombies.Array.data[0].zombieType
@@ -4931,7 +4931,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[1].zombies.Array.data[1].secondsBetweenSpawn
-      value: 1.75
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[1].zombies.Array.data[1].startDelay
@@ -6957,11 +6957,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[0].zombies.Array.data[0].count
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[0].zombies.Array.data[0].secondsBetweenSpawn
-      value: 1.75
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 11427138, guid: abf8e5bda678c814b9a85ab39c4f9c4c, type: 2}
       propertyPath: waves.Array.data[0].zombies.Array.data[1].zombieType

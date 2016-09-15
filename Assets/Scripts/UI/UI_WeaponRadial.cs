@@ -65,7 +65,7 @@ public class UI_WeaponRadial : MonoBehaviour
 
         Input.ResetInputAxes();
 
-        int cost = obj.GetComponent<Turret>().costCurrency;
+		int cost = (int)TurretUpgradeInfo.GetData (obj.GetComponent<Turret>(), TurretField.Cost);
         if (GameManager.Instance.GetPlayerTotalCurrency() >= cost)
         {
             GameManager.Instance.PlayerCurrencyTransaction(-cost);
@@ -75,5 +75,16 @@ public class UI_WeaponRadial : MonoBehaviour
             connectedZone.currentWeapon = weap;
             connectedZone.CloseOut();
         }
-    }
+	}
+
+	public void InitRadial()
+	{
+		if (connectedZone)
+		{
+			this.buttons["N"].GetComponentInChildren<Text>().text = "$" + (int)TurretUpgradeInfo.GetData(TurretTypes.MachineGun, TurretField.Cost, 0);
+			this.buttons["E"].GetComponentInChildren<Text>().text = "$" + (int)TurretUpgradeInfo.GetData(TurretTypes.RocketLauncher, TurretField.Cost, 0);
+			this.buttons["S"].GetComponentInChildren<Text>().text = "$" + (int)TurretUpgradeInfo.GetData(TurretTypes.FlameThrower, TurretField.Cost, 0);
+			this.buttons["W"].GetComponentInChildren<Text>().text = "$" + (int)TurretUpgradeInfo.GetData(TurretTypes.TarSlinger, TurretField.Cost, 0);
+		}
+	}
 }

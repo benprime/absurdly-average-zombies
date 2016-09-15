@@ -36,7 +36,8 @@ public class BuildZone : MonoBehaviour
         if (currentState == ZONE_STATE.EMPTY)
         {
             currentHub = Instantiate(weaponRadial, location, Quaternion.identity) as GameObject;
-            currentHub.GetComponent<UI_WeaponRadial>().connectedZone = this;
+			currentHub.GetComponent<UI_WeaponRadial>().connectedZone = this;
+			currentHub.GetComponent<UI_WeaponRadial>().InitRadial();
             menuOpen = true;
         }
 
