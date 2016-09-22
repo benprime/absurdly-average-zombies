@@ -14,11 +14,12 @@ public class PickUp_SpawnZone : MonoBehaviour
     private IWaveGenerator wg;
 
     private BuildZone[] buildZones;
+    private Collider2D baseCollider;
 
     // Use this for initialization
     void Start()
     {
-        spawnRate = Random.Range(2.0f, 5.0f);
+        spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         nextSpawn = Time.time + spawnRate;
         wg = FindObjectOfType<WaveGenerator>();
         if (wg == null)
@@ -26,6 +27,7 @@ public class PickUp_SpawnZone : MonoBehaviour
             wg = FindObjectOfType<WaveGeneratorTutorial>();
         }
         buildZones = FindObjectsOfType<BuildZone>();
+        baseCollider = PlayerBase_Stats.Instance.gameObject.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class PickUp_SpawnZone : MonoBehaviour
         {
             if (Time.time > nextSpawn)
             {
-                spawnRate = Random.Range(2.0f, 5.0f);
+                spawnRate = Random.Range(spawnRateMin, spawnRateMax);
                 nextSpawn = Time.time + spawnRate;
                 Vector2 spawnBox = new Vector2(transform.localScale.x, transform.localScale.y);
                 Vector2 randomPos;
@@ -53,14 +55,25 @@ public class PickUp_SpawnZone : MonoBehaviour
 
     private bool isPositionValid(Vector3 pos)
     {
+        // dimensions of "would-be" survival pack
+        Bounds packBounds = new Bounds(pos, new Vector2(1, 1));
+
+        // check each build zone for collisions
         foreach (BuildZone bz in buildZones)
         {
-            BoxCollider2D boxCollider = bz.gameObject.GetComponent<BoxCollider2D>();
-            if (boxCollider.bounds.Contains(pos))
+            BoxCollider2D bzCollider = bz.gameObject.GetComponent<BoxCollider2D>();
+            if (bzCollider.bounds.Contains(pos) || bzCollider.bounds.Intersects(packBounds))
             {
                 return false;
             }
         }
+
+        // check house for collisions
+        if (baseCollider.bounds.Contains(pos) || baseCollider.bounds.Intersects(packBounds))
+        {
+            return false;
+        }
+
         return true;
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 480524}
   - 65: {fileID: 6561456}
   - 114: {fileID: 11411100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PickUpZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.26, z: -10}
+  m_LocalPosition: {x: 0.18, y: 0.34, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpPrefab: {fileID: 458768, guid: c904b532c5a3cf14e8a7e6b5d4dd83a0, type: 2}
-  spawnRateMin: 5
-  spawnRateMax: 9
+  spawnRateMin: 2
+  spawnRateMax: 5
 --- !u!114 &11412558
 MonoBehaviour:
   m_ObjectHideFlags: 1
