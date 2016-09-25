@@ -90,7 +90,10 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
     IEnumerator SpawnLoop()
     {
         foreach (TutorialWave W in waves)
-        {
+		{
+			if (currentWaveIndex >= waves.Count)
+				break;
+			
             // update current wave
             m_CurrentWave = W;
 
@@ -169,20 +172,23 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
             // A wave has complete
             currentWaveIndex++;
             yield return null;  // prevents crash if all delays are 0
-        }
+		}
 
-        ShowMessage(this.SuccessMessage);
+		if(PlayerBase_Stats.Instance.currentHitPoints > 0)
+		{
+			ShowMessage(this.SuccessMessage);
 
-        // do nothing while the popup message is up
-        while (this.PopupMessage.activeSelf)
-        {
-            yield return null;
-        }
+	        // do nothing while the popup message is up
+	        while (this.PopupMessage.activeSelf)
+	        {
+	            yield return null;
+	        }
 
-        GameManager.Instance.GetComponent<AudioSource>().clip = GameManager.Instance.menuMusic;
-        GameManager.Instance.GetComponent<AudioSource>().Play();
-        SceneManager.LoadScene("SelectLevel");
-        yield return null;  // prevents crash if all delays are 0
+	        GameManager.Instance.GetComponent<AudioSource>().clip = GameManager.Instance.menuMusic;
+	        GameManager.Instance.GetComponent<AudioSource>().Play();
+	        SceneManager.LoadScene("SelectLevel");
+	        yield return null;  // prevents crash if all delays are 0
+		}
     }
 
     IEnumerator DrawBeforeText(TutorialWave w)
@@ -228,6 +234,11 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
     public bool IsWaveInProgress()
     {
         return (isWaveActive || GameObject.FindGameObjectsWithTag("enemy").Length > 0);
-    }
+	}
+
+	public void EndWaves() {
+		isWaveActive = false;
+		currentWaveIndex = 100;
+	}
 
 }

@@ -44,7 +44,15 @@ public class PlayerBase_Stats : MonoBehaviour
                 Transform uiCanvas = FindObjectOfType<Canvas>().transform;
                 var gameOverMsg = Instantiate(gameOverPopup) as GameObject;
                 gameOverMsg.transform.SetParent(uiCanvas);
-                gameOverMsg.transform.localScale = new Vector3(1, 1, 1);
+				gameOverMsg.transform.localScale = new Vector3(1, 1, 1);
+
+				WaveGenerator wg = FindObjectOfType<WaveGenerator>();
+				wg.EndWaves ();
+				if (wg == null)
+				{
+					WaveGeneratorTutorial wgt = FindObjectOfType<WaveGeneratorTutorial>();
+					wgt.EndWaves ();
+				}
 
                 Destroy(hb.healthBar.gameObject);
                 gameObject.GetComponent<SpriteRenderer>().sprite = destroyed;

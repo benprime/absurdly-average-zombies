@@ -107,10 +107,10 @@ public static class TurretUpgradeInfo
 
         // Flame Thrower
 		//Primary Trait
-        new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Damage, 0, 2.5f),	//flame thrower dammage = flame duration
-        new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Damage, 1, 3.5f),
-        new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Damage, 2, 5.0f),
-        new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Damage, 3, 7.5f),
+        new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Damage, 0, 3f),	//flame thrower dammage = flame duration
+        new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Damage, 1, 4.5f),
+        new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Damage, 2, 7f),
+        new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Damage, 3, 10.5f),
 
         new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.RotationSpeed, 0, 1.5f),
         new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.RotationSpeed, 1, 1.5f),
