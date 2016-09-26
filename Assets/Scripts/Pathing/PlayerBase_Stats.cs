@@ -8,6 +8,8 @@ public class PlayerBase_Stats : MonoBehaviour
     public Sprite noDamage, thirdDamage, twoThirdDamage, destroyed;
     private bool dead = false;
     public static PlayerBase_Stats Instance = null;
+	WaveGenerator wg = null;
+	WaveGeneratorTutorial wgt = null;
 
     // guarantee no one can instantiate this
     protected PlayerBase_Stats()
@@ -20,6 +22,8 @@ public class PlayerBase_Stats : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = noDamage;
+		wg = FindObjectOfType<WaveGenerator>();
+		wgt = FindObjectOfType<WaveGeneratorTutorial>();
     }
 
     // Update is called once per frame
@@ -46,11 +50,10 @@ public class PlayerBase_Stats : MonoBehaviour
                 gameOverMsg.transform.SetParent(uiCanvas);
 				gameOverMsg.transform.localScale = new Vector3(1, 1, 1);
 
-				WaveGenerator wg = FindObjectOfType<WaveGenerator>();
-				wg.EndWaves ();
-				if (wg == null)
-				{
-					WaveGeneratorTutorial wgt = FindObjectOfType<WaveGeneratorTutorial>();
+				if (wg) {
+					wg.EndWaves ();
+				}
+				else if (wgt) {
 					wgt.EndWaves ();
 				}
 
