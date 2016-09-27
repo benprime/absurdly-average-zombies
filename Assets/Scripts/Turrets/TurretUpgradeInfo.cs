@@ -69,9 +69,9 @@ public static class TurretUpgradeInfo
 		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.RangeRadius, 3, 3f),
 
 		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Cost, 0, 5f),
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Cost, 1, 13f),
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Cost, 2, 21f),
-		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Cost, 3, 29f),
+		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Cost, 1, 12f),
+		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Cost, 2, 20f),
+		new TurretLevelInfo(TurretTypes.MachineGun, TurretField.Cost, 3, 28f),
 
         // Tar Slinger
 		//Secondary Trait
@@ -101,9 +101,9 @@ public static class TurretUpgradeInfo
 		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.RangeRadius, 3, 3.5f),
 
 		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.Cost, 0, 5f),
-		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.Cost, 1, 12f),
-		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.Cost, 2, 20f),
-		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.Cost, 3, 30f),
+		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.Cost, 1, 10f),
+		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.Cost, 2, 17f),
+		new TurretLevelInfo(TurretTypes.TarSlinger, TurretField.Cost, 3, 26f),
 
         // Flame Thrower
 		//Primary Trait
@@ -164,7 +164,7 @@ public static class TurretUpgradeInfo
         new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.RangeRadius, 2, 4.5f),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.RangeRadius, 3, 5.0f),
 
-		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 0, 10f),
+		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 0, 12f),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 1, 16f),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 2, 24f),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 3, 35f)
