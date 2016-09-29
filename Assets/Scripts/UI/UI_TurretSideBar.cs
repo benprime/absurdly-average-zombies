@@ -26,8 +26,14 @@ public class UI_TurretSideBar : MonoBehaviour
     private bool sb_isOpen = false;
     public void ToggleSideBar()
     {
-        if (!sb_isOpen) transform.Translate(-2, 0, 0); //TODO: 126 pixels or whatever size of sidebar is
-        else transform.Translate(2, 0, 0);
+        // Fix for: side bar doesn't quite pop all the way out in 16:9 aspect ratio
+        float moveDistance = 2.0f;
+        if (Camera.main.aspect == ControllingCameraAspectScript.SIXTEEN_NINE)
+        {
+            moveDistance = 2.5f;
+        }
+        if (!sb_isOpen) transform.Translate(-moveDistance, 0, 0); //TODO: 126 pixels or whatever size of sidebar is
+        else transform.Translate(moveDistance, 0, 0);
         sb_isOpen = !sb_isOpen;
     }
 

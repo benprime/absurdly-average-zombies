@@ -543,6 +543,6 @@ PlayerSettings:
   iOS::VR::enabledDevices: []
   tvOS::VR::enabledDevices: []
   cloudProjectId: 0e8de0ce-bdfa-4ae3-abba-f51a81c92df3
-  projectName: Zombie Towers
-  organizationId: nicholas-mack
+  projectName: Absurdly Average Zombies
+  organizationId: prototypical-games
   cloudEnabled: 0
