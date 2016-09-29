@@ -26,8 +26,15 @@ public class UI_TurretSideBar : MonoBehaviour
     private bool sb_isOpen = false;
     public void ToggleSideBar()
     {
-        if (!sb_isOpen) transform.Translate(-2, 0, 0); //TODO: 126 pixels or whatever size of sidebar is
-        else transform.Translate(2, 0, 0);
+        //if (!sb_isOpen) transform.Translate(-2, 0, 0); //TODO: 126 pixels or whatever size of sidebar is
+		if (!sb_isOpen) {
+			Vector3 newPos = new Vector3 (transform.localPosition.x - 100, transform.localPosition.y, transform.localPosition.z);
+			transform.localPosition = newPos;
+		} else {
+			Vector3 twoPos = new Vector3 (transform.localPosition.x + 100, transform.localPosition.y, transform.localPosition.z);
+			transform.localPosition = twoPos;
+			//transform.Translate (2, 0, 0);
+		}
         sb_isOpen = !sb_isOpen;
     }
 
