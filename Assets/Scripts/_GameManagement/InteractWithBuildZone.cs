@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using ICSharpCode.SharpZipLib;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InteractWithBuildZone : MonoBehaviour
 {
-    private static GameObject lastHit = null;
+    private static BuildZone lastBuildZoneClicked = null;
 
     // Use this for initialization
     void Start()
@@ -12,67 +13,92 @@ public class InteractWithBuildZone : MonoBehaviour
 
     public void HideRadialMenu()
     {
-        if (lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
+        lastBuildZoneClicked.CloseOut();
+        lastBuildZoneClicked = null;
     }
 
-    void Update()
+    private bool IsPointerOverUIComponent()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, 20, LayerMask.GetMask("BuildZone", "UI"));
-
-        // over a game object?
-        bool isOverUIButton = EventSystem.current.IsPointerOverGameObject();
+        bool isOverUIComponent = EventSystem.current.IsPointerOverGameObject();
+        if (isOverUIComponent)
+        {
+            return true;
+        }
 
         foreach (Touch t in Input.touches)
         {
             if (EventSystem.current.IsPointerOverGameObject(t.fingerId))
             {
-                isOverUIButton = true;
-                break;
+                return true;
             }
         }
-        bool isSingleTouchEnding = (Input.touchCount == 1) ? (Input.GetTouch(0).phase == TouchPhase.Ended && Input.GetTouch(0).phase == TouchPhase.Canceled) : false; //check to see if there is touch input, and if so, if the touch just ended
-
-        // mouse is over a BuildZone && do not place object when mouse is over button
-        if (hitInfo && !isOverUIButton)
-        {
-            HandleBuildZoneClick(hitInfo, isSingleTouchEnding);
-        }
-        else
-        {
-            if (hitInfo)
-            {
-                // if a turret is reloading, allow clicks to pass through reload animation
-                BuildZone bz = hitInfo.transform.gameObject.GetComponent<BuildZone>();
-                GameObject currentWeapon = bz ? bz.currentWeapon : null;
-                Turret t = currentWeapon ? currentWeapon.GetComponent<Turret>() : null;
-                if (isOverUIButton && t && t.reloadOverlayInstance)
-                {
-                    HandleBuildZoneClick(hitInfo, isSingleTouchEnding);
-                }
-            }
-
-            // mouse is not over a BuildZone
-            if (!isOverUIButton)
-            {
-                if (Input.GetMouseButtonDown(0) || isSingleTouchEnding)
-                {
-                    if (lastHit) lastHit.GetComponent<BuildZone>().CloseOut();
-                }
-            }
-        }
-
+        return false;
     }
 
-    private static void HandleBuildZoneClick(RaycastHit2D hitInfo, bool isSingleTouchEnding)
+    private BuildZone IsPointerOverBuildZone()
     {
-        GameObject hitZone = hitInfo.transform.gameObject;
-
-        if (Input.GetMouseButtonUp(0) || isSingleTouchEnding)
+        RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, 20, LayerMask.GetMask("BuildZone", "UI"));
+        if (hitInfo.transform == null || hitInfo.transform.gameObject == null)
         {
-            if (lastHit && lastHit != hitZone) lastHit.GetComponent<BuildZone>().CloseOut();
-            lastHit = hitZone;
+            return null;
+        }
 
-            hitZone.GetComponent<BuildZone>().PopRadialMenu(hitZone.transform.position);
+        return hitInfo.transform.gameObject.GetComponent<BuildZone>();
+    }
+
+    private bool ClickOccurred()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            return true;
+        }
+
+        foreach (Touch t in Input.touches)
+        {
+            if (t.phase == TouchPhase.Began)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void Update()
+    {
+        if (ClickOccurred())
+        {
+            // The user has clicked on a UI component.
+            // Return immediately to prevent click bleeding.
+            if (IsPointerOverUIComponent())
+            {
+                return;
+            }
+
+            // The user has clicked a build zone.
+            BuildZone bz = IsPointerOverBuildZone();
+            if (bz != null)
+            {
+                // If the user currently had a popup radial
+                // open for a different build zone, we close it.
+                if (lastBuildZoneClicked != null)
+                {
+                    lastBuildZoneClicked.CloseOut();
+                    lastBuildZoneClicked = null;
+                }
+
+                // popup radial for the click build zone
+                // and track what build zone we have open.
+                bz.PopRadialMenu();
+                lastBuildZoneClicked = bz;
+            }
+
+            // if the user has clicked anywhere else on the
+            // screen, if there is a radial open, we close it.
+            if (bz == null && lastBuildZoneClicked != null)
+            {
+                lastBuildZoneClicked.CloseOut();
+                lastBuildZoneClicked = null;
+            }
         }
     }
 }

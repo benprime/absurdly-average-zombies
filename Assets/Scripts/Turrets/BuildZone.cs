@@ -27,7 +27,7 @@ public class BuildZone : MonoBehaviour
         this.currentState = ZONE_STATE.EMPTY;
     }
 
-    public void PopRadialMenu(Vector3 location)
+    public void PopRadialMenu()
     {
         if (currentHub != null)
             return;
@@ -35,7 +35,7 @@ public class BuildZone : MonoBehaviour
         var uiCanvas = FindObjectOfType<Canvas>().transform;
         if (currentState == ZONE_STATE.EMPTY)
         {
-            currentHub = Instantiate(weaponRadial, location, Quaternion.identity) as GameObject;
+            currentHub = Instantiate(weaponRadial, gameObject.transform.position, Quaternion.identity) as GameObject;
 			currentHub.GetComponent<UI_WeaponRadial>().connectedZone = this;
 			currentHub.GetComponent<UI_WeaponRadial>().InitRadial();
             menuOpen = true;
@@ -50,7 +50,7 @@ public class BuildZone : MonoBehaviour
             currentWeapon.transform.FindChild("DetectionZone").GetComponent<SpriteRenderer>().enabled = true;
         }
         currentHub.transform.SetParent(uiCanvas, false);
-        currentHub.transform.position = ClampGameObjectInsideCamera(location, currentHub);
+        currentHub.transform.position = ClampGameObjectInsideCamera(gameObject.transform.position, currentHub);
     }
 
     public void CloseOut()
