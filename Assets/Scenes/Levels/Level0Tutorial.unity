@@ -1920,7 +1920,7 @@ MonoBehaviour:
       message: After you have built a turret, clicking the turret will open the upgrade
         menu.  Click the upgrade icon to upgrade your machine gun!
       sprite: {fileID: 21300000, guid: 82ca0e8f1a43ca04d8edd622ef37a9ff, type: 3}
-    startingMoney: 10
+    startingMoney: 12
     weaponRadial:
       N: 0
       S: 0
