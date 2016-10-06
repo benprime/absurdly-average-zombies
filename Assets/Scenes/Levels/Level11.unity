@@ -5258,6 +5258,13 @@ Prefab:
       propertyPath: levelMusic
       value: 
       objectReference: {fileID: 8300000, guid: 3a5aecbc02f7a96469d65efe018785ae, type: 3}
+    - target: {fileID: 11450838, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
+      propertyPath: waves.Array.data[0].beforeMessage
+      value: 'Rocket launcher is now available!
+
+
+        Ka-boooomz!'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7d0aa57e0f8d4a46bc38731d56618ff, type: 2}
   m_IsPrefabParent: 0
