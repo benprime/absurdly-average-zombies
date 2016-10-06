@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance = null;
+
+    public float FireDamage = 0.0f;
+    public float BulletDamage = 0.0f;
+    public float RocketDamage = 0.0f;
+
+    public float FireMoney = 0.0f;
+    public float BulletMoney = 0.0f;
+    public float RocketMoney = 0.0f;
 
     public ProgressManager progressManager;
 
@@ -21,24 +28,23 @@ public class GameManager : MonoBehaviour
     public int previousLevel = 0;
     public int bonusAmount = 0;
 
-    //Awake is always called before any Start functions
+    // Awake is always called before any Start functions
     void Awake()
     {
-        //Check if instance already exists
+        // Check if instance already exists
         if (Instance == null)
         {
-
-            //if not, set instance to this
+            // if not, set instance to this
             Instance = this;
             this.progressManager = new ProgressManager();
         }
-        //If instance already exists and it's not this:
+        // If instance already exists and it's not this:
         else if (Instance != this)
         {
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            // Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
         }
-        //Sets this to not be destroyed when reloading scene
+        // Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
     }
 
@@ -50,7 +56,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void PlayerCurrencyTransaction(int amount)
@@ -58,7 +63,7 @@ public class GameManager : MonoBehaviour
         player_totalCurrency += amount;
 
         int currLevel = SceneManager.GetActiveScene().buildIndex;
-        //limit player money based on game levels
+        // limit player money based on game levels
         if (player_totalCurrency > 50 && currLevel <= 9 /*level 5*/)
             player_totalCurrency = 50;
         else if (player_totalCurrency > 75 && currLevel <= 14 /*level 10*/)
@@ -82,9 +87,17 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
+        GameManager.Instance.FireDamage = 0.0f;
+        GameManager.Instance.BulletDamage = 0.0f;
+        GameManager.Instance.RocketDamage = 0.0f;
+
+        GameManager.Instance.FireMoney = 0.0f;
+        GameManager.Instance.BulletMoney = 0.0f;
+        GameManager.Instance.RocketMoney = 0.0f;
+
         AudioListener.volume = Convert.ToInt32(!mute);
 
-        //only display ad if player goes from the game back to menu or retries level
+        // only display ad if player goes from the game back to menu or retries level
         if (previousLevel > 3)
         {
             if (Advertisement.IsReady())

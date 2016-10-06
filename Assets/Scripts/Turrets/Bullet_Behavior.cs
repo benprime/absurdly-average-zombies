@@ -39,7 +39,7 @@ public class Bullet_Behavior : MonoBehaviour
         if (other.tag == "enemy")
         {
             Zombie z = other.GetComponent<Zombie>();
-            z.TakeDamage(this.damage, Zombie.DamageType.medium);
+            z.TakeDamage(this.damage, Zombie.DamageType.Bullet);
             this.Explode(null);
         }
     }

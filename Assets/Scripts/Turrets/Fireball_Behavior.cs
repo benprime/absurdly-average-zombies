@@ -31,7 +31,7 @@ public class Fireball_Behavior : Bullet_Behavior
             Zombie z = other.gameObject.GetComponent<Zombie>();
 
             //fireballs do impact damage at a fraction of their dps damage
-            z.TakeDamage(this.damage * this.impactDmgMod, Zombie.DamageType.light);
+            z.TakeDamage(this.damage * this.impactDmgMod, Zombie.DamageType.Fire);
 
             // Fireballs set zombies on fire
             z.CatchFire(this.damage);

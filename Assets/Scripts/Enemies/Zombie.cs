@@ -156,8 +156,7 @@ public class Zombie : MonoBehaviour
             if (Time.time > nextFlameDamageTime)
             {
                 nextFlameDamageTime += this.flameDamageInterval;
-                this.TakeDamage(this.fireDamage, DamageType.light);
-                //this.fireDamage--;
+                this.TakeDamage(this.fireDamage, DamageType.Fire);
                 this.fireTimer--;
                 if (this.fireTimer <= 0)
                 {
@@ -171,10 +170,23 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    public enum DamageType { light, medium, heavy }
+    public enum DamageType { Fire, Bullet, Rocket }
     public void TakeDamage(float amount, DamageType dmgType)
     {
-        this.hitPoints -= amount * DamageTypeModifier(dmgType);
+        float finalDamage = amount * DamageTypeModifier(dmgType);
+        switch (dmgType)
+        {
+            case DamageType.Bullet:
+                GameManager.Instance.BulletDamage += finalDamage;
+                break;
+            case DamageType.Fire:
+                GameManager.Instance.FireDamage += finalDamage;
+                break;
+            case DamageType.Rocket:
+                GameManager.Instance.RocketDamage += finalDamage;
+                break;
+        }
+        this.hitPoints -= finalDamage;
 
         if (this.hb.healthBar.rectTransform)
         {
@@ -257,21 +269,21 @@ public class Zombie : MonoBehaviour
 
     protected float DamageTypeModifier(DamageType dmgType)
     {
-        if (dmgType == DamageType.light)
+        if (dmgType == DamageType.Fire)
         {
             if (zSize == ZombieSize.Small)
                 return .5f;
             else if (zSize == ZombieSize.Large)
                 return 1.5f;
         }
-        else if (dmgType == DamageType.medium)
+        else if (dmgType == DamageType.Bullet)
         {
             if (zSize == ZombieSize.Medium)
                 return 1.5f;
             else if (zSize == ZombieSize.Boss)
                 return .5f;
         }
-        else if (dmgType == DamageType.heavy)
+        else if (dmgType == DamageType.Rocket)
         {
             if (zSize == ZombieSize.Small)
                 return 1.5f;
