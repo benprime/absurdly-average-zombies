@@ -36,17 +36,17 @@ public class PopupMessageButton : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        this.SetTextOffset(-3, 0);
+        this.SetTextOffset(5, 0);
     }
 
     public void OnMouseDown()
     {
-        this.SetTextOffset(-7, 0);
+        this.SetTextOffset(-1, 0);
     }
 
     public void OnMouseUp()
     {
-        this.SetTextOffset(-3, 0);
+        this.SetTextOffset(5, 0);
     }
 
     public void ButtonClick()
