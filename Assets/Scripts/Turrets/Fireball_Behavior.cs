@@ -14,16 +14,6 @@ public class Fireball_Behavior : Bullet_Behavior
         transform.Rotate(0.0f, 0.0f, z);
     }
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, startPos) > turret.range)
-        {
-            Destroy(this.gameObject, 1);
-        }
-    }
-
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "enemy")
