@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -70,6 +71,20 @@ public class UI_WeaponRadial : MonoBehaviour
         {
             GameManager.Instance.PlayerCurrencyTransaction(-cost);
             GameObject weap = Instantiate(obj, connectedZone.transform.position, Quaternion.identity) as GameObject;
+
+            Turret t = weap.GetComponent<Turret>();
+            switch (t.type)
+            {
+                case TurretTypes.FlameThrower:
+                    GameManager.Instance.FireMoney += cost;
+                    break;
+                case TurretTypes.MachineGun:
+                    GameManager.Instance.BulletMoney += cost;
+                    break;
+                case TurretTypes.RocketLauncher:
+                    GameManager.Instance.RocketMoney += cost;
+                    break;
+            }
 
             connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;
             connectedZone.currentWeapon = weap;

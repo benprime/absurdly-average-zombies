@@ -12,8 +12,8 @@ public class Wave
     [HideInInspector]
     public string name = "Wave";
     public float delayBeforeWave;
-	public string beforeMessageHeader;
-	public string waveCountdownText;
+    public string beforeMessageHeader;
+    public string waveCountdownText;
     [TextArea]
     public string beforeMessage;
 }
@@ -29,33 +29,35 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
     private Text countDownText;
     private GameObject PopupMessage;
     private int currentWaveIndex = 0;
-	public AudioClip levelMusic;
-	float timer = 0f;
-	public AudioClip[] zombieSounds;
-	public bool isWaveActive = false;
+    public AudioClip levelMusic;
+    float timer = 0f;
+    public AudioClip[] zombieSounds;
+    public bool isWaveActive = false;
 
     void ShowMessage(string headerText, string messageText)
-	{
-		this.PopupMessage.SetActive (true);
+    {
+        this.PopupMessage.SetActive(true);
 
-		this.waveHeaderText.text = headerText;
-		this.waveMessageText.text = messageText;
+        this.waveHeaderText.text = headerText;
+        this.waveMessageText.text = messageText;
 
-		BuildZone[] allZones = FindObjectsOfType<BuildZone> ();
-		if (allZones.Length > 0) {
-			foreach (BuildZone zone in allZones) {
-				zone.CloseOut ();
-			}
-		}
+        BuildZone[] allZones = FindObjectsOfType<BuildZone>();
+        if (allZones.Length > 0)
+        {
+            foreach (BuildZone zone in allZones)
+            {
+                zone.CloseOut();
+            }
+        }
     }
 
     IEnumerator SpawnLoop()
     {
         foreach (Wave W in waves)
-		{
-			if (currentWaveIndex >= waves.Count ())
-				break;
-				
+        {
+            if (currentWaveIndex >= waves.Count())
+                break;
+
             m_CurrentWave = W;
 
             if (!string.IsNullOrEmpty(W.beforeMessage))
@@ -71,7 +73,7 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
             }
 
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
-            //Display countdown to wave start
+            // Display countdown to wave start
             if (W.delayBeforeWave > 0)
             {
                 StartCoroutine(DrawBeforeText(W));
@@ -79,35 +81,37 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
             }
             this.countDownText.enabled = false;
 
-            //Spawners start
-			isWaveActive = true;
+            // Spawners start
+            isWaveActive = true;
             ZombieSpawner[] spawns = FindObjectsOfType<ZombieSpawner>();
             foreach (ZombieSpawner zs in spawns)
             {
-				//possibly add a yield return here
-				StartCoroutine(zs.BeginSpawnWave(currentWaveIndex));
+                // possibly add a yield return here
+                StartCoroutine(zs.BeginSpawnWave(currentWaveIndex));
             }
 
             //allow 1 second for spawners to start
             yield return new WaitForSeconds(1);
-			float sounder = Random.Range (2f, 5f);
+            float sounder = Random.Range(2f, 5f);
             // wave is not over until all zombies are dead
-			while (IsWaveInProgress())
-			{
-				timer += Time.deltaTime;
-				if (timer >= sounder) {
-					AudioSource aud = GetComponent<AudioSource> ();
-					int randSound = Random.Range (0,zombieSounds.Count());			
-					aud.clip = zombieSounds [randSound];
-					aud.Stop ();
-					aud.Play ();
-					timer = 0;
-					sounder = Random.Range (3f, 8f);
-				}
+            while (IsWaveInProgress())
+            {
+                timer += Time.deltaTime;
+                if (timer >= sounder)
+                {
+                    AudioSource aud = GetComponent<AudioSource>();
+                    int randSound = Random.Range(0, zombieSounds.Count());
+                    aud.clip = zombieSounds[randSound];
+                    aud.Stop();
+                    aud.Play();
+                    timer = 0;
+                    sounder = Random.Range(3f, 8f);
+                }
                 yield return null;
-			}
-			//wait a second before next wave / end level
-			yield return new WaitForSeconds(1);
+            }
+
+            //wait a second before next wave / end level
+            yield return new WaitForSeconds(1);
 
             // A wave has complete
             currentWaveIndex++;
@@ -115,31 +119,44 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
         }
 
         // a level is completed
-		if(PlayerBase_Stats.Instance.currentHitPoints > 0) 
-		{
-	        if (PlayerBase_Stats.Instance.currentHitPoints == PlayerBase_Stats.Instance.maxHitPoints)
-	        {
-	            ShowMessage("Bonus!", "Your base didn't take any damage. Have five bucks!");
-	            GameManager.Instance.bonusAmount = 5;
-	        }
-			else
-			{
-				this.ShowMessage("Congratulations!", "Level Complete!");
-			}
+        if (PlayerBase_Stats.Instance.currentHitPoints > 0)
+        {
+            string levelStats = string.Format("Machine Guns: {0:F2} DMG / ${1} / {2:F2} POW\n",
+                GameManager.Instance.BulletDamage,
+                GameManager.Instance.BulletMoney,
+                GameManager.Instance.BulletDamage / GameManager.Instance.BulletMoney);
 
-	        // do nothing while the popup message is up
-	        while (this.PopupMessage.activeSelf)
-	        {
-	            yield return null;
-	        }
+            levelStats += string.Format("Flamethrowers: {0:F2} DMG / ${1} / {2:F2} POW\n",
+                GameManager.Instance.FireDamage,
+                GameManager.Instance.FireMoney,
+                GameManager.Instance.FireDamage / GameManager.Instance.FireMoney);
 
-	        GameManager.Instance.progressManager.CompleteLevel(SceneManager.GetActiveScene().name);
-			Screen.sleepTimeout = SleepTimeout.SystemSetting;
-			GameManager.Instance.GetComponent<AudioSource>().clip = GameManager.Instance.menuMusic;
-			GameManager.Instance.GetComponent<AudioSource>().Play();
-	        SceneManager.LoadScene("SelectLevel");
-	        yield return null;  // prevents crash if all delays are 0
-		}
+            levelStats += string.Format("Rockets: {0:F2} DMG / ${1} / {2:F2} POW\n",
+                GameManager.Instance.RocketDamage,
+                GameManager.Instance.RocketMoney,
+                GameManager.Instance.RocketDamage / GameManager.Instance.RocketMoney);
+
+            if (PlayerBase_Stats.Instance.currentHitPoints == PlayerBase_Stats.Instance.maxHitPoints)
+            {
+                levelStats += "Your base didn't take any damage. Have five bucks!\n";
+                GameManager.Instance.bonusAmount = 5;
+            }
+
+            this.ShowMessage("Congratulations!", "Level Completed.\n" + levelStats);
+
+            // do nothing while the popup message is up
+            while (this.PopupMessage.activeSelf)
+            {
+                yield return null;
+            }
+
+            GameManager.Instance.progressManager.CompleteLevel(SceneManager.GetActiveScene().name);
+            Screen.sleepTimeout = SleepTimeout.SystemSetting;
+            GameManager.Instance.GetComponent<AudioSource>().clip = GameManager.Instance.menuMusic;
+            GameManager.Instance.GetComponent<AudioSource>().Play();
+            SceneManager.LoadScene("SelectLevel");
+            yield return null;  // prevents crash if all delays are 0
+        }
     }
 
     IEnumerator DrawBeforeText(Wave w)
@@ -149,7 +166,7 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
         this.countDownText.enabled = true;
         for (int i = delay - 1; i > -1; i--)
         {
-			this.countDownText.text = w.waveCountdownText + "\nIncoming\n" + i.ToString();
+            this.countDownText.text = w.waveCountdownText + "\nIncoming\n" + i.ToString();
             yield return new WaitForSeconds(1);
         }
         this.countDownText.enabled = false;
@@ -186,10 +203,11 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
             GameManager.Instance.bonusAmount = 0;
         }
         GameManager.Instance.player_totalCurrency = startingMoney;
-		if(levelMusic != null || GameManager.Instance.GetComponent<AudioSource>().clip != levelMusic) {
-			GameManager.Instance.GetComponent<AudioSource>().clip = levelMusic;
-			GameManager.Instance.GetComponent<AudioSource>().Play();
-		}
+        if (levelMusic != null || GameManager.Instance.GetComponent<AudioSource>().clip != levelMusic)
+        {
+            GameManager.Instance.GetComponent<AudioSource>().clip = levelMusic;
+            GameManager.Instance.GetComponent<AudioSource>().Play();
+        }
 
         currentWaveIndex = 0;
         StartCoroutine(SpawnLoop());
@@ -199,13 +217,15 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
     {
     }
 
-	public bool IsWaveInProgress() {
-		return (isWaveActive || GameObject.FindGameObjectsWithTag("enemy").Length > 0);
-	}
+    public bool IsWaveInProgress()
+    {
+        return (isWaveActive || GameObject.FindGameObjectsWithTag("enemy").Length > 0);
+    }
 
-	public void EndWaves() {
-		isWaveActive = false;
-		currentWaveIndex = 100;
-	}
+    public void EndWaves()
+    {
+        isWaveActive = false;
+        currentWaveIndex = 100;
+    }
 
 }

@@ -76,11 +76,25 @@ public class UI_UpgradeRadial : MonoBehaviour
 
         if (connectedZone)
         {
-            //charge player cost of upgrade
+            // charge player cost of upgrade
             int cost = CalculateUpgradeCost();
             if (GameManager.Instance.GetPlayerTotalCurrency() < cost) return;
             GameManager.Instance.PlayerCurrencyTransaction(-cost);
-            //increase weapon worth
+
+            switch (turret.type)
+            {
+                case TurretTypes.FlameThrower:
+                    GameManager.Instance.FireMoney += cost;
+                    break;
+                case TurretTypes.MachineGun:
+                    GameManager.Instance.BulletMoney += cost;
+                    break;
+                case TurretTypes.RocketLauncher:
+                    GameManager.Instance.RocketMoney += cost;
+                    break;
+            }
+
+            // increase weapon worth
             turret.costCurrency += cost;
 
             // turret upgrades
@@ -99,8 +113,9 @@ public class UI_UpgradeRadial : MonoBehaviour
             currentWeaponUpgradeSprite = connectedZone.transform.FindChild("Stars").GetComponent<SpriteRenderer>();
             turret = connectedZone.currentWeapon.GetComponent<Turret>();
 
-            //much hackery going on here due to lack of sleep TODO: optimize!!!! (shouldn't be in the update loop)
+            // todo: SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton calls SetSellButton also... so do we need this call?
             SetSellButton();
+
             SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton();
         }
     }

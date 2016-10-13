@@ -26,7 +26,7 @@ public class BombBlast : MonoBehaviour
         if (other.tag == "enemy")
         {
             Zombie z = other.GetComponent<Zombie>();
-            z.TakeDamage(this.damage, Zombie.DamageType.heavy);
+            z.TakeDamage(this.damage, Zombie.DamageType.Rocket);
         }
     }
 
