@@ -16,7 +16,8 @@ public class ButtonActions : MonoBehaviour
     }
 
     public void ExitTitle()
-    {
+	{
+		Screen.sleepTimeout = SleepTimeout.SystemSetting;
         Application.Quit();
     }
 
@@ -50,6 +51,16 @@ public class ButtonActions : MonoBehaviour
         if (window) Destroy(window);
         else Destroy(gameObject);
     }
+
+	public void BackOut(GameObject window) {
+		int currentScene = SceneManager.GetActiveScene ().buildIndex;
+		if (currentScene > 3) {	//In a level = go back to select level
+			Screen.sleepTimeout = SleepTimeout.SystemSetting;
+			SceneManager.LoadScene("SelectLevel");
+		} else if (currentScene == 1) {	//At main menu = exit game
+			ExitTitle();
+		}
+	}
 
     // Use this for initialization
     void Start()

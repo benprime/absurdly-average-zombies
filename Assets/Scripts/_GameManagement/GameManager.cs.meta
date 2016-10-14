@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: d77346066df98844c92809644e6baa1e
-timeCreated: 1434677411
+timeCreated: 1476409281
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - selectedObjToBuild: {instanceID: 0}
+  - menuMusic: {instanceID: 0}
+  - confirmExitPop: {fileID: 1000010922240482, guid: 050f226f913032e4b9ff41ae4f298ce9,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

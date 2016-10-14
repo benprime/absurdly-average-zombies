@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public int previousLevel = 0;
     public int bonusAmount = 0;
 
+	public GameObject confirmExitPop;
+
     // Awake is always called before any Start functions
     void Awake()
     {
@@ -56,6 +58,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (Input.GetKeyUp (KeyCode.Escape)) {
+			int currentScene = SceneManager.GetActiveScene ().buildIndex;
+			if (currentScene > 3 || currentScene == 1) {	//At Main Menu or in a level
+				if (confirmExitPop && GameObject.FindGameObjectsWithTag("ConfirmScreen").Length == 0) {	//create a confirmation pop up
+					GameObject clone = Instantiate (confirmExitPop);
+					clone.transform.SetParent (GameObject.Find ("Canvas").transform, false);
+				}
+			} else if (currentScene == 2 || currentScene == 3) {	//levels 2-3 are sub menus
+				SceneManager.LoadScene("MainMenu");	//go back to main menu
+			}
+		}
     }
 
     public void PlayerCurrencyTransaction(int amount)

@@ -127,6 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77346066df98844c92809644e6baa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireDamage: 0
+  BulletDamage: 0
+  RocketDamage: 0
+  FireMoney: 0
+  BulletMoney: 0
+  RocketMoney: 0
   player_totalCurrency: 222
   selectedObjToBuild: {fileID: 165540, guid: ddb723f1b0f66e446879283b9fa60f23, type: 2}
   menu: 0
@@ -134,6 +140,8 @@ MonoBehaviour:
   menuMusic: {fileID: 8300000, guid: 7afbe9f47710e06499ad3a67c577c419, type: 3}
   previousLevel: 0
   bonusAmount: 0
+  confirmExitPop: {fileID: 1000010922240482, guid: 050f226f913032e4b9ff41ae4f298ce9,
+    type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

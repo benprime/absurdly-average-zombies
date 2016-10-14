@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 public class UI_TurretSideBar : MonoBehaviour
 {
 
-    private GameManager gm;
+	private GameManager gm;
+
+	public GameObject confirmExitPop;
 
     // Use this for initialization
     void Start()
@@ -50,9 +52,11 @@ public class UI_TurretSideBar : MonoBehaviour
     }
 
     public void ExitGame()
-    {
-        Screen.sleepTimeout = SleepTimeout.SystemSetting;
-        Application.Quit();
+	{
+		if (confirmExitPop && GameObject.FindGameObjectsWithTag("ConfirmScreen").Length == 0) {	//create a confirmation pop up
+			GameObject clone = Instantiate (confirmExitPop);
+			clone.transform.SetParent (GameObject.Find ("Canvas").transform, false);
+		}
     }
 
 }
