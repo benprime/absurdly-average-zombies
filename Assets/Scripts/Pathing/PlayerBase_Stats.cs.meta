@@ -1,10 +1,17 @@
 fileFormatVersion: 2
 guid: 58b30f07a5559054fbec65d9c40290ff
-timeCreated: 1434698531
+timeCreated: 1476667575
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameOverPopup: {instanceID: 0}
+  - noDamage: {instanceID: 0}
+  - thirdDamage: {instanceID: 0}
+  - twoThirdDamage: {instanceID: 0}
+  - destroyed: {instanceID: 0}
+  - damageSound: {fileID: 8300000, guid: ecabac3806d9a7445bf5fdc071f11220, type: 3}
+  - destructionSound: {fileID: 8300000, guid: 535809cc62c3ae44490b3cbdf16d206b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -11,6 +11,8 @@ public class PlayerBase_Stats : MonoBehaviour
 	WaveGenerator wg = null;
 	WaveGeneratorTutorial wgt = null;
 
+	public AudioClip damageSound, destructionSound;
+
     // guarantee no one can instantiate this
     protected PlayerBase_Stats()
     {
@@ -34,13 +36,9 @@ public class PlayerBase_Stats : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        UI_FloatingHealthBar hb = GetComponent<UI_FloatingHealthBar>();
+		UI_FloatingHealthBar hb = GetComponent<UI_FloatingHealthBar>();
 
-        if (currentHitPoints > 0)
-        {
-            currentHitPoints -= damage;
-            if (hb.healthBar) hb.healthBar.rectTransform.localScale = new Vector3(Mathf.Max(0, (currentHitPoints / maxHitPoints)), 1, 1);
-        }
+		AudioSource aud = GetComponent<AudioSource>();
         if (!dead)
         {
             if (currentHitPoints <= 0)
@@ -60,18 +58,34 @@ public class PlayerBase_Stats : MonoBehaviour
                 Destroy(hb.healthBar.gameObject);
                 gameObject.GetComponent<SpriteRenderer>().sprite = destroyed;
                 dead = true;
-                Instantiate(destroyed, transform.position, transform.rotation);
+				Instantiate(destroyed, transform.position, transform.rotation);
+
+				aud.Stop();
+				aud.PlayOneShot (destructionSound, .5f);
             }
             else if (currentHitPoints <= maxHitPoints / 3)
             {
                 hb.healthBar.color = Color.red;
-                gameObject.GetComponent<SpriteRenderer>().sprite = twoThirdDamage;
+				gameObject.GetComponent<SpriteRenderer>().sprite = twoThirdDamage;
+
             }
             else if (currentHitPoints <= 2 * (maxHitPoints / 3))
             {
                 hb.healthBar.color = Color.yellow;
-                gameObject.GetComponent<SpriteRenderer>().sprite = thirdDamage;
+				gameObject.GetComponent<SpriteRenderer>().sprite = thirdDamage;
+
             }
-        }
+		}
+
+		if (currentHitPoints > 0)
+		{
+			currentHitPoints -= damage;
+			if (hb.healthBar) hb.healthBar.rectTransform.localScale = new Vector3(Mathf.Max(0, (currentHitPoints / maxHitPoints)), 1, 1);
+
+			//Make this play through before playing the next clip
+			//aud.Stop();
+			if(!aud.isPlaying)
+				aud.PlayOneShot (damageSound, Random.Range(.6f,1.0f));
+		}
     }
 }
