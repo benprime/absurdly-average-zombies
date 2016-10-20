@@ -15,7 +15,7 @@ public class UI_GameCurrencyHUD : MonoBehaviour
         var t = gameObject.GetComponent<Text>();
         if (t)
         {
-            t.text = "$" + GameManager.Instance.GetPlayerTotalCurrency();
+            t.text = "$ " + GameManager.Instance.GetPlayerTotalCurrency();
         }
     }
 }
