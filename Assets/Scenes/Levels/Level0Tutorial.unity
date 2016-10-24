@@ -738,6 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86290424357bd534784cc4573af4a40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  confirmExitPop: {fileID: 0}
 --- !u!114 &58279983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,7 +2469,7 @@ MonoBehaviour:
       W: 0
     upgradeRadial:
       E: 0
-      W: 0
+      W: 1
     clearTurrets: 0
   - name: 
     delayBeforeWave: 0
@@ -2486,7 +2487,7 @@ MonoBehaviour:
       W: 0
     upgradeRadial:
       E: 1
-      W: 0
+      W: 1
     clearTurrets: 0
   - name: 
     delayBeforeWave: 0
@@ -2503,7 +2504,7 @@ MonoBehaviour:
       W: 1
     upgradeRadial:
       E: 1
-      W: 0
+      W: 1
     clearTurrets: 0
   - name: 
     delayBeforeWave: 0
@@ -2521,7 +2522,7 @@ MonoBehaviour:
       W: 0
     upgradeRadial:
       E: 1
-      W: 0
+      W: 1
     clearTurrets: 0
   - name: 
     delayBeforeWave: 0
@@ -2544,7 +2545,7 @@ MonoBehaviour:
       W: 0
     upgradeRadial:
       E: 1
-      W: 0
+      W: 1
     clearTurrets: 0
   levelMusic: {fileID: 8300000, guid: 34745ae4ff9acf34697bd50ec81c0de1, type: 3}
   zombieSounds:
