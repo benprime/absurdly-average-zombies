@@ -174,18 +174,6 @@ public class Zombie : MonoBehaviour
     public void TakeDamage(float amount, DamageType dmgType)
     {
         float finalDamage = amount * DamageTypeModifier(dmgType);
-        switch (dmgType)
-        {
-            case DamageType.Bullet:
-                GameManager.Instance.BulletDamage += finalDamage;
-                break;
-            case DamageType.Fire:
-                GameManager.Instance.FireDamage += finalDamage;
-                break;
-            case DamageType.Rocket:
-                GameManager.Instance.RocketDamage += finalDamage;
-                break;
-        }
         this.hitPoints -= finalDamage;
 
         if (this.hb.healthBar.rectTransform)

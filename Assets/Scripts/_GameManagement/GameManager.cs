@@ -7,14 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
 
-    public float FireDamage = 0.0f;
-    public float BulletDamage = 0.0f;
-    public float RocketDamage = 0.0f;
-
-    public float FireMoney = 0.0f;
-    public float BulletMoney = 0.0f;
-    public float RocketMoney = 0.0f;
-
     public ProgressManager progressManager;
 
     public int player_totalCurrency = 0;
@@ -100,14 +92,6 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        GameManager.Instance.FireDamage = 0.0f;
-        GameManager.Instance.BulletDamage = 0.0f;
-        GameManager.Instance.RocketDamage = 0.0f;
-
-        GameManager.Instance.FireMoney = 0.0f;
-        GameManager.Instance.BulletMoney = 0.0f;
-        GameManager.Instance.RocketMoney = 0.0f;
-
         AudioListener.volume = Convert.ToInt32(!mute);
 
         // only display ad if player goes from the game back to menu or retries level

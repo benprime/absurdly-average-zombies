@@ -73,18 +73,6 @@ public class UI_WeaponRadial : MonoBehaviour
             GameObject weap = Instantiate(obj, connectedZone.transform.position, Quaternion.identity) as GameObject;
 
             Turret t = weap.GetComponent<Turret>();
-            switch (t.type)
-            {
-                case TurretTypes.FlameThrower:
-                    GameManager.Instance.FireMoney += cost;
-                    break;
-                case TurretTypes.MachineGun:
-                    GameManager.Instance.BulletMoney += cost;
-                    break;
-                case TurretTypes.RocketLauncher:
-                    GameManager.Instance.RocketMoney += cost;
-                    break;
-            }
 
             connectedZone.currentState = BuildZone.ZONE_STATE.BUILT_ON;
             connectedZone.currentWeapon = weap;

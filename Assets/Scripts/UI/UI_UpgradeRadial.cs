@@ -81,19 +81,6 @@ public class UI_UpgradeRadial : MonoBehaviour
             if (GameManager.Instance.GetPlayerTotalCurrency() < cost) return;
             GameManager.Instance.PlayerCurrencyTransaction(-cost);
 
-            switch (turret.type)
-            {
-                case TurretTypes.FlameThrower:
-                    GameManager.Instance.FireMoney += cost;
-                    break;
-                case TurretTypes.MachineGun:
-                    GameManager.Instance.BulletMoney += cost;
-                    break;
-                case TurretTypes.RocketLauncher:
-                    GameManager.Instance.RocketMoney += cost;
-                    break;
-            }
-
             // increase weapon worth
             turret.costCurrency += cost;
 

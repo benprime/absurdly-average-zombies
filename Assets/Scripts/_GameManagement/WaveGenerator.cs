@@ -121,28 +121,15 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
         // a level is completed
         if (PlayerBase_Stats.Instance.currentHitPoints > 0)
         {
-            string levelStats = string.Format("Machine Guns: {0:F2} DMG / ${1} / {2:F2} POW\n",
-                GameManager.Instance.BulletDamage,
-                GameManager.Instance.BulletMoney,
-                GameManager.Instance.BulletDamage / GameManager.Instance.BulletMoney);
-
-            levelStats += string.Format("Flamethrowers: {0:F2} DMG / ${1} / {2:F2} POW\n",
-                GameManager.Instance.FireDamage,
-                GameManager.Instance.FireMoney,
-                GameManager.Instance.FireDamage / GameManager.Instance.FireMoney);
-
-            levelStats += string.Format("Rockets: {0:F2} DMG / ${1} / {2:F2} POW\n",
-                GameManager.Instance.RocketDamage,
-                GameManager.Instance.RocketMoney,
-                GameManager.Instance.RocketDamage / GameManager.Instance.RocketMoney);
+            string endMsg = "";
 
             if (PlayerBase_Stats.Instance.currentHitPoints == PlayerBase_Stats.Instance.maxHitPoints)
             {
-                levelStats += "Your base didn't take any damage. Have five bucks!\n";
+                endMsg += "Your base didn't take any damage. Have five bucks!\n";
                 GameManager.Instance.bonusAmount = 5;
             }
 
-            this.ShowMessage("Congratulations!", "Level Completed.\n" + levelStats);
+            this.ShowMessage("Congratulations!", "Level Completed.\n" + endMsg);
 
             // do nothing while the popup message is up
             while (this.PopupMessage.activeSelf)
