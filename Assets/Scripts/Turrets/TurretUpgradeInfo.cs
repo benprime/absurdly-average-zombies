@@ -135,7 +135,7 @@ public static class TurretUpgradeInfo
 		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Cost, 0, 8f),
 		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Cost, 1, 15f),
 		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Cost, 2, 24f),
-		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Cost, 3, 34f),
+		new TurretLevelInfo(TurretTypes.FlameThrower, TurretField.Cost, 3, 38f),
 
         // Rocket Launcher
 		//Secondary Trait
@@ -167,7 +167,7 @@ public static class TurretUpgradeInfo
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 0, 12f),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 1, 16f),
 		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 2, 24f),
-		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 3, 35f)
+		new TurretLevelInfo(TurretTypes.RocketLauncher, TurretField.Cost, 3, 39f)
     };
 
     /// <summary>
