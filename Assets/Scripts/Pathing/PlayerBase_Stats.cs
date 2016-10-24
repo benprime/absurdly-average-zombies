@@ -85,7 +85,7 @@ public class PlayerBase_Stats : MonoBehaviour
 			//Make this play through before playing the next clip
 			//aud.Stop();
 			if(!aud.isPlaying)
-				aud.PlayOneShot (damageSound, Random.Range(.6f,1.0f));
+				aud.PlayOneShot (damageSound, Random.Range(.8f,1.0f));
 		}
     }
 }
