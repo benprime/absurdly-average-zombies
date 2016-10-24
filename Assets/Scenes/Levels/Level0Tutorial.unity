@@ -2481,7 +2481,7 @@ MonoBehaviour:
       sprite: {fileID: 21300000, guid: 82ca0e8f1a43ca04d8edd622ef37a9ff, type: 3}
     startingMoney: 12
     weaponRadial:
-      N: 0
+      N: 1
       S: 0
       E: 0
       W: 0
@@ -2498,7 +2498,7 @@ MonoBehaviour:
       sprite: {fileID: 21300000, guid: d5e2351e15f22664883828cdd6a1e5dc, type: 3}
     startingMoney: 10
     weaponRadial:
-      N: 0
+      N: 1
       S: 0
       E: 0
       W: 1
@@ -2516,10 +2516,10 @@ MonoBehaviour:
       sprite: {fileID: 21300000, guid: 04dd94640eaf28745ae25600150f32cf, type: 3}
     startingMoney: 10
     weaponRadial:
-      N: 0
+      N: 1
       S: 1
       E: 0
-      W: 0
+      W: 1
     upgradeRadial:
       E: 1
       W: 1
@@ -2539,10 +2539,10 @@ MonoBehaviour:
       sprite: {fileID: 21300000, guid: 8109862b8b4b3ad4c945020d7be17665, type: 3}
     startingMoney: 15
     weaponRadial:
-      N: 0
-      S: 0
+      N: 1
+      S: 1
       E: 1
-      W: 0
+      W: 1
     upgradeRadial:
       E: 1
       W: 1
