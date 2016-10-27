@@ -195,6 +195,8 @@ public class Turret : MonoBehaviour
         // rotate toward the target
         float step = rotationSpeed * Time.deltaTime;
         Vector3 targetRotation = Vector3.Normalize(target.position - transform.position);
+        targetRotation.z = 0; // lock z axis to 0 (to prevent wonky rotations)
+
         transform.up = Vector3.RotateTowards(transform.up, targetRotation, step, 0.0f);
 
         // if the target is within the "shootWithinDegrees" property, we fire
