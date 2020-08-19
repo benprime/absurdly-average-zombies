@@ -62,8 +62,6 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
     private GameObject PopupMessage;
     private int currentWaveIndex = 0;
     public AudioClip levelMusic;
-    float timer = 0f;
-    public AudioClip[] zombieSounds;
     public bool isWaveActive = false;
 
     public MessageData SuccessMessage;
@@ -151,22 +149,11 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
 
             //allow 1 second for spawners to start
             yield return new WaitForSeconds(1);
-            float sounder = Random.Range(2f, 5f);
+            
             // wave is not over until all zombies are dead
             while (isWaveActive || FindObjectsOfType<Zombie>().Length > 0)
             {
-                timer += Time.deltaTime;
-                if (timer >= sounder)
-                {
-                    AudioSource aud = GetComponent<AudioSource>();
-                    int randSound = Random.Range(0, zombieSounds.Length);
-                    aud.clip = zombieSounds[randSound];
-                    aud.Stop();
-                    aud.Play();
-                    timer = 0;
-                    sounder = Random.Range(3f, 8f);
-                }
-                yield return null;
+                yield return new WaitForSeconds(0.1f);
             }
 
             // A wave has complete

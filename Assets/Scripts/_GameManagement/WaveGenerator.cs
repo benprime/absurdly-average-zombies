@@ -22,16 +22,12 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
 {
     public int startingMoney;
     public List<Wave> waves;
-    private Wave m_CurrentWave;
-    public Wave CurrentWave { get { return m_CurrentWave; } }
     private Text waveHeaderText;
     private Text waveMessageText;
     private Text countDownText;
     private GameObject PopupMessage;
     private int currentWaveIndex = 0;
     public AudioClip levelMusic;
-    float timer = 0f;
-    public AudioClip[] zombieSounds;
     public bool isWaveActive = false;
 
     void ShowMessage(string headerText, string messageText)
@@ -57,8 +53,6 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
         {
             if (currentWaveIndex >= waves.Count())
                 break;
-
-            m_CurrentWave = W;
 
             if (!string.IsNullOrEmpty(W.beforeMessage))
             {
@@ -92,22 +86,11 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
 
             //allow 1 second for spawners to start
             yield return new WaitForSeconds(1);
-            float sounder = Random.Range(2f, 5f);
+            
             // wave is not over until all zombies are dead
             while (IsWaveInProgress())
             {
-                timer += Time.deltaTime;
-                if (timer >= sounder)
-                {
-                    AudioSource aud = GetComponent<AudioSource>();
-                    int randSound = Random.Range(0, zombieSounds.Count());
-                    aud.clip = zombieSounds[randSound];
-                    aud.Stop();
-                    aud.Play();
-                    timer = 0;
-                    sounder = Random.Range(3f, 8f);
-                }
-                yield return null;
+                yield return new WaitForSeconds(0.1f);
             }
 
             //wait a second before next wave / end level
@@ -198,10 +181,6 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
 
         currentWaveIndex = 0;
         StartCoroutine(SpawnLoop());
-    }
-
-    void Update()
-    {
     }
 
     public bool IsWaveInProgress()
