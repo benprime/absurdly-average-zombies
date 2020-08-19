@@ -27,8 +27,8 @@ public class UI_UpgradeRadial : MonoBehaviour
 
     void Awake()
     {
-        this.buttons["E"] = transform.FindChild("E");
-        this.buttons["W"] = transform.FindChild("W");
+        this.buttons["E"] = transform.Find("E");
+        this.buttons["W"] = transform.Find("W");
 
         this.buttons["E"].GetComponentInChildren<Button>().interactable = !buttonDisabled["E"];
         this.buttons["W"].GetComponentInChildren<Button>().interactable = !buttonDisabled["W"];
@@ -97,7 +97,7 @@ public class UI_UpgradeRadial : MonoBehaviour
     {
         if (connectedZone)
         {
-            currentWeaponUpgradeSprite = connectedZone.transform.FindChild("Stars").GetComponent<SpriteRenderer>();
+            currentWeaponUpgradeSprite = connectedZone.transform.Find("Stars").GetComponent<SpriteRenderer>();
             turret = connectedZone.currentWeapon.GetComponent<Turret>();
 
             // todo: SetMEGAEPICAWESOMEEVERTHINGISGONNASPLODEButton calls SetSellButton also... so do we need this call?

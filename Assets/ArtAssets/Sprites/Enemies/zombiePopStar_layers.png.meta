@@ -1,21 +1,30 @@
 fileFormatVersion: 2
 guid: af36a0ec4a46e174dae073ad84a96dc3
-timeCreated: 1467770207
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: zombiePopStar_leftArm
-    21300002: zombiePopStar_rightArm
-    21300004: zombiePopStar_shoulders
-    21300006: zombiePopStar_head
-  serializedVersion: 2
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: zombiePopStar_leftArm
+  - first:
+      213: 21300002
+    second: zombiePopStar_rightArm
+  - first:
+      213: 21300004
+    second: zombiePopStar_shoulders
+  - first:
+      213: 21300006
+    second: zombiePopStar_head
+  externalObjects: {}
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -24,37 +33,61 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -2
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: 16
-    mipBias: -1
-    wrapMode: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: zombiePopStar_leftArm
+    - serializedVersion: 2
+      name: zombiePopStar_leftArm
       rect:
         serializedVersion: 2
         x: 5
@@ -65,7 +98,17 @@ TextureImporter:
       pivot: {x: 0.5930466, y: 0.19673683}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: zombiePopStar_rightArm
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombiePopStar_rightArm
       rect:
         serializedVersion: 2
         x: 36
@@ -76,7 +119,17 @@ TextureImporter:
       pivot: {x: 0.5426464, y: 0.17101379}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: zombiePopStar_shoulders
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombiePopStar_shoulders
       rect:
         serializedVersion: 2
         x: 67
@@ -86,15 +139,18 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.7167859, y: 0.53768754}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -31.405724, y: 39.758873}
-        - {x: -34.405724, y: 36.758873}
-        - {x: -34.405724, y: -46.241127}
-        - {x: 8.594276, y: -46.241127}
-        - {x: 13.594276, y: -42.241127}
-        - {x: 13.594276, y: 36.758873}
-        - {x: 11.594276, y: 39.758873}
-    - name: zombiePopStar_head
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombiePopStar_head
       rect:
         serializedVersion: 2
         x: 10
@@ -104,16 +160,29 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.50289124, y: 0.32657135}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -20.635887, y: 32.324577}
-        - {x: -23.635887, y: 29.324575}
-        - {x: -23.635887, y: -10.675425}
-        - {x: -21.635887, y: -15.675425}
-        - {x: 23.364113, y: -15.675425}
-        - {x: 23.364113, y: 27.324575}
-        - {x: 17.364113, y: 32.324577}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

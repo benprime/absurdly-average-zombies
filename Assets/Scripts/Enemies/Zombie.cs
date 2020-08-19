@@ -95,9 +95,9 @@ public class Zombie : MonoBehaviour
         }
 
         // save reference to particle systems for later use
-        this.psLarge = this.transform.FindChild("ParticleSystemFireLarge").GetComponent<ParticleSystem>();
-        this.psSmallLeft = this.transform.FindChild("ParticleSystemFireSmallLeft").GetComponent<ParticleSystem>();
-        this.psSmallRight = this.transform.FindChild("ParticleSystemFireSmallRight").GetComponent<ParticleSystem>();
+        this.psLarge = this.transform.Find("ParticleSystemFireLarge").GetComponent<ParticleSystem>();
+        this.psSmallLeft = this.transform.Find("ParticleSystemFireSmallLeft").GetComponent<ParticleSystem>();
+        this.psSmallRight = this.transform.Find("ParticleSystemFireSmallRight").GetComponent<ParticleSystem>();
 
         hitPoints = maxHitPoints;
     }

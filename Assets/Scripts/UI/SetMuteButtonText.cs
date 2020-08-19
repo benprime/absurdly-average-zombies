@@ -11,7 +11,7 @@ public class SetMuteButtonText : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Transform textParentObj = gameObject.transform.FindChild("Text");
+        Transform textParentObj = gameObject.transform.Find("Text");
         GameObject textObj = textParentObj != null ? textParentObj.gameObject : null;
         Text text = textObj != null ? textObj.GetComponent<Text>() : null;
         if (text != null)

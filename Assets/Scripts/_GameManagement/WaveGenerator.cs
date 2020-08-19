@@ -179,10 +179,10 @@ public class WaveGenerator : MonoBehaviour, IWaveGenerator
         this.countDownText = GameObject.Find("CountDown").GetComponent<Text>();
         this.PopupMessage = GameObject.Find("PopupMessage");
 
-        GameObject headerPanel = this.PopupMessage.transform.FindChild("HeaderPanel").gameObject;
-        GameObject bodyPanel = headerPanel.transform.FindChild("BodyPanel").gameObject;
-        this.waveHeaderText = bodyPanel.transform.FindChild("HeaderText").GetComponent<Text>();
-        this.waveMessageText = bodyPanel.transform.FindChild("MessageText").GetComponent<Text>();
+        GameObject headerPanel = this.PopupMessage.transform.Find("HeaderPanel").gameObject;
+        GameObject bodyPanel = headerPanel.transform.Find("BodyPanel").gameObject;
+        this.waveHeaderText = bodyPanel.transform.Find("HeaderText").GetComponent<Text>();
+        this.waveMessageText = bodyPanel.transform.Find("MessageText").GetComponent<Text>();
 
         if (GameManager.Instance.bonusAmount != 0)
         {

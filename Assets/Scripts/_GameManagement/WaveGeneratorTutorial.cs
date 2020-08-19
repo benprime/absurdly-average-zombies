@@ -211,11 +211,11 @@ public class WaveGeneratorTutorial : MonoBehaviour, IWaveGenerator
 
         this.PopupMessage = GameObject.Find("PopupMessageWithPicture");
 
-        GameObject headerPanel = this.PopupMessage.transform.FindChild("HeaderPanel").gameObject;
-        GameObject bodyPanel = headerPanel.transform.FindChild("BodyPanel").gameObject;
-        this.waveHeaderText = bodyPanel.transform.FindChild("HeaderText").GetComponent<Text>();
-        this.waveMessageText = bodyPanel.transform.FindChild("MessageText").GetComponent<Text>();
-        this.popupImage = bodyPanel.transform.FindChild("Image").GetComponent<Image>();
+        GameObject headerPanel = this.PopupMessage.transform.Find("HeaderPanel").gameObject;
+        GameObject bodyPanel = headerPanel.transform.Find("BodyPanel").gameObject;
+        this.waveHeaderText = bodyPanel.transform.Find("HeaderText").GetComponent<Text>();
+        this.waveMessageText = bodyPanel.transform.Find("MessageText").GetComponent<Text>();
+        this.popupImage = bodyPanel.transform.Find("Image").GetComponent<Image>();
 
         if (levelMusic != null || GameManager.Instance.GetComponent<AudioSource>().clip != levelMusic)
         {

@@ -47,7 +47,7 @@ public class BuildZone : MonoBehaviour
             currentHub.GetComponent<UI_UpgradeRadial>().connectedZone = this;
             currentHub.GetComponent<UI_UpgradeRadial>().InitRadial();
             menuOpen = true;
-            currentWeapon.transform.FindChild("DetectionZone").GetComponent<SpriteRenderer>().enabled = true;
+            currentWeapon.transform.Find("DetectionZone").GetComponent<SpriteRenderer>().enabled = true;
         }
         currentHub.transform.SetParent(uiCanvas, false);
         currentHub.transform.position = ClampGameObjectInsideCamera(gameObject.transform.position, currentHub);
@@ -55,7 +55,7 @@ public class BuildZone : MonoBehaviour
 
     public void CloseOut()
     {
-        if (currentWeapon) currentWeapon.transform.FindChild("DetectionZone").GetComponent<SpriteRenderer>().enabled = false;
+        if (currentWeapon) currentWeapon.transform.Find("DetectionZone").GetComponent<SpriteRenderer>().enabled = false;
         if (currentHub) Destroy(currentHub);
         menuOpen = false;
     }

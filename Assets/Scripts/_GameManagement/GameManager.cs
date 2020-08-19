@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -95,21 +94,4 @@ public class GameManager : MonoBehaviour
         mute = !mute;
         AudioListener.volume = Convert.ToInt32(!mute);
     }
-
-    void OnLevelWasLoaded(int level)
-    {
-        AudioListener.volume = Convert.ToInt32(!mute);
-
-        // only display ad if player goes from the game back to menu or retries level
-        if (previousLevel > 3)
-        {
-            if (Advertisement.IsReady())
-            {
-                Advertisement.Show();
-            }
-        }
-        previousLevel = level;
-    }
-
-
 }

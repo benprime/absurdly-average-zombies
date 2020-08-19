@@ -109,7 +109,7 @@ public class Turret : MonoBehaviour
     {
         this.damage = TurretUpgradeInfo.GetData(this, TurretField.Damage);
         this.range = TurretUpgradeInfo.GetData(this, TurretField.RangeRadius);
-        gameObject.transform.FindChild("DetectionZone").localScale = new Vector3(range, range, 1);
+        gameObject.transform.Find("DetectionZone").localScale = new Vector3(range, range, 1);
         this.rotationSpeed = TurretUpgradeInfo.GetData(this, TurretField.RotationSpeed);
         this.shotDelay = TurretUpgradeInfo.GetData(this, TurretField.ShotDelay);
 		this.baseCost = (int)TurretUpgradeInfo.GetData (this, TurretField.Cost);

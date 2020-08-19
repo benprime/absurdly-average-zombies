@@ -20,10 +20,10 @@ public class UI_WeaponRadial : MonoBehaviour
     {
         int currLevel = SceneManager.GetActiveScene().buildIndex;
 
-        this.buttons["N"] = transform.FindChild("N");
-        this.buttons["S"] = transform.FindChild("S");
-        this.buttons["E"] = transform.FindChild("E");
-        this.buttons["W"] = transform.FindChild("W");
+        this.buttons["N"] = transform.Find("N");
+        this.buttons["S"] = transform.Find("S");
+        this.buttons["E"] = transform.Find("E");
+        this.buttons["W"] = transform.Find("W");
 
         //Machine gun is always accessible
         this.buttons["N"].GetComponentInChildren<Button>().interactable = !buttonDisabled["N"];
